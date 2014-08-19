@@ -269,7 +269,7 @@ while 8118:   not actor $LUIGI2_DEALER dead
 			0057:   player $PLAYER_CHAR coords 1535.2 -615.1 10.0 to 1610.5 -681.0 20.0 sphere 0 
 		then
 			if
-				00E0:   plaer $PLAYER_CHAR driving
+				00E0:   is_player_in_any_car $PLAYER_CHAR
 			then
 				0221: set_player $PLAYER_CHAR trapped_in_car 1
 			end
@@ -295,7 +295,7 @@ while 8118:   not actor $LUIGI2_DEALER dead
 			end
 			gosub @CHECK_VEHICLE_STATUS_LUIGI2			
 			if
-				00E0:   plaer $PLAYER_CHAR driving
+				00E0:   is_player_in_any_car $PLAYER_CHAR
 			then
 				0221: set_player $PLAYER_CHAR trapped_in_car 0
 			end
