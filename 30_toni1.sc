@@ -343,7 +343,12 @@ goto @MISSION_END_TONI1
 0004: $ON_MISSION_FOR_TONI = 0 
 0164: disable_marker $BLIP1_VAN1 
 0164: disable_marker $BLIP2_VAN2 
-0164: disable_marker $BLIP3_VAN3 
+0164: disable_marker $BLIP3_VAN3
+if
+	0038: $UNLOCKEXTRAS1 == 1
+then
+	 0164: disable_marker $BLIP4_VAN4
+end
 0164: disable_marker $GRENADE_BLIP 
 0215: destroy_pickup $FREE_GREANDES 
 014C: set_parked_car_generator $GEN_CAR31 cars_to_generate_to 101 
