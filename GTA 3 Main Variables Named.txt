@@ -6280,7 +6280,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 019C:   player $PLAYER_CHAR 0 891.1875 -309.6875 7.6875 899.25 -303.25 12.6875 
 004D: goto_if_false @I_SAVE_658 
 01B4: set_player $PLAYER_CHAR controllable 0 
-015F: set_camera_position 884.5 -305.3125 13.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 884.5 -305.3125 13.5 rotation 0.0 0.0 0.0 
 0160: point_camera 885.25 -305.8125 13.0 switchstyle 2 
 03CF: load_wav 'DOOR_1' 
 
@@ -6656,7 +6656,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 019C:   player $PLAYER_CHAR 0 105.6875 -486.0 15.0 100.75 -483.375 18.0 
 004D: goto_if_false @C_SAVE_788 
 01B4: set_player $PLAYER_CHAR controllable 0 
-015F: set_camera_position 98.5 -472.0 19.8125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 98.5 -472.0 19.8125 rotation 0.0 0.0 0.0 
 0160: point_camera 98.9375 -472.875 19.4375 switchstyle 2 
 03CF: load_wav 'DOOR_3' 
 
@@ -6932,7 +6932,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 019C:   player $PLAYER_CHAR 0 -670.5 3.875 18.0 -660.0 12.6875 22.0 
 004D: goto_if_false @S_SAVE_580 
 01B4: set_player $PLAYER_CHAR controllable 0 
-015F: set_camera_position -678.125 -6.4375 24.4375 0.0 rotation 0.0 0.0 
+015F: set_camera_position -678.125 -6.4375 24.4375 rotation 0.0 0.0 0.0 
 0160: point_camera -677.375 -5.875 24.0625 switchstyle 2 
 
 :S_SAVE_344
@@ -8292,7 +8292,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0004: $FLAG_2ND_LOCATE_USJ = 0 
 0004: $COLLISION_COUNTER_USJ = 0 
 015D: set_time_scale 0.25 
-015F: set_camera_position $CAMERA_X $CAMERA_Y $CAMERA_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $CAMERA_X $CAMERA_Y $CAMERA_Z rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $PLAYERS_CAR_USJ 15 switchstyle 2 
 
 :USJ_2106
@@ -9086,7 +9086,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :I_AMMU_320
 0296: unload_special_actor 4 
-015F: set_camera_position 1071.938 -402.75 17.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1071.938 -402.75 17.0 rotation 0.0 0.0 0.0 
 0452: enable_player_control_camera 
 00D6: if 
 0256:   is_player $PLAYER_CHAR defined 
@@ -9619,7 +9619,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :C_AMMU_320
 0296: unload_special_actor 4 
-015F: set_camera_position 341.6875 -720.625 28.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 341.6875 -720.625 28.0 rotation 0.0 0.0 0.0 
 0452: enable_player_control_camera 
 00D6: if 
 0256:   is_player $PLAYER_CHAR defined 
@@ -13035,7 +13035,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0171: set_player $PLAYER_CHAR z_angle_to 225.0 
 
 :CAMERA_319
-015F: set_camera_position 36.0 -728.3125 24.25 0.0 rotation 0.0 0.0 
+015F: set_camera_position 36.0 -728.3125 24.25 rotation 0.0 0.0 0.0 
 0452: enable_player_control_camera 
 0160: point_camera 36.9375 -728.3125 23.875 switchstyle 2 
 016A: fade 1 for 200 ms 
@@ -13071,7 +13071,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 816B:   not fading 
 004D: goto_if_false @CAMERA_576 
-015F: set_camera_position 46.6875 -727.125 22.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 46.6875 -727.125 22.5 rotation 0.0 0.0 0.0 
 0452: enable_player_control_camera 
 0160: point_camera 46.4375 -728.0625 22.5625 switchstyle 2 
 016A: fade 1 for 200 ms 
@@ -13107,7 +13107,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 816B:   not fading 
 004D: goto_if_false @CAMERA_784 
-015F: set_camera_position 46.5625 -733.875 23.9375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 46.5625 -733.875 23.9375 rotation 0.0 0.0 0.0 
 0452: enable_player_control_camera 
 0160: point_camera 45.625 -733.5625 23.6875 switchstyle 2 
 016A: fade 1 for 200 ms 
@@ -15679,7 +15679,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @HEALTH_141 
 
 :HEALTH_171
-015F: set_camera_position 1138.563 -600.0 18.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1138.563 -600.0 18.0 rotation 0.0 0.0 0.0 
 0157: camera_on_player $PLAYER_CHAR mode 15 transition 1 
 
 :HEALTH_200
@@ -15737,7 +15737,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 8119:   not car $WASTED_HELP_AMBULANCE wrecked 
 8118:   not actor $WASTED_HELP_MEDIC dead 
 004D: goto_if_false @HEALTH_573 
-015F: set_camera_position 1133.0 -613.5 17.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1133.0 -613.5 17.0 rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $WASTED_HELP_AMBULANCE 15 switchstyle 2 
 0350: set_actor $WASTED_HELP_MEDIC maintain_position_when_attacked 0 
 01D5: actor $WASTED_HELP_MEDIC go_to_and_drive_car $WASTED_HELP_AMBULANCE 
@@ -15767,7 +15767,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $FLAG_INFO == 5 
 004D: goto_if_false @HEALTH_781 
 03E5: text_box 'HEAL_E'  // You will find ways of healing or protecting yourself the more you play the game.
-015F: set_camera_position 1138.563 -600.0 18.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1138.563 -600.0 18.0 rotation 0.0 0.0 0.0 
 0160: point_camera 1144.25 -603.5 15.0 switchstyle 2 
 0213: $WASTED_HELP_HEALTH_PICKUP = create_pickup #HEALTH type 14 at 1144.25 -603.5 15.0 
 00D6: if 
@@ -15988,7 +15988,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 032C: car $COPCAR_INFO ram $DIABLOCAR_INFO 
 
 :WANTED_575
-015F: set_camera_position 1134.0 -695.0 18.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1134.0 -695.0 18.0 rotation 0.0 0.0 0.0 
 00D6: if 
 8119:   not car $DIABLOCAR_INFO wrecked 
 004D: goto_if_false @WANTED_620 
@@ -16068,7 +16068,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8119:   not car $SWATVAN_INFO wrecked 
 004D: goto_if_false @WANTED_1092 
-015F: set_camera_position 1135.75 -673.0 14.75 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1135.75 -673.0 14.75 rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $SWATVAN_INFO 15 switchstyle 2 
 00A6: delete_car $COPCAR_INFO 
 00A6: delete_car $COPCAR2_INFO 
@@ -16139,7 +16139,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0018:   $INFO_TIME_LAPSED > 26000 
 0038:   $FLAG_INFO == 10 
 004D: goto_if_false @WANTED_1491 
-015F: set_camera_position 1135.0 -672.5 15.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1135.0 -672.5 15.5 rotation 0.0 0.0 0.0 
 0157: camera_on_player $PLAYER_CHAR mode 15 transition 2 
 03E5: text_box 'WANT_J'  // You will find ways of reducing your wanted level the more you play.
 0213: $BRIBE_PICKUP = create_pickup #BRIBE type 14 at 1143.0 -671.0 15.0 
@@ -16337,7 +16337,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 0152: set_zone_car_info 'TOWERS' #COP 8 0 0 200 0 0 0 0 20 400 0 0 350 0 0 
 0152: set_zone_car_info 'TOWERS' #NULL 6 0 0 250 0 0 0 0 10 540 0 0 200 0 0 
-015F: set_camera_position $CAM_X $CAM_Y $CAM_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $CAM_X $CAM_Y $CAM_Z rotation 0.0 0.0 0.0 
 00D6: if 
 8119:   not car $RC_VAN wrecked 
 004D: goto_if_false @RC1_377 
@@ -16558,7 +16558,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 0152: set_zone_car_info 'LITTLEI' #COP 10 250 0 0 0 0 0 0 20 400 0 0 250 50 0 
 0152: set_zone_car_info 'LITTLEI' #NULL 8 250 0 0 0 0 0 0 10 550 0 0 150 0 0 
-015F: set_camera_position $CAM_X $CAM_Y $CAM_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $CAM_X $CAM_Y $CAM_Z rotation 0.0 0.0 0.0 
 00D6: if 
 8119:   not car $RC_VAN wrecked 
 004D: goto_if_false @RC2_377 
@@ -16779,7 +16779,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 0152: set_zone_car_info 'PROJECT' #COP 15 0 0 0 0 0 0 300 20 400 50 50 0 0 0 
 0152: set_zone_car_info 'PROJECT' #NULL 10 0 0 0 0 0 0 400 10 400 50 50 0 0 0 
-015F: set_camera_position $CAM_X $CAM_Y $CAM_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $CAM_X $CAM_Y $CAM_Z rotation 0.0 0.0 0.0 
 00D6: if 
 8119:   not car $RC_VAN wrecked 
 004D: goto_if_false @RC3_375 
@@ -16997,7 +16997,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 0152: set_zone_car_info 'YAKUSA' #COP 20 0 0 0 270 0 0 0 10 300 200 200 0 0 0 
 0152: set_zone_car_info 'YAKUSA' #NULL 15 0 0 0 290 0 0 0 10 300 200 200 0 0 0 
-015F: set_camera_position $CAM_X $CAM_Y $CAM_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $CAM_X $CAM_Y $CAM_Z rotation 0.0 0.0 0.0 
 00D6: if 
 8119:   not car $RC_VAN wrecked 
 004D: goto_if_false @RC4_379 
@@ -17535,7 +17535,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $FLAG_INTRO == 0 
 004D: goto_if_false @T4X4_1_3199 
 01BD: $TIMER_INTRO_START = current_time_in_ms 
-015F: set_camera_position 1458.0 -564.0 28.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1458.0 -564.0 28.0 rotation 0.0 0.0 0.0 
 043C: set_game_sounds_fade 0 
 016A: fade 0 for 1500 ms 
 
@@ -18036,7 +18036,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $FLAG_INTRO == 0 
 004D: goto_if_false @T4X4_2_2670 
 01BD: $TIMER_INTRO_START = current_time_in_ms 
-015F: set_camera_position 50.4375 -727.5 27.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 50.4375 -727.5 27.0 rotation 0.0 0.0 0.0 
 043C: set_game_sounds_fade 0 
 016A: fade 0 for 1500 ms 
 
@@ -18688,7 +18688,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $FLAG_INTRO == 0 
 004D: goto_if_false @T4X4_3_4114 
 01BD: $TIMER_INTRO_START = current_time_in_ms 
-015F: set_camera_position -328.0 132.0 25.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position -328.0 132.0 25.0 rotation 0.0 0.0 0.0 
 043C: set_game_sounds_fade 0 
 016A: fade 0 for 1500 ms 
 
@@ -19337,7 +19337,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $FLAG_INTRO == 0 
 004D: goto_if_false @MAYHEM_4080 
 01BD: $TIMER_INTRO_START = current_time_in_ms 
-015F: set_camera_position 281.4375 -526.25 26.375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 281.4375 -526.25 26.375 rotation 0.0 0.0 0.0 
 043C: set_game_sounds_fade 0 
 016A: fade 0 for 1500 ms 
 
@@ -25485,7 +25485,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :MEAT1_2407
 0211: actor $BANKMANAGER_MEAT1 walk_to 1204.188 -801.875 
-015F: set_camera_position 1201.75 -784.6875 17.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1201.75 -784.6875 17.0 rotation 0.0 0.0 0.0 
 0160: point_camera 1204.375 -802.6875 15.0 switchstyle 2 
 0395: clear_area 1 at 1200.75 -799.25 range 14.0 10.0 
 0006: 17@ = 0 
@@ -26418,7 +26418,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :MEAT2_2971
 0211: actor $VICTIM2_MEAT2 walk_to 1202.375 -800.0 
-015F: set_camera_position 1201.75 -784.6875 17.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1201.75 -784.6875 17.0 rotation 0.0 0.0 0.0 
 0160: point_camera 1204.375 -802.6875 15.0 switchstyle 2 
 0395: clear_area 1 at 1201.75 -799.6875 range 13.75 10.0 
 0006: 17@ = 0 
@@ -27175,7 +27175,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :MEAT3_2195
 0211: actor $WIFE_MEAT3 walk_to 1204.188 -801.875 
-015F: set_camera_position 1201.75 -784.6875 17.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1201.75 -784.6875 17.0 rotation 0.0 0.0 0.0 
 0160: point_camera 1204.375 -802.6875 15.0 switchstyle 2 
 0395: clear_area 1 at 1200.75 -799.25 range 14.0 10.0 
 0006: 17@ = 0 
@@ -27926,7 +27926,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :MEAT4_2488
 0211: actor $LOANSHARK_MEAT4 walk_to 1209.563 -791.0 
-015F: set_camera_position 1218.063 -795.0 16.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1218.063 -795.0 16.0 rotation 0.0 0.0 0.0 
 0160: point_camera 1204.563 -785.6875 13.875 switchstyle 2 
 0395: clear_area 1 at 1212.0 -792.0 range 14.0 10.0 
 03CF: load_wav 'MF3_B' 
@@ -28300,7 +28300,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 018E: stop_sound $FIRE_SOUND_8BALL 
 018D: $FIRE_SOUND_8BALL = create_sound 102 at 790.5 -935.625 38.0 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
-015F: set_camera_position 785.0 -936.75 39.75 0.0 rotation 0.0 0.0 
+015F: set_camera_position 785.0 -936.75 39.75 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $EIGHTBALL 15 switchstyle 2 
 03CF: load_wav 'LIB_A1' 
 0169: set_fade_color 0 0 0 
@@ -28391,7 +28391,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @EIGHT_15331 
 
 :EIGHT_1168
-015F: set_camera_position 804.5625 -933.0 39.9375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 804.5625 -933.0 39.9375 rotation 0.0 0.0 0.0 
 0160: point_camera 805.1875 -933.6875 39.5625 switchstyle 2 
 00BA: print_big 'EBAL' time 15000 style 2  // 'GIVE ME LIBERTY'
 03D1: play_wav 
@@ -29251,12 +29251,12 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0339:   objects_in_cube 870.375 -309.875 6.0 865.1875 -314.6875 12.0 0 1 1 1 1 
 004D: goto_if_false @EIGHT_5711 
-015F: set_camera_position 848.25 -295.25 19.125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 848.25 -295.25 19.125 rotation 0.0 0.0 0.0 
 0160: point_camera 849.0625 -295.75 19.125 switchstyle 2 
 0002: goto @EIGHT_5744 
 
 :EIGHT_5711
-015F: set_camera_position 868.625 -311.6875 8.25 0.0 rotation 0.0 0.0 
+015F: set_camera_position 868.625 -311.6875 8.25 rotation 0.0 0.0 0.0 
 0160: point_camera 869.5625 -311.5 8.5 switchstyle 2 
 
 :EIGHT_5744
@@ -29403,7 +29403,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @EIGHT_5986 
 
 :EIGHT_6524
-015F: set_camera_position 886.75 -310.0625 9.875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 886.75 -310.0625 9.875 rotation 0.0 0.0 0.0 
 0160: point_camera 887.6875 -309.75 9.75 switchstyle 2 
 009F: char_set_idle $EIGHTBALL 
 011C: actor $PLAYER_ACTOR clear_objective 
@@ -29592,12 +29592,12 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0339:   objects_in_cube 870.375 -309.875 6.0 865.1875 -314.6875 12.0 0 1 1 1 1 
 004D: goto_if_false @EIGHT_7613 
-015F: set_camera_position 848.25 -295.25 19.125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 848.25 -295.25 19.125 rotation 0.0 0.0 0.0 
 0160: point_camera 849.0625 -295.75 19.125 switchstyle 2 
 0002: goto @EIGHT_7646 
 
 :EIGHT_7613
-015F: set_camera_position 868.625 -311.6875 8.25 0.0 rotation 0.0 0.0 
+015F: set_camera_position 868.625 -311.6875 8.25 rotation 0.0 0.0 0.0 
 0160: point_camera 869.5625 -311.5 8.5 switchstyle 2 
 
 :EIGHT_7646
@@ -29704,12 +29704,12 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0339:   objects_in_cube 870.375 -309.875 6.0 865.1875 -314.6875 12.0 0 1 1 1 1 
 004D: goto_if_false @EIGHT_8233 
-015F: set_camera_position 848.25 -295.25 19.125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 848.25 -295.25 19.125 rotation 0.0 0.0 0.0 
 0160: point_camera 849.0625 -295.75 19.125 switchstyle 2 
 0002: goto @EIGHT_8266 
 
 :EIGHT_8233
-015F: set_camera_position 868.625 -311.6875 8.25 0.0 rotation 0.0 0.0 
+015F: set_camera_position 868.625 -311.6875 8.25 rotation 0.0 0.0 0.0 
 0160: point_camera 869.5625 -311.5 8.5 switchstyle 2 
 
 :EIGHT_8266
@@ -30985,7 +30985,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0173: set_actor $GIRL1_LM1 z_angle_to 90.0 
 0211: actor $GIRL1_LM1 walk_to 887.0625 -425.1875 
 02A3: toggle_widescreen 1 
-015F: set_camera_position 882.5625 -425.5625 14.375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 882.5625 -425.5625 14.375 rotation 0.0 0.0 0.0 
 0160: point_camera 890.1875 -421.0625 15.0 switchstyle 2 
 01E3: text_1number_styled 'M_PASS' number 1500 time 5000 style 1  // MISSION PASSED! $~1~
 0109: player $PLAYER_CHAR money += 1500 
@@ -32425,13 +32425,13 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $FLAG_CAMERA_MODE_LM3 == 1 
 004D: goto_if_false @LUIGI3_2341 
 0395: clear_area 1 at 930.0625 -264.9375 range 7.3125 4.0 
-015F: set_camera_position 930.0625 -264.9375 7.3125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 930.0625 -264.9375 7.3125 rotation 0.0 0.0 0.0 
 0160: point_camera 930.9375 -265.4375 7.125 switchstyle 2 
 0002: goto @LUIGI3_2390 
 
 :LUIGI3_2341
 0395: clear_area 1 at 928.125 -267.5 range 4.0 4.0 
-015F: set_camera_position 928.125 -267.5 5.5625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 928.125 -267.5 5.5625 rotation 0.0 0.0 0.0 
 0160: point_camera 929.125 -267.375 5.625 switchstyle 2 
 
 :LUIGI3_2390
@@ -32521,7 +32521,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :LUIGI3_2863
 0395: clear_area 1 at 941.0 -264.0 range -100.0 4.0 
-015F: set_camera_position 934.1875 -265.75 5.875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 934.1875 -265.75 5.875 rotation 0.0 0.0 0.0 
 0160: point_camera 934.6875 -264.875 5.6875 switchstyle 2 
 0177: set_object $MISTY_DOOR1 z_angle_to 0.0 
 00D6: if 
@@ -32696,7 +32696,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :LUIGI3_3918
 0164: disable_marker $LUIGI3_JOEY_MARKER 
-015F: set_camera_position 1211.813 -882.375 19.375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1211.813 -882.375 19.375 rotation 0.0 0.0 0.0 
 0160: point_camera 1210.938 -881.875 19.3125 switchstyle 2 
 00D6: if 
 0118:   actor $LUIGI3_MISTY dead 
@@ -33280,7 +33280,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0186: $LUIGI4_PIMP_CAR_MARKER = create_marker_above_car $LUIGI4_PIMP_CAR 
 0004: $FLAG_CAR_BLIP_ON_LM4 = 1 
 03CB: load_scene 1065.063 -398.5625 14.9375 
-015F: set_camera_position 1048.063 -398.25 15.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1048.063 -398.25 15.5 rotation 0.0 0.0 0.0 
 0160: point_camera 1049.063 -398.25 15.5 switchstyle 2 
 032B: $LUIGI4_COLT45_PICKUP = create_weapon_pickup #COLT45 3 ammo 45 at 1080.5 -396.0 14.5 
 03DD: pickup $LUIGI4_COLT45_PICKUP show_on_radar 20 $RADAR_BLIP_COORD1_LM4 
@@ -36177,7 +36177,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 0395: clear_area 1 at 1006.813 -885.5 range 14.6875 2.0 
-015F: set_camera_position 1006.813 -885.5 14.6875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1006.813 -885.5 14.6875 rotation 0.0 0.0 0.0 
 0160: point_camera 1005.875 -885.0 14.5625 switchstyle 2 
 0050: gosub @LUIGI5_14071 
 02A3: toggle_widescreen 0 
@@ -37417,7 +37417,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 009A: create_char 21 model #SPECIAL03 at 1325.5 -452.5 -100.0 store_to $JOEY1_MIKELIPS 
 0173: set_actor $JOEY1_MIKELIPS z_angle_to 270.0 
-015F: set_camera_position 1337.813 -468.625 49.75 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1337.813 -468.625 49.75 rotation 0.0 0.0 0.0 
 0160: point_camera 1337.0 -468.0 49.9375 switchstyle 2 
 0211: actor $JOEY1_MIKELIPS walk_to 1328.375 -453.0 
 00D6: if 
@@ -37520,7 +37520,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0211: actor $JOEY1_MIKELIPS walk_to 1333.563 -465.25 
 
 :JOEY1_4748
-015F: set_camera_position 1344.75 -471.1875 54.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1344.75 -471.1875 54.0 rotation 0.0 0.0 0.0 
 00D6: if 
 8119:   not car $LIPSFORELLI_CAR wrecked 
 004D: goto_if_false @JOEY1_4793 
@@ -37992,10 +37992,10 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
 03DE: set_ped_density_multiplier 0.0 
-015F: set_camera_position 984.8125 -704.625 21.4375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 984.8125 -704.625 21.4375 rotation 0.0 0.0 0.0 
 0160: point_camera 984.25 -705.375 21.1875 switchstyle 2 
 0001: wait 3000 ms 
-015F: set_camera_position 978.125 -718.4375 15.625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 978.125 -718.4375 15.625 rotation 0.0 0.0 0.0 
 0160: point_camera 977.25 -719.0 15.75 switchstyle 2 
 0001: wait 3000 ms 
 03DE: set_ped_density_multiplier 1.0 
@@ -39871,7 +39871,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0363: toggle_model_render_at 1192.188 -867.25 14.0625 radius 6.0 object #JOEY_DOOR1 1 
 0363: toggle_model_render_at 1192.188 -867.25 14.0625 radius 6.0 object #JOEY_DOOR2 1 
 0395: clear_area 1 at 1198.5 -871.375 range 15.0 10.0 
-015F: set_camera_position 1200.813 -869.3125 15.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1200.813 -869.3125 15.0 rotation 0.0 0.0 0.0 
 0160: point_camera 1199.875 -869.6875 15.0 switchstyle 2 
 0001: wait 0 ms 
 02A3: toggle_widescreen 1 
@@ -40227,7 +40227,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
-015F: set_camera_position 825.5625 -680.5625 16.5625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 825.5625 -680.5625 16.5625 rotation 0.0 0.0 0.0 
 0160: point_camera 826.3125 -679.875 16.5 switchstyle 2 
 03CF: load_wav 'J4_B' 
 
@@ -40296,7 +40296,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @JOEY4_3650 
 
 :JOEY4_3784
-015F: set_camera_position 841.25 -669.0625 16.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 841.25 -669.0625 16.5 rotation 0.0 0.0 0.0 
 0160: point_camera 842.0625 -668.5 16.3125 switchstyle 2 
 00D6: if or
 0119:   car $TONIS_RIDE wrecked 
@@ -40528,7 +40528,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :JOEY4_4991
 01D4: actor $TONI_CIPRIANI go_to_car $TONIS_RIDE and_enter_it_as_a_passenger 
-015F: set_camera_position 836.0 -677.8125 15.8125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 836.0 -677.8125 15.8125 rotation 0.0 0.0 0.0 
 0160: point_camera 836.6875 -677.125 15.625 switchstyle 2 
 0001: wait 1500 ms 
 00D6: if and
@@ -40844,7 +40844,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01B4: set_player $PLAYER_CHAR controllable 0 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 02A3: toggle_widescreen 1 
-015F: set_camera_position 1224.063 -333.375 26.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1224.063 -333.375 26.5 rotation 0.0 0.0 0.0 
 0160: point_camera 1223.375 -332.6875 26.5625 switchstyle 2 
 00D6: if 
 8118:   not actor $TONI_CIPRIANI dead 
@@ -41384,7 +41384,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
-015F: set_camera_position 863.375 -988.6875 4.3125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 863.375 -988.6875 4.3125 rotation 0.0 0.0 0.0 
 0160: point_camera 864.1875 -989.1875 4.5 switchstyle 2 
 03DE: set_ped_density_multiplier 0.0 
 00BC: print_now 'JM5_2' time 5000 flag 1  // ~g~It's the Forelli brothers!
@@ -42101,7 +42101,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01B2: give_actor $THUG1 weapon 2 ammo 100 
 01B2: give_actor $THUG2 weapon 4 ammo 50 
 01B2: give_actor $THUG3 weapon 3 ammo 100 
-015F: set_camera_position 1078.75 -232.4375 12.1875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1078.75 -232.4375 12.1875 rotation 0.0 0.0 0.0 
 0160: point_camera 1079.688 -232.125 11.9375 switchstyle 2 
 0243: set_actor $THUG1 ped_stats_to 16 
 0243: set_actor $THUG2 ped_stats_to 16 
@@ -42434,7 +42434,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 0221: set_player $PLAYER_CHAR apply_brakes_to_car 1 
-015F: set_camera_position 1036.438 -705.5625 14.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1036.438 -705.5625 14.5 rotation 0.0 0.0 0.0 
 0160: point_camera 1036.625 -704.625 14.5625 switchstyle 2 
 0164: disable_marker $BLIP3_JM6 
 03CF: load_wav 'J6_B' 
@@ -43312,7 +43312,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
-015F: set_camera_position 1098.75 -228.875 16.6875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1098.75 -228.875 16.6875 rotation 0.0 0.0 0.0 
 0160: point_camera 1098.0 -229.0625 16.0625 switchstyle 2 
 00D6: if 
 8119:   not car $ANY_CAR_JM6 wrecked 
@@ -44346,7 +44346,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 009A: create_char 8 model #GANG03 at 868.5 -637.0 -100.0 store_to $TONI2_TRIAD2 
 0173: set_actor $TONI2_TRIAD2 z_angle_to 180.0 
 01B2: give_actor $TONI2_TRIAD2 weapon 2 ammo 200 
-015F: set_camera_position 869.6875 -666.0 16.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 869.6875 -666.0 16.0 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $TONI2_TRIAD1 15 switchstyle 1 
 0001: wait 2500 ms 
 0395: clear_area 1 at 869.375 -688.0 range 15.0 1.0 
@@ -44567,7 +44567,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 01F5: $PLAYER_ACTOR = create_emulated_actor_from_player $PLAYER_CHAR 
 0319: set_actor $PLAYER_ACTOR running 1 
-015F: set_camera_position 1214.375 -323.875 29.75 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1214.375 -323.875 29.75 rotation 0.0 0.0 0.0 
 0160: point_camera 1215.188 -323.375 29.375 switchstyle 2 
 0395: clear_area 1 at 1219.563 -314.0 range 29.6875 2.0 
 0239: actor $PLAYER_ACTOR run_to 1219.563 -314.0 
@@ -44907,7 +44907,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0395: clear_area 1 at 1190.188 -866.375 range 14.0625 1.0 
 0055: set_player_coordinates $PLAYER_CHAR to 1189.5 -867.5625 14.0625 
 0171: set_player $PLAYER_CHAR z_angle_to 36.0 
-015F: set_camera_position 1186.125 -852.4375 17.1875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1186.125 -852.4375 17.1875 rotation 0.0 0.0 0.0 
 0160: point_camera 1186.063 -853.375 16.9375 switchstyle 2 
 01F5: $PLAYER_ACTOR = create_emulated_actor_from_player $PLAYER_CHAR 
 0319: set_actor $PLAYER_ACTOR running 1 
@@ -44994,7 +44994,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 039E: set_char_cant_be_dragged_out $JOEY_LEONE to 1 
 018A: $TONI3_LUIGI_MARKER = create_checkpoint_at 906.1875 -426.0 -100.0 
 0395: clear_area 1 at 1195.0 -870.25 range 15.0 10.0 
-015F: set_camera_position 1200.875 -866.5 19.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1200.875 -866.5 19.0 rotation 0.0 0.0 0.0 
 0157: camera_on_player $PLAYER_CHAR mode 15 transition 2 
 01BB: store_object $JOEY_DOOR1 position_to $JOEYDOOR1_X $JOEYDOOR1_Y $JOEYDOOR1_Z 
 01BB: store_object $JOEY_DOOR2 position_to $JOEYDOOR2_X $JOEYDOOR2_Y $JOEYDOOR2_Z 
@@ -45241,7 +45241,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :TONI3_3119
 0395: clear_area 1 at 897.0 -425.5 range 14.6875 6.0 
-015F: set_camera_position 900.5 -419.625 14.9375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 900.5 -419.625 14.9375 rotation 0.0 0.0 0.0 
 0160: point_camera 900.875 -420.5625 15.0625 switchstyle 2 
 009A: create_char 21 model #SPECIAL03 at 897.0 -425.25 14.75 store_to $TONI3_LUIGI 
 01ED: clear_actor $TONI3_LUIGI threat_search 
@@ -45504,7 +45504,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 009A: create_char 21 model #SPECIAL01 at 1217.0 -321.0625 -100.0 store_to $TONI_CIPRIANI 
 0173: set_actor $TONI_CIPRIANI z_angle_to 90.0 
 01ED: clear_actor $TONI_CIPRIANI threat_search 
-015F: set_camera_position 1222.188 -328.625 34.4375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1222.188 -328.625 34.4375 rotation 0.0 0.0 0.0 
 0160: point_camera 1221.625 -328.0 33.875 switchstyle 2 
 03DE: set_ped_density_multiplier 0.0 
 0006: 17@ = 0 
@@ -45540,7 +45540,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @TONI3_4688 
 
 :TONI3_4810
-015F: set_camera_position 1206.188 -326.1875 27.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1206.188 -326.1875 27.0 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $TONI_CIPRIANI 15 switchstyle 2 
 01D4: actor $TONI_CIPRIANI go_to_car $TONI3_LIMO and_enter_it_as_a_passenger 
 
@@ -45762,7 +45762,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :TONI3_6270
 0164: disable_marker $TONI3_LIMO_MARKER 
 0164: disable_marker $TONI3_SALVATORE_MARKER 
-015F: set_camera_position 1421.75 -182.5 52.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1421.75 -182.5 52.5 rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $TONI3_LIMO 15 switchstyle 1 
 0001: wait 1000 ms 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
@@ -47416,7 +47416,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
-015F: set_camera_position 940.25 -1136.75 16.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 940.25 -1136.75 16.5 rotation 0.0 0.0 0.0 
 0160: point_camera 941.0625 -1136.125 16.5 switchstyle 2 
 0164: disable_marker $TONI5_GARBAGE_TRUCK_MARKER 
 0164: disable_marker $BLIP2_TM5 
@@ -47436,7 +47436,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 020C: create_explosion 5 at 985.0 -1120.0 20.0 
 0001: wait 200 ms 
 0003: shake_cam 300 
-015F: set_camera_position 960.5 -1094.0 21.0625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 960.5 -1094.0 21.0625 rotation 0.0 0.0 0.0 
 0160: point_camera 961.1875 -1094.688 20.75 switchstyle 2 
 020C: create_explosion 5 at 969.1875 -1104.0 18.25 
 0001: wait 300 ms 
@@ -48105,28 +48105,28 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 001A:   1 > $CAMERA_MODE 
 004D: goto_if_false @FRANK1_2136 
-015F: set_camera_position 1405.688 -190.125 62.4375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1405.688 -190.125 62.4375 rotation 0.0 0.0 0.0 
 0160: point_camera 1427.25 -183.5 49.4375 switchstyle 2 
 
 :FRANK1_2136
 00D6: if 
 0038:   $CAMERA_MODE == 1 
 004D: goto_if_false @FRANK1_2183 
-015F: set_camera_position 1425.625 -178.4375 50.125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1425.625 -178.4375 50.125 rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $MARIAS_STRETCH 15 switchstyle 2 
 
 :FRANK1_2183
 00D6: if 
 0038:   $CAMERA_MODE == 2 
 004D: goto_if_false @FRANK1_2230 
-015F: set_camera_position 1432.125 -179.6875 50.625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1432.125 -179.6875 50.625 rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $MARIAS_STRETCH 15 switchstyle 2 
 
 :FRANK1_2230
 00D6: if 
 0018:   $CAMERA_MODE > 2 
 004D: goto_if_false @FRANK1_2277 
-015F: set_camera_position 1421.125 -193.75 63.875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1421.125 -193.75 63.875 rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $MARIAS_STRETCH 15 switchstyle 2 
 
 :FRANK1_2277
@@ -48310,7 +48310,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 02A3: toggle_widescreen 1 
 03F4: set_all_cars_can_be_damaged 0 
-015F: set_camera_position 770.75 -569.9375 14.3125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 770.75 -569.9375 14.3125 rotation 0.0 0.0 0.0 
 0160: point_camera 770.6875 -568.9375 14.375 switchstyle 2 
 0164: disable_marker $FM1_BLIP 
 0361: close_garage $SALVATORES_GARAGE 
@@ -48776,7 +48776,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00A5: create_car #SENTINEL at 1243.0 -1112.0 11.0 store_to $FRANK1_PARTY_CAR1 
 00A5: create_car #CHEETAH at 1247.0 -1112.0 11.0 store_to $FRANK1_PARTY_CAR2 
 00A5: create_car #MANANA at 1251.0 -1112.0 11.0 store_to $FRANK1_PARTY_CAR3 
-016F: draw_shadow 3 at 1270.813 -1107.688 11.0625 rotation 0.0 scale 1.0 transparency 0 colour 255 0 0 
+016F: create_particle 3 0.0 1.0 0 255 0 0 at 1270.813 -1107.688 11.0625 
 0250: create_light_at 1273.188 -1107.25 11.0625 RGB_values 255 0 0 
 018D: $FRANK1_PARTY_SOUND = create_sound 73 at 1269.688 -1100.375 14.0 
 02A2: create_particle 12 0 at 1273.0 -1107.188 10.6875 
@@ -49163,7 +49163,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 02A3: toggle_widescreen 1 
 03F4: set_all_cars_can_be_damaged 0 
-015F: set_camera_position 1309.875 -1061.313 15.6875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1309.875 -1061.313 15.6875 rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $FRANK1_ENFORCER1 15 switchstyle 2 
 03EA: generate_cars_around_camera 1 
 0004: $SWAT_CAM_NEEDS_RESTORING = 1 
@@ -50546,7 +50546,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F5: $PLAYER_ACTOR = create_emulated_actor_from_player $PLAYER_CHAR 
 01ED: clear_actor $MARIA threat_search 
 01ED: clear_actor $PLAYER_ACTOR threat_search 
-015F: set_camera_position 1433.438 -173.5625 55.625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1433.438 -173.5625 55.625 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $MARIA 15 switchstyle 2 
 0211: actor $MARIA walk_to 1436.25 -180.625 
 0211: actor $PLAYER_ACTOR walk_to 1436.25 -180.625 
@@ -50703,7 +50703,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00E7:   player $PLAYER_CHAR stopped 0 1440.625 -181.375 radius 1.0 1.0 
 004D: goto_if_false @FRANK1_16633 
 022F: set_actor $MARIA stop_looking 
-015F: set_camera_position 1442.063 -173.125 55.8125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1442.063 -173.125 55.8125 rotation 0.0 0.0 0.0 
 0160: point_camera 1441.75 -174.0 55.6875 switchstyle 2 
 0171: set_player $PLAYER_CHAR z_angle_to 0.0 
 020E: actor $PLAYER_ACTOR look_at_actor $MARIA 
@@ -51782,7 +51782,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0018:   $SHADOW_COUNTER > 28 
 001A:   32 > $SHADOW_COUNTER 
 004D: goto_if_false @FRANK1_21355 
-016F: draw_shadow 3 at 1272.563 -1107.375 12.0 rotation 30.0 scale 0.75 transparency 0 colour $R $G 0 
+016F: create_particle 3 30.0 0.75 0 $R $G 0 at 1272.563 -1107.375 12.0 
 0250: create_light_at 1272.438 -1107.563 13.0625 RGB_values $R $G 0 
 0002: goto @FRANK1_21373 
 
@@ -51795,7 +51795,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0018:   $SHADOW_COUNTER > 15 
 001A:   20 > $SHADOW_COUNTER 
 004D: goto_if_false @FRANK1_21453 
-016F: draw_shadow 3 at 1270.938 -1107.625 12.0 rotation 0.0 scale 1.1875 transparency 0 colour $R1 $G1 0 
+016F: create_particle 3 0.0 1.1875 0 $R1 $G1 0 at 1270.938 -1107.625 12.0 
 0250: create_light_at 1272.438 -1107.125 13.0625 RGB_values $R1 $G1 0 
 0002: goto @FRANK1_21471 
 
@@ -51808,7 +51808,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0018:   $SHADOW_COUNTER > 20 
 001A:   40 > $SHADOW_COUNTER 
 004D: goto_if_false @FRANK1_21551 
-016F: draw_shadow 3 at 1273.25 -1107.0 12.0 rotation 80.0 scale 1.0 transparency 0 colour $R2 $G2 0 
+016F: create_particle 3 80.0 1.0 0 $R2 $G2 0 at 1273.25 -1107.0 12.0 
 0250: create_light_at 1272.438 -1107.563 12.75 RGB_values $R2 $G2 0 
 0002: goto @FRANK1_21569 
 
@@ -51821,7 +51821,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0018:   $SHADOW_COUNTER > 18 
 001A:   40 > $SHADOW_COUNTER 
 004D: goto_if_false @FRANK1_21649 
-016F: draw_shadow 3 at 1273.25 -1107.688 12.0 rotation 140.0 scale 0.75 transparency 0 colour $R3 $G3 0 
+016F: create_particle 3 140.0 0.75 0 $R3 $G3 0 at 1273.25 -1107.688 12.0 
 0250: create_light_at 1272.438 -1107.125 12.75 RGB_values $R3 $G3 0 
 0002: goto @FRANK1_21667 
 
@@ -51834,7 +51834,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0018:   $SHADOW_COUNTER > 5 
 001A:   14 > $SHADOW_COUNTER 
 004D: goto_if_false @FRANK1_21747 
-016F: draw_shadow 3 at 1271.438 -1108.0 12.0 rotation 235.0 scale 1.0625 transparency 0 colour $R4 $G4 0 
+016F: create_particle 3 235.0 1.0625 0 $R4 $G4 0 at 1271.438 -1108.0 12.0 
 0250: create_light_at 1272.438 -1107.563 12.5 RGB_values $R4 $G4 0 
 0002: goto @FRANK1_21765 
 
@@ -51847,7 +51847,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0018:   $SHADOW_COUNTER > 9 
 001A:   26 > $SHADOW_COUNTER 
 004D: goto_if_false @FRANK1_21845 
-016F: draw_shadow 3 at 1271.5 -1107.0 12.0 rotation 325.0 scale 1.75 transparency 0 colour $R5 $G5 0 
+016F: create_particle 3 325.0 1.75 0 $R5 $G5 0 at 1271.5 -1107.0 12.0 
 0250: create_light_at 1272.438 -1107.125 12.5 RGB_values $R5 $G5 0 
 0002: goto @FRANK1_21863 
 
@@ -53029,7 +53029,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :FRANK2_6395
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 0395: clear_area 1 at 1546.5 -834.75 range 12.6875 1.0 
-015F: set_camera_position 1546.5 -834.75 12.6875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1546.5 -834.75 12.6875 rotation 0.0 0.0 0.0 
 0160: point_camera 1545.5 -834.5625 12.75 switchstyle 2 
 0239: actor $CURLY_BOB_FM2 run_to 1532.0 -889.0 
 0006: 17@ = 0 
@@ -54569,7 +54569,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @FRANK3_5666 
 
 :FRANK3_5749
-015F: set_camera_position 1543.0 -877.75 16.8125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1543.0 -877.75 16.8125 rotation 0.0 0.0 0.0 
 0160: point_camera 1542.375 -878.5625 16.75 switchstyle 2 
 00D6: if 
 0038:   $FLAG_TIMER_FM3 == 0 
@@ -54602,7 +54602,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK3_5927
 0395: clear_area 0 at 1536.75 -895.0 range 10.75 1.0 
-015F: set_camera_position 1537.063 -899.75 12.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1537.063 -899.75 12.5 rotation 0.0 0.0 0.0 
 0160: point_camera 1536.375 -900.375 12.6875 switchstyle 2 
 00D6: if and
 0038:   $FLAG_TIMER_FM3 == 1 
@@ -54636,7 +54636,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK3_6128
 0395: clear_area 0 at 1522.813 -916.125 range 19.5625 1.0 
-015F: set_camera_position 1522.813 -916.125 19.5625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1522.813 -916.125 19.5625 rotation 0.0 0.0 0.0 
 0160: point_camera 1521.938 -916.625 19.6875 switchstyle 2 
 00D6: if and
 0038:   $FLAG_TIMER3_FM3 == 0 
@@ -54670,7 +54670,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK3_6329
 0395: clear_area 0 at 1476.25 -922.6875 range 19.0 1.0 
-015F: set_camera_position 1476.25 -922.6875 19.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 1476.25 -922.6875 19.0 rotation 0.0 0.0 0.0 
 0160: point_camera 1477.063 -923.25 19.0625 switchstyle 2 
 00D6: if and
 0038:   $FLAG_TIMER4_FM3 == 0 
@@ -60517,12 +60517,12 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 01AD:   car $DIABLO4_VAN sphere 0 near_point 918.1875 -269.6875 radius 10.0 10.0 
 004D: goto_if_false @DIABLO4_1058 
-015F: set_camera_position 914.25 -157.6875 6.375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 914.25 -157.6875 6.375 rotation 0.0 0.0 0.0 
 0160: point_camera 914.0625 -156.8125 6.0 switchstyle 1 
 0002: goto @DIABLO4_1091 
 
 :DIABLO4_1058
-015F: set_camera_position 914.25 -157.6875 6.375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 914.25 -157.6875 6.375 rotation 0.0 0.0 0.0 
 0160: point_camera 914.0625 -156.8125 6.0 switchstyle 2 
 
 :DIABLO4_1091
@@ -60725,7 +60725,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0173: set_actor $PERVERT7 z_angle_to 180.0 
 009A: create_char 4 model #MALE02 at 992.0625 -436.0625 13.875 store_to $PERVERT8 
 0173: set_actor $PERVERT8 z_angle_to 180.0 
-015F: set_camera_position 982.6875 -448.5 16.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 982.6875 -448.5 16.0 rotation 0.0 0.0 0.0 
 0160: point_camera 982.6875 -447.625 16.4375 switchstyle 2 
 0372: set_actor $PERVERT1 anim 3 wait_state_time 10000 ms 
 0372: set_actor $PERVERT3 anim 3 wait_state_time 10000 ms 
@@ -60734,13 +60734,13 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01DE: tie_actor $PERVERT2 to_actor $PERVERT3 
 016A: fade 1 for 1000 ms 
 0001: wait 2000 ms 
-015F: set_camera_position 986.5625 -448.5 16.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 986.5625 -448.5 16.0 rotation 0.0 0.0 0.0 
 0160: point_camera 986.5 -447.625 16.4375 switchstyle 1 
 0001: wait 3000 ms 
 00D6: if 
 8118:   not actor $PERVERT3 dead 
 004D: goto_if_false @DIABLO4_2469 
-015F: set_camera_position 988.0625 -445.8125 16.25 0.0 rotation 0.0 0.0 
+015F: set_camera_position 988.0625 -445.8125 16.25 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $PERVERT3 15 switchstyle 1 
 
 :DIABLO4_2469
@@ -60754,7 +60754,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :DIABLO4_2517
 0001: wait 4000 ms 
 03DE: set_ped_density_multiplier 1.0 
-015F: set_camera_position 994.5 -451.375 18.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 994.5 -451.375 18.0 rotation 0.0 0.0 0.0 
 0160: point_camera 994.0 -450.5625 17.6875 switchstyle 1 
 0001: wait 6000 ms 
 00D6: if 
@@ -61385,7 +61385,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0247: request_model #IND_CUSTOMROAD016 
 038B: load_all_models_now 
 03AF: set_streaming 0 
-015F: set_camera_position 881.3125 -425.1875 19.6875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 881.3125 -425.1875 19.6875 rotation 0.0 0.0 0.0 
 0160: point_camera 882.0625 -424.8125 19.125 switchstyle 2 
 0006: 17@ = 0 
 0004: $BEAMER1_HEALTH = 1 
@@ -66202,7 +66202,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0001: wait 1500 ms 
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
-015F: set_camera_position 526.0 -643.25 19.5625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 526.0 -643.25 19.5625 rotation 0.0 0.0 0.0 
 00D6: if 
 8119:   not car $SPY_BOAT wrecked 
 004D: goto_if_false @ASUKA3_908 
@@ -67761,7 +67761,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 0396: pause_timer 1 
-015F: set_camera_position 214.8125 -1549.875 32.4375 0.0 rotation 0.0 0.0 
+015F: set_camera_position 214.8125 -1549.875 32.4375 rotation 0.0 0.0 0.0 
 0160: point_camera 215.5 -1549.188 32.0625 switchstyle 2 
 
 :ASUKA4_1190
@@ -67810,7 +67810,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 0396: pause_timer 1 
-015F: set_camera_position -77.4375 -702.5 33.5625 0.0 rotation 0.0 0.0 
+015F: set_camera_position -77.4375 -702.5 33.5625 rotation 0.0 0.0 0.0 
 0160: point_camera -76.5 -702.375 33.25 switchstyle 2 
 
 :ASUKA4_1445
@@ -67859,7 +67859,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 0396: pause_timer 1 
-015F: set_camera_position 191.625 -130.5 20.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 191.625 -130.5 20.0 rotation 0.0 0.0 0.0 
 0160: point_camera 192.5 -130.8125 19.6875 switchstyle 2 
 
 :ASUKA4_1700
@@ -67908,7 +67908,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 0396: pause_timer 1 
-015F: set_camera_position 51.6875 -973.0625 30.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 51.6875 -973.0625 30.5 rotation 0.0 0.0 0.0 
 0160: point_camera 52.375 -972.4375 30.125 switchstyle 2 
 
 :ASUKA4_1955
@@ -68403,7 +68403,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 009A: create_char 21 model #SPECIAL01 at 436.5 -1399.75 33.6875 store_to $TANNER 
 0319: set_actor $TANNER running 1 
-015F: set_camera_position 437.375 -1387.375 30.875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 437.375 -1387.375 30.875 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $TANNER 15 switchstyle 2 
 0006: 17@ = 0 
 0239: actor $TANNER run_to 435.6875 -1388.75 
@@ -68501,7 +68501,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @ASUKA5_1358 
 
 :ASUKA5_1480
-015F: set_camera_position 436.0 -1390.75 31.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 436.0 -1390.75 31.0 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $TANNER 15 switchstyle 1 
 01D5: actor $TANNER go_to_and_drive_car $TANNER_CAR 
 
@@ -69474,7 +69474,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI1_3601 
 
 :KENJI1_3663
-015F: set_camera_position 93.4375 -1279.25 35.0625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 93.4375 -1279.25 35.0625 rotation 0.0 0.0 0.0 
 0160: point_camera 94.1875 -1279.875 34.75 switchstyle 2 
 0319: set_actor $YAKUZA_PED1_KM1 running 0 
 00D6: if 
@@ -70888,7 +70888,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 0395: clear_area 1 at 252.0 -45.75 range 20.75 1.0 
-015F: set_camera_position 252.0 -45.75 20.75 0.0 rotation 0.0 0.0 
+015F: set_camera_position 252.0 -45.75 20.75 rotation 0.0 0.0 0.0 
 0160: point_camera 251.0625 -45.1875 20.5625 switchstyle 2 
 01D3: actor $COLOMBIAN1_KM3 leave_car $COLOMBIAN_CAR1_KM3 
 01D3: actor $COLOMBIAN2_KM3 leave_car $COLOMBIAN_CAR1_KM3 
@@ -71456,7 +71456,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI3_6259 
 
 :KENJI3_6327
-015F: set_camera_position 420.375 -1479.563 26.125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 420.375 -1479.563 26.125 rotation 0.0 0.0 0.0 
 0160: point_camera 420.8125 -1478.75 26.375 switchstyle 2 
 0055: set_player_coordinates $PLAYER_CHAR to 425.8125 -1477.125 -100.0 
 0211: actor $PLAYER_ACTOR walk_to 428.5625 -1465.0 
@@ -71849,7 +71849,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0395: clear_area 1 at -91.0 -488.875 range 18.6875 2.0 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
-015F: set_camera_position -87.3125 -502.9375 21.3125 0.0 rotation 0.0 0.0 
+015F: set_camera_position -87.3125 -502.9375 21.3125 rotation 0.0 0.0 0.0 
 0160: point_camera -87.3125 -502.0 20.9375 switchstyle 2 
 01F5: $PLAYER_ACTOR = create_emulated_actor_from_player $PLAYER_CHAR 
 00D6: if 
@@ -72281,7 +72281,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI4_3749 
 
 :KENJI4_3817
-015F: set_camera_position 420.375 -1479.563 26.125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 420.375 -1479.563 26.125 rotation 0.0 0.0 0.0 
 0160: point_camera 420.8125 -1478.75 26.375 switchstyle 2 
 0055: set_player_coordinates $PLAYER_CHAR to 425.8125 -1477.125 -100.0 
 0211: actor $PLAYER_ACTOR walk_to 428.5625 -1465.0 
@@ -74559,7 +74559,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 03F4: set_all_cars_can_be_damaged 0 
-015F: set_camera_position 373.25 -444.6875 28.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 373.25 -444.6875 28.5 rotation 0.0 0.0 0.0 
 0160: point_camera 374.125 -444.25 28.75 switchstyle 1 
 0001: wait 3000 ms 
 01B4: set_player $PLAYER_CHAR controllable 1 
@@ -74612,7 +74612,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A3: toggle_widescreen 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 03F4: set_all_cars_can_be_damaged 0 
-015F: set_camera_position 373.25 -444.6875 28.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 373.25 -444.6875 28.5 rotation 0.0 0.0 0.0 
 0160: point_camera 374.125 -444.25 28.75 switchstyle 1 
 0001: wait 100 ms 
 020C: create_explosion 0 at 378.0 -443.5 28.875 
@@ -75280,7 +75280,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0164: disable_marker $BLIP_WAREHOUSE_RM2 
 01B4: set_player $PLAYER_CHAR controllable 0 
 01F5: $PLAYER_RM2 = create_emulated_actor_from_player $PLAYER_CHAR 
-015F: set_camera_position 141.5 184.5 12.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 141.5 184.5 12.5 rotation 0.0 0.0 0.0 
 02A3: toggle_widescreen 1 
 00D6: if 
 00E0:   is_player_in_any_car $PLAYER_CHAR 
@@ -75842,7 +75842,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0164: disable_marker $BLIP_PHIL 
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
-015F: set_camera_position 134.5625 184.6875 11.125 0.0 rotation 0.0 0.0 
+015F: set_camera_position 134.5625 184.6875 11.125 rotation 0.0 0.0 0.0 
 00D6: if 
 00E0:   is_player_in_any_car $PLAYER_CHAR 
 004D: goto_if_false @RAY2_5322 
@@ -75965,7 +75965,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 03D7: set_wav_location $PHILS_DEFCON_X $PHILS_DEFCON_Y $PHILS_DEFCON_Z 
 03D1: play_wav 
 00BC: print_now 'RM2_M' time 3000 flag 1  // If you need any firepower just drop by and take what you need from the lockers.
-015F: set_camera_position 143.5 179.0 11.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position 143.5 179.0 11.5 rotation 0.0 0.0 0.0 
 0160: point_camera 144.0 170.6875 11.5 switchstyle 2 
 
 :RAY2_5808
@@ -78077,7 +78077,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0059: $VECTOR_X += $PARTNER_X 
 0059: $VECTOR_Y += $PARTNER_Y 
 0009: $PARTNER_Z += 2.0 
-015F: set_camera_position $VECTOR_X $VECTOR_Y $PARTNER_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $VECTOR_X $VECTOR_Y $PARTNER_Z rotation 0.0 0.0 0.0 
 0159: camera_on_ped $RAYS_PARTNER 15 switchstyle 2 
 0006: 16@ = 0 
 
@@ -78246,7 +78246,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :RAY4_3158
 000D: $FISH_TARGET_Z -= 0.1875 
-015F: set_camera_position $VECTOR_X $VECTOR_Y $PARTNER_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $VECTOR_X $VECTOR_Y $PARTNER_Z rotation 0.0 0.0 0.0 
 0160: point_camera $FISH_TARGET_X $FISH_TARGET_Y $FISH_TARGET_Z switchstyle 2 
 0006: 16@ = 0 
 
@@ -78527,7 +78527,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0059: $VECTOR_Y += $PARTNER_Y 
 0009: $PARTNER_Z += 2.0 
 000D: $FISH_TARGET_Z -= 0.1875 
-015F: set_camera_position $VECTOR_X $VECTOR_Y $PARTNER_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $VECTOR_X $VECTOR_Y $PARTNER_Z rotation 0.0 0.0 0.0 
 0006: 16@ = 0 
 
 :RAY4_5107
@@ -81625,7 +81625,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 01B4: set_player $PLAYER_CHAR controllable 0 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 02A3: toggle_widescreen 1 
-015F: set_camera_position -732.0 -571.0625 14.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position -732.0 -571.0625 14.0 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $RAY 15 switchstyle 2 
 00D6: if or
 80DF:   not is_char_in_any_car $RAY 
@@ -81757,7 +81757,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @RAY6_7992 
 01E0: clear_leader $RAY 
 0239: actor $RAY run_to -744.6875 -586.4375 
-015F: set_camera_position -751.375 -603.0 11.375 0.0 rotation 0.0 0.0 
+015F: set_camera_position -751.375 -603.0 11.375 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $RAY 15 switchstyle 2 
 0004: $AIRPORT_DOOR_FLAG = 1 
 
@@ -82912,7 +82912,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00A1: set_char_coordinates $OJG_LOVE1 to 82.875 -1548.875 27.1875 
 0173: set_actor $OJG_LOVE1 z_angle_to 270.0 
 0211: actor $OJG_LOVE1 walk_to 98.6875 -1548.75 
-015F: set_camera_position 77.5 -1548.75 28.1875 0.0 rotation 0.0 0.0 
+015F: set_camera_position 77.5 -1548.75 28.1875 rotation 0.0 0.0 0.0 
 0160: point_camera 93.875 -1548.875 28.25 switchstyle 2 
 0006: 17@ = 0 
 
@@ -83925,7 +83925,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0221: set_player $PLAYER_CHAR apply_brakes_to_car 1 
 02A3: toggle_widescreen 1 
 01B4: set_player $PLAYER_CHAR controllable 0 
-015F: set_camera_position 303.0625 -542.4375 37.0625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 303.0625 -542.4375 37.0625 rotation 0.0 0.0 0.0 
 0160: point_camera 303.625 -543.3125 36.875 switchstyle 2 
 01BD: $TIMER_KENJI_CUT_START = current_time_in_ms 
 0084: $TIMER_KENJI_CUT_DIF = $TIMER_KENJI_CUT_START 
@@ -83990,7 +83990,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0221: set_player $PLAYER_CHAR apply_brakes_to_car 1 
 02A3: toggle_widescreen 1 
 01B4: set_player $PLAYER_CHAR controllable 0 
-015F: set_camera_position 303.3125 -544.6875 37.0625 0.0 rotation 0.0 0.0 
+015F: set_camera_position 303.3125 -544.6875 37.0625 rotation 0.0 0.0 0.0 
 0160: point_camera 303.8125 -543.8125 36.9375 switchstyle 2 
 01BD: $TIMER_KENJI_CUT_START = current_time_in_ms 
 0084: $TIMER_KENJI_CUT_DIF = $TIMER_KENJI_CUT_START 
@@ -84685,7 +84685,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 03F4: set_all_cars_can_be_damaged 0 
 0110: clear_player $PLAYER_CHAR wanted_level 
-015F: set_camera_position 81.3125 -1540.063 27.75 0.0 rotation 0.0 0.0 
+015F: set_camera_position 81.3125 -1540.063 27.75 rotation 0.0 0.0 0.0 
 0160: point_camera 81.8125 -1540.875 27.75 switchstyle 2 
 02A3: toggle_widescreen 1 
 01F5: $PLAYER_ACTOR = create_emulated_actor_from_player $PLAYER_CHAR 
@@ -84986,7 +84986,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0164: disable_marker $BLIP_START_YD1 
 01B4: set_player $PLAYER_CHAR controllable 0 
 020A: set_car $PLAYER_CAR door_status_to 2 
-015F: set_camera_position 66.6875 51.0 18.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 66.6875 51.0 18.0 rotation 0.0 0.0 0.0 
 016A: fade 0 for 1500 ms 
 0001: wait 1500 ms 
 0157: camera_on_player $PLAYER_CHAR mode 15 transition 2 
@@ -86390,7 +86390,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0110: clear_player $PLAYER_CHAR wanted_level 
 01B4: set_player $PLAYER_CHAR controllable 0 
 01F5: $PLAYER_YD2 = create_emulated_actor_from_player $PLAYER_CHAR 
-015F: set_camera_position 117.25 -266.25 17.0 0.0 rotation 0.0 0.0 
+015F: set_camera_position 117.25 -266.25 17.0 rotation 0.0 0.0 0.0 
 0157: camera_on_player $PLAYER_CHAR mode 15 transition 2 
 02A3: toggle_widescreen 1 
 01EB: set_car_density_to 0.0 
@@ -88024,7 +88024,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0175: set_car $GEN4_VAN z_angle_to 90.0 
 00A9: car_set_idle $GEN4_VAN 
 020A: set_car $GEN4_VAN door_status_to 3 
-015F: set_camera_position -82.0 -1472.0 27.5 0.0 rotation 0.0 0.0 
+015F: set_camera_position -82.0 -1472.0 27.5 rotation 0.0 0.0 0.0 
 00D6: if 
 8119:   not car $ABANDONED_CAR_YD4 wrecked 
 004D: goto_if_false @YARD4_1081 
@@ -88106,7 +88106,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :YARD4_1451
 0173: set_actor $HUMAN_BOMB_DEMO z_angle_to 180.0 
-015F: set_camera_position -115.75 -1455.0 25.875 0.0 rotation 0.0 0.0 
+015F: set_camera_position -115.75 -1455.0 25.875 rotation 0.0 0.0 0.0 
 009F: char_set_idle $HUMAN_BOMB_DEMO 
 0159: camera_on_ped $HUMAN_BOMB_DEMO 15 switchstyle 2 
 00BC: print_now 'YD4_1' time 3000 flag 1  // ~g~SPANKED-up madmen!
@@ -89213,12 +89213,12 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0038:   $FLAG_RESULT1 == 1 
 004D: goto_if_false @LOVE4_4016 
-015F: set_camera_position $RESULT1_X $RESULT1_Y $VAN3_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $RESULT1_X $RESULT1_Y $VAN3_Z rotation 0.0 0.0 0.0 
 0160: point_camera $RESULT2_X $RESULT2_Y $VAN3_Z switchstyle 1 
 0002: goto @LOVE4_4049 
 
 :LOVE4_4016
-015F: set_camera_position $RESULT2_X $RESULT2_Y $VAN3_Z 0.0 rotation 0.0 0.0 
+015F: set_camera_position $RESULT2_X $RESULT2_Y $VAN3_Z rotation 0.0 0.0 0.0 
 0160: point_camera $RESULT1_X $RESULT1_Y $VAN3_Z switchstyle 1 
 
 :LOVE4_4049
@@ -90155,7 +90155,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 03F4: set_all_cars_can_be_damaged 0 
 0110: clear_player $PLAYER_CHAR wanted_level 
-015F: set_camera_position 81.3125 -1540.063 27.75 0.0 rotation 0.0 0.0 
+015F: set_camera_position 81.3125 -1540.063 27.75 rotation 0.0 0.0 0.0 
 0160: point_camera 81.8125 -1540.875 27.75 switchstyle 2 
 02A3: toggle_widescreen 1 
 01F5: $PLAYER_ACTOR = create_emulated_actor_from_player $PLAYER_CHAR 
@@ -102290,7 +102290,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @CAT1_2159 
 0186: $BLIP_CAT1 = create_marker_above_car $ESCAPE_CHOPPER 
 018B: show_on_radar $BLIP_CAT1 2 
-015F: set_camera_position -364.5 243.6875 62.6875 0.0 rotation 0.0 0.0 
+015F: set_camera_position -364.5 243.6875 62.6875 rotation 0.0 0.0 0.0 
 0158: camera_on_vehicle $ESCAPE_CHOPPER 15 switchstyle 1 
 02A3: toggle_widescreen 1 
 01B4: set_player $PLAYER_CHAR controllable 0 
@@ -102540,7 +102540,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $CATALINA dead 
 004D: goto_if_false @CAT1_4131 
-015F: set_camera_position -1190.563 334.375 32.0625 0.0 rotation 0.0 0.0 
+015F: set_camera_position -1190.563 334.375 32.0625 rotation 0.0 0.0 0.0 
 0159: camera_on_ped $MARIA 15 switchstyle 2 
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
@@ -103214,7 +103214,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :CAT1_7291
 0055: set_player_coordinates $PLAYER_CHAR to -361.875 248.0 -100.0 
-015F: set_camera_position -364.375 265.0625 82.8125 0.0 rotation 0.0 0.0 
+015F: set_camera_position -364.375 265.0625 82.8125 rotation 0.0 0.0 0.0 
 0160: point_camera -363.9375 264.1875 82.625 switchstyle 2 
 0006: 17@ = 0 
 
@@ -103296,7 +103296,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :CAT1_7649
 0055: set_player_coordinates $PLAYER_CHAR to -1174.25 -7.0 -100.0 
-015F: set_camera_position -1176.438 -17.6875 75.9375 0.0 rotation 0.0 0.0 
+015F: set_camera_position -1176.438 -17.6875 75.9375 rotation 0.0 0.0 0.0 
 0160: point_camera -1175.688 -17.0 75.8125 switchstyle 2 
 00C0: set_current_time 5 40 
 0006: 17@ = 0 
@@ -103373,7 +103373,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :CAT1_7971
 0055: set_player_coordinates $PLAYER_CHAR to -468.6875 -3.25 -100.0 
-015F: set_camera_position -413.0625 19.25 54.375 0.0 rotation 0.0 0.0 
+015F: set_camera_position -413.0625 19.25 54.375 rotation 0.0 0.0 0.0 
 0160: point_camera -413.9375 18.9375 54.0 switchstyle 2 
 0006: 17@ = 0 
 
@@ -103449,7 +103449,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :CAT1_8287
 0055: set_player_coordinates $PLAYER_CHAR to -855.6875 -717.25 -100.0 
-015F: set_camera_position -959.5 -656.375 55.4375 0.0 rotation 0.0 0.0 
+015F: set_camera_position -959.5 -656.375 55.4375 rotation 0.0 0.0 0.0 
 0160: point_camera -958.625 -656.875 55.25 switchstyle 2 
 00C0: set_current_time 22 0 
 0006: 17@ = 0 
@@ -103526,7 +103526,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :CAT1_8609
 0055: set_player_coordinates $PLAYER_CHAR to -532.6875 -611.6875 43.25 
-015F: set_camera_position -571.5625 -611.125 67.5625 0.0 rotation 0.0 0.0 
+015F: set_camera_position -571.5625 -611.125 67.5625 rotation 0.0 0.0 0.0 
 0160: point_camera -570.6875 -611.5625 67.4375 switchstyle 2 
 0006: 17@ = 0 
 
@@ -103602,7 +103602,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :CAT1_8925
 0055: set_player_coordinates $PLAYER_CHAR to -671.5625 -155.875 -100.0 
-015F: set_camera_position -706.5625 -219.0625 25.75 0.0 rotation 0.0 0.0 
+015F: set_camera_position -706.5625 -219.0625 25.75 rotation 0.0 0.0 0.0 
 0160: point_camera -706.125 -218.1875 25.6875 switchstyle 2 
 00C0: set_current_time 1 20 
 01B6: set_weather 2 
