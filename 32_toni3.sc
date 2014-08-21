@@ -452,7 +452,7 @@ wait 500 ms
 02A3: toggle_widescreen 1 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
-0164: disable_marker $TONI3_LUIGI_MARKER
+0164: disable_marker $TONI3_TONI_MARKER
 if
 	8119:   not car $TONI3_LIMO wrecked
 then
