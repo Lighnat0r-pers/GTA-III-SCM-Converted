@@ -14,6 +14,8 @@ if
 then
 	gosub @MISSION_RC2_FAILED
 end
+
+:MISSION_END_RC2
 gosub @MISSION_CLEANUP_RC2
 end_thread
 
@@ -27,7 +29,7 @@ then
 	0317: increment_mission_attempts
 end
 00BA: print_big 'RC2' time 15000 style 2  // 'MAFIA MASSACRE'
-0001: wait 0 ms 
+wait 0 ms 
 0004: $COUNTER_RC = 0 
 0004: $FLAG_BUGGY_HELP1_HM2 = 0 
 0004: $CONTROLMODE = 0 
@@ -70,11 +72,10 @@ while true
 	wait 0 ms
 end
 
-// 010C: change_player_into_rc_buggy $PLAYER_CHAR at $RC_X $RC_Y $RC_Z 180.0 // Removed by R*
 03C4: set_status_text_to $COUNTER_RC 0 'KILLS'  // KILLS:
 014E: start_timer_at $TIMER_RC 
 01BD: $TIMER_INTRO_START = current_time_in_ms
-while 801A:   NOT   1 > $COUNTDOWN_TIME1 
+while 801A:   NOT   1 > $TIMER_RC 
 	wait 0 ms
 	01BD: $TIMER_INTRO_NOW = current_time_in_ms 
 	0084: $INTRO_TIME_LAPSED = $TIMER_INTRO_NOW 
@@ -83,7 +84,7 @@ while 801A:   NOT   1 > $COUNTDOWN_TIME1
 		0119:   car $RC_VAN wrecked 
 	then
 		00BC: print_now 'WRECKED' time 3000 flag 1  // ~r~The vehicle is wrecked!
-		jump @MISSION_RC2_FAILED
+		goto @MISSION_RC2_FAILED
 	end
 	if
 		0256:   is_player $PLAYER_CHAR defined
@@ -109,10 +110,10 @@ while 801A:   NOT   1 > $COUNTDOWN_TIME1
 		if
 			8442:   not player $PLAYER_CHAR in_car $RC_VAN
 		then
-			jump @MISSION_RC2_FAILED
+			goto @MISSION_RC2_FAILED
 		end
 	else
-		jump @MISSION_RC2_FAILED
+		goto @MISSION_RC2_FAILED
 	end
 	0298: $COUNTER_RC = rampage_kills #MAFIA 
 	if
@@ -147,13 +148,13 @@ end
 :MISSION_RC2_FAILED
 00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
 00BC: print_now 'NRECORD' time 5000 flag 1  // ~r~NO NEW RECORD!
-return 
+goto @MISSION_END_RC2
 
 // Mission rc2 passed
 :MISSION_RC2_PASSED
 01E3: text_1number_styled 'M_PASS' number $REWARD_RC time 5000 style 1  // MISSION PASSED! $~1~
 00BC: print_now 'RECORD' time 3000 flag 1  // ~g~NEW RECORD!!
-0394: play_music 1 
+0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += $REWARD_RC
 if
 	0038:   $MAFIA_MASSACRE_COMPLETED == 0 
@@ -163,7 +164,7 @@ then
 	0318: set_latest_mission_passed 'RC2'  // 'MAFIA MASSACRE'
 end
 042F: save_record 2 $RC2_RECORD 
-return 
+goto @MISSION_END_RC2
 
 // mission cleanup
 :MISSION_CLEANUP_RC2
@@ -190,4 +191,4 @@ end
 
 0249: release_model #MAFIA 
 00D8: mission_has_finished 
-0051: return 
+return 

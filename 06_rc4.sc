@@ -14,19 +14,10 @@ if
 then
 	gosub @MISSION_RC4_FAILED
 end
+
+:MISSION_END_RC4
 gosub @MISSION_CLEANUP_RC4
 end_thread
-
-// Variables for mission
-//
-//
-//VAR_INT counter_RC rc_van
-//VAR_INT timer_RC
-//VAR_INT reward_RC 
-//VAR_FLOAT cam_x cam_y cam_z
-//VAR_FLOAT rc_x rc_y rc_z
-//	
-// ***************************************Mission Start*************************************
 
 :MISSION_START_RC4
 0004: $ONMISSION = 1
@@ -36,7 +27,7 @@ then
 	0317: increment_mission_attempts
 end
 00BA: print_big 'RC3' time 15000 style 2  // 'CASINO CALAMITY'
-0001: wait 0 ms 
+wait 0 ms 
 0004: $COUNTER_RC = 0 
 0004: $FLAG_BUGGY_HELP1_HM2 = 0 
 0004: $CONTROLMODE = 0 
@@ -74,7 +65,6 @@ while 8248:   not model #RCBANDIT available
 	wait 0 ms
 end
 
-// 010C: change_player_into_rc_buggy $PLAYER_CHAR at $RC_X $RC_Y $RC_Z 180.0 // Removed by R*
 03C4: set_status_text_to $COUNTER_RC 0 'KILLS'  // KILLS:
 014E: start_timer_at $TIMER_RC 
 01BD: $TIMER_INTRO_START = current_time_in_ms
@@ -87,7 +77,7 @@ while 801A:   NOT   1 > $COUNTDOWN_TIME1
 		0119:   car $RC_VAN wrecked 
 	then
 		00BC: print_now 'WRECKED' time 3000 flag 1  // ~r~The vehicle is wrecked!
-		jump @MISSION_RC4_FAILED
+		goto @MISSION_RC4_FAILED
 	end
 	if
 		0256:   is_player $PLAYER_CHAR defined
@@ -113,10 +103,10 @@ while 801A:   NOT   1 > $COUNTDOWN_TIME1
 		if
 			8442:   not player $PLAYER_CHAR in_car $RC_VAN
 		then
-			jump @MISSION_RC4_FAILED
+			goto @MISSION_RC4_FAILED
 		end
 	else
-		jump @MISSION_RC4_FAILED
+		goto @MISSION_RC4_FAILED
 	end
 	0298: $COUNTER_RC = rampage_kills #YAKUZA 
 	if
@@ -151,13 +141,13 @@ end
 :MISSION_RC4_FAILED
 00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
 00BC: print_now 'NRECORD' time 5000 flag 1  // ~r~NO NEW RECORD!
-return 
+goto @MISSION_END_RC4 
 
 // Mission rc4 passed
 :MISSION_RC4_PASSED
 01E3: text_1number_styled 'M_PASS' number $REWARD_RC time 5000 style 1  // MISSION PASSED! $~1~
 00BC: print_now 'RECORD' time 3000 flag 1  // ~g~NEW RECORD!!
-0394: play_music 1 
+0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += $REWARD_RC
 if
 	0038:   $CASINO_CALAMITY_COMPLETED == 0 
@@ -167,7 +157,7 @@ then
 	0318: set_latest_mission_passed 'RC4'  // 'CASINO CALAMITY'
 end
 042F: save_record 3 $RC4_RECORD 
-return 
+goto @MISSION_END_RC4 
 
 // mission cleanup
 :MISSION_CLEANUP_RC4
@@ -193,4 +183,4 @@ end
 0152: set_zone_car_info 'YAKUSA' NIGHT 15 0 0 0 150 0 0 0 10 350 200 200 0 0 0 
 
 00D8: mission_has_finished 
-0051: return 
+return 
