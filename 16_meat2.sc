@@ -302,7 +302,7 @@ while true
 	end
 	if and
 		0038:   $FLAG_VICTIM2_IN_AREA == 1 
-		00FF:   actor $VICTIM1_MEAT2 #NULL 1209.375 -807.1875 14.0 radius 4.0 4.0 4.0 
+		00FF:   actor $VICTIM2_MEAT2 #NULL 1209.375 -807.1875 14.0 radius 4.0 4.0 4.0 
 	then
 		0004: $FLAG_VICTIM2_IN_AREA = 2
 	end
