@@ -319,7 +319,7 @@ if or
 	00DE:   is_player_in_model $PLAYER_CHAR model #CABBIE 
 	00DE:   is_player_in_model $PLAYER_CHAR model #BORGNINE 
 then
-	00DA: store_car_player_is_in $PLAYER_CHAR store_to $CAR_FM2 
+	00DA: store_car_player_is_in $PLAYER_CHAR store_to $MISSION_TAXI_FM2 
 	0004: $FLAG_MISSION_TAXI_FM2_CREATED = 1
 else
 	goto @MISSION_JUMP3
@@ -329,26 +329,26 @@ end
 
 if and
 	00E8:   player $PLAYER_CHAR stopped 0 906.0 -425.0 radius 4.0 4.0 
-	00DC:   is_player_in_car $PLAYER_CHAR car $CAR_FM2 
+	00DC:   is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 then
 	gosub @CHECK_CURLY_STATUS_SIMPLE_FRANK2
 	if or
 		00DE:   is_player_in_model $PLAYER_CHAR model #TAXI 
 		00DE:   is_player_in_model $PLAYER_CHAR model #CABBIE
 	then
-		00DA: store_car_player_is_in $PLAYER_CHAR store_to $CAR_FM2 
+		00DA: store_car_player_is_in $PLAYER_CHAR store_to $MISSION_TAXI_FM2 
 	end
-	gosub @CHECK_VEHICLE_STATUS_FRANK2
+	gosub @CHECK_PLAYER_VEHICLE_STATUS_FRANK2
 	if
-		8185:   not car $CAR_FM2 health >= 700 
+		8185:   not car $MISSION_TAXI_FM2 health >= 700 
 	then
 		00BC: print_now 'FM2_6' time 5000 flag 1  // ~r~Curly won't get into a smashed-up taxi!
 		goto @MISSION_FAILED_FRANK2
 	end
-	01D4: actor $CURLY_BOB_FM2 go_to_car $CAR_FM2 and_enter_it_as_a_passenger 
-	while 80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
+	01D4: actor $CURLY_BOB_FM2 go_to_car $MISSION_TAXI_FM2 and_enter_it_as_a_passenger 
+	while 80DB:   not is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2 
 		wait 0 ms
-		gosub @CHECK_VEHICLE_STATUS_FRANK2
+		gosub @CHECK_PLAYER_VEHICLE_STATUS_FRANK2
 		gosub @CHECK_CURLY_STATUS_FRANK2
 		if
 			80EB:   not player $PLAYER_CHAR 0 $CURLY_BOB_FM2 radius 5.0 5.0 
@@ -364,21 +364,21 @@ then
 	while true
 		if or
 			80E8:   not player $PLAYER_CHAR stopped $BLOB_FLAG 1529.0 -827.0 radius 3.0 4.0 
-			80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
-			80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_FM2 
+			80DB:   not is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2 
+			80DC:   not is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 		jf break
 		wait 0 ms
-		gosub @CHECK_VEHICLE_STATUS_FRANK2
+		gosub @CHECK_PLAYER_VEHICLE_STATUS_FRANK2
 		gosub @CHECK_CURLY_STATUS_SIMPLE_FRANK2
 		if
-			80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2
+			80DB:   not is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2
 		then
 			00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
 			goto @MISSION_FAILED_FRANK2
 		end
 		gosub @CHECK_IN_VEHICLE_STATUS_FRANK2
 		if
-			01C1:   car $CAR_FM2 stopped
+			01C1:   car $MISSION_TAXI_FM2 stopped
 		then
 			if
 				0038:   $FLAG_CAR_HAS_JUST_STOPPED == 0 
@@ -403,7 +403,7 @@ end
 // *********If player does not have a taxi creates taxi for Curley Bob to get into**********
 
 :MISSION_JUMP3
-gosub @CHECK_VEHICLE_STATUS_FRANK2
+gosub @CHECK_AI_VEHICLE_STATUS_FRANK2
 if and
 	01AE:   car $CAR_FM2 stopped 0 906.875 -433.0 6.0 6.0 
 	81F4:   not car $CAR_FM2 flipped 
@@ -418,7 +418,7 @@ end
 while 80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
 	wait 0 ms
 	gosub @CHECK_CURLY_STATUS_FRANK2
-	gosub @CHECK_VEHICLE_STATUS_FRANK2
+	gosub @CHECK_AI_VEHICLE_STATUS_FRANK2
 end //while
 
 0164: disable_marker $RADAR_BLIP_PED1_FM2 
@@ -449,7 +449,7 @@ while 81AD:   not car $CAR_FM2 sphere 0 near_point 1529.0 -827.0 radius 3.0 3.0
 		0004: $SPOOKED_CHECK = 1 
 	end
 	gosub @CHECK_CURLY_STATUS_SIMPLE_FRANK2
-	gosub @CHECK_VEHICLE_STATUS_FRANK2
+	gosub @CHECK_AI_VEHICLE_STATUS_FRANK2
 	if
 		03CE:   car $CAR_FM2 stuck
 	then
@@ -645,7 +645,7 @@ then
 	while 00DB:   is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2
 		wait 0 ms
 		gosub @CHECK_CURLY_STATUS_FRANK2
-		gosub @CHECK_VEHICLE_STATUS_FRANK2
+		gosub @CHECK_AI_VEHICLE_STATUS_FRANK2
 	end //while
 	0151: remove_status_text $SPOOKED_COUNTER
 	if
@@ -672,7 +672,7 @@ end
 
 if and
 	0038:   $FLAG_MISSION_TAXI_FM2_CREATED == 1 
-	00DB:   is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2
+	00DB:   is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2
 then
 	0004: $FLAG_TAXI1_EXIT_CAR_FM2 = 1 
 end
@@ -680,13 +680,12 @@ end
 if
 	0004: $FLAG_TAXI1_EXIT_CAR_FM2 = 1
 then
-	01D3: actor $CURLY_BOB_FM2 leave_car $CAR_FM2 
-	while 00DB:   is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2
+	01D3: actor $CURLY_BOB_FM2 leave_car $MISSION_TAXI_FM2 
+	while 00DB:   is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2
 		wait 0 ms
 		gosub @CHECK_CURLY_STATUS_FRANK2
-		gosub @CHECK_VEHICLE_STATUS_FRANK2
+		gosub @CHECK_PLAYER_VEHICLE_STATUS_FRANK2
 	end //while
-	0151: remove_status_text $SPOOKED_COUNTER
 	if
 		80FB:   not player $PLAYER_CHAR 0 $CURLY_BOB_FM2 radius 160.0 160.0 160.0 
 	then
@@ -987,11 +986,31 @@ return
 
 /////////////////////////////////////////
 
-:CHECK_VEHICLE_STATUS_FRANK2
+:CHECK_PLAYER_VEHICLE_STATUS_FRANK2
+if
+	0119:   car $MISSION_TAXI_FM2 wrecked 
+then
+	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	goto @MISSION_FAILED_FRANK2
+else
+	if and
+		01F4:   car $MISSION_TAXI_FM2 flipped 
+		01C1:   car $MISSION_TAXI_FM2 stopped
+	then
+		00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+		goto @MISSION_FAILED_FRANK2
+	end
+end
+return
+
+/////////////////////////////////////////
+
+:CHECK_AI_VEHICLE_STATUS_FRANK2
 if
 	0119:   car $CAR_FM2 wrecked 
 then
 	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	0004: $FLAG_CAR_FM2_DEAD = 0 
 	goto @MISSION_FAILED_FRANK2
 else
 	if and
@@ -1008,21 +1027,21 @@ return
 
 :CHECK_IN_VEHICLE_STATUS_FRANK2
 if and
-	80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_FM2 
+	80DC:   not is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 	0038:   $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 == 0 
 then
 	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
-	0186: $RADAR_BLIP_CAR1_FM2 = create_marker_above_car $CAR_FM2 
+	0186: $RADAR_BLIP_CAR1_FM2 = create_marker_above_car $MISSION_TAXI_FM2 
 	0164: disable_marker $RADAR_BLIP_COORD2_FM2 
 	0004: $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 = 1 
 	0004: $BLOB_FLAG = 0 
 end
 if and
-	00DC:   is_player_in_car $PLAYER_CHAR car $CAR_FM2 
+	00DC:   is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 	0038:   $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 == 1 
 then
 	018A: $RADAR_BLIP_COORD2_FM2 = create_checkpoint_at 1529.0 -827.0 -100.0 
-	018B: show_on_radar $RADAR_BLIP_COORD2_FM2 2 
+	018B: show_on_radar $RADAR_BLIP_COORD2_FM2 BLIP_ONLY 
 	0164: disable_marker $RADAR_BLIP_CAR1_FM2 
 	0004: $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 = 0 
 	0004: $BLOB_FLAG = 1

@@ -52308,7 +52308,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00DE:   is_player_in_model $PLAYER_CHAR model #CABBIE 
 00DE:   is_player_in_model $PLAYER_CHAR model #BORGNINE 
 004D: goto_if_false @FRANK2_2566 
-00DA: store_car_player_is_in $PLAYER_CHAR store_to $CAR_FM2 
+00DA: store_car_player_is_in $PLAYER_CHAR store_to $MISSION_TAXI_FM2 
 0004: $FLAG_MISSION_TAXI_FM2_CREATED = 1 
 0002: goto @FRANK2_2573 
 
@@ -52318,7 +52318,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :FRANK2_2573
 00D6: if and
 00E8:   player $PLAYER_CHAR stopped 0 906.0 -425.0 radius 4.0 4.0 
-00DC:   is_player_in_car $PLAYER_CHAR car $CAR_FM2 
+00DC:   is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 004D: goto_if_false @FRANK2_3596 
 00D6: if 
 0118:   actor $CURLY_BOB_FM2 dead 
@@ -52331,11 +52331,11 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00DE:   is_player_in_model $PLAYER_CHAR model #TAXI 
 00DE:   is_player_in_model $PLAYER_CHAR model #CABBIE 
 004D: goto_if_false @FRANK2_2683 
-00DA: store_car_player_is_in $PLAYER_CHAR store_to $CAR_FM2 
+00DA: store_car_player_is_in $PLAYER_CHAR store_to $MISSION_TAXI_FM2 
 
 :FRANK2_2683
 00D6: if 
-0119:   car $CAR_FM2 wrecked 
+0119:   car $MISSION_TAXI_FM2 wrecked 
 004D: goto_if_false @FRANK2_2728 
 00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
 0002: goto @FRANK2_8184 
@@ -52343,29 +52343,29 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK2_2728
 00D6: if and
-01F4:   car $CAR_FM2 flipped 
-01C1:   car $CAR_FM2 stopped 
+01F4:   car $MISSION_TAXI_FM2 flipped 
+01C1:   car $MISSION_TAXI_FM2 stopped 
 004D: goto_if_false @FRANK2_2771 
 00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
 0002: goto @FRANK2_8184 
 
 :FRANK2_2771
 00D6: if 
-8185:   not car $CAR_FM2 health >= 700 
+8185:   not car $MISSION_TAXI_FM2 health >= 700 
 004D: goto_if_false @FRANK2_2812 
 00BC: print_now 'FM2_6' time 5000 flag 1  // ~r~Curly won't get into a smashed-up taxi!
 0002: goto @FRANK2_8184 
 
 :FRANK2_2812
-01D4: actor $CURLY_BOB_FM2 go_to_car $CAR_FM2 and_enter_it_as_a_passenger 
+01D4: actor $CURLY_BOB_FM2 go_to_car $MISSION_TAXI_FM2 and_enter_it_as_a_passenger 
 
 :FRANK2_2820
 00D6: if 
-80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
+80DB:   not is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2 
 004D: goto_if_false @FRANK2_3072 
 0001: wait 0 ms 
 00D6: if 
-0119:   car $CAR_FM2 wrecked 
+0119:   car $MISSION_TAXI_FM2 wrecked 
 004D: goto_if_false @FRANK2_2888 
 00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
 0002: goto @FRANK2_8184 
@@ -52373,8 +52373,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK2_2888
 00D6: if and
-01F4:   car $CAR_FM2 flipped 
-01C1:   car $CAR_FM2 stopped 
+01F4:   car $MISSION_TAXI_FM2 flipped 
+01C1:   car $MISSION_TAXI_FM2 stopped 
 004D: goto_if_false @FRANK2_2931 
 00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
 0002: goto @FRANK2_8184 
@@ -52413,12 +52413,12 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :FRANK2_3113
 00D6: if or
 80E8:   not player $PLAYER_CHAR stopped $BLOB_FLAG 1529.0 -827.0 radius 3.0 4.0 
-80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
-80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_FM2 
+80DB:   not is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2 
+80DC:   not is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 004D: goto_if_false @FRANK2_3584 
 0001: wait 0 ms 
 00D6: if 
-0119:   car $CAR_FM2 wrecked 
+0119:   car $MISSION_TAXI_FM2 wrecked 
 004D: goto_if_false @FRANK2_3209 
 00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
 0002: goto @FRANK2_8184 
@@ -52426,8 +52426,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK2_3209
 00D6: if and
-01F4:   car $CAR_FM2 flipped 
-01C1:   car $CAR_FM2 stopped 
+01F4:   car $MISSION_TAXI_FM2 flipped 
+01C1:   car $MISSION_TAXI_FM2 stopped 
 004D: goto_if_false @FRANK2_3252 
 00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
 0002: goto @FRANK2_8184 
@@ -52441,26 +52441,26 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK2_3290
 00D6: if 
-80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
+80DB:   not is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2 
 004D: goto_if_false @FRANK2_3331 
 00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
 0002: goto @FRANK2_8184 
 
 :FRANK2_3331
 00D6: if and
-80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_FM2 
+80DC:   not is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 0038:   $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 == 0 
 004D: goto_if_false @FRANK2_3401 
 00BE: clear_prints 
 00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
-0186: $RADAR_BLIP_CAR1_FM2 = create_marker_above_car $CAR_FM2 
+0186: $RADAR_BLIP_CAR1_FM2 = create_marker_above_car $MISSION_TAXI_FM2 
 0164: disable_marker $RADAR_BLIP_COORD2_FM2 
 0004: $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 = 1 
 0004: $BLOB_FLAG = 0 
 
 :FRANK2_3401
 00D6: if and
-00DC:   is_player_in_car $PLAYER_CHAR car $CAR_FM2 
+00DC:   is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 0038:   $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 == 1 
 004D: goto_if_false @FRANK2_3467 
 018A: $RADAR_BLIP_COORD2_FM2 = create_checkpoint_at 1529.0 -827.0 -100.0 
@@ -52471,7 +52471,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK2_3467
 00D6: if 
-01C1:   car $CAR_FM2 stopped 
+01C1:   car $MISSION_TAXI_FM2 stopped 
 004D: goto_if_false @FRANK2_3570 
 00D6: if 
 0038:   $FLAG_CAR_HAS_JUST_STOPPED == 0 
@@ -52946,7 +52946,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :FRANK2_5974
 00D6: if and
 0038:   $FLAG_MISSION_TAXI_FM2_CREATED == 1 
-00DB:   is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
+00DB:   is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2 
 004D: goto_if_false @FRANK2_6007 
 0004: $FLAG_TAXI1_EXIT_CAR_FM2 = 1 
 
@@ -52954,11 +52954,11 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0038:   $FLAG_TAXI1_EXIT_CAR_FM2 == 1 
 004D: goto_if_false @FRANK2_6333 
-01D3: actor $CURLY_BOB_FM2 leave_car $CAR_FM2 
+01D3: actor $CURLY_BOB_FM2 leave_car $MISSION_TAXI_FM2 
 
 :FRANK2_6033
 00D6: if 
-00DB:   is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
+00DB:   is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2 
 004D: goto_if_false @FRANK2_6281 
 0001: wait 0 ms 
 00D6: if 
@@ -52977,7 +52977,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK2_6141
 00D6: if 
-0119:   car $CAR_FM2 wrecked 
+0119:   car $MISSION_TAXI_FM2 wrecked 
 004D: goto_if_false @FRANK2_6231 
 00D6: if 
 0118:   actor $CURLY_BOB_FM2 dead 
@@ -52995,8 +52995,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :FRANK2_6231
 00D6: if and
-01F4:   car $CAR_FM2 flipped 
-01C1:   car $CAR_FM2 stopped 
+01F4:   car $MISSION_TAXI_FM2 flipped 
+01C1:   car $MISSION_TAXI_FM2 stopped 
 004D: goto_if_false @FRANK2_6274 
 00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
 0002: goto @FRANK2_8184 
