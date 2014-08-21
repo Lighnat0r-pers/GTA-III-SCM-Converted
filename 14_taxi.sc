@@ -30,7 +30,8 @@ end_thread
 0004: $SPRAY_BLIP_ONSCREEN = 0 
 0004: $TAXI_FUCKED_FLAG = 0 
 0004: $IN_A_ROW_NUMBER = 5 
-0004: $IN_A_ROW_CASH = 2000 
+0004: $IN_A_ROW_CASH = 2000
+0004: $TAXI_NOT_REALLY_FAILED = 0
 0001: wait 0 ms 
 03C4: set_status_text_to $TAXI_PASSED_THIS_SHOT 0 'FARES'  // FARES:
 if
@@ -866,7 +867,9 @@ then
 end
 
 0008: $TAXI_COUNTDOWN += 10000
+0004: $TAXI_NOT_REALLY_FAILED = 1
 gosub @MISSION_TAXI1_FAILED
+0004: $TAXI_NOT_REALLY_FAILED = 0
 if
 	003A:   $TAXI_PASSED_THIS_SHOT == $IN_A_ROW_NUMBER
 then
@@ -1033,6 +1036,11 @@ if
 	0256:   is_player $PLAYER_CHAR defined 
 then
 	01B4: set_player $PLAYER_CHAR controllable 1
+end
+if
+	0038: $TAXI_NOT_REALLY_FAILED == 1
+then
+	return
 end
 goto @MISSION_END_TAXI1
 
