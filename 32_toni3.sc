@@ -445,7 +445,7 @@ end //while
 if
 	8119:   not car $TONI3_LIMO wrecked
 then
-	020A: set_car $TONI3_LIMO door_status_to 4 //CARLOCK_LOCKED_PLAYER_INSIDE
+	020A: set_car $TONI3_LIMO door_status_to CARLOCK_LOCKED_PLAYER_INSIDE
 end
 wait 500 ms
 01B4: set_player $PLAYER_CHAR controllable 0 
@@ -487,7 +487,7 @@ end //while
 0159: camera_on_ped $TONI_CIPRIANI FIXED switchstyle JUMP_CUT
 01D4: actor $TONI_CIPRIANI go_to_car $TONI3_LIMO and_enter_it_as_a_passenger
 
-while 8126:   not actor $TONI_CIPRIANI walking
+while 80DB:   not is_char_in_car $TONI_CIPRIANI car $TONI3_LIMO
 	wait 0 ms
 	gosub @CHECK_TONI_STATUS_TONI3
 	gosub @CHECK_VEHICLE_STATUS_TONI3
