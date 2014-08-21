@@ -497,100 +497,33 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 		03CF: load_wav 'S1_A' 
 		0004: $CHICO_AUDIO_FLAG = 1
 	end
-	if 
-		0038:   $CHICO_AUDIO_FLAG == 14
-	then
-		03CF: load_wav 'S1_F' 
-		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_FALSE wait_state_time 100 ms 
-		0004: $CHICO_AUDIO_FLAG = 15
-	end
 	if and
-		0038:   $CHICO_AUDIO_FLAG == 13
+		0038:   $CHICO_AUDIO_FLAG == 1
 		03D0:   wav_loaded
 	then
 		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_U' time 2000 flag 1  // ~w~Gracias and enjoy. That's good stuff.
+		00BC: print_now 'FM1_Q' time 6000 flag 2  // ~w~Hey Maria! It's my favorite lady!
 		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
-		0004: $CHICO_AUDIO_FLAG = 14
+		0004: $CHICO_AUDIO_FLAG = 2
 	end
 	if and
-		0038:   $CHICO_AUDIO_FLAG == 12
+		0038:   $CHICO_AUDIO_FLAG == 2
 		03D2:   wav_ended
 	then
 		020E: actor $CHICO_DRUGDEALER look_at_actor $MARIA 
 		020E: actor $MARIA look_at_actor $CHICO_DRUGDEALER 
-		03CF: load_wav 'S1_E' 
-		0372: set_actor $MARIA anim WAITSTATE_FALSE wait_state_time 100 ms 
-		0004: $CHICO_AUDIO_FLAG = 13
+		03CF: load_wav 'S1_A1' 
+		0004: $CHICO_AUDIO_FLAG = 3
 	end
 	if and
-		0038:   $CHICO_AUDIO_FLAG == 11
-		03D0:   wav_loaded
-	then
-		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
-		03D1: play_wav 
-		00BC: print_now 'FM1_T' time 4000 flag 2  // ~w~Thanks Chico. See you around.
-		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
-		0004: $CHICO_AUDIO_FLAG = 12
-	end
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 10
-		03D2:   wav_ended
-	then
-		020E: actor $CHICO_DRUGDEALER look_at_actor $MARIA 
-		020E: actor $MARIA look_at_actor $CHICO_DRUGDEALER 
-		03CF: load_wav 'S1_D' 
-		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_FALSE wait_state_time 100 ms 
-		0004: $CHICO_AUDIO_FLAG = 11 
-	end
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 9
+		0038:   $CHICO_AUDIO_FLAG == 3
 		03D0:   wav_loaded
 	then
 		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_S1' time 15000 flag 2  // ~w~Hey, maybe you should check out the warehouse party at the east end of Atlantic Quays.
-		0004: $CHICO_AUDIO_FLAG = 10 
-	end
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 8
-		03D2:   wav_ended
-	then
-		020E: actor $CHICO_DRUGDEALER look_at_actor $MARIA 
-		020E: actor $MARIA look_at_actor $CHICO_DRUGDEALER 
-		03CF: load_wav 'S1_C1' 
-		0004: $CHICO_AUDIO_FLAG = 9 
-	end
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 7
-		03D0:   wav_loaded
-	then
-		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
-		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
-		03D1: play_wav 
-		00BC: print_now 'FM1_S' time 5000 flag 2  // ~w~Here you go lady.
-		0004: $CHICO_AUDIO_FLAG = 8
-	end
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 6
-		03D2:   wav_ended
-	then
-		020E: actor $CHICO_DRUGDEALER look_at_actor $MARIA 
-		020E: actor $MARIA look_at_actor $CHICO_DRUGDEALER 
-		03CF: load_wav 'S1_C' 
-		0372: set_actor $MARIA anim WAITSTATE_FALSE wait_state_time 100 ms 
-		0004: $CHICO_AUDIO_FLAG = 7
-	end
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 5
-		03D0:   wav_loaded
-	then
-		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
-		03D1: play_wav 
-		00BC: print_now 'FM1_R' time 6000 flag 2  // ~w~Hi Chico. Nah, just the usual.
-		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
-		0004: $CHICO_AUDIO_FLAG = 6
+		00BC: print_now 'FM1_Q1' time 6000 flag 2  // ~w~You looking for some fun? A little...hmm? Some SPANK?
+		0004: $CHICO_AUDIO_FLAG = 4
 	end
 	if and
 		0038:   $CHICO_AUDIO_FLAG == 4
@@ -603,32 +536,99 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 		0004: $CHICO_AUDIO_FLAG = 5
 	end
 	if and
-		0038:   $CHICO_AUDIO_FLAG == 3
+		0038:   $CHICO_AUDIO_FLAG == 5
 		03D0:   wav_loaded
 	then
-		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
+		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_Q1' time 6000 flag 2  // ~w~You looking for some fun? A little...hmm? Some SPANK?
-		0004: $CHICO_AUDIO_FLAG = 4
+		00BC: print_now 'FM1_R' time 6000 flag 2  // ~w~Hi Chico. Nah, just the usual.
+		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
+		0004: $CHICO_AUDIO_FLAG = 6
 	end
 	if and
-		0038:   $CHICO_AUDIO_FLAG == 2
+		0038:   $CHICO_AUDIO_FLAG == 6
 		03D2:   wav_ended
 	then
 		020E: actor $CHICO_DRUGDEALER look_at_actor $MARIA 
 		020E: actor $MARIA look_at_actor $CHICO_DRUGDEALER 
-		03CF: load_wav 'S1_A1' 
-		0004: $CHICO_AUDIO_FLAG = 3
+		03CF: load_wav 'S1_C' 
+		0372: set_actor $MARIA anim WAITSTATE_FALSE wait_state_time 100 ms 
+		0004: $CHICO_AUDIO_FLAG = 7
 	end
 	if and
-		0038:   $CHICO_AUDIO_FLAG == 1
+		0038:   $CHICO_AUDIO_FLAG == 7
+		03D0:   wav_loaded
+	then
+		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
+		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
+		03D1: play_wav 
+		00BC: print_now 'FM1_S' time 5000 flag 2  // ~w~Here you go lady.
+		0004: $CHICO_AUDIO_FLAG = 8
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 8
+		03D2:   wav_ended
+	then
+		020E: actor $CHICO_DRUGDEALER look_at_actor $MARIA 
+		020E: actor $MARIA look_at_actor $CHICO_DRUGDEALER 
+		03CF: load_wav 'S1_C1' 
+		0004: $CHICO_AUDIO_FLAG = 9 
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 9
 		03D0:   wav_loaded
 	then
 		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_Q' time 6000 flag 2  // ~w~Hey Maria! It's my favorite lady!
+		00BC: print_now 'FM1_S1' time 15000 flag 2  // ~w~Hey, maybe you should check out the warehouse party at the east end of Atlantic Quays.
+		0004: $CHICO_AUDIO_FLAG = 10 
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 10
+		03D2:   wav_ended
+	then
+		020E: actor $CHICO_DRUGDEALER look_at_actor $MARIA 
+		020E: actor $MARIA look_at_actor $CHICO_DRUGDEALER 
+		03CF: load_wav 'S1_D' 
+		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_FALSE wait_state_time 100 ms 
+		0004: $CHICO_AUDIO_FLAG = 11 
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 11
+		03D0:   wav_loaded
+	then
+		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
+		03D1: play_wav 
+		00BC: print_now 'FM1_T' time 4000 flag 2  // ~w~Thanks Chico. See you around.
+		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
+		0004: $CHICO_AUDIO_FLAG = 12
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 12
+		03D2:   wav_ended
+	then
+		020E: actor $CHICO_DRUGDEALER look_at_actor $MARIA 
+		020E: actor $MARIA look_at_actor $CHICO_DRUGDEALER 
+		03CF: load_wav 'S1_E' 
+		0372: set_actor $MARIA anim WAITSTATE_FALSE wait_state_time 100 ms 
+		0004: $CHICO_AUDIO_FLAG = 13
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 13
+		03D0:   wav_loaded
+	then
+		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
+		03D1: play_wav 
+		00BC: print_now 'FM1_U' time 2000 flag 1  // ~w~Gracias and enjoy. That's good stuff.
 		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
-		0004: $CHICO_AUDIO_FLAG = 2
+		0004: $CHICO_AUDIO_FLAG = 14
+	end
+	if 
+		0038:   $CHICO_AUDIO_FLAG == 14
+	then
+		03CF: load_wav 'S1_F' 
+		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_FALSE wait_state_time 100 ms 
+		0004: $CHICO_AUDIO_FLAG = 15
 	end
 end //while
 
@@ -724,17 +724,17 @@ while 80F1:   not actor $MARIA stopped $LOCATE_DOME_FLAG 1259.0 -1107.75 radius 
 		0004: $CHICO_MESSAGE_FLAG = 1
 	end
 	gosub @CHECK_IN_VEHICLE_STATUS_FRANKIE1
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 16 
-		03D0:   wav_loaded
-	then
-		0004: $CHICO_AUDIO_FLAG = 17
-	end
 	if
 		0038:   $CHICO_AUDIO_FLAG == 15
 	then
 		03CF: load_wav 'S1_G' 
 		0004: $CHICO_AUDIO_FLAG = 16
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 16 
+		03D0:   wav_loaded
+	then
+		0004: $CHICO_AUDIO_FLAG = 17
 	end
 end //while
 
@@ -950,7 +950,7 @@ if
 	8038:   not  $CHICO_AUDIO_FLAG == 18 
 then
 	while 83D2:   not wav_ended
-		wait 0 ms
+		wait 100 ms
 		gosub @CHECK_VEHICLE_STATUS_FRANKIE1
 	end //while
 	03CF: load_wav 'S1_H' 
@@ -1010,17 +1010,19 @@ while true
 	end
 	gosub @DRAW_DISCO_LIGHTS
 	if and
+		0038:   $CHICO_AUDIO_FLAG == 19
+		03D2:   wav_ended
+	then
+		03CF: load_wav 'S1_I' 
+		0004: $CHICO_AUDIO_FLAG = 20
+	end
+	if and
 		0038:   $CHICO_AUDIO_FLAG == 20
 		03D0:   wav_loaded
 	then
 		0004: $CHICO_AUDIO_FLAG = 21
 	end
-	if
-		0038:   $CHICO_AUDIO_FLAG == 19
-	then
-		03CF: load_wav 'S1_I' 
-		0004: $CHICO_AUDIO_FLAG = 20
-	end
+
 	gosub @CHECK_VEHICLE_STATUS_FRANKIE1
 
 	// Check van 1
@@ -1081,20 +1083,19 @@ end //while
 gosub @CHECK_SWAT_CAM_RESTORE_FRANKIE1
 
 while 001A:   10 > $CLUBBERS_FLEE_FLAG
-	018C: play_sound SOUND_PART_MISSION_COMPLETE at 0.0 0.0 0.0
 	wait 0 ms
 	gosub @DRAW_DISCO_LIGHTS
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 23
-		03D0:   wav_loaded
-	then
-		0004: $CHICO_AUDIO_FLAG = 24
-	end
 	if
 		0038:   $CHICO_AUDIO_FLAG == 22
 	then
 		03CF: load_wav 'S1_J' 
 		0004: $CHICO_AUDIO_FLAG = 23
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 23
+		03D0:   wav_loaded
+	then
+		0004: $CHICO_AUDIO_FLAG = 24
 	end
 	gosub @CHECK_VEHICLE_STATUS_FRANKIE1
 
@@ -1331,17 +1332,17 @@ end //while
 while 80DF:   not is_char_in_any_car $MARIA
 	wait 0 ms
 	gosub @DRAW_DISCO_LIGHTS
-	if and
-		0038:   $CHICO_AUDIO_FLAG == 23
-		03D0:   wav_loaded
-	then
-		0004: $CHICO_AUDIO_FLAG = 24
-	end
 	if
 		0038:   $CHICO_AUDIO_FLAG == 22
 	then
 		03CF: load_wav 'S1_J' 
 		0004: $CHICO_AUDIO_FLAG = 23
+	end
+	if and
+		0038:   $CHICO_AUDIO_FLAG == 23
+		03D0:   wav_loaded
+	then
+		0004: $CHICO_AUDIO_FLAG = 24
 	end
 	gosub @CHECK_MARIA_STATUS_FRANKIE1
 	gosub @CHECK_VEHICLE_STATUS_FRANKIE1
@@ -1506,53 +1507,18 @@ while 8038:   not  $FLAG_BLIP_ON_MARIA == 8
 		goto @MISSION_PASSED_FRANKIE1
 	end
 	if and
-		0038:   $FLAG_BLIP_ON_MARIA == 7 
-		00E3:   player $PLAYER_CHAR 0 1443.563 -188.25 radius 1.0 1.0 
-		82CB:   not is_actor_on_screen $MARIA 
+		0038:   $FLAG_BLIP_ON_MARIA == 0
+		00ED:   actor $MARIA #NULL 1436.25 -180.625 radius 1.0 1.0 
 	then
-		0004: $MARIA_EXISTS = 0 
-		009B: delete_char $MARIA 
-		0004: $FLAG_BLIP_ON_MARIA = 8
+		0211: actor $MARIA walk_to 1440.5 -179.125 
+		0004: $FLAG_BLIP_ON_MARIA = 1
 	end
 	if and
-		0038:   $FLAG_BLIP_ON_MARIA == 6
-		03D2:   wav_ended 
+		0038:   $FLAG_BLIP_ON_MARIA == 1
+		00E4:   player $PLAYER_CHAR 0 1436.25 -180.625 radius 1.0 1.0 
 	then
-		03EB: clear_small_messages_only 
-		0372: set_actor $MARIA anim WAITSTATE_FALSE wait_state_time 100 ms 
-		0211: actor $PLAYER_ACTOR walk_to 1443.563 -188.25 
-		0211: actor $MARIA walk_to 1453.5 -179.3125 
-		0004: $FLAG_BLIP_ON_MARIA = 7
-	end
-	if and
-		0038:   $FLAG_BLIP_ON_MARIA == 5
-		03D0:   wav_loaded 
-	then
-		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
-		03D1: play_wav 
-		00BC: print_now 'FM1_AA' time 8000 flag 1  // ~w~Oh, I'd better go. I'll see you around I hope.
-		0004: $FLAG_BLIP_ON_MARIA = 6 
-	end
-	if and
-		0038:   $FLAG_BLIP_ON_MARIA == 4
-		03D2:   wav_ended 
-	then
-		020E: actor $PLAYER_ACTOR look_at_actor $MARIA 
-		020E: actor $MARIA look_at_actor $PLAYER_ACTOR 
-		03CF: load_wav 'S1_L' 
-		0004: $FLAG_BLIP_ON_MARIA = 5
-	end
-	if and
-		0038:   $FLAG_BLIP_ON_MARIA == 3
-		03D0:   wav_loaded 
-	then
-		020E: actor $PLAYER_ACTOR look_at_actor $MARIA 
-		020E: actor $MARIA look_at_actor $PLAYER_ACTOR 
-		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
-		03D1: play_wav 
-		00BC: print_now 'FM1_Y' time 8000 flag 1  // ~w~You know I enjoyed myself for the first time in a long while, and you treated me really good. With respect and everything.
-		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 20000 ms 
-		0004: $FLAG_BLIP_ON_MARIA = 4
+		0211: actor $PLAYER_ACTOR walk_to 1440.625 -181.375 
+		0004: $FLAG_BLIP_ON_MARIA = 2
 	end
 	if and
 		0038:   $FLAG_BLIP_ON_MARIA == 2
@@ -1586,18 +1552,53 @@ while 8038:   not  $FLAG_BLIP_ON_MARIA == 8
 		end
 	end
 	if and
-		0038:   $FLAG_BLIP_ON_MARIA == 1
-		00E4:   player $PLAYER_CHAR 0 1436.25 -180.625 radius 1.0 1.0 
+		0038:   $FLAG_BLIP_ON_MARIA == 3
+		03D0:   wav_loaded 
 	then
-		0211: actor $PLAYER_ACTOR walk_to 1440.625 -181.375 
-		0004: $FLAG_BLIP_ON_MARIA = 2
+		020E: actor $PLAYER_ACTOR look_at_actor $MARIA 
+		020E: actor $MARIA look_at_actor $PLAYER_ACTOR 
+		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
+		03D1: play_wav 
+		00BC: print_now 'FM1_Y' time 8000 flag 1  // ~w~You know I enjoyed myself for the first time in a long while, and you treated me really good. With respect and everything.
+		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 20000 ms 
+		0004: $FLAG_BLIP_ON_MARIA = 4
 	end
 	if and
-		0038:   $FLAG_BLIP_ON_MARIA == 0
-		00ED:   actor $MARIA #NULL 1436.25 -180.625 radius 1.0 1.0 
+		0038:   $FLAG_BLIP_ON_MARIA == 4
+		03D2:   wav_ended 
 	then
-		0211: actor $MARIA walk_to 1440.5 -179.125 
-		0004: $FLAG_BLIP_ON_MARIA = 1
+		020E: actor $PLAYER_ACTOR look_at_actor $MARIA 
+		020E: actor $MARIA look_at_actor $PLAYER_ACTOR 
+		03CF: load_wav 'S1_L' 
+		0004: $FLAG_BLIP_ON_MARIA = 5
+	end
+	if and
+		0038:   $FLAG_BLIP_ON_MARIA == 5
+		03D0:   wav_loaded 
+	then
+		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
+		03D1: play_wav 
+		00BC: print_now 'FM1_AA' time 8000 flag 1  // ~w~Oh, I'd better go. I'll see you around I hope.
+		0004: $FLAG_BLIP_ON_MARIA = 6 
+	end
+	if and
+		0038:   $FLAG_BLIP_ON_MARIA == 6
+		03D2:   wav_ended 
+	then
+		03EB: clear_small_messages_only 
+		0372: set_actor $MARIA anim WAITSTATE_FALSE wait_state_time 100 ms 
+		0211: actor $PLAYER_ACTOR walk_to 1443.563 -188.25 
+		0211: actor $MARIA walk_to 1453.5 -179.3125 
+		0004: $FLAG_BLIP_ON_MARIA = 7
+	end
+	if and
+		0038:   $FLAG_BLIP_ON_MARIA == 7 
+		00E3:   player $PLAYER_CHAR 0 1443.563 -188.25 radius 1.0 1.0 
+		82CB:   not is_actor_on_screen $MARIA 
+	then
+		0004: $MARIA_EXISTS = 0 
+		009B: delete_char $MARIA 
+		0004: $FLAG_BLIP_ON_MARIA = 8
 	end
 end //while
 
