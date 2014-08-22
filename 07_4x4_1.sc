@@ -10,7 +10,13 @@
 
 :M07_PATRIOTPLAYGROUND
 gosub @MISSION_START_4X4ONE
-GOSUB @MISSION_CLEANUP_4X4ONE
+if
+	0112:   has_deatharrest_been_executed 
+then
+	gosub @MISSION_4X4ONE_FAILED
+end
+:MISSION_END_4X4ONE
+gosub @MISSION_CLEANUP_4X4ONE
 end_thread
 
 // ****************************************Mission Start************************************
@@ -436,11 +442,9 @@ while 001A:   15 > $COUNTER_4X4_PICKUPS
 	end
 end
 
-if
-	0038:   $COUNTER_4X4_PICKUPS == 15
-then
-	goto @MISSION_4X4ONE_PASSED
-end
+goto @MISSION_4X4ONE_PASSED
+
+////////////////////////////////////////
 
 :MISSION_4X4ONE_CHECKPOINT_PICKED_UP
 0008: $COUNTER_4X4_PICKUPS += 1 
@@ -452,7 +456,7 @@ return
 
 :MISSION_4X4ONE_FAILED
 00BA: print_big 'M_FAIL' duration 2000 ms style 1  // MISSION FAILED!
-return
+goto @MISSION_END_4X4ONE
 
 // -------------------------Mission passed-------------------------------------------------
 
@@ -478,10 +482,9 @@ then
 	0004: $PATRIOT_PLAYGROUND_COMPLETED = 1 
 	030C: set_mission_points += 1 
 end
-//004F: create_thread @4x4_MISSION2_LOOP // Removed by R* 
-//004F: create_thread @4x4_MISSION4_LOOP // Removed by R* 
-return
+goto @MISSION_END_4X4ONE
 
+/////////////////////////////////////////
 
 // mission cleanup
 
@@ -507,4 +510,4 @@ return
 014F: stop_timer $TIMER_4X4 
 0004: $ONMISSION = 0 
 00D8: mission_has_finished 
-0051: return 
+return 

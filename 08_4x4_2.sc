@@ -15,6 +15,8 @@ if
 then
 	gosub @MISSION_4X4TWO_FAILED
 end
+
+:MISSION_END_4X4TWO
 gosub @MISSION_CLEANUP_4X4TWO
 end_thread
 
@@ -390,11 +392,9 @@ while 001A:   12 > $COUNTER_4X4_PICKUPS
 	end
 end
 
-if
-	0038:   $COUNTER_4X4_PICKUPS == 12
-then
-	goto @MISSION_4X4TWO_PASSED
-end
+0038:   $COUNTER_4X4_PICKUPS == 12
+
+/////////////////////////////////////////
 
 :MISSION_4X4TWO_CHECKPOINT_PICKED_UP
 0008: $COUNTER_4X4_PICKUPS += 1 
@@ -406,7 +406,7 @@ return
 
 :MISSION_4X4TWO_FAILED
 00BA: print_big 'M_FAIL' duration 2000 ms style 1  // MISSION FAILED!
-return
+goto @MISSION_END_4X4TWO
 
 // -------------------------Mission passed-------------------------------------------------
 
@@ -432,9 +432,9 @@ then
 	0004: $A_RIDE_IN_THE_PARK_COMPLETED = 1 
 	030C: set_mission_points += 1  
 end
-//004F: create_thread @4x4_MISSION3_LOOP // Removed by R* 
-return
+goto @MISSION_END_4X4TWO
 
+/////////////////////////////////////////
 
 // mission cleanup
 
@@ -457,4 +457,4 @@ return
 0164: disable_marker $BLIP_12 
 0004: $ONMISSION = 0 
 00D8: mission_has_finished 
-0051: return 
+return 

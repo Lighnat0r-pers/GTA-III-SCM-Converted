@@ -15,6 +15,8 @@ if
 then
 	gosub @MISSION_MAYHEM_FAILED
 end
+
+:MISSION_END_MAYHEM
 gosub @MISSION_CLEANUP_MAYHEM
 end_thread
 
@@ -524,11 +526,9 @@ while 001A:   20 > $COUNTER_4X4_PICKUPS
 	end
 end
 
-if
-	0038:   $COUNTER_4X4_PICKUPS == 20
-then
-	goto @MISSION_MAYHEM_PASSED
-end
+goto @MISSION_MAYHEM_PASSED
+
+/////////////////////////////////////////
 
 :MISSION_MAYHEM_CHECKPOINT_PICKED_UP
 0008: $COUNTER_4X4_PICKUPS += 1 
@@ -540,8 +540,7 @@ return
 
 :MISSION_MAYHEM_FAILED
 00BA: print_big 'M_FAIL' duration 2000 ms style 1  // MISSION FAILED!
-return
-
+goto @MISSION_END_MAYHEM
 // -------------------------Mission passed-------------------------------------------------
 
 :MISSION_MAYHEM_PASSED
@@ -566,10 +565,9 @@ then
 	0004: $MULTISTOREY_MAYHEM_COMPLETED = 1 
 	030C: set_mission_points += 1 
 end
-// This refers to a non-existent mission (Mayhem2?) cut at an early stage as there is no save_mayhem2_time opcode for it nor any code.
-//004F: create_thread @CARPARK_MISSION2_LOOP // Removed by R* 
-return
+goto @MISSION_END_MAYHEM
 
+/////////////////////////////////////////
 
 // mission cleanup
 
@@ -600,4 +598,4 @@ return
 014F: stop_timer $TIMER_4X4 
 0004: $ONMISSION = 0 
 00D8: mission_has_finished 
-0051: return 
+return 
