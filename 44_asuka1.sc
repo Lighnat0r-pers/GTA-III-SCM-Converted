@@ -207,7 +207,19 @@ while 82E9:   not cutscene_reached_end
 	wait 0 ms
 end
 
+03AF: set_streaming 1 
+03AD: set_rubbish 1 
 00BE: clear_prints 
+
+while fading
+	wait 0 ms
+end
+
+02EA: end_cutscene 
+016A: fade 0 for 0 ms 
+03C8: set_camera_directly_before_player 
+0001: wait 500 ms 
+016A: fade 1 for 1500 ms
 
 while fading
 	wait 0 ms
