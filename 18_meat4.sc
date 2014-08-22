@@ -56,37 +56,37 @@ while 001A:   2096 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA4_A' time 10000 flag 1  // Damn, I'm in trouble!
+00BC: print_now 'MEA4_A' duration 10000 ms flag 1  // Damn, I'm in trouble!
 while 001A:   3885 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA4_B' time 10000 flag 1  // Turns out my wife was seeing some guy I owe money to.
+00BC: print_now 'MEA4_B' duration 10000 ms flag 1  // Turns out my wife was seeing some guy I owe money to.
 while 001A:   7252 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA4_C' time 10000 flag 1  // He's got real angry and he's looking for payback!
+00BC: print_now 'MEA4_C' duration 10000 ms flag 1  // He's got real angry and he's looking for payback!
 while 001A:   10502 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA4_D' time 10000 flag 1  // I've agreed to see him...
+00BC: print_now 'MEA4_D' duration 10000 ms flag 1  // I've agreed to see him...
 while 001A:   11844 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA4_E' time 10000 flag 1  // he thinks I'm gonna pay him off...
+00BC: print_now 'MEA4_E' duration 10000 ms flag 1  // he thinks I'm gonna pay him off...
 while 001A:   13374 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA4_F' time 10000 flag 1  // but my guess is...
+00BC: print_now 'MEA4_F' duration 10000 ms flag 1  // but my guess is...
 while 001A:   14622 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA4_G' time 10000 flag 1  // Liberty's dogs are gonna get yet another flavor this month!
+00BC: print_now 'MEA4_G' duration 10000 ms flag 1  // Liberty's dogs are gonna get yet another flavor this month!
 while 001A:   17623 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
@@ -131,9 +131,9 @@ while true
 	wait 0 ms
 end //while
 
-00A5: create_car #STALLION at 1190.0 -796.0 13.75 store_to $CAR_MEAT4 
+00A5: $CAR_MEAT4 = create_car #STALLION at 1190.0 -796.0 13.75
 0175: set_car $CAR_MEAT4 z_angle_to 300.0 
-0186: $RADAR_BLIP_CAR_MEAT4 = create_marker_above_car $CAR_MEAT4 
+0186: $RADAR_BLIP_CAR_MEAT4 = create_marker_above_car $CAR_MEAT4
 
 // waiting for the player to get into the car
 
@@ -143,8 +143,8 @@ while 80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT4
 end //while
 
 0164: disable_marker $RADAR_BLIP_CAR_MEAT4 
-00BC: print_now 'MEA4_B3' time 7000 flag 1  // ~g~Pick up his wife's lover
-009A: create_char PEDTYPE_CIVMALE model #FAN_MAN2 at 897.0 -476.0 14.5625 store_to $LOANSHARK_MEAT4 
+00BC: print_now 'MEA4_B3' duration 7000 ms flag 1  // ~g~Pick up his wife's lover
+009A: $LOANSHARK_MEAT4 = create_char PEDTYPE_CIVMALE model #FAN_MAN2 at 897.0 -476.0 14.5625
 0243: set_actor $LOANSHARK_MEAT4 ped_stats_to PEDSTAT_TOUGH_GUY
 01ED: clear_actor $LOANSHARK_MEAT4 threat_search 
 01BE: set_actor $LOANSHARK_MEAT4 to_look_at_spot 895.0 -486.0 -100.0 
@@ -183,7 +183,7 @@ end //while
 
 0164: disable_marker $RADAR_BLIP_LOANSHARK_MEAT4 
 03D1: play_wav 
-00BC: print_now 'MEA4_B4' time 10000 flag 1  // Marty sent you huh? OK, I'm gonna show that creep the meaning of the word business.
+00BC: print_now 'MEA4_B4' duration 10000 ms flag 1  // Marty sent you huh? OK, I'm gonna show that creep the meaning of the word business.
 if
 	03D2:   wav_ended
 then
@@ -192,7 +192,7 @@ end
 
 018A: $RADAR_BLIP_COORD2_MEAT4 = create_checkpoint_at 1217.0 -794.0 -100.0
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 2
-009A: create_char PEDTYPE_CIVMALE model #B_MAN2 at 1208.0 -789.0 13.875 store_to $OWNER_MEAT4 
+009A: $OWNER_MEAT4 = create_char PEDTYPE_CIVMALE model #B_MAN2 at 1208.0 -789.0 13.875
 01ED: clear_actor $OWNER_MEAT4 threat_search 
 01BE: set_actor $OWNER_MEAT4 to_look_at_spot 1210.0 -791.0 -100.0 
 0004: $BLOB_FLAG = 1
@@ -268,7 +268,7 @@ end //while
 009F: char_set_idle $LOANSHARK_MEAT4 
 020E: actor $LOANSHARK_MEAT4 look_at_actor $OWNER_MEAT4 
 03D1: play_wav 
-00BC: print_now 'MEA4_B5' time 10000 flag 1  // Carl, hi! i eerr, I need more time to get your money.
+00BC: print_now 'MEA4_B5' duration 10000 ms flag 1  // Carl, hi! i eerr, I need more time to get your money.
 
 while 83D2:   not wav_ended
 	wait 0 ms
@@ -288,7 +288,7 @@ end //while
 
 020E: actor $LOANSHARK_MEAT4 look_at_actor $OWNER_MEAT4 
 03D1: play_wav 
-00BC: print_now 'MEA4_B7' time 20000 flag 1  // but if you just step into my office...
+00BC: print_now 'MEA4_B7' duration 20000 ms flag 1  // but if you just step into my office...
 
 while 83D2:   not wav_ended
 	wait 0 ms
@@ -308,7 +308,7 @@ end //while
 
 020E: actor $LOANSHARK_MEAT4 look_at_actor $OWNER_MEAT4 
 03D1: play_wav 
-00BC: print_now 'MEA4_B6' time 10000 flag 1  // It's far too late for that Marty. You had your chance, but now I'm taking over the business...
+00BC: print_now 'MEA4_B6' duration 10000 ms flag 1  // It's far too late for that Marty. You had your chance, but now I'm taking over the business...
 
 while 83D2:   not wav_ended
 	wait 0 ms
@@ -363,14 +363,14 @@ goto @MISSION_PASSED_MEAT4
 if
 	0119:   car $CAR_MEAT4 wrecked
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_MEAT4
 end
 if and
 	01F4:   car $CAR_MEAT4 flipped 
 	01C1:   car $CAR_MEAT4 stopped 
 then
-	00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+	00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 	goto @MISSION_FAILED_MEAT4
 end
 return
@@ -381,7 +381,7 @@ return
 if
 	0118:   actor $LOANSHARK_MEAT4 dead
 then
-	00BC: print_now 'MEA4_1' time 5000 flag 1  // ~r~Carlos is dead!
+	00BC: print_now 'MEA4_1' duration 5000 ms flag 1  // ~r~Carlos is dead!
 	goto @MISSION_FAILED_MEAT4
 end
 return
@@ -392,7 +392,7 @@ return
 if
 	0118:   actor $OWNER_MEAT4 dead
 then
-	00BC: print_now 'MEA4_2' time 5000 flag 1  // ~r~Marty Chonks is dead!
+	00BC: print_now 'MEA4_2' duration 5000 ms flag 1  // ~r~Marty Chonks is dead!
 	goto @MISSION_FAILED_MEAT4
 end
 return
@@ -404,8 +404,8 @@ if and
 	80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT4 
 	0038:   $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT4 == 0
 then
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
-	0186: $RADAR_BLIP_CAR_MEAT4 = create_marker_above_car $CAR_MEAT4  
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
+	0186: $RADAR_BLIP_CAR_MEAT4 = create_marker_above_car $CAR_MEAT4
 	if
 		0038:   $CURRENT_STEP_FOR_BLIP_MANIPULATION = 1
 	then
@@ -439,7 +439,7 @@ return
 if
 	80FB:   not player $PLAYER_CHAR 0 $LOANSHARK_MEAT4 radius 30.0 30.0 30.0 
 then
-	00BC: print_now 'MEA4_3' time 5000 flag 1  // ~r~You have left Carlos the loan shark behind!
+	00BC: print_now 'MEA4_3' duration 5000 ms flag 1  // ~r~You have left Carlos the loan shark behind!
 	goto @MISSION_FAILED_MEAT4
 end
 return
@@ -449,7 +449,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_MEAT4
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 if
 	8118:   not actor $OWNER_MEAT4 dead 
 then
@@ -467,9 +467,9 @@ goto @MISSION_END_MEAT4
 // Mission Passed
 
 :MISSION_PASSED_MEAT4
-01E3: text_1number_styled 'M_PASS' number 4000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 4000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0318: set_latest_mission_passed 'MEA4'  // 'HER LOVER'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 4000 
 0004: $HER_LOVER_COMPLETED = 1 

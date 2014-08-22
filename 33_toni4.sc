@@ -59,8 +59,8 @@ while true
 	wait 0 ms
 end //while
 
-009A: create_char PEDTYPE_GANG_MAFIA model #GANG02 at 1216.375 -309.875 -100.0 store_to $TONI4_MAFIA1 
-009A: create_char PEDTYPE_GANG_MAFIA model #GANG01 at 1215.875 -311.1875 29.0 store_to $TONI4_MAFIA2 
+009A: $TONI4_MAFIA1 = create_char PEDTYPE_GANG_MAFIA model #GANG02 at 1216.375 -309.875 -100.0
+009A: $TONI4_MAFIA2 = create_char PEDTYPE_GANG_MAFIA model #GANG01 at 1215.875 -311.1875 29.0
 if and
 	8118:   not actor $TONI4_MAFIA1 dead 
 	8118:   not actor $TONI4_MAFIA2 dead
@@ -102,42 +102,42 @@ while 001A:   82 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM4_A' time 10000 flag 1  // ~w~Oh it's you. TONI ain't here.
+00BC: print_now 'TM4_A' duration 10000 ms flag 1  // ~w~Oh it's you. TONI ain't here.
 while 001A:   2415 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM4_A2' time 10000 flag 1  // ~w~But he left one of his sugary love letters for you.
+00BC: print_now 'TM4_A2' duration 10000 ms flag 1  // ~w~But he left one of his sugary love letters for you.
 while 001A:   4420 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM4_B' time 10000 flag 1  // ~w~We're at WAR! The Triads have a fish factory as a front.
+00BC: print_now 'TM4_B' duration 10000 ms flag 1  // ~w~We're at WAR! The Triads have a fish factory as a front.
 while 001A:   7629 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM4_C' time 10000 flag 1  // ~w~Most of their business goes down at the fish market in Chinatown.
+00BC: print_now 'TM4_C' duration 10000 ms flag 1  // ~w~Most of their business goes down at the fish market in Chinatown.
 while 001A:   11110 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM4_D' time 10000 flag 1  // ~w~That laundry still owes us protection.
+00BC: print_now 'TM4_D' duration 10000 ms flag 1  // ~w~That laundry still owes us protection.
 while 001A:   13283 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM4_E' time 10000 flag 1  // ~w~They reckon the Triads are protecting them now, so I say we exact a fitting punishment.
+00BC: print_now 'TM4_E' duration 10000 ms flag 1  // ~w~They reckon the Triads are protecting them now, so I say we exact a fitting punishment.
 while 001A:   18058 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM4_F' time 10000 flag 1  // ~w~Take these boys over and whack the Triad Warlords!
+00BC: print_now 'TM4_F' duration 10000 ms flag 1  // ~w~Take these boys over and whack the Triad Warlords!
 while 001A:   21248 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM4_G' time 10000 flag 1  // ~w~Hell, if you get a chance, pop some of their soldiers too.
+00BC: print_now 'TM4_G' duration 10000 ms flag 1  // ~w~Hell, if you get a chance, pop some of their soldiers too.
 while 001A:   24000 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -216,7 +216,7 @@ end
 
 // START OF MISSION
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 906.375 -541.375 14.375 store_to $TONI4_TRIAD1 //Fish warhouse (Chinatown)
+009A: $TONI4_TRIAD1 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 906.375 -541.375 14.375 //Fish warhouse (Chinatown)
 01B2: give_actor $TONI4_TRIAD1 weapon WEAPONTYPE_UZI ammo 80 
 0173: set_actor $TONI4_TRIAD1 z_angle_to 109.0 
 0187: $TONI4_TRIAD1_MARKER = create_marker_above_actor $TONI4_TRIAD1 
@@ -225,7 +225,7 @@ end
 02A9: set_char_only_damaged_by_player $TONI4_TRIAD1 to 1 
 0350: set_actor $TONI4_TRIAD1 maintain_position_when_attacked 1 
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 968.5625 -682.1875 14.25 store_to $TONI4_TRIAD2 //Market place
+009A: $TONI4_TRIAD2 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 968.5625 -682.1875 14.25 //Market place
 01B2: give_actor $TONI4_TRIAD2 weapon WEAPONTYPE_UZI ammo 80 
 0187: $TONI4_TRIAD2_MARKER = create_marker_above_actor $TONI4_TRIAD2 
 035F: set_actor $TONI4_TRIAD2 armour_to 100 
@@ -233,7 +233,7 @@ end
 02A9: set_char_only_damaged_by_player $TONI4_TRIAD2 to 1 
 0350: set_actor $TONI4_TRIAD2 maintain_position_when_attacked 1 
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 968.25 -1136.75 15.0 store_to $TONI4_TRIAD3 //Fish factory
+009A: $TONI4_TRIAD3 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 968.25 -1136.75 15.0 //Fish factory
 01B2: give_actor $TONI4_TRIAD3 weapon WEAPONTYPE_UZI ammo 80 
 0173: set_actor $TONI4_TRIAD3 z_angle_to 38.0 
 0187: $TONI4_TRIAD3_MARKER = create_marker_above_actor $TONI4_TRIAD3 
@@ -294,12 +294,12 @@ while 8038:   not  $WARLORDS_DEAD == 3
 		if
 			00E9:   player $PLAYER_CHAR 0 $TONI4_TRIAD1 radius 80.0 80.0
 		then
-			009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 907.375 -542.375 14.375 store_to $TONI4_TRIAD4
+			009A: $TONI4_TRIAD4 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 907.375 -542.375 14.375
 			0173: set_actor $TONI4_TRIAD4 z_angle_to 180.0
 			01B2: give_actor $TONI4_TRIAD4 weapon WEAPONTYPE_UZI ammo 80
 			01DE: tie_actor $TONI4_TRIAD4 to_actor $TONI4_TRIAD1
 			011A: set_actor $TONI4_TRIAD4 search_threat THREAT_PLAYER1
-			009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 907.375 -542.375 14.375 store_to $TONI4_TRIAD5
+			009A: $TONI4_TRIAD5 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 907.375 -542.375 14.375
 			0173: set_actor $TONI4_TRIAD5 z_angle_to 160.0
 			01B2: give_actor $TONI4_TRIAD5 weapon WEAPONTYPE_UZI ammo 80
 			01DE: tie_actor $TONI4_TRIAD5 to_actor $TONI4_TRIAD1
@@ -327,11 +327,11 @@ while 8038:   not  $WARLORDS_DEAD == 3
 		if
 			00E9:   player $PLAYER_CHAR 0 $TONI4_TRIAD2 radius 80.0 80.0
 		then
-			009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 965.5625 -680.1875 14.25 store_to $TONI4_TRIAD6 
+			009A: $TONI4_TRIAD6 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 965.5625 -680.1875 14.25
 			01B2: give_actor $TONI4_TRIAD6 weapon WEAPONTYPE_UZI ammo 80 
 			01DE: tie_actor $TONI4_TRIAD6 to_actor $TONI4_TRIAD2 
 			011A: set_actor $TONI4_TRIAD6 search_threat THREAT_PLAYER1 
-			009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 965.5 -683.0 14.25 store_to $TONI4_TRIAD7 
+			009A: $TONI4_TRIAD7 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 965.5 -683.0 14.25
 			01B2: give_actor $TONI4_TRIAD7 weapon WEAPONTYPE_UZI ammo 80 
 			01DE: tie_actor $TONI4_TRIAD7 to_actor $TONI4_TRIAD2 
 			011A: set_actor $TONI4_TRIAD7 search_threat THREAT_PLAYER1 
@@ -358,12 +358,12 @@ while 8038:   not  $WARLORDS_DEAD == 3
 		if
 			00E9:   player $PLAYER_CHAR 0 $TONI4_TRIAD3 radius 80.0 80.0
 		then
-			009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 967.0625 -1134.0 15.0 store_to $TONI4_TRIAD8 
+			009A: $TONI4_TRIAD8 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 967.0625 -1134.0 15.0
 			01B2: give_actor $TONI4_TRIAD8 weapon WEAPONTYPE_UZI ammo 80 
 			01DE: tie_actor $TONI4_TRIAD8 to_actor $TONI4_TRIAD3 
 			011A: set_actor $TONI4_TRIAD8 search_threat THREAT_PLAYER1 
 			02A9: set_char_only_damaged_by_player $TONI4_TRIAD3 to 0 
-			009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 966.0625 -1129.0 15.0 store_to $TONI4_TRIAD9 
+			009A: $TONI4_TRIAD9 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 966.0625 -1129.0 15.0
 			01B2: give_actor $TONI4_TRIAD9 weapon WEAPONTYPE_UZI ammo 80 
 			01DE: tie_actor $TONI4_TRIAD9 to_actor $TONI4_TRIAD3 
 			011A: set_actor $TONI4_TRIAD9 search_threat THREAT_PLAYER1 
@@ -500,12 +500,12 @@ while 8038:   not  $WARLORDS_DEAD == 3
 	end
 
 	if and
-		0057:   player $PLAYER_CHAR coords 1025.188 -1108.375 12.0 to 1009.188 -1098.375 16.0 sphere 0 
+		0057:   is_player_in_area_3d $PLAYER_CHAR coords 1025.188 -1108.375 12.0 to 1009.188 -1098.375 16.0 sphere 0 
 		80DE:   not is_player_in_model $PLAYER_CHAR model #BELLYUP 
 		80DE:   not is_player_in_model $PLAYER_CHAR model #TRASH
 	then
 		if and
-			0057:   player $PLAYER_CHAR coords 1015.563 -1100.5 12.0 to 1009.188 -1108.063 16.0 sphere 0 
+			0057:   is_player_in_area_3d $PLAYER_CHAR coords 1015.563 -1100.5 12.0 to 1009.188 -1108.063 16.0 sphere 0 
 			0038:   $BEEN_IN_FISH_FACTORY == 0
 		then
 			0004: $BEEN_IN_FISH_FACTORY = 1 
@@ -513,7 +513,7 @@ while 8038:   not  $WARLORDS_DEAD == 3
 		if
 			0038:   $BEEN_IN_FISH_FACTORY == 0
 		then
-			00BC: print_now 'TM4_GAT' time 5000 flag 1  // ~g~You need a 'Triad fish van' to enter.
+			00BC: print_now 'TM4_GAT' duration 5000 ms flag 1  // ~g~You need a 'Triad fish van' to enter.
 		end
 	end
 end //while
@@ -536,11 +536,11 @@ goto @MISSION_END_TONI4
 :MISSION_PASSED_TONI4
 0004: $TRIADS_AND_TRIBULATIONS_COMPLETED = 1 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 30000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 30000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 30000 
 0318: set_latest_mission_passed 'TM4'  // 'TRIADS AND TRIBULATIONS'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 004F: create_thread @TONI_MISSION5_LOOP 
 015C: set_zone_gang_info 'CHINA' DAY 20 0 200 0 0 0 0 0 20 
 015C: set_zone_gang_info 'CHINA' NIGHT 10 0 300 0 0 0 0 0 10 

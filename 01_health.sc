@@ -51,7 +51,7 @@ while true
 end
 
 015F: set_camera_position 1138.563 -600.0 18.0 0.0 rotation 0.0 0.0 
-0157: camera_on_player $PLAYER_CHAR mode FIXED transition INTERPOLATION
+0157: camera_on_player $PLAYER_CHAR mode FIXED switchstyle INTERPOLATION
 while 001A:   8 > $FLAG_INFO 
 	wait 0 ms
 	if
@@ -62,9 +62,9 @@ while 001A:   8 > $FLAG_INFO
 		0395: clear_area 1 at 1125.75 -594.0 range 14.75 10.0 
 		01EB: set_car_density_to 0.0 
 		03DE: set_ped_density_multiplier 0.0 
-		00A5: create_car #AMBULAN at 1140.188 -621.5 14.75 store_to $WASTED_HELP_AMBULANCE 
+		00A5: $WASTED_HELP_AMBULANCE = create_car #AMBULAN at 1140.188 -621.5 14.75
 		0175: set_car $WASTED_HELP_AMBULANCE z_angle_to 90.0 
-		009A: create_char 4 model #MEDIC at 1136.75 -617.75 14.6875 store_to $WASTED_HELP_MEDIC 
+		009A: $WASTED_HELP_MEDIC = create_char PEDTYPE_CIVMALE model #MEDIC at 1136.75 -617.75 14.6875
 		0173: set_actor $WASTED_HELP_MEDIC z_angle_to 25.0 
 		009F: char_set_idle $WASTED_HELP_MEDIC 
 		0350: set_actor $WASTED_HELP_MEDIC maintain_position_when_attacked 1 
@@ -101,7 +101,7 @@ while 001A:   8 > $FLAG_INFO
 			8118:   not actor $WASTED_HELP_MEDIC dead
 		then
 			015F: set_camera_position 1133.0 -613.5 17.0 0.0 rotation 0.0 0.0 
-			0158: camera_on_vehicle $WASTED_HELP_AMBULANCE FIXED switchstyle JUMP_CUT
+			0158: camera_on_vehicle $WASTED_HELP_AMBULANCE mode FIXED switchstyle JUMP_CUT
 			0350: set_actor $WASTED_HELP_MEDIC maintain_position_when_attacked 0 
 			01D5: actor $WASTED_HELP_MEDIC go_to_and_drive_car $WASTED_HELP_AMBULANCE 
 		end
@@ -134,7 +134,7 @@ while 001A:   8 > $FLAG_INFO
 		0018:   $INFO_TIME_LAPSED > 22500 
 		0038:   $FLAG_INFO == 6 
 	then
-		0160: point_camera 1147.0 -601.0625 15.0 switchstyle 1 
+		0160: point_camera 1147.0 -601.0625 15.0 switchstyle INTERPOLATION 
 		0213: $WASTED_HELP_ARMOUR_PICKUP = create_pickup #BODYARMOUR type PICKUP_ON_STREET_SLOW at 1147.0 -601.0625 15.0 
 		0004: $FLAG_INFO = 7
 	end
@@ -188,7 +188,7 @@ while 001A:   8 > $FLAG_INFO
 		001A:   7 > $FLAG_INFO 
 	then
 		if
-			00E1:   is_button_pressed 0 button 16
+			00E1:   is_button_pressed PAD1 button CROSS
 		then
 			0004: $INFO_TIME_LAPSED = 24001 
 			0004: $FLAG_INFO = 7 

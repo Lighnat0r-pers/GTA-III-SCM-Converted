@@ -110,7 +110,7 @@ while 001A:   2433 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_A' time 10000 flag 1  // Hey I've gotta talk to you... All right Mick I'll talk to yah later.
+00BC: print_now 'LM3_A' duration 10000 ms flag 1  // Hey I've gotta talk to you... All right Mick I'll talk to yah later.
 while 001A:   5504 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -120,37 +120,37 @@ while 001A:   8333 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_B' time 10000 flag 1  // How yah doing kid?
+00BC: print_now 'LM3_B' duration 10000 ms flag 1  // How yah doing kid?
 while 001A:   9667 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_C' time 10000 flag 1  // The Don's son, Joey Leone, he wants some action from his regular girl Misty.
+00BC: print_now 'LM3_C' duration 10000 ms flag 1  // The Don's son, Joey Leone, he wants some action from his regular girl Misty.
 while 001A:   13833 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_D' time 10000 flag 1  // Go pick her up at Hepburn Heights...
+00BC: print_now 'LM3_D' duration 10000 ms flag 1  // Go pick her up at Hepburn Heights...
 while 001A:   15467 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_E' time 10000 flag 1  // but watch yourself that's Diablo turf.
+00BC: print_now 'LM3_E' duration 10000 ms flag 1  // but watch yourself that's Diablo turf.
 while 001A:   18233 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_F' time 10000 flag 1  // Then run her over to his garage in Trenton and make it quick,
+00BC: print_now 'LM3_F' duration 10000 ms flag 1  // Then run her over to his garage in Trenton and make it quick,
 while 001A:   21100 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_G' time 10000 flag 1  // Joey ain't the kind you keep waiting, remember, this is your foot in the door...
+00BC: print_now 'LM3_G' duration 10000 ms flag 1  // Joey ain't the kind you keep waiting, remember, this is your foot in the door...
 while 001A:   25333 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_H' time 10000 flag 1  // so keep your eyes on the road and off Misty!
+00BC: print_now 'LM3_H' duration 10000 ms flag 1  // so keep your eyes on the road and off Misty!
 while 001A:   27701 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -202,15 +202,15 @@ while fading
 	wait 0 ms
 end
 
-00BC: print_now 'LM3_10' time 5000 flag 1  // ~g~Get a vehicle!
+00BC: print_now 'LM3_10' duration 5000 ms flag 1  // ~g~Get a vehicle!
 03E5: text_box 'HELP15'  // When on foot press the ~h~~k~~PED_LOOKBEHIND~ button~w~ to ~h~look behind~w~.
 
 while 80E0:   not is_player_in_any_car $PLAYER_CHAR
 	wait 0 ms
 end
 
-00DA: store_car_player_is_in $PLAYER_CHAR store_to $LUIGI3_PLAYER_CAR 
-00BC: print_now 'LM3_4' time 7000 flag 1  // ~g~Go pick up Misty!
+00DA: $LUIGI3_PLAYER_CAR = store_car_player_is_in $PLAYER_CHAR
+00BC: print_now 'LM3_4' duration 7000 ms flag 1  // ~g~Go pick up Misty!
 03CF: load_wav 'L2_A' 
 018A: $LUIGI3_MISTY_MARKER = create_checkpoint_at 937.875 -259.75 -100.0 
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 1
@@ -301,7 +301,7 @@ end
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 0395: clear_area 1 at 941.6875 -269.1875 range 4.0 1.0 
 0164: disable_marker $LUIGI3_MISTY_MARKER 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 946.4375 -275.5 3.875 store_to $LUIGI3_MISTY 
+009A: $LUIGI3_MISTY = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 946.4375 -275.5 3.875
 01BE: set_actor $LUIGI3_MISTY to_look_at_spot 942.0 -268.0 -100.0 
 01ED: clear_actor $LUIGI3_MISTY threat_search 
 0245: set_actor $LUIGI3_MISTY walk_style_to ANIM_SEXY_WOMANPED 
@@ -333,12 +333,12 @@ gosub @CHECK_MISTY_STATUS
 0211: actor $LUIGI3_MISTY walk_to 944.0625 -270.6875 
 0006: 17@ = 0
 
-while 8126:   not actor $LUIGI3_MISTY walking // R*: Try this one to see if it passes ok
+while 8126:   not actor $LUIGI3_MISTY walking
 	wait 0 ms
 	if
 		00E0:   is_player_in_any_car $PLAYER_CHAR 
 	then
-		00DA: store_car_player_is_in $PLAYER_CHAR store_to $LUIGI3_PLAYER_CAR
+		00DA: $LUIGI3_PLAYER_CAR = store_car_player_is_in $PLAYER_CHAR
 		gosub @CHECK_VEHICLE_STATUS_LUIGI3
 	end
 	gosub @CHECK_MISTY_STATUS
@@ -357,7 +357,7 @@ end //while
 
 if and
 	8118:   not actor $LUIGI3_MISTY dead 
-	8339:   not objects_in_cube 934.0625 -266.4375 2.0 935.0625 -268.875 10.0 0 1 1 1 1
+	8339:   not objects_in_cube 934.0625 -266.4375 2.0 to 935.0625 -268.875 10.0 flags 0 1 1 1 1
 then
 	0395: clear_area 1 at 934.75 -267.4375 range 3.875 1.0 
 	00A1: set_char_coordinates $LUIGI3_MISTY to 934.75 -267.4375 3.875 
@@ -366,7 +366,7 @@ end
 if
 	00E0:   is_player_in_any_car $PLAYER_CHAR 
 then
-	00DA: store_car_player_is_in $PLAYER_CHAR store_to $LUIGI3_PLAYER_CAR
+	00DA: $LUIGI3_PLAYER_CAR = store_car_player_is_in $PLAYER_CHAR
 	01D4: actor $LUIGI3_MISTY go_to_car $LUIGI3_PLAYER_CAR and_enter_it_as_a_passenger 
 	gosub @CHECK_VEHICLE_STATUS_LUIGI3
 
@@ -384,7 +384,7 @@ else
 		if
 			00E0:   is_player_in_any_car $PLAYER_CHAR 
 		then
-			00DA: store_car_player_is_in $PLAYER_CHAR store_to $LUIGI3_PLAYER_CAR
+			00DA: $LUIGI3_PLAYER_CAR = store_car_player_is_in $PLAYER_CHAR
 			gosub @CHECK_VEHICLE_STATUS_LUIGI3
 		end
 		gosub @CHECK_MISTY_STATUS
@@ -399,7 +399,7 @@ end
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 0 
 03D1: play_wav 
-00BC: print_now 'LM3_5' time 7000 flag 1  // You working regular for Luigi now huh? It's about time he got a driver we can trust!
+00BC: print_now 'LM3_5' duration 7000 ms flag 1  // You working regular for Luigi now huh? It's about time he got a driver we can trust!
 
 
 while 83D2: not wav_ended
@@ -409,7 +409,7 @@ while 83D2: not wav_ended
 end //while
 
 03D5: remove_text 'LM3_5'  // You working regular for Luigi now huh? It's about time he got a driver we can trust!
-00BC: print_now 'LM3_2' time 5000 flag 1  // ~g~Take Misty to Joey's.
+00BC: print_now 'LM3_2' duration 5000 ms flag 1  // ~g~Take Misty to Joey's.
 018A: $LUIGI3_JOEY_MARKER = create_checkpoint_at 1196.0 -874.0 -100.0 
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 2
 0004: $BLOB_FLAG = 1 
@@ -441,7 +441,7 @@ gosub @CHECK_MISTY_STATUS
 if
 	00DF:   is_char_in_any_car $LUIGI3_MISTY
 then
-	00D9: store_car_char_is_in $LUIGI3_MISTY store_to $LUIGI3_PLAYER_CAR 
+	00D9: $LUIGI3_PLAYER_CAR = store_car_char_is_in $LUIGI3_MISTY 
 	01D3: actor $LUIGI3_MISTY leave_car $LUIGI3_PLAYER_CAR
 	while 00DF:   is_char_in_any_car $LUIGI3_MISTY
 		wait 0 ms
@@ -453,7 +453,7 @@ end
 if
 	00DF:   is_char_in_any_car $PLAYER_ACTOR
 then
-	00D9: store_car_char_is_in $PLAYER_ACTOR store_to $LUIGI3_PLAYER_CAR 
+	00D9: $LUIGI3_PLAYER_CAR = store_car_char_is_in $PLAYER_ACTOR
 	01D3: actor $PLAYER_ACTOR leave_car $LUIGI3_PLAYER_CAR
 	while 00DF:   is_char_in_any_car $PLAYER_ACTOR
 		wait 0 ms
@@ -534,11 +534,11 @@ end //while
 
 02E4: load_cutscene_data 'J0_DM2' 
 0244: set_cutscene_pos 1190.063 -869.8125 13.9375 
-00A5: create_car #MAFIA at 1189.063 -858.75 14.0 store_to $CUT_CAR_LM3 
+00A5: $CUT_CAR_LM3 = create_car #MAFIA at 1189.063 -858.75 14.0
 0175: set_car $CUT_CAR_LM3 z_angle_to 76.0 
-00A5: create_car #IDAHO at 1182.5 -857.0 14.0625 store_to $CUT_CAR2_LM3 
+00A5: $CUT_CAR2_LM3 = create_car #IDAHO at 1182.5 -857.0 14.0625
 0175: set_car $CUT_CAR2_LM3 z_angle_to 291.1875 
-00A5: create_car #STALLION at 1192.875 -860.75 14.0 store_to $CUT_CAR3_LM3 
+00A5: $CUT_CAR3_LM3 = create_car #STALLION at 1192.875 -860.75 14.0
 0175: set_car $CUT_CAR3_LM3 z_angle_to 150.0 
 02E5: $CUTSCENE_PLAYER = create_cutscene_object #NULL 
 02E6: set_cutscene_anim $CUTSCENE_PLAYER 'PLAYER' 
@@ -571,7 +571,7 @@ while 001A:   10538 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_6' time 10000 flag 1  // Joey...
+00BC: print_now 'LM3_6' duration 10000 ms flag 1  // Joey...
 while 001A:   11896 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -581,32 +581,32 @@ while 001A:   14353 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_6A' time 10000 flag 1  // Am I goin' to play with your big end again?
+00BC: print_now 'LM3_6A' duration 10000 ms flag 1  // Am I goin' to play with your big end again?
 while 001A:   16869 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_7' time 10000 flag 1  // I'll be with you in a minute spark plug.
+00BC: print_now 'LM3_7' duration 10000 ms flag 1  // I'll be with you in a minute spark plug.
 while 001A:   20173 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_8' time 10000 flag 1  // Hey, I'm Joey.
+00BC: print_now 'LM3_8' duration 10000 ms flag 1  // Hey, I'm Joey.
 while 001A:   21116 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_9' time 10000 flag 1  // Luigi said you were reliable so come back later,
+00BC: print_now 'LM3_9' duration 10000 ms flag 1  // Luigi said you were reliable so come back later,
 while 001A:   23397 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_9A' time 10000 flag 1  // there might be some work for you.
+00BC: print_now 'LM3_9A' duration 10000 ms flag 1  // there might be some work for you.
 while 001A:   25088 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM3_9B' time 10000 flag 1  // Alright?
+00BC: print_now 'LM3_9B' duration 10000 ms flag 1  // Alright?
 while 001A:   25723 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -663,7 +663,7 @@ if and
 	80E0:   not is_player_in_any_car $PLAYER_CHAR 
 	0038:   $FLAG_PLAYER_GOT_MESSAGE_LM3 == 0 
 then
-	00BC: print_now 'IN_VEH2' time 5000 flag 1  // ~g~You need some wheels for this job!
+	00BC: print_now 'IN_VEH2' duration 5000 ms flag 1  // ~g~You need some wheels for this job!
 	if 
 		0038:   $CURRENT_STEP_FOR_BLIP_MANIPULATION == 1
 	then
@@ -681,7 +681,7 @@ then
 	then
 		018A: $LUIGI3_MISTY_MARKER = create_checkpoint_at 937.875 -259.75 -100.0 
 	end
-	00DA: store_car_player_is_in $PLAYER_CHAR store_to $LUIGI3_PLAYER_CAR 
+	00DA: $LUIGI3_PLAYER_CAR = store_car_player_is_in $PLAYER_CHAR
 	0004: $FLAG_PLAYER_GOT_MESSAGE_LM3 = 0 
 	0004: $BLOB_FLAG = 1 
 end
@@ -693,7 +693,7 @@ return
 if
 	0118:   actor $LUIGI3_MISTY dead
 then
-	00BC: print_now 'MISTY1' time 5000 flag 1  // ~r~Misty is morgue-meat!
+	00BC: print_now 'MISTY1' duration 5000 ms flag 1  // ~r~Misty is morgue-meat!
 	goto @MISSION_FAILED_LUIGI3
 end
 return
@@ -704,7 +704,7 @@ return
 if
 	0119:   car $LUIGI3_PLAYER_CAR wrecked
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_LUIGI3
 end
 return
@@ -716,7 +716,7 @@ if and
 	8320:   not actor $LUIGI3_MISTY in_range_of_player $PLAYER_CHAR 
 	0038:   $FLAG_BLIP_ON_MISTY_LM3 == 0 
 then
-	00BC: print_now 'HEY4' time 5000 flag 1  // ~g~Lose Misty and Luigi will lose your face! Go and get her!
+	00BC: print_now 'HEY4' duration 5000 ms flag 1  // ~g~Lose Misty and Luigi will lose your face! Go and get her!
 	0187: $RADAR_BLIP_PED1_LM3 = create_marker_above_actor $LUIGI3_MISTY 
 	if 
 		0038:   $CURRENT_STEP_FOR_BLIP_MANIPULATION == 2
@@ -735,7 +735,7 @@ then
 	if 
 		0038:   $CURRENT_STEP_FOR_BLIP_MANIPULATION == 2
 	then
-		00BC: print_now 'LM3_2' time 5000 flag 1  // ~g~Take Misty to Joey's.
+		00BC: print_now 'LM3_2' duration 5000 ms flag 1  // ~g~Take Misty to Joey's.
 		018A: $LUIGI3_JOEY_MARKER = create_checkpoint_at 1196.0 -874.0 -100.0 
 	end
 	0004: $FLAG_BLIP_ON_MISTY_LM3 = 0 
@@ -748,7 +748,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_LUIGI3
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_LUIGI3
 
 /////////////////////////////////////////
@@ -758,8 +758,8 @@ goto @MISSION_END_LUIGI3
 :MISSION_PASSED_LUIGI3
 0004: $DRIVE_MISTY_FOR_ME_COMPLETED = 1 
 0318: set_latest_mission_passed 'LM3'  // 'DRIVE MISTY FOR ME'
-030C: progress_made = 1 
-01E3: text_1number_styled 'M_PASS' number 1000 time 5000 style 1  // MISSION PASSED! $~1~
+030C: set_mission_points += 1 
+01E3: text_1number_styled 'M_PASS' number 1000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 1000 
 0110: clear_player $PLAYER_CHAR wanted_level 

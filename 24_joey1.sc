@@ -67,7 +67,7 @@ end //while
 
 02E4: load_cutscene_data 'J1_LFL' 
 0244: set_cutscene_pos 1190.063 -869.8125 13.9375 
-00A5: create_car #IDAHO at 1182.5 -857.0 14.0625 store_to $CUT_CAR2_LM3 
+00A5: $CUT_CAR2_LM3 = create_car #IDAHO at 1182.5 -857.0 14.0625
 0175: set_car $CUT_CAR2_LM3 z_angle_to 291.1875 
 02E5: $CUTSCENE_PLAYER = create_cutscene_object #NULL 
 02E6: set_cutscene_anim $CUTSCENE_PLAYER 'PLAYER' 
@@ -100,57 +100,57 @@ while 001A:   433 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_A' time 10000 flag 2  // Hey, I'm bored when you gonna drill me?
+00BC: print_now 'JM1_A' duration 10000 ms flag 2  // Hey, I'm bored when you gonna drill me?
 while 001A:   2739 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_B' time 10000 flag 2  // In a moment sweet heart, I got a little business to take care of.
+00BC: print_now 'JM1_B' duration 10000 ms flag 2  // In a moment sweet heart, I got a little business to take care of.
 while 001A:   6344 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_C' time 10000 flag 2  // I got a little job for you pal.
+00BC: print_now 'JM1_C' duration 10000 ms flag 2  // I got a little job for you pal.
 while 001A:   8362 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_D' time 10000 flag 2  // The Forelli brothers have owed me money for too long
+00BC: print_now 'JM1_D' duration 10000 ms flag 2  // The Forelli brothers have owed me money for too long
 while 001A:   10700 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_E' time 10000 flag 2  // and they need to be taught some respect.
+00BC: print_now 'JM1_E' duration 10000 ms flag 2  // and they need to be taught some respect.
 while 001A:   12688 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_F' time 10000 flag 2  // Lips Forelli is stuffing his fat face in St Marks Bistro,
+00BC: print_now 'JM1_F' duration 10000 ms flag 2  // Lips Forelli is stuffing his fat face in St Marks Bistro,
 while 001A:   15858 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_G' time 10000 flag 2  // so steal his car and take it to 8-Ball's bomb shop up in Harwood.
+00BC: print_now 'JM1_G' duration 10000 ms flag 2  // so steal his car and take it to 8-Ball's bomb shop up in Harwood.
 while 001A:   19969 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_H' time 10000 flag 2  // You know 8-Ball right?
+00BC: print_now 'JM1_H' duration 10000 ms flag 2  // You know 8-Ball right?
 while 001A:   21519 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_I' time 3000 flag 2  // Once he's fitted it with a bomb, go park the car where you found it.
+00BC: print_now 'JM1_I' duration 3000 ms flag 2  // Once he's fitted it with a bomb, go park the car where you found it.
 while 001A:   24979 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_J' time 10000 flag 2  // Then sit back and watch the whole show.
+00BC: print_now 'JM1_J' duration 10000 ms flag 2  // Then sit back and watch the whole show.
 while 001A:   27466 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM1_K' time 10000 flag 2  // But hurry up, he won't be eating forever.
+00BC: print_now 'JM1_K' duration 10000 ms flag 2  // But hurry up, he won't be eating forever.
 while 001A:   29204 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -217,7 +217,7 @@ then
 	0004: $TIMER_HELP_MESSAGE_DISPLAYED = 1
 end
 
-00A5: create_car #IDAHO at 1336.188 -460.75 -100.0 store_to $LIPSFORELLI_CAR 
+00A5: $LIPSFORELLI_CAR = create_car #IDAHO at 1336.188 -460.75 -100.0
 044F: make_craigs_car_a_bit_stronger $LIPSFORELLI_CAR 1 
 020A: set_car $LIPSFORELLI_CAR door_status_to CARLOCK_FORCE_SHUT_DOORS
 0175: set_car $LIPSFORELLI_CAR z_angle_to 90.0 
@@ -234,7 +234,7 @@ while 80DC:   not is_player_in_car $PLAYER_CHAR car $LIPSFORELLI_CAR
 	gosub @CHECK_TIMER_STATUS_JOEY1
 end //while
 
-00BC: print_now 'JM1_1' time 5000 flag 1  // ~g~Take Forelli's car to 8-Ball's garage North of here, behind 'Easy Credit Autos'.
+00BC: print_now 'JM1_1' duration 5000 ms flag 1  // ~g~Take Forelli's car to 8-Ball's garage North of here, behind 'Easy Credit Autos'.
 021D: set_free_bomb_shop_to 1 
 
 :GO_TO_8BALLS
@@ -256,7 +256,7 @@ while true
 end //while
 
 0001: wait 4000 ms 
-00BC: print_now 'JM1_2' time 5000 flag 2  // ~g~Park the car back at Marco's Bistro.
+00BC: print_now 'JM1_2' duration 5000 ms flag 2  // ~g~Park the car back at Marco's Bistro.
 0164: disable_marker $BLIP1_JM1 
 0164: disable_marker $BLIP2_JM1 
 0164: disable_marker $BLIP4_JM1 
@@ -290,7 +290,7 @@ while true
 			010F:   player $PLAYER_CHAR wanted_level > 0 
 			0038:   $FLAG_DISPLAYED_WANTED_MESSAGE_JM1 == 0
 		then
-			00BC: print_now 'WANTED1' time 4000 flag 1  // ~g~Shake the cops and lose your wanted level!
+			00BC: print_now 'WANTED1' duration 4000 ms flag 1  // ~g~Shake the cops and lose your wanted level!
 			0004: $FLAG_DISPLAYED_WANTED_MESSAGE_JM1 = 1 
 		end
 	else
@@ -311,13 +311,13 @@ then
 		0020:   $MIKES_CAR_HEADING > 100.0 
 		0022:   80.0 > $MIKES_CAR_HEADING
 	then
-		00BC: print_now 'JM1_6' time 5000 flag 1  // ~g~Put the car back in the correct position.
+		00BC: print_now 'JM1_6' duration 5000 ms flag 1  // ~g~Put the car back in the correct position.
 		goto @JOEY_LABEL1
 	end
 	if
 		00DC:   is_player_in_car $PLAYER_CHAR car $LIPSFORELLI_CAR
 	then
-		00BC: print_now 'JM1_3' time 5000 flag 2  // ~g~Activate the car bomb then get out of there!
+		00BC: print_now 'JM1_3' duration 5000 ms flag 2  // ~g~Activate the car bomb then get out of there!
 	end
 end
 
@@ -328,8 +328,8 @@ gosub @CHECK_VEHICLE_STATUS_JOEY1
 while true
 	if or
 		81AC:   not car $LIPSFORELLI_CAR stopped 1 1339.563 -459.5 49.0 1332.75 -462.75 53.0 
-		0057:   player $PLAYER_CHAR coords 1306.0 -482.0 49.0 to 1350.0 -444.0 59.0 sphere 0 
-		8057:   not player $PLAYER_CHAR coords 1306.0 -484.0 49.0 to 1370.0 -434.0 69.0 sphere 0
+		0057:   is_player_in_area_3d $PLAYER_CHAR coords 1306.0 -482.0 49.0 to 1350.0 -444.0 59.0 sphere 0 
+		8057:   not is_player_in_area_3d $PLAYER_CHAR coords 1306.0 -484.0 49.0 to 1370.0 -434.0 69.0 sphere 0
 	jf break
 	wait 0 ms
 	gosub @CHECK_VEHICLE_STATUS_JOEY1
@@ -337,7 +337,7 @@ while true
 	if
 		80B1:   not is_car_in_area_3d $LIPSFORELLI_CAR from 1339.563 -459.5 49.0 to 1332.75 -462.75 53.0 sphere 0
 	then
-		00BC: print_now 'JM1_6' time 5000 flag 1  // ~g~Put the car back in the correct position.
+		00BC: print_now 'JM1_6' duration 5000 ms flag 1  // ~g~Put the car back in the correct position.
 		goto @JOEY_LABEL1
 	end
 	0174: $MIKES_CAR_HEADING = car $LIPSFORELLI_CAR z_angle
@@ -345,7 +345,7 @@ while true
 		0020:   $MIKES_CAR_HEADING > 100.0 
 		0022:   80.0 > $MIKES_CAR_HEADING
 	then
-		00BC: print_now 'JM1_6' time 5000 flag 1  // ~g~Put the car back in the correct position.
+		00BC: print_now 'JM1_6' duration 5000 ms flag 1  // ~g~Put the car back in the correct position.
 		goto @JOEY_LABEL1
 	end
 	if or
@@ -360,7 +360,7 @@ gosub @CHECK_TIMER_STATUS_JOEY1
 if
 	8228:   not car $LIPSFORELLI_CAR bomb_status == CARBOMB_ONIGNITIONACTIVE
 then
-	00BC: print_now 'JM1_5' time 5000 flag 1  // ~g~The car bomb's not set!
+	00BC: print_now 'JM1_5' duration 5000 ms flag 1  // ~g~The car bomb's not set!
 	goto @CARS_RIGGED
 end
 
@@ -374,7 +374,7 @@ end
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL03 at 1325.5 -452.5 -100.0 store_to $JOEY1_MIKELIPS 
+009A: $JOEY1_MIKELIPS = create_char PEDTYPE_SPECIAL model #SPECIAL03 at 1325.5 -452.5 -100.0
 0173: set_actor $JOEY1_MIKELIPS z_angle_to 270.0 
 015F: set_camera_position 1337.813 -468.625 49.75 0.0 rotation 0.0 0.0 
 0160: point_camera 1337.0 -468.0 49.9375 switchstyle JUMP_CUT
@@ -431,7 +431,7 @@ end
 if
 	8119:   not car $LIPSFORELLI_CAR wrecked 
 then
-	0158: camera_on_vehicle $LIPSFORELLI_CAR 15 switchstyle JUMP_CUT
+	0158: camera_on_vehicle $LIPSFORELLI_CAR mode FIXED switchstyle JUMP_CUT
 end
 
 if
@@ -466,7 +466,7 @@ end //while
 03F4: set_all_cars_can_be_damaged 1 
 0001: wait 2500 ms 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 10000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 10000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0109: player $PLAYER_CHAR money += 10000 
 0004: $MISSION_PASSED_FOR_LIPS_FINISHED = 1 
 0001: wait 5000 ms 
@@ -482,14 +482,14 @@ goto @MISSION_PASSED_JOEY1
 if
 	0119:   car $LIPSFORELLI_CAR wrecked 
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_JOEY1
 end
 if and
 	01F4:   car $LIPSFORELLI_CAR flipped 
 	01C1:   car $LIPSFORELLI_CAR stopped
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_JOEY1
 end
 return
@@ -500,7 +500,7 @@ return
 if
 	0038:   $COUNTDOWN_JM1 == 0
 then
-	00BC: print_now 'OUTTIME' time 5000 flag 1  // ~r~Too slow, man, too slow!
+	00BC: print_now 'OUTTIME' duration 5000 ms flag 1  // ~r~Too slow, man, too slow!
 	goto @MISSION_FAILED_JOEY1
 end
 return
@@ -558,7 +558,7 @@ then
 			0004: $BLOB_FLAG = 0
 		end
 	end
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 	0004: $FLAG_CAR_BLIP_DISPLAYED_JM1 = 1
 end
 return
@@ -570,7 +570,7 @@ if or
 	8185:   not car $LIPSFORELLI_CAR health >= 700 
 	03C9:   car $LIPSFORELLI_CAR damaged
 then
-	00BD: print_soon 'JM1_4' time 5000 flag 2  // ~g~You're trashing the vehicle! Get it repaired!
+	00BD: print_soon 'JM1_4' duration 5000 ms flag 2  // ~g~You're trashing the vehicle! Get it repaired!
 	if
 		0038: $CURRENT_STEP_FOR_BLIP_MANIPULATION == 3
 	then
@@ -628,7 +628,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_JOEY1
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_JOEY1
 
 /////////////////////////////////////////
@@ -641,12 +641,12 @@ if
 	0038:   $MISSION_PASSED_FOR_LIPS_FINISHED == 0 
 then
 	0394: play_mission_passed_music 1 
-	01E3: text_1number_styled 'M_PASS' number 10000 time 5000 style 1  // MISSION PASSED! $~1~
+	01E3: text_1number_styled 'M_PASS' number 10000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 	0109: player $PLAYER_CHAR money += 10000 
 	0004: $MISSION_PASSED_FOR_LIPS_FINISHED = 1 
 end
 0318: set_latest_mission_passed 'JM1'  // 'MIKE LIPS LAST LUNCH'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 034F: destroy_actor_with_fade $JOEY1_MIKELIPS 
 004F: create_thread @JOEY_MISSION2_LOOP 
 goto @MISSION_END_JOEY1

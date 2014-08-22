@@ -79,42 +79,42 @@ while 001A:   5118 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM2_A' time 10000 flag 2  // Chunky Lee Chong is pushing spank for some new gang from Colombia... or Colorado... or something....
+00BC: print_now 'JM2_A' duration 10000 ms flag 2  // Chunky Lee Chong is pushing spank for some new gang from Colombia... or Colorado... or something....
 while 001A:   10669 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM2_B' time 10000 flag 2  // I'm not really sure. Who needs details anyway.
+00BC: print_now 'JM2_B' duration 10000 ms flag 2  // I'm not really sure. Who needs details anyway.
 while 001A:   13048 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM2_C' time 10000 flag 2  // He's got a noodle stand down in China Town.
+00BC: print_now 'JM2_C' duration 10000 ms flag 2  // He's got a noodle stand down in China Town.
 while 001A:   15427 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM2_D' time 10000 flag 2  // That rat has sold his last stir fry.
+00BC: print_now 'JM2_D' duration 10000 ms flag 2  // That rat has sold his last stir fry.
 while 001A:   17662 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM2_E' time 10000 flag 2  // I want you to take him out!
+00BC: print_now 'JM2_E' duration 10000 ms flag 2  // I want you to take him out!
 while 001A:   18887 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM2_F' time 10000 flag 2  // If you need a piece go around back of AmmuNation opposite the subway.
+00BC: print_now 'JM2_F' duration 10000 ms flag 2  // If you need a piece go around back of AmmuNation opposite the subway.
 while 001A:   22708 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM2_G' time 10000 flag 2  // Sort yourself with a nine, you know where it is, right?
+00BC: print_now 'JM2_G' duration 10000 ms flag 2  // Sort yourself with a nine, you know where it is, right?
 while 001A:   25159 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM2_H' time 10000 flag 2  // Well remember, just watch your back in China Town, it's Triad territory.
+00BC: print_now 'JM2_H' duration 10000 ms flag 2  // Well remember, just watch your back in China Town, it's Triad territory.
 while 001A:   28982 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -163,30 +163,30 @@ end //while
 
 032B: $JOEY2_COLT45_PICKUP = create_weapon_pickup #COLT45 PICKUP_ONCE ammo 45 at 1080.5 -396.0 -100.0 
 03DD: pickup $JOEY2_COLT45_PICKUP show_on_radar RADAR_SPRITE_WEAPON $BLIP2_JM2 
-0107: $JOEY2_NOODLE_STAND = create_object #NOODLESBOX at 975.0 -720.0 14.0 
+0107: $JOEY2_NOODLE_STAND = create_object #NOODLESBOX at 975.0 -720.0 14.0
 
 // START OF MISSION
 
-00A5: create_car #PEREN at 1007.063 -756.375 14.5 store_to $JOEY2_PERENNIAL1 
+00A5: $JOEY2_PERENNIAL1 = create_car #PEREN at 1007.063 -756.375 14.5
 0175: set_car $JOEY2_PERENNIAL1 z_angle_to 120.0 
-00A5: create_car #PEREN at 912.25 -686.0625 14.5 store_to $JOEY2_PERENNIAL2 
+00A5: $JOEY2_PERENNIAL2 = create_car #PEREN at 912.25 -686.0625 14.5
 0175: set_car $JOEY2_PERENNIAL2 z_angle_to 90.0 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG03 at 976.0625 -715.25 14.1875 store_to $JOEY2_TRIAD1 
+009A: $JOEY2_TRIAD1 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 976.0625 -715.25 14.1875
 0173: set_actor $JOEY2_TRIAD1 z_angle_to 346.0 
 01B2: give_actor $JOEY2_TRIAD1 weapon WEAPONTYPE_BASEBALLBAT ammo 0 
 0194: set_actor $JOEY2_TRIAD1 objective_to_guard_point 976.0625 -715.25 14.1875 
 0243: set_actor $JOEY2_TRIAD1 ped_stats_to PEDSTAT_TOUGH_GUY 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG03 at 975.6875 -724.6875 14.1875 store_to $JOEY2_TRIAD2 
+009A: $JOEY2_TRIAD2 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 975.6875 -724.6875 14.1875
 0173: set_actor $JOEY2_TRIAD2 z_angle_to 222.0 
 01B2: give_actor $JOEY2_TRIAD2 weapon WEAPONTYPE_BASEBALLBAT ammo 0 
 0194: set_actor $JOEY2_TRIAD2 objective_to_guard_point 975.6875 -724.6875 14.1875 
 0243: set_actor $JOEY2_TRIAD2 ped_stats_to PEDSTAT_TOUGH_GUY 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG03 at 984.0 -727.6875 14.1875 store_to $JOEY2_TRIAD3 
+009A: $JOEY2_TRIAD3 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 984.0 -727.6875 14.1875
 0173: set_actor $JOEY2_TRIAD3 z_angle_to 243.0 
 01B2: give_actor $JOEY2_TRIAD3 weapon WEAPONTYPE_PISTOL ammo 100 
 0194: set_actor $JOEY2_TRIAD3 objective_to_guard_point 984.0 -727.6875 14.1875 
 0243: set_actor $JOEY2_TRIAD3 ped_stats_to PEDSTAT_TOUGH_GUY 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 975.25 -720.375 14.1875 store_to $CHUNKY_LEE_CHONG 
+009A: $CHUNKY_LEE_CHONG = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 975.25 -720.375 14.1875
 0173: set_actor $CHUNKY_LEE_CHONG z_angle_to 270.0 
 0187: $JOEY2_CHUNKY_MARKER = create_marker_above_actor $CHUNKY_LEE_CHONG 
 0192: set_actor $CHUNKY_LEE_CHONG objective_to_stand_still 
@@ -504,7 +504,7 @@ return
 if
 	80E9:   not player $PLAYER_CHAR 0 $CHUNKY_LEE_CHONG radius 160.0 160.0
 then
-	00BC: print_now 'AWAY' time 5000 flag 2  // ~r~He's clean out of here!
+	00BC: print_now 'AWAY' duration 5000 ms flag 2  // ~r~He's clean out of here!
 	goto @MISSION_FAILED_JOEY2
 end
 return
@@ -514,7 +514,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_JOEY2
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_JOEY2
 
 /////////////////////////////////////////
@@ -524,11 +524,11 @@ goto @MISSION_END_JOEY2
 :MISSION_PASSED_JOEY2
 0004: $FAREWELL_CHUNKY_COMPLETED = 1 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 10000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 10000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 10000 
 0318: set_latest_mission_passed 'JM2'  // 'FAREWELL 'CHUNKY' LEE CHONG'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 004F: create_thread @JOEY_MISSION3_LOOP 
 if 
 	0038:   $DISPLAYED_PISTOL_NOW_AT_AMMUNITION_HELP_TEXT == 0 
@@ -616,7 +616,7 @@ if
 	0038:   $HAS_AUDIO_BEEN_ACTIVATED == 0
 then
 	if
-		0057:   player $PLAYER_CHAR coords 1066.563 -403.5 14.0 to 1072.75 -394.0 18.0 sphere 0
+		0057:   is_player_in_area_3d $PLAYER_CHAR coords 1066.563 -403.5 14.0 to 1072.75 -394.0 18.0 sphere 0
 	then
 		0004: $SPECIAL_AMMU_AUDIO = 1
 		03CF: load_wav 'AMMU_B' 
@@ -636,7 +636,7 @@ then
 					end
 				end //while
 				03D1: play_wav 
-				00BC: print_now 'AMMU_B' time 5000 flag 2  // Joey told me to tool you up...
+				00BC: print_now 'AMMU_B' duration 5000 ms flag 2  // Joey told me to tool you up...
 				while 83D2:   not wav_ended 
 					wait 0 ms
 					if or
@@ -657,7 +657,7 @@ then
 					end
 				end //while
 				03D1: play_wav 
-				00BC: print_now 'AMMU_C' time 5000 flag 2  // So go around back of the shop. I left you a nine in the yard.
+				00BC: print_now 'AMMU_C' duration 5000 ms flag 2  // So go around back of the shop. I left you a nine in the yard.
 
 :CLEAR_AUDIO
 

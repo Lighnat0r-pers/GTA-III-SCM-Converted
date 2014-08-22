@@ -9,7 +9,7 @@ if or
 	8256:   not is_player $PLAYER_CHAR defined
 	0445:   are_any_car_cheats_activated
 then
-	jump @MISSION_START_HJ
+	goto @MISSION_START_HJ
 end
 if 
 	00E0:   is_player_in_any_car $PLAYER_CHAR 
@@ -83,25 +83,25 @@ then
 				0119:   car $CAR_PLAYER_IS_IN_HJ wrecked
 				8256:   not is_player $PLAYER_CHAR defined 
 			then
-				jump @MISSION_START_HJ
+				goto @MISSION_START_HJ
 			end
 			if
 				80E0:   not is_player_in_any_car $PLAYER_CHAR
 			then
-				jump @MISSION_START_HJ
+				goto @MISSION_START_HJ
 			end
 			if and
 				820D:   not car $CAR_PLAYER_IS_IN_HJ is_upright 
 				0038:   $FLAG_CAR_UPSIDEDOWN_HJ == 0
 			then
-				0004:   $FLAG_CAR_UPSIDEDOWN_HJ = 1
+				0004: $FLAG_CAR_UPSIDEDOWN_HJ = 1
 			end
 			if and
 				020D:   car $CAR_PLAYER_IS_IN_HJ is_upright
 				0038:   $FLAG_CAR_UPSIDEDOWN_HJ == 1
 			then
-				0008:   $COUNTER_STUNT_ROLLS_HJ += 1
-				0004:   $FLAG_CAR_UPSIDEDOWN_HJ = 0
+				0008: $COUNTER_STUNT_ROLLS_HJ += 1
+				0004: $FLAG_CAR_UPSIDEDOWN_HJ = 0
 			end
 			0174: $HEADING_HJ = car $CAR_PLAYER_IS_IN_HJ z_angle 
 			0086: $HEADING_DIFFERENCE = $HEADING_HJ 
@@ -138,10 +138,10 @@ then
 			0005: $Z_FLOAT_HJ = 0.0 
 		end //while
 	else
-		jump @MISSION_START_HJ
+		goto @MISSION_START_HJ
 	end
 else
-	jump @MISSION_START_HJ
+	goto @MISSION_START_HJ
 end
 
 if
@@ -152,19 +152,18 @@ then
 		if
 			0119:   car $CAR_PLAYER_IS_IN_HJ wrecked
 		then
-			jump @MISSION_START_HJ
-		else
-			if
-				815E:   not car $CAR_PLAYER_IS_IN_HJ in_air 
-			then
-				0008: $COUNTER_WHEELS_HJ +=  1
-			end
+			goto @MISSION_START_HJ
+		end
+		if
+			815E:   not car $CAR_PLAYER_IS_IN_HJ in_air 
+		then
+			0008: $COUNTER_WHEELS_HJ +=  1
 		end
 		wait 0 ms
 		if
 			8256:   not is_player $PLAYER_CHAR defined 
 		then
-			jump @MISSION_START_HJ
+			goto @MISSION_START_HJ
 		end
 		0008: $COUNTER_LAND_ON_WHEELS_HJ += 1
 	end //while
@@ -197,27 +196,27 @@ then
 	0311: save_jump_rotation $TOTAL_ROTATION_INT 
 end
 if
-	0020: $HEIGHT_FLOAT_HJ > 4.0 //4 METERS HIGH
+	0020:   $HEIGHT_FLOAT_HJ > 4.0 //4 METERS HIGH
 then
 	0008: $STUNT_FLAGS_HJ += 1
 end
 if
-	0018: $JUMPDISTANCE_INT_HJ > 30 //30 METERS LONG
+	0018:   $JUMPDISTANCE_INT_HJ > 30 //30 METERS LONG
 then
 	0008: $STUNT_FLAGS_HJ += 1
 end
 if
-	0018: $COUNTER_STUNT_ROLLS_HJ > 0 //1 ROLLS/FLIPS IN MID AIR
+	0018:   $COUNTER_STUNT_ROLLS_HJ > 0 //1 ROLLS/FLIPS IN MID AIR
 then
 	0008: $STUNT_FLAGS_HJ += 1
 end
 if
-	0018: $TOTAL_ROTATION_INT > 360 //360 SPIN IN MID AIR
+	0018:   $TOTAL_ROTATION_INT > 360 //360 SPIN IN MID AIR
 then
 	0008: $STUNT_FLAGS_HJ += 1
 end
 if
-	0018: $COUNTER_WHEELS_HJ > 60 //LAND ON WHEELS
+	0018:   $COUNTER_WHEELS_HJ > 60 //LAND ON WHEELS
 then
 	0004: $FLAG_WHEELS_HJ = 1
 end
@@ -234,7 +233,7 @@ then
 	0010: $CASH_REWARD_TEMP *= 45 
 	0058: $CASH_REWARD += $CASH_REWARD_TEMP
 	if
-		0038: $FLAG_WHEELS_HJ == 1
+		0038:   $FLAG_WHEELS_HJ == 1
 	then 
 		0010: $CASH_REWARD *= 2
 	end
@@ -242,70 +241,70 @@ then
 	0014: $CASH_REWARD /= 3
 	0109: player $PLAYER_CHAR money += $CASH_REWARD
 	if and
-		0038: $STUNT_FLAGS_HJ == 1
-		0038: $FLAG_WHEELS_HJ == 0
+		0038:   $STUNT_FLAGS_HJ == 1
+		0038:   $FLAG_WHEELS_HJ == 0
 	then
-		01E4: text_1number_lowpriority 'HJ_IS' $CASH_REWARD 2000 ms 1  // INSANE STUNT BONUS: $~1~
+		01E4: text_1number_lowpriority 'HJ_IS' number $CASH_REWARD duration 2000 ms flag 1  // INSANE STUNT BONUS: $~1~
 		0312: save_jump_type 1
 	end
 	if and
-		0038: $STUNT_FLAGS_HJ == 1
-		0038: $FLAG_WHEELS_HJ == 1
+		0038:   $STUNT_FLAGS_HJ == 1
+		0038:   $FLAG_WHEELS_HJ == 1
 	then
-		01E4: text_1number_lowpriority 'HJ_PIS' $CASH_REWARD 2000 ms 1   // PERFECT INSANE STUNT BONUS: $~1~
+		01E4: text_1number_lowpriority 'HJ_PIS' number $CASH_REWARD duration 2000 ms flag 1  // PERFECT INSANE STUNT BONUS: $~1~
 		0312: save_jump_type 2
 	end
 	if and
-		0038: $STUNT_FLAGS_HJ == 2
-		0038: $FLAG_WHEELS_HJ == 0
+		0038:   $STUNT_FLAGS_HJ == 2
+		0038:   $FLAG_WHEELS_HJ == 0
 	then
-		01E4: text_1number_lowpriority 'HJ_DIS' $CASH_REWARD 2000 ms 1   // DOUBLE INSANE STUNT BONUS: $~1~
+		01E4: text_1number_lowpriority 'HJ_DIS' number $CASH_REWARD duration 2000 ms flag 1  // DOUBLE INSANE STUNT BONUS: $~1~
 		0312: save_jump_type 3
 	end
 	if and
-		0038: $STUNT_FLAGS_HJ == 2
-		0038: $FLAG_WHEELS_HJ == 1
+		0038:   $STUNT_FLAGS_HJ == 2
+		0038:   $FLAG_WHEELS_HJ == 1
 	then
-		01E4: text_1number_lowpriority 'HJ_PDIS' $CASH_REWARD 2000 ms 1   // PERFECT DOUBLE INSANE STUNT BONUS: $~1~
+		01E4: text_1number_lowpriority 'HJ_PDIS' number $CASH_REWARD duration 2000 ms flag 1  // PERFECT DOUBLE INSANE STUNT BONUS: $~1~
 		0312: save_jump_type 4
 	end
 	if and
-		0038: $STUNT_FLAGS_HJ == 3
-		0038: $FLAG_WHEELS_HJ == 0
+		0038:   $STUNT_FLAGS_HJ == 3
+		0038:   $FLAG_WHEELS_HJ == 0
 	then
-		01E4: text_1number_lowpriority 'HJ_TIS' $CASH_REWARD 2000 ms 1   // TRIPLE INSANE STUNT BONUS: $~1~
+		01E4: text_1number_lowpriority 'HJ_TIS' number $CASH_REWARD duration 2000 ms flag 1  // TRIPLE INSANE STUNT BONUS: $~1~
 		0312: save_jump_type 5
 	end
 	if and
-		0038: $STUNT_FLAGS_HJ == 3
-		0038: $FLAG_WHEELS_HJ == 1
+		0038:   $STUNT_FLAGS_HJ == 3
+		0038:   $FLAG_WHEELS_HJ == 1
 	then
-		01E4: text_1number_lowpriority 'HJ_PTIS' $CASH_REWARD 2000 ms 1   // PERFECT TRIPLE INSANE STUNT BONUS: $~1~
+		01E4: text_1number_lowpriority 'HJ_PTIS' number $CASH_REWARD duration 2000 ms flag 1  // PERFECT TRIPLE INSANE STUNT BONUS: $~1~
 		0312: save_jump_type 6
 	end
 	if and
-		0038: $STUNT_FLAGS_HJ == 4
-		0038: $FLAG_WHEELS_HJ == 0
+		0038:   $STUNT_FLAGS_HJ == 4
+		0038:   $FLAG_WHEELS_HJ == 0
 	then
-		01E4: text_1number_lowpriority 'HJ_QIS' $CASH_REWARD 2000 ms 1   // QUADRUPLE INSANE STUNT BONUS: $~1~
+		01E4: text_1number_lowpriority 'HJ_QIS' number $CASH_REWARD duration 2000 ms flag 1  // QUADRUPLE INSANE STUNT BONUS: $~1~
 		0312: save_jump_type 7
 	end
 	if and
-		0038: $STUNT_FLAGS_HJ == 4
-		0038: $FLAG_WHEELS_HJ == 1
+		0038:   $STUNT_FLAGS_HJ == 4
+		0038:   $FLAG_WHEELS_HJ == 1
 	then
-		01E4: text_1number_lowpriority 'HJ_PQIS' $CASH_REWARD 3000 ms 1   // PERFECT QUADRUPLE INSANE STUNT BONUS: $~1~
+		01E4: text_1number_lowpriority 'HJ_PQIS' number $CASH_REWARD duration 3000 ms flag 1  // PERFECT QUADRUPLE INSANE STUNT BONUS: $~1~
 		0312: save_jump_type 8
 	end
 	if
-		0424: metric
+		0424:   metric
 	then
 		if
 			0038: $FLAG_WHEELS_HJ == 1
 		then
-			0308: text_6numbers 'HJSTATW' $JUMPDISTANCE_INT_HJ $DISTANCE_DECIMALS_INT_HJ $HEIGHT_INT_HJ $HEIGHT_DECIMALS_INT_HJ $COUNTER_STUNT_ROLLS_HJ $TOTAL_ROTATION_INT 5000 ms 5  // Distance: ~1~.~1~m Height: ~1~.~1~m Flips: ~1~ Rotation: ~1~_ And what a great landing!
+			0308: text_6numbers 'HJSTATW' numbers $JUMPDISTANCE_INT_HJ $DISTANCE_DECIMALS_INT_HJ $HEIGHT_INT_HJ $HEIGHT_DECIMALS_INT_HJ $COUNTER_STUNT_ROLLS_HJ $TOTAL_ROTATION_INT duration 5000 ms flag 5  // Distance: ~1~.~1~m Height: ~1~.~1~m Flips: ~1~ Rotation: ~1~_ And what a great landing!
 		else
-			0308: text_6numbers 'HJSTAT' $JUMPDISTANCE_INT_HJ $DISTANCE_DECIMALS_INT_HJ $HEIGHT_INT_HJ $HEIGHT_DECIMALS_INT_HJ $COUNTER_STUNT_ROLLS_HJ $TOTAL_ROTATION_INT 5000 ms 5  // Distance: ~1~.~1~m Height: ~1~.~1~m Flips: ~1~ Rotation: ~1~_
+			0308: text_6numbers 'HJSTAT' numbers $JUMPDISTANCE_INT_HJ $DISTANCE_DECIMALS_INT_HJ $HEIGHT_INT_HJ $HEIGHT_DECIMALS_INT_HJ $COUNTER_STUNT_ROLLS_HJ $TOTAL_ROTATION_INT duration 5000 ms flag 5  // Distance: ~1~.~1~m Height: ~1~.~1~m Flips: ~1~ Rotation: ~1~_
 		end
 	else
 		042D: $JUMPDISTANCE_INT_HJ = metric_to_imperial $JUMPDISTANCE_INT_HJ
@@ -313,13 +312,13 @@ then
 		if
 			0038: $FLAG_WHEELS_HJ == 1
 		then
-			0302: text_4numbers 'HJSTAWF' $JUMPDISTANCE_INT_HJ $HEIGHT_INT_HJ $COUNTER_STUNT_ROLLS_HJ $TOTAL_ROTATION_INT 5000 ms 5  // Distance: ~1~ft Height: ~1~ft Flips: ~1~ Rotation: ~1~_ And what a great landing!
+			0302: text_4numbers 'HJSTAWF' numbers $JUMPDISTANCE_INT_HJ $HEIGHT_INT_HJ $COUNTER_STUNT_ROLLS_HJ $TOTAL_ROTATION_INT duration 5000 ms flag 5  // Distance: ~1~ft Height: ~1~ft Flips: ~1~ Rotation: ~1~_ And what a great landing!
 		else
-			0302: text_4numbers 'HJSTATF' $JUMPDISTANCE_INT_HJ $HEIGHT_INT_HJ $COUNTER_STUNT_ROLLS_HJ $TOTAL_ROTATION_INT 5000 ms 5  // Distance: ~1~ft Height: ~1~ft Flips: ~1~ Rotation: ~1~_
+			0302: text_4numbers 'HJSTATF' numbers $JUMPDISTANCE_INT_HJ $HEIGHT_INT_HJ $COUNTER_STUNT_ROLLS_HJ $TOTAL_ROTATION_INT duration 5000 ms flag 5  // Distance: ~1~ft Height: ~1~ft Flips: ~1~ Rotation: ~1~_
 		end
 	end
 end
-jump @MISSION_START_HJ
+goto @MISSION_START_HJ
 
 :DODO_FLIGHT_TIME
 while 01F3:   car $CAR_PLAYER_IS_IN_HJ airborne
@@ -338,12 +337,12 @@ while 01F3:   car $CAR_PLAYER_IS_IN_HJ airborne
 	end
 	if or
 		0119:   car $CAR_PLAYER_IS_IN_HJ wrecked
-		8256:   not player $PLAYER_CHAR defined
+		8256:   not is_player $PLAYER_CHAR defined
 	then
 		goto @MISSION_START_HJ
 	end
 	if
-		80E0:   not player $PLAYER_CHAR driving
+		80E0:   not is_player $PLAYER_CHAR driving
 	then
 		goto @MISSION_START_HJ
 	end
@@ -365,8 +364,8 @@ then
 		then
 			0084: $LONGEST_FLIGHT_TIME = $FLIGHT_TIME
 		end
-		01E5: text_1number_highpriority 'DODO_FT' $FLIGHT_TIME 5000 ms 1  // You flew for ~1~ seconds!
+		01E5: text_1number_highpriority 'DODO_FT' number $FLIGHT_TIME duration 5000 ms flag 1  // You flew for ~1~ seconds!
 		0406: save_dodo_flight_time $FLIGHT_TIME
 	end
 end
-jump @MISSION_START_HJ
+goto @MISSION_START_HJ

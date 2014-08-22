@@ -55,37 +55,37 @@ while 001A:   2000 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA1_B' time 10000 flag 1  // The name's Chonks, Marty Chonks.
+00BC: print_now 'MEA1_B' duration 10000 ms flag 1  // The name's Chonks, Marty Chonks.
 while 001A:   4424 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA1_C' time 10000 flag 1  // I run the Bitchin' Dog Food factory around the corner.
+00BC: print_now 'MEA1_C' duration 10000 ms flag 1  // I run the Bitchin' Dog Food factory around the corner.
 while 001A:   7668 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA1_D' time 10000 flag 1  // I got money troubles, but hey, who doesn't right?
+00BC: print_now 'MEA1_D' duration 10000 ms flag 1  // I got money troubles, but hey, who doesn't right?
 while 001A:   9604 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA1_E' time 10000 flag 1  // I'm meeting my bank manager later.
+00BC: print_now 'MEA1_E' duration 10000 ms flag 1  // I'm meeting my bank manager later.
 while 001A:   12652 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA1_F' time 10000 flag 1  // He's a crooked bastard that keeps bumping up the loan repayments so he can cut a slice.
+00BC: print_now 'MEA1_F' duration 10000 ms flag 1  // He's a crooked bastard that keeps bumping up the loan repayments so he can cut a slice.
 while 001A:   17740 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA1_G' time 10000 flag 1  // Take my car, pick him up and bring him back here.
+00BC: print_now 'MEA1_G' duration 10000 ms flag 1  // Take my car, pick him up and bring him back here.
 while 001A:   21290 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA1_H' time 10000 flag 1  // I've got a little surprise for that blood sucking leech!!
+00BC: print_now 'MEA1_H' duration 10000 ms flag 1  // I've got a little surprise for that blood sucking leech!!
 while 001A:   24535 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
@@ -123,7 +123,7 @@ while true
 	wait 0 ms
 end
 
-00A5: create_car #PEREN at 1190.0 -796.0 13.75 store_to $CAR_MEAT1 
+00A5: $CAR_MEAT1 = create_car #PEREN at 1190.0 -796.0 13.75
 0175: set_car $CAR_MEAT1 z_angle_to 300.0 
 0186: $RADAR_BLIP_CAR_MEAT1 = create_marker_above_car $CAR_MEAT1
 
@@ -135,8 +135,8 @@ while 80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT1
 end
 
 0164: disable_marker $RADAR_BLIP_CAR_MEAT1 
-00BC: print_now 'MEA1_B3' time 7000 flag 1  // ~g~Go and meet the Bank Manager.
-009A: create_char PEDTYPE_CIVMALE model #B_MAN1 at 1039.0 -695.0 13.875 store_to $BANKMANAGER_MEAT1 
+00BC: print_now 'MEA1_B3' duration 7000 ms flag 1  // ~g~Go and meet the Bank Manager.
+009A: $BANKMANAGER_MEAT1 = create_char PEDTYPE_CIVMALE model #B_MAN1 at 1039.0 -695.0 13.875
 01ED: clear_actor $BANKMANAGER_MEAT1 threat_search 
 01BE: set_actor $BANKMANAGER_MEAT1 to_look_at_spot 1042.0 -695.0 -100.0 
 0187: $RADAR_BLIP_PED1_MEAT1 = create_marker_above_actor $BANKMANAGER_MEAT1 
@@ -175,7 +175,7 @@ end //while
 
 0164: disable_marker $RADAR_BLIP_PED1_MEAT1 
 03D1: play_wav 
-00BC: print_now 'MEA1_B4' time 7000 flag 1  // Ah, Mr Chonks sent you did he. Let's go and pay the fellow a visit.
+00BC: print_now 'MEA1_B4' duration 7000 ms flag 1  // Ah, Mr Chonks sent you did he. Let's go and pay the fellow a visit.
 018A: $RADAR_BLIP_COORD2_MEAT1 = create_checkpoint_at 1205.688 -789.1875 -100.0 
 0084: $MARKER_TO_DISABLE_IF_PLAYER_OUT_CAR = $RADAR_BLIP_COORD2_MEAT1
 if
@@ -300,7 +300,7 @@ end //while
 02A3: toggle_widescreen 0 
 01B4: set_player $PLAYER_CHAR controllable 1 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
-00BD: print_soon 'MEA1_B6' time 5000 flag 1  // ~g~Take the car to the crusher to get rid of evidence, get out of the car and the crane will pick it up.
+00BD: print_soon 'MEA1_B6' duration 5000 ms flag 1  // ~g~Take the car to the crusher to get rid of evidence, get out of the car and the crane will pick it up.
 018A: $RADAR_BLIP_COORD3_MEAT1 = create_checkpoint_at 1138.0 52.0 -100.0 
 0084: $MARKER_TO_DISABLE_IF_PLAYER_OUT_CAR = $RADAR_BLIP_COORD3_MEAT1
 
@@ -313,7 +313,7 @@ while 81AC:   not car $CAR_MEAT1 stopped $BLOB_FLAG 1135.75 55.5 -1.0 1149.75 46
 	if
 		0119:   car $CAR_MEAT1 wrecked
 	then
-		00BC: print_now 'MEA1_2' time 5000 flag 1  // ~r~You were told to crush the vehicle!
+		00BC: print_now 'MEA1_2' duration 5000 ms flag 1  // ~r~You were told to crush the vehicle!
 		goto @MISSION_FAILED_MEAT1
 	else
 		if
@@ -322,7 +322,7 @@ while 81AC:   not car $CAR_MEAT1 stopped $BLOB_FLAG 1135.75 55.5 -1.0 1149.75 46
 			if
 				0038:   $FLAG_LEAVE_CAR_MESSAGE_MEAT1 == 0
 			then
-				00BC: print_now 'MEA1_3' time 5000 flag 1  // ~g~Get out of the car!
+				00BC: print_now 'MEA1_3' duration 5000 ms flag 1  // ~g~Get out of the car!
 				0004: $FLAG_LEAVE_CAR_MESSAGE_MEAT1 = 1
 			end
 		else
@@ -359,7 +359,7 @@ while 81AC:   not car $CAR_MEAT1 stopped $BLOB_FLAG 1135.75 55.5 -1.0 1149.75 46
 		01F4:   car $CAR_MEAT1 flipped 
 		01C1:   car $CAR_MEAT1 stopped
 	then
-		00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+		00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 		goto @MISSION_FAILED_MEAT1
 	end
 end //while
@@ -373,7 +373,7 @@ while 83A0:   not car $CAR_MEAT1 picked_up_by_crane 1120.0 46.0
 	if
 		0119:   car $CAR_MEAT1 wrecked
 	then
-		00BC: print_now 'MEA1_2' time 5000 flag 1  // ~r~You were told to crush the vehicle!
+		00BC: print_now 'MEA1_2' duration 5000 ms flag 1  // ~r~You were told to crush the vehicle!
 		goto @MISSION_FAILED_MEAT1
 	end
 	if
@@ -401,7 +401,7 @@ while 83A0:   not car $CAR_MEAT1 picked_up_by_crane 1120.0 46.0
 		01F4:   car $CAR_MEAT1 flipped 
 		01C1:   car $CAR_MEAT1 stopped
 	then
-		00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+		00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 		goto @MISSION_FAILED_MEAT1
 	end
 end //while
@@ -421,7 +421,7 @@ while 0038:   $FLAG_CAR_CRUSHED_MEAT1 == 0
 		if
 			0119:   car $CAR_MEAT1 wrecked
 		then
-			00BC: print_now 'MEA1_2' time 5000 flag 1  // ~r~You were told to crush the vehicle!
+			00BC: print_now 'MEA1_2' duration 5000 ms flag 1  // ~r~You were told to crush the vehicle!
 			goto @MISSION_FAILED_MEAT1
 		end
 	end
@@ -431,16 +431,16 @@ end //while
 // Mission Failed //////////////////
 
 :MISSION_FAILED_MEAT1
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_MEAT1
 
 
 // Mission Passed //////////////////
 
 :MISSION_PASSED_MEAT1
-01E3: text_1number_styled 'M_PASS' number 1000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 1000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0318: set_latest_mission_passed 'MEA1'  // 'THE CROOK'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 1000 
 0004: $THE_CROOK_COMPLETED = 1 
@@ -470,14 +470,14 @@ goto @MISSION_END_MEAT1
 if
 	0119:   car $CAR_MEAT1 wrecked
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_MEAT1
 end
 if and
 	01F4:   car $CAR_MEAT1 flipped 
 	01C1:   car $CAR_MEAT1 stopped
 then
-	00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+	00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 	goto @MISSION_FAILED_MEAT1
 end
 return
@@ -489,8 +489,8 @@ if and
 	80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT1 
 	0038:   $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT1 == 0
 then
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
-	0186: $RADAR_BLIP_CAR_MEAT1 = create_marker_above_car $CAR_MEAT1 
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
+	0186: $RADAR_BLIP_CAR_MEAT1 = create_marker_above_car $CAR_MEAT1
 	0164: disable_marker $MARKER_TO_DISABLE_IF_PLAYER_OUT_CAR 
 	0004: $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT1 = 1 
 	0004: $BLOB_FLAG = 0
@@ -503,7 +503,7 @@ return
 if
 	0118:   actor $BANKMANAGER_MEAT1 dead
 then
-	00BC: print_now 'MEA1_1' time 5000 flag 1  // ~r~The Bank Manager's dead!
+	00BC: print_now 'MEA1_1' duration 5000 ms flag 1  // ~r~The Bank Manager's dead!
 	goto @MISSION_FAILED_MEAT1
 end
 return
@@ -530,7 +530,7 @@ gosub @CHECK_CAR_STATUS
 if
 	80FB:   not player $PLAYER_CHAR 0 $BANKMANAGER_MEAT1 radius 30.0 30.0 30.0 
 then
-	00BC: print_now 'MEA1_4' time 5000 flag 1  // ~r~You have left the Bank Manager behind!
+	00BC: print_now 'MEA1_4' duration 5000 ms flag 1  // ~r~You have left the Bank Manager behind!
 	goto @MISSION_FAILED_MEAT1
 end
 gosub @CHECK_PLAYER_IN_CAR

@@ -77,38 +77,38 @@ while 001A:   5136 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_C' time 10000 flag 1  // ~w~The Cartel has got bottomless funds from pushing that SPANK crap.
+00BC: print_now 'FM3_C' duration 10000 ms flag 1  // ~w~The Cartel has got bottomless funds from pushing that SPANK crap.
 while 001A:   8848 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_D' time 10000 flag 1  // ~w~If we make an open attack on them, they'll wipe the floor with us.
+00BC: print_now 'FM3_D' duration 10000 ms flag 1  // ~w~If we make an open attack on them, they'll wipe the floor with us.
 while 001A:   12450 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_E' time 10000 flag 1  // ~w~They must be making SPANK on that big boat that Curly lead you to.
+00BC: print_now 'FM3_E' duration 10000 ms flag 1  // ~w~They must be making SPANK on that big boat that Curly lead you to.
 
 while 001A:   15984 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_F' time 10000 flag 1  // ~w~So we gotta use our heads, or rather one head. Your head.
+00BC: print_now 'FM3_F' duration 10000 ms flag 1  // ~w~So we gotta use our heads, or rather one head. Your head.
 while 001A:   20426 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_G' time 10000 flag 1  // ~w~I'm asking you to destroy that SPANK factory as a personal favor to me, Salvatore Leone.
+00BC: print_now 'FM3_G' duration 10000 ms flag 1  // ~w~I'm asking you to destroy that SPANK factory as a personal favor to me, Salvatore Leone.
 while 001A:   27076 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_H' time 10000 flag 1  // ~w~If you do this for me, you will be a made man, anything you want.
+00BC: print_now 'FM3_H' duration 10000 ms flag 1  // ~w~If you do this for me, you will be a made man, anything you want.
 while 001A:   32651 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_I' time 10000 flag 1  // ~w~Go and see 8-Ball, you'll need his expertise to blow-up that boat.
+00BC: print_now 'FM3_I' duration 10000 ms flag 1  // ~w~Go and see 8-Ball, you'll need his expertise to blow-up that boat.
 while 001A:   36233 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -152,7 +152,7 @@ goto @MISSION_PASSED_FRANK21
 // Mission Failed
 
 :MISSION_FAILED_FRANK21
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_FRANK21
 
 /////////////////////////////////////////
@@ -163,7 +163,7 @@ goto @MISSION_END_FRANK21
 0004: $BOMB_DA_BASE_ACT_I_COMPLETED = 1 
 0004: $FLAG_FRANKIE_SWITCHED_OFF = 1 
 0318: set_latest_mission_passed 'FM21'  // 'BOMB DA BASE: ACT I'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 0164: disable_marker $SALVATORE_MISSION_MARKER 
 02A7: $8BALL_CONTACT_POINT = create_icon_marker_and_sphere RADAR_SPRITE_EIGHT at 1272.188 -92.875 -100.0 
 004F: create_thread @FRANKIE_MISSION3_LOOP

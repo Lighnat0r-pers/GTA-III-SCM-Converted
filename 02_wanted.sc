@@ -58,15 +58,15 @@ while 001A:   13 > $FLAG_INFO
 		0038:   $FLAG_INFO == 0 
 	then
 		01BD: $INFO_TIME_START = current_time_in_ms 
-		00A5: create_car #POLICE at 1110.0 -823.0 15.0 store_to $COPCAR_INFO 
+		00A5: $COPCAR_INFO = create_car #POLICE at 1110.0 -823.0 15.0
 		0175: set_car $COPCAR_INFO z_angle_to 330.0 
-		0129: $COP_INFO = create_actor PEDTYPE_CIVMALE #COP in_car $COPCAR_INFO driverseat 
-		00A5: create_car #POLICE at 1105.0 -828.0 15.0 store_to $COPCAR2_INFO 
+		0129: $COP_INFO = create_actor PEDTYPE_CIVMALE #COP in_car $COPCAR_INFO driverseat
+		00A5: $COPCAR2_INFO = create_car #POLICE at 1105.0 -828.0 15.0
 		0175: set_car $COPCAR2_INFO z_angle_to 330.0 
 		0129: $COP2_INFO = create_actor PEDTYPE_CIVMALE #COP in_car $COPCAR2_INFO driverseat
-		00A5: create_car #DIABLOS at 1115.0 -818.0 15.0 store_to $DIABLOCAR_INFO 
+		00A5: $DIABLOCAR_INFO = create_car #DIABLOS at 1115.0 -818.0 15.0
 		0175: set_car $DIABLOCAR_INFO z_angle_to 0.0 
-		0129: $DIABLO_INFO = create_actor PEDTYPE_GANG_DIABLO #GANG06 in_car $DIABLOCAR_INFO driverseat 
+		0129: $DIABLO_INFO = create_actor PEDTYPE_GANG_DIABLO #GANG06 in_car $DIABLOCAR_INFO driverseat
 		01EB: set_car_density_to 0.25 
 		03DE: set_ped_density_multiplier 0.0 
 		03E5: text_box 'WANT_A'  // You will only be arrested if you have a ~h~wanted level.
@@ -97,7 +97,7 @@ while 001A:   13 > $FLAG_INFO
 			00AE: set_car_driving_style $COPCAR_INFO to 3 
 			032C: car $COPCAR_INFO ram $DIABLOCAR_INFO 
 			0397: car $COPCAR_INFO siren = 1 
-			0158: camera_on_vehicle $DIABLOCAR_INFO FIXED switchstyle JUMP_CUT
+			0158: camera_on_vehicle $DIABLOCAR_INFO mode FIXED switchstyle JUMP_CUT
 			00AD: set_car_cruise_speed $DIABLOCAR_INFO to 50.0 
 			00AE: set_car_driving_style $DIABLOCAR_INFO to DRIVINGMODE_AVOIDCARS
 			00A7: car_goto_coordinates $DIABLOCAR_INFO coords 982.0 -617.0 15.0 
@@ -110,16 +110,17 @@ while 001A:   13 > $FLAG_INFO
 		0038:   $FLAG_COPCAR_PROGRESS == 0
 	then
 		0395: clear_area 1 at 1142.0 -666.0 range 14.75 10.0 
-		00A5: create_car #ENFORCER at 1142.0 -666.0 14.75 store_to $SWATVAN_INFO 
+		00A5: $SWATVAN_INFO = create_car #ENFORCER at 1142.0 -666.0 14.75 
 		0175: set_car $SWATVAN_INFO z_angle_to 90.0 
 		020A: set_car $SWATVAN_INFO door_status_to CARLOCK_UNLOCKED
 		00A9: car_set_idle $SWATVAN_INFO 
-		009A: create_char PEDTYPE_CIVMALE model #SWAT at 1138.0 -671.0 15.0 store_to $SWAT2_INFO 
-		009A: create_char PEDTYPE_CIVMALE model #SWAT at 1137.75 -661.25 15.0 store_to $SWAT1_INFO 
-		01B2: give_actor $SWAT1_INFO weapon WEAPONTYPE_M16 ammo 60 
-		0173: set_actor $SWAT2_INFO z_angle_to 110.0 
+		009A: $SWAT1_INFO = create_char PEDTYPE_CIVMALE model #SWAT at 1137.75 -661.25 15.0
 		0173: set_actor $SWAT1_INFO z_angle_to 80.0 
 		01B2: give_actor $SWAT1_INFO weapon WEAPONTYPE_SHOTGUN ammo 10
+		01B2: give_actor $SWAT1_INFO weapon WEAPONTYPE_M16 ammo 60 
+		009A: $SWAT2_INFO = create_char PEDTYPE_CIVMALE model #SWAT at 1138.0 -671.0 15.0
+		0173: set_actor $SWAT2_INFO z_angle_to 110.0 
+
 		if
 			8118:   not actor $DIABLO_INFO dead 
 		then
@@ -155,7 +156,7 @@ while 001A:   13 > $FLAG_INFO
 			8119:   not car $SWATVAN_INFO wrecked 
 		then
 			015F: set_camera_position 1135.75 -673.0 14.75 0.0 rotation 0.0 0.0 
-			0158: camera_on_vehicle $SWATVAN_INFO FIXED switchstyle JUMP_CUT
+			0158: camera_on_vehicle $SWATVAN_INFO mode FIXED switchstyle JUMP_CUT
 			00A6: delete_car $COPCAR_INFO 
 			00A6: delete_car $COPCAR2_INFO 
 			00A6: delete_car $DIABLOCAR_INFO 
@@ -216,7 +217,7 @@ while 001A:   13 > $FLAG_INFO
 		0038:   $FLAG_INFO == 10
 	then
 		015F: set_camera_position 1135.0 -672.5 15.5 0.0 rotation 0.0 0.0 
-		0157: camera_on_player $PLAYER_CHAR mode FIXED transition JUMP_CUT
+		0157: camera_on_player $PLAYER_CHAR mode FIXED switchstyle JUMP_CUT
 		03E5: text_box 'WANT_J'  // You will find ways of reducing your wanted level the more you play.
 		0213: $BRIBE_PICKUP = create_pickup #BRIBE type PICKUP_ON_STREET_SLOW at 1143.0 -671.0 15.0 
 		0160: point_camera 1143.0 -671.0 15.0 switchstyle INTERPOLATION

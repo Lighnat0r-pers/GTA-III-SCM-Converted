@@ -4,7 +4,7 @@
 0004: $FOURTH_FLOOR_CARS_EXIST = 0 
 0004: $FIFTH_FLOOR_CARS_EXIST = 0
  
-0004: $NEED_TO_CLEAR_AREA_FLAG = 0 
+0004: $NEED_TO_CLEAR_AREA_FLAG = 0 // VARIABLE FOR PARKED CARS GENERATOR FOR THE MULTISTORY CARPARK IN NEWPORT
 0004: $HAS_PLAYER_BEEN_AT_FISH_BEFORE = 0 
 0004: $HAS_PLAYER_BEEN_IN_TRAMP_TUNNEL_BEFORE = 0 
 0004: $FLAG_SOUNDS_ADDED_REDLIGHT = 0
@@ -12,7 +12,7 @@
 0004: $TRAMP_IS_DEAD = 0
 0004: $CAMERA_AMMU1 = 0
 0004: $CAMERA_AMMU2 = 0
-0004: $FLAG_SOUNDS_ADDED_DOG = 0
+0004: $FLAG_SOUNDS_ADDED_DOG = 0 // Sound effects for the dog food factory
 0004: $FLAG_FAILED_LOVE1 = 0
 0004: $FLAG_NEED_WALL_CHANGE_KM1 = 0
 0004: $ON_ARMS_SHORTAGE_MISSION = 0
@@ -28,7 +28,7 @@
 0004: $SPECIAL_AMMU_AUDIO = 0
 0004: $AMMU_BLOKE_KILL_PLAYER = 0
 03A4: thread 'GENSTUF' 
-0111: set_deatharrest_state 0 (disabled)
+0111: set_wasted_busted_check_to 0
 create_thread @IND_AMMU 
 create_thread @FISH_FACTORY_GEN 
 create_thread @TRAMP_TUNNEL 
@@ -90,7 +90,7 @@ if
 then
     03E5: text_box 'CRUSH'  // Park in the marked area and exit your vehicle. The vehicle will then be crushed.
 end
-jump @CHECK_INFO_PICKUP
+goto @CHECK_INFO_PICKUP
 
 :CHECK_INFO_PICKUP_2
 while 8214:   NOT   pickup  0@ picked_up
@@ -121,7 +121,7 @@ if
 then
 	03E5: text_box 'S_TRN_1'  // You can take the subway trains across Liberty. Press the~h~ ~k~~VEHICLE_ENTER_EXIT~ button~w~ to ~h~enter ~w~or ~h~exit~w~ a train.
 end
-jump @CHECK_INFO_PICKUP_2
+goto @CHECK_INFO_PICKUP_2
 
 
 :IND_AMMU
@@ -129,66 +129,66 @@ jump @CHECK_INFO_PICKUP_2
 while true
 	wait 70 ms
 	if
-		0256:   player $PLAYER_CHAR defined
+		0256:   is_player $PLAYER_CHAR defined 
 	then
 		if
 			0121:   player $PLAYER_CHAR in_zone 'LITTLEI'  // Saint Mark's
 		then
 			if
-				0057:   player $PLAYER_CHAR 0 1066.563 -403.5 14.0 1072.75 -394.0 18.0
+				0057:   is_player_in_area_3d $PLAYER_CHAR coords 1066.563 -403.5 14.0 to 1072.75 -394.0 18.0 sphere 0 
 			then
 				if
 					0038: $CAMERA_AMMU1 == 0
 				then
-					01B4: set_player $PLAYER_CHAR frozen_state 0 (frozen)
+					01B4: set_player $PLAYER_CHAR controllable 0
 					0169: set_fade_color 1 1 1 
 					03AF: set_streaming 0 (disabled)
-					023C: load_special_actor 4 'SAM' 
-					043C: set_music_does_fade 0 
-					016A: fade 0  500 ms
+					023C: load_special_actor 'SAM' as 4 
+					043C: set_game_sounds_fade 0
+					016A: fade 0 for 500 ms
 					while 823D:   not special_actor 4 loaded
 						wait 0 ms
 					end
 					while fading
 						wait 0 ms
 					end
-					03AF: set_streaming 1 (enabled)
+					03AF: set_streaming 1
 					01BD: $CURRENT_TIME = current_time_in_ms 
 					0084: $TIME_DIFFERENCE = $CURRENT_TIME 
 					0060: $TIME_DIFFERENCE -= $TIME_SINCE_MURDERING_SHOPKEEPER1
 					if 
 						$TIME_DIFFERENCE > 60000
 					then
-						009A: create_char 21 model #SPECIAL04 at 1070.75 -396.9375 14.1875 store_to $AMMU_SHOP_BLOKE1
-						0243: set_actor $AMMU_SHOP_BLOKE1 ped_stats_to 16 
+						009A: $AMMU_SHOP_BLOKE1 = create_char PEDTYPE_SPECIAL model #SPECIAL04 at 1070.75 -396.9375 14.1875
+						0243: set_actor $AMMU_SHOP_BLOKE1 ped_stats_to PEDSTAT_TOUGH_GUY 
 						0173: set_actor $AMMU_SHOP_BLOKE1 z_angle_to 170.0 
-						0350: unknown_actor $AMMU_SHOP_BLOKE1 not_scared_flag 1 
-						01B2: give_actor $AMMU_SHOP_BLOKE1 weapon 4 ammo 999
+						0350: set_actor $AMMU_SHOP_BLOKE1 maintain_position_when_attacked 1 
+						01B2: give_actor $AMMU_SHOP_BLOKE1 weapon WEAPONTYPE_SHOTGUN ammo 999
 						if
-							0256:   player $PLAYER_CHAR defined 
+							0256:   is_player $PLAYER_CHAR defined 
 						then
 							022D: set_actor $AMMU_SHOP_BLOKE1 to_look_at_player $PLAYER_CHAR
 						end
 					end
 					0296: unload_special_actor 4 
-					015F: set_camera_position 1071.938 -402.75 17.0 0.0 0.0 0.0 
+					015F: set_camera_position 1071.938 -402.75 17.0 0.0 rotation 0.0 0.0 
 					0452: enable_player_control_camera
 					if
-						0256:   player $PLAYER_CHAR defined
+						0256:   is_player $PLAYER_CHAR defined 
 					then
-						0157: camera_on_player $PLAYER_CHAR 15 2 
+						0157: camera_on_player $PLAYER_CHAR mode FIXED switchstyle JUMP_CUT
 						0395: clear_area 1 at 1067.875 -397.25 range 14.1875 1.0 
-						0055: put_player $PLAYER_CHAR at 1067.875 -397.25 14.1875 
+						0055: set_player_coordinates $PLAYER_CHAR to 1067.875 -397.25 14.1875 
 						0171: set_player $PLAYER_CHAR z_angle_to 200.0 
 					end
-					016A: fade 1  500 ms
+					016A: fade 1 for 500 ms
 					while fading
 						wait 0 ms
 					end
 					if
-						0256:   player $PLAYER_CHAR defined
+						0256:   is_player $PLAYER_CHAR defined 
 					then
-						01B4: set_player $PLAYER_CHAR frozen_state 1 (unfrozen)
+						01B4: set_player $PLAYER_CHAR controllable 1 
 					end
 					if and
 						8118:   not actor $AMMU_SHOP_BLOKE1 dead 
@@ -197,17 +197,17 @@ while true
 						if
 							0038:   $AMMU_SAMPLE == 0
 						then
-							041C: make_actor $AMMU_SHOP_BLOKE1 say 103
+							041C: make_actor $AMMU_SHOP_BLOKE1 say SOUND_AMMUNATION_CHAT_1
 						end
 						if
 							0038:   $AMMU_SAMPLE == 1
 						then
-							041C: make_actor $AMMU_SHOP_BLOKE1 say 104
+							041C: make_actor $AMMU_SHOP_BLOKE1 say SOUND_AMMUNATION_CHAT_2
 						end
 						if
 							0038:   $AMMU_SAMPLE == 2
 						then
-							041C: make_actor $AMMU_SHOP_BLOKE1 say 105
+							041C: make_actor $AMMU_SHOP_BLOKE1 say SOUND_AMMUNATION_CHAT_3
 						end
 					end
 					0004: $CAMERA_AMMU1 = 1
@@ -218,7 +218,7 @@ while true
 						0038:   $AMMU_BLOKE_KILL_PLAYER == 0
 					then
 						if
-							0256:   player $PLAYER_CHAR defined
+							0256:   is_player $PLAYER_CHAR defined
 						then
 							01CA: actor $AMMU_SHOP_BLOKE1 kill_player $PLAYER_CHAR
 						end
@@ -229,8 +229,8 @@ while true
 				if
 					0038: $CAMERA_AMMU1 == 1
 				then
-					01B4: set_player $PLAYER_CHAR frozen_state 0 (frozen)
-					016A: fade 0  500 ms
+					01B4: set_player $PLAYER_CHAR controllable 0 
+					016A: fade 0 for 500 ms
 					while fading
 						wait 0 ms
 					end
@@ -240,25 +240,25 @@ while true
 					then
 						01BD: $TIME_SINCE_MURDERING_SHOPKEEPER1 = current_time_in_ms
 					end
-					009B: destroy_actor_instantly $AMMU_SHOP_BLOKE1 
+					009B: delete_char $AMMU_SHOP_BLOKE1 
 					0395: clear_area 1 at 1063.25 -395.25 range 14.1875 1.0 
 					if
-						0256:   player $PLAYER_CHAR defined
+						0256:   is_player $PLAYER_CHAR defined 
 					then
-						0055: put_player $PLAYER_CHAR at 1063.25 -395.25 14.1875 
+						0055: set_player_coordinates $PLAYER_CHAR to 1063.25 -395.25 14.1875
 						0171: set_player $PLAYER_CHAR z_angle_to 90.0 
-						02EB: restore_camera_with_jumpcut 
-						03C8: rotate_player-180-degrees 
+						02EB: restore_camera_jumpcut 
+						03C8: set_camera_directly_before_player
 					end
-					016A: fade 1  500 ms
+					016A: fade 1 for 500 ms
 					while fading
 						wait 0 ms
 					end
-					043C: set_music_does_fade 1
+					043C: set_game_sounds_fade 1 
 					if
-						0256:   player $PLAYER_CHAR defined
+						0256:   is_player $PLAYER_CHAR defined 
 					then
-						01B4: set_player $PLAYER_CHAR frozen_state 1 (unfrozen)
+						01B4: set_player $PLAYER_CHAR controllable 1 
 					end
 					0008: $AMMU_SAMPLE += 1
 					if
@@ -267,7 +267,7 @@ while true
 						0018: $AMMU_SAMPLE = 0
 					end
 					0004: $AMMU_BLOKE_KILL_PLAYER = 0
-					0004: $CAMERA_AMMU1 = 1
+					0004: $CAMERA_AMMU1 = 0
 				end
 			end // IS_PLAYER_IN_AREA_3D
 		else // not in LITTLEI
@@ -280,10 +280,10 @@ while true
 				then
 					01BD: $TIME_SINCE_MURDERING_SHOPKEEPER1 = current_time_in_ms
 				end
-				02EB: restore_camera_with_jumpcut 
-				03C8: rotate_player-180-degrees 
-				009B: destroy_actor_instantly $AMMU_SHOP_BLOKE1 
-				043C: set_music_does_fade 1 
+				02EB: restore_camera_jumpcut 
+				03C8: set_camera_directly_before_player 
+				009B: delete_char $AMMU_SHOP_BLOKE1
+				043C: set_game_sounds_fade 1 
 				0004: $CAMERA_AMMU1 = 0
 			end
 		end // IF IS_PLAYER_IN_ZONE player LITTLEI
@@ -318,29 +318,29 @@ while true
 						jf break
 						wait 0 ms
 					end
-					009A: create_char 8 model #GANG03 at 997.0 -1112.0 -100.0 store_to $FISH_TRIAD1 
-					01B2: give_actor $FISH_TRIAD1 weapon 2 ammo 100 
-					011A: set_actor $FISH_TRIAD1 search_threat 1 
+					009A: $FISH_TRIAD1 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 997.0 -1112.0 -100.0
+					01B2: give_actor $FISH_TRIAD1 weapon WEAPONTYPE_PISTOL ammo 100 
+					011A: set_actor $FISH_TRIAD1 search_threat THREAT_PLAYER1 
 
-					009A: create_char 8 model #GANG04 at 964.0 -1095.0 -100.0 store_to $FISH_TRIAD2 
-					01B2: give_actor $FISH_TRIAD2 weapon 2 ammo 100 
-					011A: set_actor $FISH_TRIAD2 search_threat 1 
+					009A: $FISH_TRIAD2 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 964.0 -1095.0 -100.0
+					01B2: give_actor $FISH_TRIAD2 weapon WEAPONTYPE_PISTOL ammo 100 
+					011A: set_actor $FISH_TRIAD2 search_threat THREAT_PLAYER1 
 
-					009A: create_char 8 model #GANG03 at 982.0 -1085.0 -100.0 store_to $FISH_TRIAD3 
-					01B2: give_actor $FISH_TRIAD3 weapon 2 ammo 100 
-					011A: set_actor $FISH_TRIAD3 search_threat 1 
+					009A: $FISH_TRIAD3 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 982.0 -1085.0 -100.0
+					01B2: give_actor $FISH_TRIAD3 weapon WEAPONTYPE_PISTOL ammo 100 
+					011A: set_actor $FISH_TRIAD3 search_threat THREAT_PLAYER1 
 
-					009A: create_char 8 model #GANG04 at 953.0 -1122.0 -100.0 store_to $FISH_TRIAD4 
-					01B2: give_actor $FISH_TRIAD4 weapon 2 ammo 100 
-					011A: set_actor $FISH_TRIAD4 search_threat 1 
+					009A: $FISH_TRIAD4  create_char PEDTYPE_GANG_TRIAD model #GANG04 at 953.0 -1122.0 -100.0
+					01B2: give_actor $FISH_TRIAD4 weapon WEAPONTYPE_PISTOL ammo 100 
+					011A: set_actor $FISH_TRIAD4 search_threat THREAT_PLAYER1 
 
-					009A: create_char 8 model #GANG03 at 1008.0 -1126.0 -100.0 store_to $FISH_TRIAD5 
-					01B2: give_actor $FISH_TRIAD5 weapon 2 ammo 100 
-					011A: set_actor $FISH_TRIAD5 search_threat 1 
+					009A: $FISH_TRIAD5 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 1008.0 -1126.0 -100.0
+					01B2: give_actor $FISH_TRIAD5 weapon WEAPONTYPE_PISTOL ammo 100 
+					011A: set_actor $FISH_TRIAD5 search_threat THREAT_PLAYER1 
 
-					009A: create_char 8 model #GANG03 at 974.0 -1142.0 -100.0 store_to $FISH_TRIAD6 
-					01B2: give_actor $FISH_TRIAD6 weapon 2 ammo 100 
-					011A: set_actor $FISH_TRIAD6 search_threat 1 
+					009A: $FISH_TRIAD6 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 974.0 -1142.0 -100.0
+					01B2: give_actor $FISH_TRIAD6 weapon WEAPONTYPE_PISTOL ammo 100 
+					011A: set_actor $FISH_TRIAD6 search_threat THREAT_PLAYER1 
 
 					009C: char_wander_dir $FISH_TRIAD1 to 0 
 					009C: char_wander_dir $FISH_TRIAD2 to 0 
@@ -385,6 +385,7 @@ while true
 					0249: release_model #GANG03 
 					0249: release_model #GANG04
 					0004: $HAS_PLAYER_BEEN_AT_FISH_BEFORE = 0
+					end_thread // At this point the thread doesn't do anything anymore anyway, so why keep it running?
 				end
 			end
 		end //fish_factory_destroyed
@@ -396,13 +397,13 @@ end //while
 while true
 	wait 1000 ms
 	if
-		0256:   player $PLAYER_CHAR defined
+		0256:   is_player $PLAYER_CHAR defined 
 	then
 		if
 			0121:   player $PLAYER_CHAR in_zone 'LITTLEI'  // Saint Mark's
 		then
 			if
-				0057:   player $PLAYER_CHAR 0 1325.0 -512.0 14.0 1315.0 -165.75 17.0
+				0057:   is_player_in_area_3d $PLAYER_CHAR coords 1325.0 -512.0 14.0 to 1315.0 -165.75 17.0 sphere 0 
 			then
 				if
 					0038: $HAS_PLAYER_BEEN_IN_TRAMP_TUNNEL_BEFORE == 0
@@ -416,37 +417,37 @@ while true
 						jf break
 						wait 0 ms
 					end
-					009A: create_char 19 model #SCUM_MAN at 1320.375 -370.0 15.0 store_to $TRAMP1
-					01B2: give_actor $TRAMP1 weapon 10 ammo 1 
-					0243: set_actor $TRAMP1 ped_stats_to 14 
-					011A: set_actor $TRAMP1 flags 1048576 
-					011A: set_actor $TRAMP1 flags 33554432 
+					009A: $TRAMP1 = create_char PEDTYPE_BUM model #SCUM_MAN at 1320.375 -370.0 15.0
+					01B2: give_actor $TRAMP1 weapon WEAPONTYPE_MOLOTOV ammo 1 
+					0243: set_actor $TRAMP1 ped_stats_to PEDSTAT_GEEK_GUY 
+					011A: set_actor $TRAMP1 search_threat THREAT_GUN 
+					011A: set_actor $TRAMP1 search_threat THREAT_DEADPEDS 
 
-					009A: create_char 19 model #SCUM_WOM at 1317.0 -365.0 15.0 store_to $TRAMP2
-					01B2: give_actor $TRAMP2 weapon 10 ammo 1 
+					009A: $TRAMP2 = create_char PEDTYPE_BUM model #SCUM_WOM at 1317.0 -365.0 15.0
+					01B2: give_actor $TRAMP2 weapon WEAPONTYPE_MOLOTOV ammo 1 
 					0173: set_actor $TRAMP2 z_angle_to 290.0 
-					0243: set_actor $TRAMP2 ped_stats_to 14 
-					011A: set_actor $TRAMP2 flags 1048576 
-					011A: set_actor $TRAMP2 flags 33554432 
+					0243: set_actor $TRAMP2 ped_stats_to PEDSTAT_GEEK_GUY 
+					011A: set_actor $TRAMP2 search_threat THREAT_GUN 
+					011A: set_actor $TRAMP2 search_threat THREAT_DEADPEDS 
 
-					009A: create_char 19 model #SCUM_WOM at 1322.375 -367.0 15.0 store_to $TRAMP3
-					01B2: give_actor $TRAMP3 weapon 10 ammo 1 
+					009A: $TRAMP3 = create_char PEDTYPE_BUM model #SCUM_WOM at 1322.375 -367.0 15.0
+					01B2: give_actor $TRAMP3 weapon WEAPONTYPE_MOLOTOV ammo 1 
 					0173: set_actor $TRAMP3 z_angle_to 57.0 
-					0243: set_actor $TRAMP3 ped_stats_to 14 
-					011A: set_actor $TRAMP3 flags 1048576 
-					011A: set_actor $TRAMP3 flags 33554432 
+					0243: set_actor $TRAMP3 ped_stats_to PEDSTAT_GEEK_GUY 
+					011A: set_actor $TRAMP3 search_threat THREAT_GUN 
+					011A: set_actor $TRAMP3 search_threat THREAT_DEADPEDS 
 
-					009A: create_char 19 model #SCUM_MAN at 1320.0 -362.0 15.0 store_to $TRAMP4 
-					01B2: give_actor $TRAMP4 weapon 10 ammo 1 
+					009A: $TRAMP4 = create_char PEDTYPE_BUM model #SCUM_MAN at 1320.0 -362.0 15.0
+					01B2: give_actor $TRAMP4 weapon WEAPONTYPE_MOLOTOV ammo 1 
 					0173: set_actor $TRAMP4 z_angle_to 180.0 
-					0243: set_actor $TRAMP4 ped_stats_to 14 
-					011A: set_actor $TRAMP4 flags 1048576 
-					011A: set_actor $TRAMP4 flags 33554432 
+					0243: set_actor $TRAMP4 ped_stats_to PEDSTAT_GEEK_GUY 
+					011A: set_actor $TRAMP4 search_threat THREAT_GUN 
+					011A: set_actor $TRAMP4 search_threat THREAT_DEADPEDS 
 
-					0249: mark_model_as_no_longer_needed #SCUM_MAN 
-					0249: mark_model_as_no_longer_needed #SCUM_WOM 
-					$TRAMPS_BEEN_CREATED = 1
-					$HAS_PLAYER_BEEN_IN_TRAMP_TUNNEL_BEFORE = 1
+					0249: release_model #SCUM_MAN 
+					0249: release_model #SCUM_WOM 
+					0004: $TRAMPS_BEEN_CREATED = 1
+					0004: $HAS_PLAYER_BEEN_IN_TRAMP_TUNNEL_BEFORE = 1
 				else
 					if and
 						0038:   $TRAMPS_BEEN_CREATED == 1
@@ -471,10 +472,10 @@ while true
 				if
 					0038:   $TRAMPS_BEEN_CREATED == 1
 				then
-					01C2: remove_references_to_actor $TRAMP1 // Like turning an actor into a random pedestrian 
-					01C2: remove_references_to_actor $TRAMP2 // Like turning an actor into a random pedestrian 
-					01C2: remove_references_to_actor $TRAMP3 // Like turning an actor into a random pedestrian 
-					01C2: remove_references_to_actor $TRAMP4 // Like turning an actor into a random pedestrian 
+					01C2: remove_references_to_actor $TRAMP1
+					01C2: remove_references_to_actor $TRAMP2
+					01C2: remove_references_to_actor $TRAMP3
+					01C2: remove_references_to_actor $TRAMP4
 					0004: $TRAMPS_BEEN_CREATED = 0
 				end
 				if
@@ -499,12 +500,12 @@ end //while
 while true
 	wait 1000 ms
 	if
-		0256:   player $PLAYER_CHAR defined
+		0256:   is_player $PLAYER_CHAR defined
 	then
 		if
 			0121:   player $PLAYER_CHAR in_zone 'REDLIGH'  // Red Light District
 		then
-			00BF: $CURRENT_TIME_HOURS = current_time_hours, $CURRENT_TIME_MINUTES = current_time_minutes 
+			00BF: get_time_of_day $CURRENT_TIME_HOURS $CURRENT_TIME_MINUTES
 			if or
 				0028:   $CURRENT_TIME_HOURS >= 20  
 				002A:   5 >= $CURRENT_TIME_HOURS
@@ -512,12 +513,12 @@ while true
 				if
 					0038:   $FLAG_SOUNDS_ADDED_REDLIGHT == 0 
 				then
-					018D: $SOUND_LOOP8 = create_sound 32 at 891.875 -416.875 16.0625 // Luigi's Club
-					018D: $SOUND_LOOP9 = create_sound 30 at 924.1875 -464.25 16.0 // Sex Kitten Club
-					018D: $SOUND_LOOP10 = create_sound 62 at 901.0625 -392.0 15.0 // XXX Cinema1
-					018D: $SOUND_LOOP11 = create_sound 64 at 901.1875 -339.0 10.0 // XXX Cinema2
-					018D: $SOUND_LOOP12 = create_sound 66 at 960.0625 -379.0 15.0 // XXX Cinema
-					$FLAG_SOUNDS_ADDED_REDLIGHT = 1
+					018D: $SOUND_LOOP8 = create_sound SOUND_STRIP_CLUB_LOOP_2_S at 891.875 -416.875 16.0625 // Luigi's Club
+					018D: $SOUND_LOOP9 = create_sound SOUND_STRIP_CLUB_LOOP_1_S at 924.1875 -464.25 16.0 // Sex Kitten Club
+					018D: $SOUND_LOOP10 = create_sound SOUND_PORN_CINEMA_1_S at 901.0625 -392.0 15.0 // XXX Cinema1
+					018D: $SOUND_LOOP11 = create_sound SOUND_PORN_CINEMA_2_S at 901.1875 -339.0 10.0 // XXX Cinema2
+					018D: $SOUND_LOOP12 = create_sound SOUND_PORN_CINEMA_3_S at 960.0625 -379.0 15.0 // XXX Cinema
+					0004: $FLAG_SOUNDS_ADDED_REDLIGHT = 1
 				end
 			else
 				if
@@ -528,7 +529,7 @@ while true
 					018E: stop_sound $SOUND_LOOP10 
 					018E: stop_sound $SOUND_LOOP11 
 					018E: stop_sound $SOUND_LOOP12
-					$FLAG_SOUNDS_ADDED_REDLIGHT = 0
+					0004: $FLAG_SOUNDS_ADDED_REDLIGHT = 0
 				end
 			end
 		end
@@ -540,12 +541,12 @@ end //while
 while true
 	wait 1000 ms
 	if
-		0256:   player $PLAYER_CHAR defined
+		0256:   is_player $PLAYER_CHAR defined 
 	then
 		if
 			0121:   player $PLAYER_CHAR in_zone 'PORT_I'  // Trenton
 		then
-			00BF: $CURRENT_TIME_HOURS = current_time_hours, $CURRENT_TIME_MINUTES = current_time_minutes 
+			00BF: get_time_of_day $CURRENT_TIME_HOURS $CURRENT_TIME_MINUTES
 			if or
 				0028:   $CURRENT_TIME_HOURS >= 9  
 				002A:   17 >= $CURRENT_TIME_HOURS
@@ -553,15 +554,15 @@ while true
 				if
 					0038:   $FLAG_SOUNDS_ADDED_DOG == 0 
 				then
-					018D: $SOUND_LOOP7 = create_sound 37 at 1210.875 -802.1875 15.0 
-					$FLAG_SOUNDS_ADDED_DOG = 1
+					018D: $SOUND_LOOP7 = create_sound SOUND_SAWMILL_LOOP_L at 1210.875 -802.1875 15.0 
+					0004: $FLAG_SOUNDS_ADDED_DOG = 1
 				end
 			else
 				if
 					0038:   $FLAG_SOUNDS_ADDED_DOG == 1
 				then
 					018E: stop_sound $SOUND_LOOP7
-					$FLAG_SOUNDS_ADDED_DOG = 0
+					0004: $FLAG_SOUNDS_ADDED_DOG = 0
 				end
 			end
 		end
@@ -573,59 +574,56 @@ end //while
 while true
 	wait 70 ms
 	if
-		0256:   player $PLAYER_CHAR defined
+		0256:   is_player $PLAYER_CHAR defined 
 	then
 		if
 			0121:   player $PLAYER_CHAR in_zone 'COM_EAS'  // Newport
 		then
 			if
-				0057:   player $PLAYER_CHAR 0 353.25 -711.6875 24.0 339.75 -722.375 28.0
+				0057:   is_player_in_area_3d $PLAYER_CHAR coords 353.25 -711.6875 24.0 to 339.75 -722.375 28.0 sphere 0
 			then
 				if
 					0038: $CAMERA_AMMU2 == 0
 				then
-					01B4: set_player $PLAYER_CHAR frozen_state 0 (frozen)
+					01B4: set_player $PLAYER_CHAR controllable 0
 					0169: set_fade_color 1 1 1 
-					03AF: set_streaming 0 (disabled)
-					023C: load_special_actor 4 'SAM' 
-					043C: set_music_does_fade 0 
-					016A: fade 0  500 ms
-					while true
-						if
-							823D:   not special_actor 4 loaded
-						jf break
+					03AF: set_streaming 0
+					023C: load_special_actor 'SAM' as 4 
+					043C: set_game_sounds_fade 0
+					016A: fade 0 for 500 ms
+					while 823D:   not special_actor 4 loaded
 						wait 0 ms
 					end
 					while fading
 						wait 0 ms
 					end
-					03AF: set_streaming 1 (enabled)
+					03AF: set_streaming 1
 					01BD: $CURRENT_TIME = current_time_in_ms 
 					0084: $TIME_DIFFERENCE = $CURRENT_TIME 
 					0060: $TIME_DIFFERENCE -= $TIME_SINCE_MURDERING_SHOPKEEPER1
 					if 
 						$TIME_DIFFERENCE > 60000
 					then
-						009A: create_char 21 model #SPECIAL04 at 350.1875 -719.875 25.375 store_to $AMMU_SHOP_BLOKE1
-						0243: set_actor $AMMU_SHOP_BLOKE1 ped_stats_to 16 
+						009A: $AMMU_SHOP_BLOKE1 = create_char PEDTYPE_SPECIAL model #SPECIAL04 at 350.1875 -719.875 25.375
+						0243: set_actor $AMMU_SHOP_BLOKE1 ped_stats_to PEDSTAT_TOUGH_GUY 
 						0173: set_actor $AMMU_SHOP_BLOKE1 z_angle_to 170.0 
-						0350: unknown_actor $AMMU_SHOP_BLOKE1 not_scared_flag 1 
-						01B2: give_actor $AMMU_SHOP_BLOKE1 weapon 4 ammo 999
+						0350: set_actor $AMMU_SHOP_BLOKE1 maintain_position_when_attacked 1 
+						01B2: give_actor $AMMU_SHOP_BLOKE1 weapon WEAPONTYPE_SHOTGUN ammo 999
 						if
-							0256:   player $PLAYER_CHAR defined 
+							0256:   is_player $PLAYER_CHAR defined 
 						then
 							022D: set_actor $AMMU_SHOP_BLOKE1 to_look_at_player $PLAYER_CHAR
 						end
 					end
 					0296: unload_special_actor 4 
-					015F: set_camera_position 341.6875 -720.625 28.0 0.0 0.0 0.0 
+					015F: set_camera_position 341.6875 -720.625 28.0 0.0 rotation 0.0 0.0 
 					0452: enable_player_control_camera
 					if
-						0256:   player $PLAYER_CHAR defined
+						0256:   is_player $PLAYER_CHAR defined
 					then
-						0157: camera_on_player $PLAYER_CHAR 15 2 
+						0157: camera_on_player $PLAYER_CHAR mode FIXED switchstyle JUMP_CUT
 						0395: clear_area 1 at 350.6875 -713.0625 range 26.375 1.0 
-						0055: put_player $PLAYER_CHAR at 350.6875 -713.0625 25.375 
+						0055: set_player_coordinates $PLAYER_CHAR to 350.6875 -713.0625 25.375
 						0171: set_player $PLAYER_CHAR z_angle_to 108.0 
 					end
 					016A: fade 1  500 ms
@@ -633,9 +631,9 @@ while true
 						wait 0 ms
 					end
 					if
-						0256:   player $PLAYER_CHAR defined
+						0256:   is_player $PLAYER_CHAR defined
 					then
-						01B4: set_player $PLAYER_CHAR frozen_state 1 (unfrozen)
+						01B4: set_player $PLAYER_CHAR controllable 1 
 					end
 					if and
 						8118:   not actor $AMMU_SHOP_BLOKE1 dead 
@@ -644,17 +642,17 @@ while true
 						if
 							0038:   $AMMU_SAMPLE == 0
 						then
-							041C: make_actor $AMMU_SHOP_BLOKE1 say 103
+							041C: make_actor $AMMU_SHOP_BLOKE1 say SOUND_AMMUNATION_CHAT_1
 						end
 						if
 							0038:   $AMMU_SAMPLE == 1
 						then
-							041C: make_actor $AMMU_SHOP_BLOKE1 say 104
+							041C: make_actor $AMMU_SHOP_BLOKE1 say SOUND_AMMUNATION_CHAT_2
 						end
 						if
 							0038:   $AMMU_SAMPLE == 2
 						then
-							041C: make_actor $AMMU_SHOP_BLOKE1 say 105
+							041C: make_actor $AMMU_SHOP_BLOKE1 say SOUND_AMMUNATION_CHAT_3
 						end
 					end
 					0004: $CAMERA_AMMU2 = 1
@@ -665,7 +663,7 @@ while true
 						0038:   $AMMU_BLOKE_KILL_PLAYER == 0
 					then
 						if
-							0256:   player $PLAYER_CHAR defined
+							0256:   is_player $PLAYER_CHAR defined 
 						then
 							01CA: actor $AMMU_SHOP_BLOKE1 kill_player $PLAYER_CHAR
 						end
@@ -676,8 +674,8 @@ while true
 				if
 					0038:   $CAMERA_AMMU2 == 1
 				then
-					01B4: set_player $PLAYER_CHAR frozen_state 0 (frozen)
-					016A: fade 0  500 ms
+					01B4: set_player $PLAYER_CHAR controllable 0 
+					016A: fade 0 for 500 ms
 					while fading
 						wait 0 ms
 					end
@@ -687,25 +685,25 @@ while true
 					then
 						01BD: $TIME_SINCE_MURDERING_SHOPKEEPER1 = current_time_in_ms
 					end
-					009B: destroy_actor_instantly $AMMU_SHOP_BLOKE1 
+					009B: delete_char $AMMU_SHOP_BLOKE1
 					0395: clear_area 1 at 352.0 -708.75 range 25.375 1.0 
 					if
-						0256:   player $PLAYER_CHAR defined
+						0256:   is_player $PLAYER_CHAR defined
 					then
-						0055: put_player $PLAYER_CHAR at 352.0 -708.75 25.375
+						0055: set_player_coordinates $PLAYER_CHAR to 352.0 -708.75 25.375 
 						0171: set_player $PLAYER_CHAR z_angle_to 0.0 
-						02EB: restore_camera_with_jumpcut 
-						03C8: rotate_player-180-degrees 
+						02EB: restore_camera_jumpcut 
+						03C8: set_camera_directly_before_player
 					end
-					016A: fade 1  500 ms
+					016A: fade 1 for 500 ms
 					while fading
 						wait 0 ms
 					end
-					043C: set_music_does_fade 1
+					043C: set_game_sounds_fade 1
 					if
-						0256:   player $PLAYER_CHAR defined
+						0256:   is_player $PLAYER_CHAR defined
 					then
-						01B4: set_player $PLAYER_CHAR frozen_state 1 (unfrozen)
+						01B4: set_player $PLAYER_CHAR controllable 1 
 					end
 					0008: $AMMU_SAMPLE += 1
 					if
@@ -727,10 +725,10 @@ while true
 				then
 					01BD: $TIME_SINCE_MURDERING_SHOPKEEPER1 = current_time_in_ms
 				end
-				02EB: restore_camera_with_jumpcut 
-				03C8: rotate_player-180-degrees 
-				009B: destroy_actor_instantly $AMMU_SHOP_BLOKE1 
-				043C: set_music_does_fade 1 
+				02EB: restore_camera_jumpcut 
+				03C8: set_camera_directly_before_player
+				009B: delete_char $AMMU_SHOP_BLOKE1 
+				043C: set_game_sounds_fade 1 
 				0004: $CAMERA_AMMU2 = 0
 			end
 		end // IF IS_PLAYER_IN_ZONE player LITTLEI
@@ -742,14 +740,14 @@ end //while
 while true
 	wait 250 ms
 	if
-		0256:   player $PLAYER_CHAR defined
+		0256:   is_player $PLAYER_CHAR defined
 	then
 		if and
-			03C6:   current_island == 2
+			03C6:   current_island == LEVEL_COMMERCIAL
 			0121:   player $PLAYER_CHAR in_zone 'COM_EAS'  // Newport
 		then
 			if
-				0057:   player $PLAYER_CHAR 0 266.8125 -610.875 25.0 306.25 -479.875 30.0 
+				0057:   is_player_in_area_3d $PLAYER_CHAR coords 266.8125 -610.875 25.0 to 306.25 -479.875 30.0 sphere 0 // 1ST FLOOR LOCATE
 			then
 				01EB: set_car_density_to 0.0 
 				if
@@ -761,26 +759,26 @@ while true
 				if
 					0038:   $THIRD_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 266.8125 -610.875 30.375 306.25 -479.875 34.8125 // 3RD FLOOR CLEAR
+					03BA: clear_cars_from_cube 266.8125 -610.875 30.375 to 306.25 -479.875 34.8125 // 3RD FLOOR CLEAR
 					0004: $THIRD_FLOOR_CARS_EXIST = 0
 				end
 				if
 					0038:   $FOURTH_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 306.25 -610.875 32.8125 346.75 -479.875 40.0  // 4TH FLOOR CLEAR
+					03BA: clear_cars_from_cube 306.25 -610.875 32.8125 to 346.75 -479.875 40.0  // 4TH FLOOR CLEAR
 					0004: $FOURTH_FLOOR_CARS_EXIST = 0
 				end
 				if
 					0038:   $FIFTH_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
+					03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 to 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
 					0004: $FIFTH_FLOOR_CARS_EXIST = 0
 				end
 				0004: $NEED_TO_CLEAR_AREA_FLAG = 1
 			end
 			if and
 				0018:   $NEED_TO_CLEAR_AREA_FLAG > 0
-				0057:   player $PLAYER_CHAR 0 306.25 -610.875 28.0 346.75 -479.875 32.375 // 2ND FLOOR LOCATE
+				0057:   is_player_in_area_3d $PLAYER_CHAR coords 306.25 -610.875 28.0 to 346.75 -479.875 32.375 sphere 0  // 2ND FLOOR LOCATE
 			then
 				if
 					0038:   $SECOND_FLOOR_CARS_EXIST == 0
@@ -797,20 +795,20 @@ while true
 				if
 					0038:   $FOURTH_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 306.25 -610.875 32.8125 346.75 -479.875 40.0  // 4TH FLOOR CLEAR
+					03BA: clear_cars_from_cube 306.25 -610.875 32.8125 to 346.75 -479.875 40.0  // 4TH FLOOR CLEAR
 					0004: $FOURTH_FLOOR_CARS_EXIST = 0
 				end
 				if
 					0038:   $FIFTH_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
+					03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 to 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
 					0004: $FIFTH_FLOOR_CARS_EXIST = 0
 				end
 				0004: $NEED_TO_CLEAR_AREA_FLAG = 2
 			end
 			if and
 				0018:   $NEED_TO_CLEAR_AREA_FLAG > 1
-				0057:   player $PLAYER_CHAR 0 266.8125 -610.875 30.375 306.25 -479.875 34.8125 // 3RD FLOOR LOCATE
+				0057:   is_player_in_area_3d $PLAYER_CHAR coords 266.8125 -610.875 30.375 to 306.25 -479.875 34.8125 sphere 0 // 3RD FLOOR LOCATE
 			then
 				if
 					0038:   $SECOND_FLOOR_CARS_EXIST == 0
@@ -833,19 +831,19 @@ while true
 				if
 					0038:   $FIFTH_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
+					03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 to 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
 					0004: $FIFTH_FLOOR_CARS_EXIST = 0
 				end
 				0004: $NEED_TO_CLEAR_AREA_FLAG = 3
 			end
 			if and
 				0018:   $NEED_TO_CLEAR_AREA_FLAG > 2
-				0057:   player $PLAYER_CHAR 0 306.25 -610.875 32.8125 346.75 -479.875 40.0  // 4TH FLOOR LOCATE
+				0057:   is_player_in_area_3d $PLAYER_CHAR coords 306.25 -610.875 32.8125 to 346.75 -479.875 40.0 sphere 0 // 4TH FLOOR LOCATE
 			then
 				if
 					0038:   $SECOND_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 306.25 -610.875 28.0 346.75 -479.875 32.375  // 2ND FLOOR CLEAR
+					03BA: clear_cars_from_cube 306.25 -610.875 28.0 to 346.75 -479.875 32.375  // 2ND FLOOR CLEAR
 					0004: $SECOND_FLOOR_CARS_EXIST = 0
 				end
 				if
@@ -870,18 +868,18 @@ while true
 			end
 			if and
 				0018:   $NEED_TO_CLEAR_AREA_FLAG > 3
-				0057:   player $PLAYER_CHAR 0 266.8125 -610.875 35.1875 306.25 -479.875 40.0  // 5TH FLOOR LOCATE
+				0057:   is_player_in_area_3d $PLAYER_CHAR coords 266.8125 -610.875 35.1875 to 306.25 -479.875 40.0 sphere 0 // 5TH FLOOR LOCATE
 			then
 				if
 					0038:   $SECOND_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 306.25 -610.875 28.0 346.75 -479.875 32.375  // 2ND FLOOR CLEAR
+					03BA: clear_cars_from_cube 306.25 -610.875 28.0 to 346.75 -479.875 32.375  // 2ND FLOOR CLEAR
 					0004: $SECOND_FLOOR_CARS_EXIST = 0
 				end
 				if
 					0038:   $THIRD_FLOOR_CARS_EXIST == 1
 				then
-					03BA: clear_cars_from_cube 266.8125 -610.875 30.375 306.25 -479.875 34.8125 // 3RD FLOOR CLEAR
+					03BA: clear_cars_from_cube 266.8125 -610.875 30.375 to 306.25 -479.875 34.8125 // 3RD FLOOR CLEAR
 					0004: $THIRD_FLOOR_CARS_EXIST = 0
 				end
 				if
@@ -900,13 +898,13 @@ while true
 			end
 			if and
 				0018:   $NEED_TO_CLEAR_AREA_FLAG > 0
-				8057:   not player $PLAYER_CHAR 0 266.8125 -610.875 25.0 346.75 -479.875 40.0  // ENTIRE CARPARK LOCATE
+				8057:   not is_player_in_area_3d $PLAYER_CHAR coords 266.8125 -610.875 25.0 to 346.75 -479.875 40.0 sphere 0 // ENTIRE CARPARK LOCATE
 			then
 				01EB: set_car_density_to 1.0
-				03BA: clear_cars_from_cube 306.25 -610.875 28.0 346.75 -479.875 32.375  // 2ND FLOOR CLEAR
-				03BA: clear_cars_from_cube 266.8125 -610.875 30.375 306.25 -479.875 34.8125 // 3RD FLOOR CLEAR
-				03BA: clear_cars_from_cube 306.25 -610.875 32.8125 346.75 -479.875 40.0  // 4TH FLOOR CLEAR
-				03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
+				03BA: clear_cars_from_cube 306.25 -610.875 28.0 to 346.75 -479.875 32.375  // 2ND FLOOR CLEAR
+				03BA: clear_cars_from_cube 266.8125 -610.875 30.375 to 306.25 -479.875 34.8125 // 3RD FLOOR CLEAR
+				03BA: clear_cars_from_cube 306.25 -610.875 32.8125 to 346.75 -479.875 40.0  // 4TH FLOOR CLEAR
+				03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 to 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
 				0004: $SECOND_FLOOR_CARS_EXIST = 0
 				0004: $THIRD_FLOOR_CARS_EXIST = 0
 				0004: $FOURTH_FLOOR_CARS_EXIST = 0
@@ -916,13 +914,13 @@ while true
 		end // IF CURRENT_LEVEL == 2 and IS_PLAYER_IN_ZONE player COM_EAS
 		if and
 			0018:   $NEED_TO_CLEAR_AREA_FLAG > 0
-			8057:   not player $PLAYER_CHAR 0 266.8125 -610.875 25.0 346.75 -479.875 40.0  // ENTIRE CARPARK LOCATE
+			8057:   not is_player_in_area_3d $PLAYER_CHAR coords 266.8125 -610.875 25.0 to 346.75 -479.875 40.0 sphere 0 // ENTIRE CARPARK LOCATE
 		then
 			01EB: set_car_density_to 1.0
-			03BA: clear_cars_from_cube 306.25 -610.875 28.0 346.75 -479.875 32.375  // 2ND FLOOR CLEAR
-			03BA: clear_cars_from_cube 266.8125 -610.875 30.375 306.25 -479.875 34.8125 // 3RD FLOOR CLEAR
-			03BA: clear_cars_from_cube 306.25 -610.875 32.8125 346.75 -479.875 40.0  // 4TH FLOOR CLEAR
-			03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
+			03BA: clear_cars_from_cube 306.25 -610.875 28.0 to 346.75 -479.875 32.375  // 2ND FLOOR CLEAR
+			03BA: clear_cars_from_cube 266.8125 -610.875 30.375 to 306.25 -479.875 34.8125 // 3RD FLOOR CLEAR
+			03BA: clear_cars_from_cube 306.25 -610.875 32.8125 to 346.75 -479.875 40.0  // 4TH FLOOR CLEAR
+			03BA: clear_cars_from_cube 266.8125 -610.875 35.1875 to 306.25 -479.875 40.0  // 5TH FLOOR CLEAR
 			0004: $SECOND_FLOOR_CARS_EXIST = 0
 			0004: $THIRD_FLOOR_CARS_EXIST = 0
 			0004: $FOURTH_FLOOR_CARS_EXIST = 0

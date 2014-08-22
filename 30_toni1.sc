@@ -86,22 +86,22 @@ while 001A:   171 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM1_A' time 10000 flag 1  // ~w~Take a seat kid, take a god damned seat.
+00BC: print_now 'TM1_A' duration 10000 ms flag 1  // ~w~Take a seat kid, take a god damned seat.
 while 001A:   3769 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM1_B' time 10000 flag 1  // ~w~So the laundry won't pay any protection eh?
+00BC: print_now 'TM1_B' duration 10000 ms flag 1  // ~w~So the laundry won't pay any protection eh?
 while 001A:   5825 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM1_C' time 10000 flag 1  // ~w~The Triads think they can mess with me?
+00BC: print_now 'TM1_C' duration 10000 ms flag 1  // ~w~The Triads think they can mess with me?
 while 001A:   8026 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM1_D' time 10000 flag 1  // ~w~Let's teach these would be tough guys what it means to be a tough guy.
+00BC: print_now 'TM1_D' duration 10000 ms flag 1  // ~w~Let's teach these would be tough guys what it means to be a tough guy.
 while 001A:   11500 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -111,22 +111,22 @@ while 001A:   15961 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM1_G' time 10000 flag 1  // ~w~Sorry Ma. Yes Ma.
+00BC: print_now 'TM1_G' duration 10000 ms flag 1  // ~w~Sorry Ma. Yes Ma.
 while 001A:   21005 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM1_H' time 10000 flag 1  // ~w~I want you to destroy their laundry vans
+00BC: print_now 'TM1_H' duration 10000 ms flag 1  // ~w~I want you to destroy their laundry vans
 while 001A:   22997 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM1_I' time 10000 flag 1  // ~w~and mangle any triad gimp that gets in your way.
+00BC: print_now 'TM1_I' duration 10000 ms flag 1  // ~w~and mangle any triad gimp that gets in your way.
 while 001A:   27589 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM1_J' time 10000 flag 1  // ~w~8-Ball can supply you with what you're gonna need.
+00BC: print_now 'TM1_J' duration 10000 ms flag 1  // ~w~8-Ball can supply you with what you're gonna need.
 while 001A:   29796 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -176,24 +176,24 @@ end //while
 032B: $FREE_GREANDES = create_weapon_pickup #GRENADE PICKUP_ONCE ammo 10 at 1278.75 -81.5 15.0625 
 03DD: pickup $FREE_GREANDES show_on_radar RADAR_SPRITE_WEAPON $GRENADE_BLIP 
 
-00A5: create_car #MRWONGS at 854.0 -778.0 -100.0 store_to $T1_TRIAD_VAN1 
-0129: $VANMAN1 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN1 driverseat 
+00A5:$T1_TRIAD_VAN1 = create_car #MRWONGS at 854.0 -778.0 -100.0
+0129: $VANMAN1 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN1 driverseat
 0186: $BLIP1_VAN1 = create_marker_above_car $T1_TRIAD_VAN1 
 00AD: set_car_cruise_speed $T1_TRIAD_VAN1 to 17.0 
 00AE: set_car_driving_style $T1_TRIAD_VAN1 to DRIVINGMODE_STOPFORCARS
 02AA: set_car $T1_TRIAD_VAN1 immune_to_nonplayer 1 
 0243: set_actor $VANMAN1 ped_stats_to PEDSTAT_TOUGH_GUY
 
-00A5: create_car #MRWONGS at 1020.0 -677.0 -100.0 store_to $T1_TRIAD_VAN2 
-0129: $VANMAN2 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN2 driverseat 
+00A5: $T1_TRIAD_VAN2 = create_car #MRWONGS at 1020.0 -677.0 -100.0
+0129: $VANMAN2 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN2 driverseat
 0186: $BLIP2_VAN2 = create_marker_above_car $T1_TRIAD_VAN2 
 00AD: set_car_cruise_speed $T1_TRIAD_VAN2 to 17.0 
 00AE: set_car_driving_style $T1_TRIAD_VAN2 to DRIVINGMODE_STOPFORCARS
 02AA: set_car $T1_TRIAD_VAN2 immune_to_nonplayer 1 
 0243: set_actor $VANMAN2 ped_stats_to PEDSTAT_GEEK_GUY
 
-00A5: create_car #MRWONGS at 904.0 -579.0 -100.0 store_to $T1_TRIAD_VAN3 
-0129: $VANMAN3 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN3 driverseat 
+00A5: $T1_TRIAD_VAN3 = create_car #MRWONGS at 904.0 -579.0 -100.0
+0129: $VANMAN3 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN3 driverseat
 0186: $BLIP3_VAN3 = create_marker_above_car $T1_TRIAD_VAN3 
 00AD: set_car_cruise_speed $T1_TRIAD_VAN3 to 17.0 
 00AE: set_car_driving_style $T1_TRIAD_VAN3 to DRIVINGMODE_STOPFORCARS
@@ -203,8 +203,8 @@ end //while
 if
 	0038: $UNLOCKEXTRAS1 == 1
 then
-	00A5: create_car #MRWONGS at 996.0 -463.0 14.0 store_to $T1_TRIAD_VAN4 
-	0129: $VANMAN4 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN4 driverseat 
+	00A5: $T1_TRIAD_VAN4 = create_car #MRWONGS at 996.0 -463.0 14.0
+	0129: $VANMAN4 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN4 driverseat
 	0186: $BLIP4_VAN4 = create_marker_above_car $T1_TRIAD_VAN4 
 	00AD: set_car_cruise_speed $T1_TRIAD_VAN4 to 17.0 
 	00AE: set_car_driving_style $T1_TRIAD_VAN4 to DRIVINGMODE_STOPFORCARS
@@ -316,7 +316,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_TONI1
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_TONI1
 
 /////////////////////////////////////////
@@ -326,11 +326,11 @@ goto @MISSION_END_TONI1
 :MISSION_PASSED_TONI1
 0004: $TAKING_OUT_THE_LAUNDRY_COMPLETED = 1 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 20000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 20000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 20000 
 0318: set_latest_mission_passed 'TM1'  // 'TAKING OUT THE LAUNDRY'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 004F: create_thread @TONI_MISSION2_LOOP
 goto @MISSION_END_TONI1
 

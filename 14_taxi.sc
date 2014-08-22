@@ -33,7 +33,7 @@ end_thread
 0004: $IN_A_ROW_CASH = 2000
 0004: $TAXI_NOT_REALLY_FAILED = 0
 0001: wait 0 ms 
-03C4: set_status_text_to $TAXI_PASSED_THIS_SHOT 0 'FARES'  // FARES:
+03C4: set_status_text_to $TAXI_PASSED_THIS_SHOT COUNTER_DISPLAY_NUMBER 'FARES'  // FARES:
 if
 	8256:   not is_player $PLAYER_CHAR defined
 then
@@ -42,12 +42,12 @@ end
 if
 	00E0:   is_player_in_any_car $PLAYER_CHAR 
 then
-	00DA: store_car_player_is_in $PLAYER_CHAR store_to $TAXI_CAR1 
+	00DA: $TAXI_CAR1 = store_car_player_is_in $PLAYER_CHAR
 else
 	goto @MISSION_TAXI1_FAILED
 end
 0216: set_car $TAXI_CAR1 taxi_available_light_to 1 
-00BC: print_now 'TAXI1' time 1500 flag 1  // ~g~Look for a fare.
+00BC: print_now 'TAXI1' duration 1500 ms flag 1  // ~g~Look for a fare.
 0001: wait 0 ms 
 
 /////////////////////////////////
@@ -122,7 +122,7 @@ end
 01ED: clear_actor $TAXI_PED1 threat_search 
 0291: set_actor $TAXI_PED1 attack_when_provoked 0 
 0187: $BLIP1_CT1 = create_marker_above_actor $TAXI_PED1 
-0365: set_actor $TAXI_PED1 objective_to -29
+0365: set_actor $TAXI_PED1 objective_hail_taxi
 
 /////////////////////////////////
 
@@ -131,7 +131,6 @@ while true
 	if or
 		80FD:   not player $PLAYER_CHAR 0 $TAXI_PED1 in_car radius 7.0 7.0 2.0 //IF CLOSE TO THE CHAR
 		81C1:   not car $TAXI_CAR1 stopped
-		// 80DC:   not is_player_in_car $PLAYER_CHAR car $TAXI_CAR1 // REMOVED BY R*
 	jf break
 	wait 0 ms
 	gosub @CHECK_MISSION_STATUS_CHANGES
@@ -150,7 +149,7 @@ end //while
 if
 	8185:   not car $TAXI_CAR1 health >= 500
 then
-	00BC: print_now 'TAXI7' time 4000 flag 1  // ~r~Your car is trashed, get it repaired.
+	00BC: print_now 'TAXI7' duration 4000 ms flag 1  // ~r~Your car is trashed, get it repaired.
 	if
 		0038:   $SPRAY_BLIP_ONSCREEN == 0
 	then
@@ -224,7 +223,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE1' time 5000 flag 1  // ~g~Destination ~w~'Meeouch Sex Kitten Club' ~g~in Redlight.
+		00BC: print_now 'FARE1' duration 5000 ms flag 1  // ~g~Destination ~w~'Meeouch Sex Kitten Club' ~g~in Redlight.
 		0005: $TAXI_DESTX1 = 936.25 
 		0005: $TAXI_DESTY1 = -462.5625 
 		0005: $TAXI_DESTZ1 = 14.375 
@@ -240,7 +239,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE2' time 5000 flag 1  // ~g~Destination ~w~'Supa Save' ~g~in Portland View.
+		00BC: print_now 'FARE2' duration 5000 ms flag 1  // ~g~Destination ~w~'Supa Save' ~g~in Portland View.
 		0005: $TAXI_DESTX1 = 1268.5 
 		0005: $TAXI_DESTY1 = -616.375 
 		0005: $TAXI_DESTZ1 = 11.6875 
@@ -256,7 +255,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE3' time 5000 flag 1  // ~g~Destination ~w~'old school hall' ~g~in Chinatown.
+		00BC: print_now 'FARE3' duration 5000 ms flag 1  // ~g~Destination ~w~'old school hall' ~g~in Chinatown.
 		0005: $TAXI_DESTX1 = 1008.875 
 		0005: $TAXI_DESTY1 = -871.875 
 		0005: $TAXI_DESTZ1 = 14.375 
@@ -272,7 +271,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE4' time 5000 flag 1  // ~g~Destination ~w~'Greasy Joe's Cafe' ~g~in Callahan Point.
+		00BC: print_now 'FARE4' duration 5000 ms flag 1  // ~g~Destination ~w~'Greasy Joe's Cafe' ~g~in Callahan Point.
 		0005: $TAXI_DESTX1 = 849.25 
 		0005: $TAXI_DESTY1 = -990.0625 
 		0005: $TAXI_DESTZ1 = 4.5 
@@ -288,7 +287,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE5' time 5000 flag 1  // ~g~Destination ~w~'AmmuNation' ~g~in Redlight.
+		00BC: print_now 'FARE5' duration 5000 ms flag 1  // ~g~Destination ~w~'AmmuNation' ~g~in Redlight.
 		0005: $TAXI_DESTX1 = 1065.375 
 		0005: $TAXI_DESTY1 = -394.0625 
 		0005: $TAXI_DESTZ1 = 14.25 
@@ -304,7 +303,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE6' time 5000 flag 1  // ~g~Destination ~w~'Easy Credit Autos' ~g~in Saint Mark's.
+		00BC: print_now 'FARE6' duration 5000 ms flag 1  // ~g~Destination ~w~'Easy Credit Autos' ~g~in Saint Mark's.
 		0005: $TAXI_DESTX1 = 1207.0 
 		0005: $TAXI_DESTY1 = -122.0 
 		0005: $TAXI_DESTZ1 = 14.0 
@@ -320,7 +319,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE7' time 5000 flag 1  // ~g~Destination ~w~'Woody's topless bar' ~g~in Redlight.
+		00BC: print_now 'FARE7' duration 5000 ms flag 1  // ~g~Destination ~w~'Woody's topless bar' ~g~in Redlight.
 		0005: $TAXI_DESTX1 = 912.875 
 		0005: $TAXI_DESTY1 = -419.0 
 		0005: $TAXI_DESTZ1 = 14.0 
@@ -336,7 +335,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE8' time 5000 flag 1  // ~g~Destination ~w~'Marcos Bistro' ~g~in Saint Mark's.
+		00BC: print_now 'FARE8' duration 5000 ms flag 1  // ~g~Destination ~w~'Marcos Bistro' ~g~in Saint Mark's.
 		0005: $TAXI_DESTX1 = 1345.75 
 		0005: $TAXI_DESTY1 = -461.75 
 		0005: $TAXI_DESTZ1 = 49.375 
@@ -352,7 +351,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE9' time 5000 flag 1  // ~g~Destination ~w~'import export garage' ~g~in Portland Harbor.
+		00BC: print_now 'FARE9' duration 5000 ms flag 1  // ~g~Destination ~w~'import export garage' ~g~in Portland Harbor.
 		0005: $TAXI_DESTX1 = 1475.0 
 		0005: $TAXI_DESTY1 = -686.0 
 		0005: $TAXI_DESTZ1 = 11.25 
@@ -368,7 +367,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE10' time 5000 flag 1  // ~g~Destination ~w~'Punk Noodles' ~g~in Chinatown.
+		00BC: print_now 'FARE10' duration 5000 ms flag 1  // ~g~Destination ~w~'Punk Noodles' ~g~in Chinatown.
 		0005: $TAXI_DESTX1 = 1039.063 
 		0005: $TAXI_DESTY1 = -660.0625 
 		0005: $TAXI_DESTZ1 = 14.375 
@@ -395,7 +394,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE11' time 5000 flag 1  // ~g~Destination ~w~'Construction site' ~g~in Fort staunton.
+		00BC: print_now 'FARE11' duration 5000 ms flag 1  // ~g~Destination ~w~'Construction site' ~g~in Fort staunton.
 		0005: $TAXI_DESTX1 = 441.8125 
 		0005: $TAXI_DESTY1 = -193.0 
 		0005: $TAXI_DESTZ1 = 20.3125 
@@ -411,7 +410,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE12' time 5000 flag 1  // ~g~Destination ~w~'Football Stadium' ~g~in Aspatria.
+		00BC: print_now 'FARE12' duration 5000 ms flag 1  // ~g~Destination ~w~'Football Stadium' ~g~in Aspatria.
 		0005: $TAXI_DESTX1 = -27.0 
 		0005: $TAXI_DESTY1 = -269.5625 
 		0005: $TAXI_DESTZ1 = 14.9375 
@@ -427,7 +426,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE13' time 5000 flag 1  // ~g~Destination ~w~'The Church' ~g~in Bedford Point
+		00BC: print_now 'FARE13' duration 5000 ms flag 1  // ~g~Destination ~w~'The Church' ~g~in Bedford Point
 		0005: $TAXI_DESTX1 = 22.0625 
 		0005: $TAXI_DESTY1 = -1136.938 
 		0005: $TAXI_DESTZ1 = 25.125 
@@ -443,7 +442,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE14' time 5000 flag 1  // ~g~Destination ~w~'The Casino' ~g~in Torrington
+		00BC: print_now 'FARE14' duration 5000 ms flag 1  // ~g~Destination ~w~'The Casino' ~g~in Torrington
 		0005: $TAXI_DESTX1 = 421.375 
 		0005: $TAXI_DESTY1 = -1390.813 
 		0005: $TAXI_DESTZ1 = 24.9375 
@@ -459,7 +458,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE15' time 5000 flag 1  // ~g~Destination ~w~'Liberty University' ~g~in Liberty Campus
+		00BC: print_now 'FARE15' duration 5000 ms flag 1  // ~g~Destination ~w~'Liberty University' ~g~in Liberty Campus
 		0005: $TAXI_DESTX1 = 183.125 
 		0005: $TAXI_DESTY1 = -215.5 
 		0005: $TAXI_DESTZ1 = 17.0 
@@ -475,7 +474,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE16' time 5000 flag 1  // ~g~Destination ~w~'Shopping Mall' ~g~in Belleville Park Area
+		00BC: print_now 'FARE16' duration 5000 ms flag 1  // ~g~Destination ~w~'Shopping Mall' ~g~in Belleville Park Area
 		0005: $TAXI_DESTX1 = 193.75 
 		0005: $TAXI_DESTY1 = -626.1875 
 		0005: $TAXI_DESTZ1 = 25.0625 
@@ -491,7 +490,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE17' time 5000 flag 1  // ~g~Destination ~w~'Museum' ~g~in Newport
+		00BC: print_now 'FARE17' duration 5000 ms flag 1  // ~g~Destination ~w~'Museum' ~g~in Newport
 		0005: $TAXI_DESTX1 = 326.0625 
 		0005: $TAXI_DESTY1 = -1001.688 
 		0005: $TAXI_DESTZ1 = 29.0 
@@ -507,7 +506,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE18' time 5000 flag 1  // ~g~Destination ~w~'AmCo Building' ~g~in Torrington
+		00BC: print_now 'FARE18' duration 5000 ms flag 1  // ~g~Destination ~w~'AmCo Building' ~g~in Torrington
 		0005: $TAXI_DESTX1 = 246.1875 
 		0005: $TAXI_DESTY1 = -1192.75 
 		0005: $TAXI_DESTZ1 = 24.6875 
@@ -523,7 +522,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE19' time 5000 flag 1  // ~g~Destination ~w~'Bolt Burgers' ~g~in Bedford Point
+		00BC: print_now 'FARE19' duration 5000 ms flag 1  // ~g~Destination ~w~'Bolt Burgers' ~g~in Bedford Point
 		0005: $TAXI_DESTX1 = 28.6875 
 		0005: $TAXI_DESTY1 = -1066.625 
 		0005: $TAXI_DESTZ1 = 26.6875 
@@ -539,7 +538,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE20' time 5000 flag 1  // ~g~Destination ~w~'The Park' ~g~in Belleville
+		00BC: print_now 'FARE20' duration 5000 ms flag 1  // ~g~Destination ~w~'The Park' ~g~in Belleville
 		0005: $TAXI_DESTX1 = 27.5 
 		0005: $TAXI_DESTY1 = -776.375 
 		0005: $TAXI_DESTZ1 = 26.25 
@@ -566,7 +565,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE21' time 5000 flag 1  // ~g~Destination ~w~'Francis intl. Airport'
+		00BC: print_now 'FARE21' duration 5000 ms flag 1  // ~g~Destination ~w~'Francis intl. Airport'
 		0005: $TAXI_DESTX1 = -744.5 
 		0005: $TAXI_DESTY1 = -598.5625 
 		0005: $TAXI_DESTZ1 = 8.0 
@@ -582,7 +581,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE22' time 5000 flag 1  // ~g~Destination ~w~'Cochrane Dam'
+		00BC: print_now 'FARE22' duration 5000 ms flag 1  // ~g~Destination ~w~'Cochrane Dam'
 		0005: $TAXI_DESTX1 = -1111.25 
 		0005: $TAXI_DESTY1 = 522.875 
 		0005: $TAXI_DESTZ1 = 65.0 
@@ -598,7 +597,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE23' time 5000 flag 1  // ~g~Destination ~w~'import export garage' ~g~in Cochrane Dam district
+		00BC: print_now 'FARE23' duration 5000 ms flag 1  // ~g~Destination ~w~'import export garage' ~g~in Cochrane Dam district
 		0005: $TAXI_DESTX1 = -1107.875 
 		0005: $TAXI_DESTY1 = 163.5 
 		0005: $TAXI_DESTZ1 = 50.0 
@@ -614,7 +613,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE24' time 5000 flag 1  // ~g~Destination ~w~'The hospital' ~g~in Pike Creek
+		00BC: print_now 'FARE24' duration 5000 ms flag 1  // ~g~Destination ~w~'The hospital' ~g~in Pike Creek
 		0005: $TAXI_DESTX1 = -1253.0 
 		0005: $TAXI_DESTY1 = -136.5625 
 		0005: $TAXI_DESTZ1 = 55.0 
@@ -631,7 +630,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE25' time 5000 flag 1  // ~g~Destination ~w~'The Park' ~g~in Shoreside Vale
+		00BC: print_now 'FARE25' duration 5000 ms flag 1  // ~g~Destination ~w~'The Park' ~g~in Shoreside Vale
 		0005: $TAXI_DESTX1 = -230.0625 
 		0005: $TAXI_DESTY1 = 311.5 
 		0005: $TAXI_DESTZ1 = 0.0 
@@ -648,7 +647,7 @@ then
 		then
 			goto @PASSENGER_DESTINATION
 		end
-		00BC: print_now 'FARE26' time 5000 flag 1  // ~g~Destination ~w~'North West Towers' ~g~in Wichita Gardens
+		00BC: print_now 'FARE26' duration 5000 ms flag 1  // ~g~Destination ~w~'North West Towers' ~g~in Wichita Gardens
 		0005: $TAXI_DESTX1 = -682.5 
 		0005: $TAXI_DESTY1 = 95.25 
 		0005: $TAXI_DESTZ1 = 10.0 
@@ -786,7 +785,7 @@ while 81AC:   not car $TAXI_CAR1 stopped 1 $TAXI_DESTX1 $TAXI_DESTY1 $TAXI_DESTZ
 	if
 		8185:   not car $TAXI_CAR1 health >= 500
 	then
-		00BC: print_now 'TAXI7' time 4000 flag 1  // ~r~Your car is trashed, get it repaired.
+		00BC: print_now 'TAXI7' duration 4000 ms flag 1  // ~r~Your car is trashed, get it repaired.
 		if
 			0038:   $SPRAY_BLIP_ONSCREEN == 0
 		then
@@ -829,11 +828,11 @@ then
 		001F:   17@ > $SPEEDBONUS
 	then
 		0084: $SCORE_FOR_THIS_FARE = $TAXI_DISTANCE_INT_OLD 
-		00BA: print_big 'TAXI4' time 5000 style 5  // Fare complete!
+		00BA: print_big 'TAXI4' duration 5000 ms style 5  // Fare complete!
 	else
 		0084: $SCORE_FOR_THIS_FARE = $TAXI_DISTANCE_INT_OLD 
 		0010: $SCORE_FOR_THIS_FARE *= 2 
-		00BA: print_big 'TAXI5' time 5000 style 5  // SPEED BONUS!!
+		00BA: print_big 'TAXI5' duration 5000 ms style 5  // SPEED BONUS!!
 	end
 else
 	if
@@ -841,15 +840,15 @@ else
 	then
 		0084: $SCORE_FOR_THIS_FARE = $TAXI_DISTANCE_INT_OLD 
 		0014: $SCORE_FOR_THIS_FARE /= 2 
-		00BA: print_big 'TAXI4' time 5000 style 5  // Fare complete!
+		00BA: print_big 'TAXI4' duration 5000 ms style 5  // Fare complete!
 	else
 		0084: $SCORE_FOR_THIS_FARE = $TAXI_DISTANCE_INT_OLD 
-		00BA: print_big 'TAXI5' time 5000 style 5  // SPEED BONUS!!
+		00BA: print_big 'TAXI5' duration 5000 ms style 5  // SPEED BONUS!!
 	end
 end
 
 0109: player $PLAYER_CHAR money += $SCORE_FOR_THIS_FARE 
-01E3: text_1number_styled 'TSCORE2' number $SCORE_FOR_THIS_FARE time 6000 style 6  // $~1~
+01E3: text_1number_styled 'TSCORE2' number $SCORE_FOR_THIS_FARE duration 6000 ms style 6  // $~1~
 018C: play_sound SOUND_PART_MISSION_COMPLETE at 0.0 0.0 0.0 
 0058: $TAXI_SCORE += $SCORE_FOR_THIS_FARE 
 0008: $TAXI_MISSION_DELIVERIES += 1 
@@ -862,7 +861,7 @@ if and
 then
 	014D: text_pager 'NEW_TAX' 140 2 0  // BIGGER! FASTER! HARDER! new Borgnine taxis open for business in Harwood. Call 555-BORGNINE today!
 	014C: set_parked_car_generator $SWANK_TAXI cars_to_generate_to 101 
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $NEW_TAXI_CREATED_BEFORE = 1
 end
 
@@ -873,7 +872,7 @@ gosub @MISSION_TAXI1_FAILED
 if
 	003A:   $TAXI_PASSED_THIS_SHOT == $IN_A_ROW_NUMBER
 then
-	036D: text_2numbers_styled 'IN_ROW' numbers $TAXI_PASSED_THIS_SHOT $IN_A_ROW_CASH time 5000 style 6  // ~1~ IN A ROW bonus! $~1~
+	036D: text_2numbers_styled 'IN_ROW' numbers $TAXI_PASSED_THIS_SHOT $IN_A_ROW_CASH duration 5000 ms style 6  // ~1~ IN A ROW bonus! $~1~
 	0109: player $PLAYER_CHAR money += $IN_A_ROW_CASH 
 	0058: $TAXI_SCORE += $IN_A_ROW_CASH 
 	0008: $IN_A_ROW_NUMBER += 5 
@@ -886,14 +885,14 @@ goto @MISSION_TAXI1_PASSED
 //Taxi_fail_conditions
 
 :TAXI_OUT_OF_TIME
-00BC: print_now 'TAXI2' time 5000 flag 1  // ~r~You're out of time!
+00BC: print_now 'TAXI2' duration 5000 ms flag 1  // ~r~You're out of time!
 goto @MISSION_TAXI1_FAILED
 
 /////////////////////////////////
 
 :TAXI_FUCKED
 wait 0 ms
-00BC: print_now 'TAXI3' time 5000 flag 1  // ~r~Your passenger fled in terror!
+00BC: print_now 'TAXI3' duration 5000 ms flag 1  // ~r~Your passenger fled in terror!
 if
 	8118:   not actor $TAXI_PED1 dead
 then
@@ -953,7 +952,7 @@ then
 	0216: set_car $TAXI_CAR1 taxi_available_light_to 1 
 end
 wait 0 ms
-00BD: print_soon 'TAXI1' time 1500 flag 1  // ~g~Look for a fare.
+00BD: print_soon 'TAXI1' duration 1500 ms flag 1  // ~g~Look for a fare.
 goto @START_TAXI_MISSION
 return
 
@@ -1060,8 +1059,8 @@ end
 0164: disable_marker $BLIP2_CT1 
 0164: disable_marker $SPRAY_TAXI 
 01C2: remove_references_to_actor $TAXI_PED1 
-00BA: print_big 'TAXI6' time 5000 style 5  // Taxi mission over
-01E3: text_1number_styled 'TSCORE' number $TAXI_SCORE time 6000 style 6  // EARNINGS: $~1~
+00BA: print_big 'TAXI6' duration 5000 ms style 5  // Taxi mission over
+01E3: text_1number_styled 'TSCORE' number $TAXI_SCORE duration 6000 ms style 6  // EARNINGS: $~1~
 0316: save_taxi_earnings_from $TAXI_SCORE 
 0111: set_wasted_busted_check_to 1 
 0004: $ONMISSION = 0 

@@ -76,12 +76,12 @@ end
 0004: $SAVED_PEDS_THIS_GO = 0 
 0004: $PARAMEDIC_LOCATION = 0 
 
-00BC: print_now 'ATUTOR2' time 3000 flag 1  // ~g~Drive the patients to Hospital CAREFULLY. Each bump reduces their chances of survival.
+00BC: print_now 'ATUTOR2' duration 3000 ms flag 1  // ~g~Drive the patients to Hospital CAREFULLY. Each bump reduces their chances of survival.
 0001: wait 3000 ms 
 03C7: set_sensitivity_to_crime_to 0.5 
 
 :MISSION_ROOT
-01E5: text_1number_highpriority 'ALEVEL' $AMBULANCE_LEVEL flag 5000 time 4  // Paramedic Mission Level ~1~
+01E5: text_1number_highpriority 'ALEVEL' number $AMBULANCE_LEVEL duration 5000 ms flag 4  // Paramedic Mission Level ~1~
 014F: stop_timer $PED_TIME_LIMIT 
 0004: $PED_TIME_LIMIT = 0 
 03E6: remove_text_box 
@@ -684,7 +684,7 @@ then
 	if
 		0038:   $FLAG_GOT_RANGE_MESSAGE == 0
 	then
-		00BC: print_now 'A_RANGE' time 5000 flag 1  // ~g~The ambulance radio is out of range, get closer to a hospital!
+		00BC: print_now 'A_RANGE' duration 5000 ms flag 1  // ~g~The ambulance radio is out of range, get closer to a hospital!
 		0004: $FLAG_GOT_RANGE_MESSAGE = 1
 	end
 	
@@ -733,7 +733,7 @@ wait 0 ms
 
 gosub @AMBULANCE_CHECK_FAIL_CRITERIA
 
-00DA: store_car_player_is_in $PLAYER_CHAR store_to $PLAYERS_AMBULANCE
+00DA: $PLAYERS_AMBULANCE = store_car_player_is_in $PLAYER_CHAR
 
 if and
 	0018:   $NUMBER_OF_INJURED_PEDS > 6 
@@ -987,7 +987,7 @@ then
 	0084: $SCORE_AM = $SAVED_PEDS 
 	0068: $SCORE_AM *= $AMBULANCE_LEVEL 
 	0010: $SCORE_AM *= 100 
-	01E3: text_1number_styled 'REWARD' number $SCORE_AM time 6000 style 6  // REWARD $~1~
+	01E3: text_1number_styled 'REWARD' number $SCORE_AM duration 6000 ms style 6  // REWARD $~1~
 	0058: $TOTAL_SAVED_PEDS += $SAVED_PEDS 
 	gosub @AMBULANCE_CHECK_REWARDS
 	0058: $SAVED_PEDS_THIS_GO += $SAVED_PEDS 
@@ -1024,24 +1024,24 @@ then
 		if
 			0038:   $AMBULANCE_LEVEL == 16
 		then
-			00BA: print_big 'A_COMP1' time 5000 style 5  // Paramedic missions complete!
-			00BA: print_big 'A_COMP2' time 6000 style 6  // You will never get tired!
+			00BA: print_big 'A_COMP1' duration 5000 ms style 5  // Paramedic missions complete!
+			00BA: print_big 'A_COMP2' duration 6000 ms style 6  // You will never get tired!
 			014D: text_pager 'A_COMP3' 140 100 1  // Paramedic missions complete! You will never get tired when running!
 			0394: play_music 1 
 			0330: set_player $PLAYER_CHAR infinite_run_to 1 
-			030C: progress_made = 1 
+			030C: set_mission_points += 1 
 			return 
 		end
 	else
 		if
 			0038:   $AMBULANCE_LEVEL == 13
 		then
-			00BA: print_big 'A_COMP1' time 5000 style 5  // Paramedic missions complete!
-			00BA: print_big 'A_COMP2' time 6000 style 6  // You will never get tired!
+			00BA: print_big 'A_COMP1' duration 5000 ms style 5  // Paramedic missions complete!
+			00BA: print_big 'A_COMP2' duration 6000 ms style 6  // You will never get tired!
 			014D: text_pager 'A_COMP3' 140 100 1  // Paramedic missions complete! You will never get tired when running!
 			0394: play_music 1 
 			0330: set_player $PLAYER_CHAR infinite_run_to 1 
-			030C: progress_made = 1 
+			030C: set_mission_points += 1 
 			return 
 		end
 	end
@@ -1055,7 +1055,7 @@ goto @AMBULANCE_LOOP
 if
 	0118:   actor $INJURED_PED_TEMP dead
 then
-	00BC: print_now 'A_FAIL3' time 3000 flag 1  // ~r~The patient is dead!!
+	00BC: print_now 'A_FAIL3' duration 3000 ms flag 1  // ~r~The patient is dead!!
 	goto @AMBULANCE_FAILED
 end
 if
@@ -1063,7 +1063,7 @@ if
 then
 	0321: kill_actor $INJURED_PED_TEMP 
 	034F: destroy_actor_with_fade $INJURED_PED_TEMP 
-	00BC: print_now 'A_FAIL2' time 3000 flag 1  // ~r~Your lack of urgency has been fatal to the patient!
+	00BC: print_now 'A_FAIL2' duration 3000 ms flag 1  // ~r~Your lack of urgency has been fatal to the patient!
 	goto @AMBULANCE_FAILED
 end
 if
@@ -1124,7 +1124,7 @@ then
 		if
 			003A:   $PEDS_IN_CAR == $MAX_PEDS_IN_CAR 
 		then
-			00BC: print_now 'A_FULL' time 5000 flag 1  // ~r~Ambulance full!!
+			00BC: print_now 'A_FULL' duration 5000 ms flag 1  // ~r~Ambulance full!!
 			0004: $CAR_FULL_FLAG = 1 
 		else
 			0004: $CAR_FULL_FLAG = 0
@@ -1162,7 +1162,7 @@ then
 		end
 		0084: $TIME_CHUNK_IN_SECS = $TIME_CHUNK 
 		0014: $TIME_CHUNK_IN_SECS /= 1000 
-		01E3: text_1number_styled 'A_TIME' number $TIME_CHUNK_IN_SECS time 6000 style 6  // +~1~ seconds
+		01E3: text_1number_styled 'A_TIME' number $TIME_CHUNK_IN_SECS duration 6000 ms style 6  // +~1~ seconds
 		0058: $PED_TIME_LIMIT += $TIME_CHUNK 
 		0004: $INJURED_PED_TEMP_FLAG = 3
 	end
@@ -1185,14 +1185,14 @@ then
 	then
 		0211: actor $INJURED_PED_TEMP walk_to $HOSPITAL_DOOR_X $HOSPITAL_DOOR_Y 
 		01C2: remove_references_to_actor $INJURED_PED_TEMP 
-		00BA: print_big 'A_PASS' time 3000 style 5  // Rescued!
+		00BA: print_big 'A_PASS' duration 3000 ms style 5  // Rescued!
 		if
 			0038:   $BONUS_TIME_FLAG == 1 
 		then
 			0084: $TIME_CHUNK_IN_SECS = $TIME_CHUNK 
 			0014: $TIME_CHUNK_IN_SECS /= 1000 
-			01E3: text_1number_styled 'A_TIME' number $TIME_CHUNK_IN_SECS time 6000 style 6  // +~1~ seconds
-			00DA: store_car_player_is_in $PLAYER_CHAR store_to $PLAYERS_AMBULANCE 
+			01E3: text_1number_styled 'A_TIME' number $TIME_CHUNK_IN_SECS duration 6000 ms style 6  // +~1~ seconds
+			00DA: $PLAYERS_AMBULANCE = store_car_player_is_in $PLAYER_CHAR
 			0227: $PLAYERS_AMBULANCE_HEALTH = car $PLAYERS_AMBULANCE health 
 			0008: $PLAYERS_AMBULANCE_HEALTH += 110 
 			0224: set_car $PLAYERS_AMBULANCE health_to $PLAYERS_AMBULANCE_HEALTH 
@@ -1217,7 +1217,7 @@ then
 		0018:   $TOTAL_SAVED_PEDS > 34 
 	then
 		014D: text_pager 'PAGEB13' 140 100 1  // Health delivered to hideout
-		030C: progress_made = 1 
+		030C: set_mission_points += 1 
 		0004: $AMBULANCE_PAGER_FLAG = 1
 	end
 end
@@ -1229,7 +1229,7 @@ then
 		0018:   $TOTAL_SAVED_PEDS > 69
 	then
 		014D: text_pager 'PAGEB14' 140 100 1  // Adrenaline delivered to hideout
-		030C: progress_made = 1 
+		030C: set_mission_points += 1 
 		0004: $AMBULANCE_PAGER_FLAG = 2
 	end
 end
@@ -1241,7 +1241,7 @@ then
 		0018:   $TOTAL_SAVED_PEDS > 104
 	then
 		//014D: text_pager 'PAGEB14' 140 100 1  // Adrenaline delivered to hideout
-		//030C: progress_made = 1 
+		//030C: set_mission_points += 1 
 		0004: $AMBULANCE_PAGER_FLAG = 3
 	end
 end
@@ -1274,16 +1274,16 @@ then
 		8038:   not  $CONTROLMODE == 3 
 	then
 		if
-			80E1:   is_button_pressed PAD1 button RIGHTSHOCK
+			80E1:   not is_button_pressed PAD1 button RIGHTSHOCK
 		then
-			00BC: print_now 'A_CANC' time 3000 flag 1  // ~r~Paramedic mission cancelled!
+			00BC: print_now 'A_CANC' duration 3000 ms flag 1  // ~r~Paramedic mission cancelled!
 			goto @AMBULANCE_FAILED
 		end
 	else
 		if
-			80E1:   is_button_pressed PAD1 button SQUARE
+			80E1:   not is_button_pressed PAD1 button SQUARE
 		then
-			00BC: print_now 'A_CANC' time 3000 flag 1  // ~r~Paramedic mission cancelled!
+			00BC: print_now 'A_CANC' duration 3000 ms flag 1  // ~r~Paramedic mission cancelled!
 			goto @AMBULANCE_FAILED
 		end
 	end
@@ -1292,7 +1292,7 @@ end
 if
 	80DE:   not is_player_in_model $PLAYER_CHAR model #AMBULAN
 then
-	00BC: print_now 'A_CANC' time 3000 flag 1  // ~r~Paramedic mission cancelled!
+	00BC: print_now 'A_CANC' duration 3000 ms flag 1  // ~r~Paramedic mission cancelled!
 	goto @AMBULANCE_FAILED
 end
 return
@@ -1302,8 +1302,8 @@ return
 :AMBULANCE_FAILED
 014F: stop_timer $PED_TIME_LIMIT 
 03E6: remove_text_box 
-00BA: print_big 'A_FAIL1' time 5000 style 5  // Paramedic mission ended.
-01E3: text_1number_styled 'A_SAVES' number $SAVED_PEDS_THIS_GO time 6000 style 6  // PEOPLE SAVED: ~1~
+00BA: print_big 'A_FAIL1' duration 5000 ms style 5  // Paramedic mission ended.
+01E3: text_1number_styled 'A_SAVES' number $SAVED_PEDS_THIS_GO duration 6000 ms style 6  // PEOPLE SAVED: ~1~
 0004: $HOSPITAL_BLIP_FLAG = 0 
 0164: disable_marker $HOSPITAL_BLIP 
 0164: disable_marker $INJURED_PED_1_BLIP 

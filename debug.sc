@@ -19,9 +19,9 @@ return
 //#####################################################################################
 //#####################################################################################
 
-:STARTER         //This thread is here to do stuff if $MASTERLCDEBUG is on
+:STARTER         //This thread is here to do stuff if $MASTERDEBUG is on
 03A4: name_thread 'TMP_THR'
-0111: set_deatharrest_state 0 (disabled)
+0111: set_wasted_busted_check_to 0
 
 wait 1000 ms
 if
@@ -38,7 +38,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 892.75 -425.75 13.875
 
-	02A7: $LUIGI_MISSION_MARKER = create_icon_marker_and_sphere 13 at 892.75 -425.75 13.875
+	02A7: $LUIGI_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_LUIGI at 892.75 -425.75 13.875
 	004F: create_thread @LUIGI_MISSION2_LOOP		//DONT SPANK MA BITCH UP
 	//004F: create_thread @LUIGI_MISSION3_LOOP		//DRIVE MISTY FOR ME
 	//004F: create_thread @LUIGI_MISSION4_LOOP		//PUMP ACTION PIMP
@@ -48,7 +48,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 1191.688 -873.0 -100.0
 
-	02A7: $JOEY_MISSION_MARKER = create_icon_marker_and_sphere 10 at 1191.688 -870.0 -100.0
+	02A7: $JOEY_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_JOEY at 1191.688 -870.0 -100.0
 	004F: create_thread @JOEY_MISSION1_LOOP			//MIKE LIPS LAST LUNCH
 	//004F: create_thread @JOEY_MISSION2_LOOP		//FAREWELL CHUNK YLEE CHONG
 	//004F: create_thread @JOEY_MISSION3_LOOP		//VAN HEIST  
@@ -60,7 +60,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 1219.563 -324.0 26.375
 
-	02A7: $TONI_MISSION_MARKER = create_icon_marker_and_sphere 19 at 1219.563 -321.0 26.375
+	02A7: $TONI_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_TONY at 1219.563 -321.0 26.375
 	004F: create_thread @TONI_MISSION1_LOOP			//TAKING OUT THE LAUNDRY
 	//004F: create_thread @TONI_MISSION2_LOOP		//THE PICKUP
 	//004F: create_thread @TONI_MISSION3_LOOP		//SALVATORES CALLED A MEETING
@@ -71,7 +71,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 1458.688 -187.25 -100.0
 
-	02A7: $SALVATORE_MISSION_MARKER = create_icon_marker_and_sphere 16 at 1455.688 -187.25 -100.0
+	02A7: $SALVATORE_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_SAL at 1455.688 -187.25 -100.0
 	004F: create_thread @FRANKIE_MISSION1_LOOP		//CHAPERONE
 	//004F: create_thread @FRANKIE_MISSION2_LOOP		//CUTTING THE GRASS
 	//004F: create_thread @FRANKIE_MISSION21_LOOP		//BOMB DA BASE ACT I
@@ -82,7 +82,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 523.6875 -644.0 16.0625
 
-	02A7: $ASUKA1_MISSION_MARKER = create_icon_marker_and_sphere 1 at 523.6875 -643.0 16.0625
+	02A7: $ASUKA1_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_ASUKA at 523.6875 -643.0 16.0625
 	// 004F: create_thread @ASUKA_MISSION1_LOOP		//SAYONARA SALVATORE ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//004F: create_thread @ASUKA_MISSION2_LOOP		//UNDER SURVEILLANCE
 	//004F: create_thread @ASUKA_MISSION3_LOOP		//PAPARAZZI PURGE
@@ -93,7 +93,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 456.3 -1415.4 26.2
 
-	02A7: $KENJI_MISION_MARKER = create_icon_marker_and_sphere 11 at 459.0625 -1413.0 26.0625
+	02A7: $KENJI_MISION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_KENJI at 459.0625 -1413.0 26.0625
 	// 004F: create_thread @KENJI_MISSION1_LOOP		//KANBU BUST OUT ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//004F: create_thread @KENJI_MISSION2_LOOP		//GRAND THEFT AUTO
 	//004F: create_thread @KENJI_MISSION3_LOOP		//DEAL STEAL
@@ -104,7 +104,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 35.75 -725.375 -100.0
 
-	02A7: $RAY_MISSION_MARKER = create_icon_marker_and_sphere 15 at 38.75 -725.375 -100.0 
+	02A7: $RAY_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_RAY at 38.75 -725.375 -100.0 
 	// 004F: create_thread @RAY_MISSION1_LOOP		//SILENCE THE SNEAK ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//004F: create_thread @RAY_MISSION2_LOOP		//ARMS SHORTAGE
 	//004F: create_thread @RAY_MISSION3_LOOP		//EVIDENCE DASH
@@ -116,7 +116,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 84.0625 -1548.688 28.25
 
-	02A7: $DONALD_MISSION_MARKER = create_icon_marker_and_sphere 6 at 86.0625 -1548.688 28.25
+	02A7: $DONALD_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_DON at 86.0625 -1548.688 28.25
 	// 004F: create_thread @LOVE_MISSION1_LOOP		//LIBERATOR ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//004F: create_thread @LOVE_MISSION2_LOOP		//WAKA GASHIRA WIPEOUT
 	//004F: create_thread @LOVE_MISSION3_LOOP		//A DROP IN THE OCEAN
@@ -129,7 +129,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to 365.9375 -328.0 20.25
 
-	02A7: $ASUKA2_MISSION_MARKER = create_icon_marker_and_sphere 1 at 366.9375 -328.0 20.25
+	02A7: $ASUKA2_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_ASUKA at 366.9375 -328.0 20.25
 	// 004F: create_thread @ASUKA_SUBURBAN_MISSION1_LOOP		//BAIT ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//004F: create_thread @ASUKA_SUBURBAN_MISSION2_LOOP		//ESPRESSO 2 GO
 	//004F: create_thread @ASUKA_SUBURBAN_MISSION3_LOOP		//SAM
@@ -138,7 +138,7 @@ then
 
 	//0055: set_player_coordinates $PLAYER_CHAR to -362.75 240.875 60.0
 
-	02A7: $COLUMBIAN_MANSION_MARKER = create_icon_marker_and_sphere 3 at -362.75 245.875 60.0
+	02A7: $COLUMBIAN_MANSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_CAT at -362.75 245.875 60.0
 	004F: create_thread @CAT_MISSION1_LOOP				//THE EXCHANGE
 
 
@@ -157,7 +157,7 @@ end_thread
 while true
     wait 0 ms
     if 
-        0256:   player $PLAYER_CHAR defined
+        0256:   is_player $PLAYER_CHAR defined
     then
         0007: 4@ = 10.0  
         0007: 5@ = 10.0  
@@ -166,7 +166,7 @@ while true
 	// For whatever reason the game only want to show the first two text boxes created, 
 	// so we let X and Y be shown standard, and Z and Angle if the Look Behind key is held.
 	if
-		80E1:   NOT   key_pressed 0 19 // Look behind on foot, Sub-mission in vehicle.
+		80E1:   not is_button_pressed PAD1 button RIGHTSHOCK // Look behind on foot, Sub-mission in vehicle.
 	then
         	// X
        		0087: 2@ = 7@
@@ -205,9 +205,9 @@ gosub @COORDS_DRAW_SETUP
 if
     0019:    1@ >  9
 then
-    045B: text_draw_2numbers  4@ 5@ 'POS1'  0@  1@  // ~1~.~1~
+    045B: text_draw_2numbers 'POS1' number 0@  1@ at 4@ 5@  // ~1~.~1~
 else
-    045B: text_draw_2numbers  4@ 5@ 'POS2'  0@  1@  // ~1~.0~1~
+    045B: text_draw_2numbers 'POS1' number 0@  1@ at 4@ 5@  // ~1~.0~1~
 end
 000B: 5@ +=  15.0  
 return

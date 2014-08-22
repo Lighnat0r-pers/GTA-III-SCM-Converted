@@ -24,7 +24,7 @@ end_thread
 0317: increment_mission_attempts 
 03A4: name_thread 'MAYHEM' 
 0004: $ONMISSION = 1 
-00BA: print_big 'MM_1' time 15000 style 2  // 'MULTISTOREY MAYHEM'
+00BA: print_big 'MM_1' duration 15000 ms style 2  // 'MULTISTOREY MAYHEM'
 0001: wait 0 ms 
 
 // Set Variables
@@ -126,7 +126,7 @@ end_thread
 
 01C0: $WANTED_4X4 = player $PLAYER_CHAR wanted_level 
 0110: clear_player $PLAYER_CHAR wanted_level 
-00DA: store_car_player_is_in $PLAYER_CHAR store_to $PLAYER_4X4 
+00DA: $PLAYER_4X4 = store_car_player_is_in $PLAYER_CHAR
 if
 	8119:   not car $PLAYER_4X4 wrecked 
 then
@@ -427,7 +427,7 @@ while 001A:   20 > $COUNTER_4X4_PICKUPS
 			001A:   5 > $FLAG_INTRO 
 		then
 			if
-				00E1: key_pressed 0 16
+				00E1:   is_button_pressed PAD1 button CROSS
 			then
 				0004: $INTRO_TIME_LAPSED = 10501 
 				0004: $FLAG_INTRO = 5 
@@ -451,7 +451,7 @@ while 001A:   20 > $COUNTER_4X4_PICKUPS
 		while fading
 			wait 0 ms
 		end
-		00BC: print_now 'MM_1_A' time 5500 flag 1  // ~g~You have ~y~2 minutes~g~ to collect ~y~20 checkpoints~g~ in the multistorey! ~g~You may collect them in ~y~ANY ORDER.
+		00BC: print_now 'MM_1_A' duration 5500 ms flag 1  // ~g~You have ~y~2 minutes~g~ to collect ~y~20 checkpoints~g~ in the multistorey! ~g~You may collect them in ~y~ANY ORDER.
 		0004: $FLAG_INTRO = 1
 	end
 	if
@@ -472,7 +472,7 @@ while 001A:   20 > $COUNTER_4X4_PICKUPS
 		0018:   $INTRO_TIME_LAPSED > 5500 
 		0038:   $FLAG_INTRO == 2 
 	then
-		00BC: print_now 'MM_1_C' time 5000 flag 1  // ~g~That's 20 seconds, plus ~y~5 SECONDS~g~ for each checkpoint. ~g~The timer will start ~y~IMMEDIATELY.
+		00BC: print_now 'MM_1_C' duration 5000 ms flag 1  // ~g~That's 20 seconds, plus ~y~5 SECONDS~g~ for each checkpoint. ~g~The timer will start ~y~IMMEDIATELY.
 		0004: $FLAG_INTRO = 3
 	end
 	if and
@@ -513,13 +513,13 @@ while 001A:   20 > $COUNTER_4X4_PICKUPS
 	if
 		001A:   1 > $TIMER_4X4
 	then
-		00BC: print_now 'TAXI2' time 3000 flag 1  // ~r~You're out of time!
+		00BC: print_now 'TAXI2' duration 3000 ms flag 1  // ~r~You're out of time!
 		goto @MISSION_MAYHEM_FAILED
 	end
 	if
 		80DE:   not is_player_in_model $PLAYER_CHAR model #STALLION
 	then
-		00BC: print_now 'T4X4_F' time 3000 flag 1  // ~r~You bailed! Too tough for you?!
+		00BC: print_now 'T4X4_F' duration 3000 ms flag 1  // ~r~You bailed! Too tough for you?!
 		goto @MISSION_MAYHEM_FAILED
 	end
 end
@@ -533,13 +533,13 @@ end
 :MISSION_MAYHEM_CHECKPOINT_PICKED_UP
 0008: $COUNTER_4X4_PICKUPS += 1 
 0008: $TIMER_4X4 += 5000 
-01E5: text_1number_highpriority 'MM_1_B' $COUNTER_4X4_PICKUPS flag 3000 time 1  // ~1~ of 20!
+01E5: text_1number_highpriority 'MM_1_B' number $COUNTER_4X4_PICKUPS duration 3000 ms flag 1  // ~1~ of 20!
 return
 
 // --------------------------Mission failed-----------------------------------------------
 
 :MISSION_MAYHEM_FAILED
-00BA: print_big 'M_FAIL' time 2000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 2000 ms style 1  // MISSION FAILED!
 return
 
 // -------------------------Mission passed-------------------------------------------------
@@ -554,7 +554,7 @@ if or
 then
 	0084: $MULTISTOREY_MAYHEM_BEST_TIME = $RECORD_TEMP 
 end
-01E3: text_1number_styled 'M_PASS' number 30000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 30000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0394: play_music 1 
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 30000 
@@ -564,7 +564,7 @@ if
 then
 	0318: set_latest_mission_passed 'T4X4_3'  // 'GRIPPED!'
 	0004: $MULTISTOREY_MAYHEM_COMPLETED = 1 
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 end
 // This refers to a non-existent mission (Mayhem2?) cut at an early stage as there is no save_mayhem2_time opcode for it nor any code.
 //004F: create_thread @CARPARK_MISSION2_LOOP // Removed by R* 

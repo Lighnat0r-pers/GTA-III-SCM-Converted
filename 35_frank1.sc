@@ -153,77 +153,77 @@ while 001A:   219 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_A' time 15000 flag 1  // ~w~Me an' the fellas need to talk business
+00BC: print_now 'FM1_A' duration 15000 ms flag 1  // ~w~Me an' the fellas need to talk business
 while 001A:   1849 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_B' time 15000 flag 1  // ~w~so you're gonna look after my girl for the evening.
+00BC: print_now 'FM1_B' duration 15000 ms flag 1  // ~w~so you're gonna look after my girl for the evening.
 while 001A:   4493 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_C' time 15000 flag 1  // ~w~HEY MARIA! MOVE YOUR BUTT!
+00BC: print_now 'FM1_C' duration 15000 ms flag 1  // ~w~HEY MARIA! MOVE YOUR BUTT!
 while 001A:   7519 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_D' time 15000 flag 1  // ~w~Dumb broad does this every time.
+00BC: print_now 'FM1_D' duration 15000 ms flag 1  // ~w~Dumb broad does this every time.
 while 001A:   10505 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_E' time 15000 flag 1  // ~w~And here she is, the one and only Queen of Sheba!
+00BC: print_now 'FM1_E' duration 15000 ms flag 1  // ~w~And here she is, the one and only Queen of Sheba!
 while 001A:   14239 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_F' time 15000 flag 1  // ~w~What were you doing up there?
+00BC: print_now 'FM1_F' duration 15000 ms flag 1  // ~w~What were you doing up there?
 while 001A:   15964 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_G' time 15000 flag 1  // ~w~Whatever it was, I bet it cost me money.
+00BC: print_now 'FM1_G' duration 15000 ms flag 1  // ~w~Whatever it was, I bet it cost me money.
 while 001A:   18485 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_H' time 15000 flag 1  // ~w~Well, you don't think I hang around for the conversation, do you?
+00BC: print_now 'FM1_H' duration 15000 ms flag 1  // ~w~Well, you don't think I hang around for the conversation, do you?
 while 001A:   21608 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_I' time 15000 flag 1  // ~w~Get in that car and keep your big mouth shut.
+00BC: print_now 'FM1_I' duration 15000 ms flag 1  // ~w~Get in that car and keep your big mouth shut.
 while 001A:   24863 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_J' time 15000 flag 1  // ~w~Take the limo but bring it back in one piece, y'hear me?
+00BC: print_now 'FM1_J' duration 15000 ms flag 1  // ~w~Take the limo but bring it back in one piece, y'hear me?
 while 001A:   28287 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_K' time 15000 flag 1  // ~w~And watch her, she can be trouble.
+00BC: print_now 'FM1_K' duration 15000 ms flag 1  // ~w~And watch her, she can be trouble.
 while 001A:   31451 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_L' time 15000 flag 1  // ~w~Yeah, yeah, yeah! I'm sure your new lap dog has everything covered,
+00BC: print_now 'FM1_L' duration 15000 ms flag 1  // ~w~Yeah, yeah, yeah! I'm sure your new lap dog has everything covered,
 while 001A:   34679 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_M' time 15000 flag 1  // ~w~and isn't he big and strong?
+00BC: print_now 'FM1_M' duration 15000 ms flag 1  // ~w~and isn't he big and strong?
 while 001A:   36802 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_N' time 15000 flag 1  // ~w~Hey Fido, Let's go visit Chico and get some party treats!
+00BC: print_now 'FM1_N' duration 15000 ms flag 1  // ~w~Hey Fido, Let's go visit Chico and get some party treats!
 while 001A:   39747 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM1_O' time 15000 flag 1  // ~w~He's at the rail station at the Chinatown waterfront I think.
+00BC: print_now 'FM1_O' duration 15000 ms flag 1  // ~w~He's at the rail station at the Chinatown waterfront I think.
 while 001A:   43500 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -268,7 +268,7 @@ end //while
 
 // START MISSION
 
-00A5: create_car #STRETCH at 1436.0 -183.0 50.0 store_to $MARIAS_STRETCH 
+00A5: $MARIAS_STRETCH = create_car #STRETCH at 1436.0 -183.0 50.0
 041E: set_radio_station RISE_FM -1 
 0175: set_car $MARIAS_STRETCH z_angle_to 90.0 
 0229: set_car $MARIAS_STRETCH color_to 0 0 // FRANKIES LIMO NEEDS A UNIQUE COLOUR
@@ -277,7 +277,7 @@ end //while
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
 0004: $MARIA_EXISTS = 1 
-01C8: $MARIA = create_actor_pedtype PEDTYPE_SPECIAL model #SPECIAL02 in_car $MARIAS_STRETCH passenger_seat 1 
+01C8: $MARIA = create_actor PEDTYPE_SPECIAL model #SPECIAL02 in_car $MARIAS_STRETCH passenger_seat 1 
 01ED: clear_actor $MARIA threat_search 
 035F: set_actor $MARIA armour_to 100 
 039E: set_char_cant_be_dragged_out $MARIA to 1 
@@ -288,12 +288,12 @@ then
 	01D4: actor $MARIA go_to_car $MARIAS_STRETCH and_enter_it_as_a_passenger
 end
 
-009A: create_char PEDTYPE_CIVMALE model #CRIMINAL01 at 770.1875 -565.9375 13.75 store_to $CHICO_DRUGDEALER 
+009A: $CHICO_DRUGDEALER = create_char PEDTYPE_CIVMALE model #CRIMINAL01 at 770.1875 -565.9375 13.75
 0173: set_actor $CHICO_DRUGDEALER z_angle_to 265.1875 
 01ED: clear_actor $CHICO_DRUGDEALER threat_search 
 009F: char_set_idle $CHICO_DRUGDEALER 
 0350: set_actor $CHICO_DRUGDEALER maintain_position_when_attacked 1 
-022B: create_forbidden_for_peds_cube 759.0 -616.0 11.0 782.0 -536.0 26.0 
+022B: switch_ped_roads_off 759.0 -616.0 11.0 to 782.0 -536.0 26.0 
 0209: $CAMERA_MODE = random_int_in_ranges 0 4
 
 if
@@ -306,19 +306,19 @@ if
 	0038:   $CAMERA_MODE == 1
 then
 	015F: set_camera_position 1425.625 -178.4375 50.125 0.0 rotation 0.0 0.0 
-	0158: camera_on_vehicle $MARIAS_STRETCH FIXED switchstyle JUMP_CUT
+	0158: camera_on_vehicle $MARIAS_STRETCH mode FIXED switchstyle JUMP_CUT
 end
 if
 	0038:   $CAMERA_MODE == 2
 then
 	015F: set_camera_position 1432.125 -179.6875 50.625 0.0 rotation 0.0 0.0 
-	0158: camera_on_vehicle $MARIAS_STRETCH FIXED switchstyle JUMP_CUT
+	0158: camera_on_vehicle $MARIAS_STRETCH mode FIXED switchstyle JUMP_CUT
 end
 if
 	0038:   $CAMERA_MODE == 3
 then
 	015F: set_camera_position 1421.125 -193.75 63.875 0.0 rotation 0.0 0.0 
-	0158: camera_on_vehicle $MARIAS_STRETCH FIXED switchstyle JUMP_CUT
+	0158: camera_on_vehicle $MARIAS_STRETCH mode FIXED switchstyle JUMP_CUT
 end
 
 0369: put_player $PLAYER_CHAR in_car $MARIAS_STRETCH 
@@ -405,14 +405,14 @@ while 8103:   not actor $MARIA stopped_near_point_in_car 775.5 -557.25 14.0 radi
 		00E5:   player $PLAYER_CHAR 0 $CHICO_X $CHICO_Y radius 30.0 30.0 
 		0038:   $CHICO_MESSAGE_FLAG == 0
 	then
-		00BC: print_now 'FM1_P' time 5000 flag 1  // ~g~That's Chico over there, pull up next to him.
+		00BC: print_now 'FM1_P' duration 5000 ms flag 1  // ~g~That's Chico over there, pull up next to him.
 		0004: $CHICO_MESSAGE_FLAG = 1 
 	end
 	if and
 		0038:   $CHICO_MESSAGE_FLAG == 1 
 		80E5:   not player $PLAYER_CHAR 0 $CHICO_X $CHICO_Y radius 30.0 30.0
 	then
-		00BC: print_now 'FM1_6' time 5000 flag 1  // ~g~Chico won't be there forever, get Maria to the waterfront!
+		00BC: print_now 'FM1_6' duration 5000 ms flag 1  // ~g~Chico won't be there forever, get Maria to the waterfront!
 		0004: $CHICO_MESSAGE_FLAG = 0
 	end
 end //while
@@ -438,7 +438,7 @@ while 00DF:   is_char_in_any_car $MARIA
 	if
 		80E9:   not player $PLAYER_CHAR 0 $MARIA radius 20.0 20.0
 	then
-		00BC: print_now 'FM1_3' time 5000 flag 1  // ~r~Leave Maria and Salvatore will have you whacked, go back and pick her up.
+		00BC: print_now 'FM1_3' duration 5000 ms flag 1  // ~r~Leave Maria and Salvatore will have you whacked, go back and pick her up.
 	end
 end //while
 
@@ -455,7 +455,7 @@ while 80F0:   not actor $MARIA stopped #NULL $CHICO_X $CHICO_Y radius 3.0 3.0
 	if
 		80E9:   not player $PLAYER_CHAR 0 $MARIA radius 20.0 20.0
 	then
-		00BC: print_now 'FM1_3' time 5000 flag 1  // ~r~Leave Maria and Salvatore will have you whacked, go back and pick her up.
+		00BC: print_now 'FM1_3' duration 5000 ms flag 1  // ~r~Leave Maria and Salvatore will have you whacked, go back and pick her up.
 	end
 end //while
 
@@ -503,7 +503,7 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 	then
 		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_Q' time 6000 flag 2  // ~w~Hey Maria! It's my favorite lady!
+		00BC: print_now 'FM1_Q' duration 6000 ms flag 2  // ~w~Hey Maria! It's my favorite lady!
 		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
 		0004: $CHICO_AUDIO_FLAG = 2
 	end
@@ -522,7 +522,7 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 	then
 		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_Q1' time 6000 flag 2  // ~w~You looking for some fun? A little...hmm? Some SPANK?
+		00BC: print_now 'FM1_Q1' duration 6000 ms flag 2  // ~w~You looking for some fun? A little...hmm? Some SPANK?
 		0004: $CHICO_AUDIO_FLAG = 4
 	end
 	if and
@@ -541,7 +541,7 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 	then
 		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_R' time 6000 flag 2  // ~w~Hi Chico. Nah, just the usual.
+		00BC: print_now 'FM1_R' duration 6000 ms flag 2  // ~w~Hi Chico. Nah, just the usual.
 		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
 		0004: $CHICO_AUDIO_FLAG = 6
 	end
@@ -562,7 +562,7 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
 		03D1: play_wav 
-		00BC: print_now 'FM1_S' time 5000 flag 2  // ~w~Here you go lady.
+		00BC: print_now 'FM1_S' duration 5000 ms flag 2  // ~w~Here you go lady.
 		0004: $CHICO_AUDIO_FLAG = 8
 	end
 	if and
@@ -580,7 +580,7 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 	then
 		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_S1' time 15000 flag 2  // ~w~Hey, maybe you should check out the warehouse party at the east end of Atlantic Quays.
+		00BC: print_now 'FM1_S1' duration 15000 ms flag 2  // ~w~Hey, maybe you should check out the warehouse party at the east end of Atlantic Quays.
 		0004: $CHICO_AUDIO_FLAG = 10 
 	end
 	if and
@@ -599,7 +599,7 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 	then
 		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_T' time 4000 flag 2  // ~w~Thanks Chico. See you around.
+		00BC: print_now 'FM1_T' duration 4000 ms flag 2  // ~w~Thanks Chico. See you around.
 		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
 		0004: $CHICO_AUDIO_FLAG = 12
 	end
@@ -619,7 +619,7 @@ while 8038:   not  $CHICO_AUDIO_FLAG == 15
 	then
 		00A0: get_char_coordinates $CHICO_DRUGDEALER store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_U' time 2000 flag 1  // ~w~Gracias and enjoy. That's good stuff.
+		00BC: print_now 'FM1_U' duration 2000 ms flag 1  // ~w~Gracias and enjoy. That's good stuff.
 		0372: set_actor $CHICO_DRUGDEALER anim WAITSTATE_PLAYANIM_CHAT wait_state_time 10000 ms 
 		0004: $CHICO_AUDIO_FLAG = 14
 	end
@@ -641,7 +641,7 @@ gosub @CHECK_VEHICLE_STATUS_FRANKIE1
 01D4: actor $MARIA go_to_car $MARIAS_STRETCH and_enter_it_as_a_passenger 
 0319: set_actor $MARIA running 1 
 01C2: remove_references_to_actor $CHICO_DRUGDEALER 
-022A: remove_forbidden_for_peds_cube 759.0 -616.0 11.0 782.0 -536.0 26.0
+022A: switch_ped_roads_on 759.0 -616.0 11.0 to 782.0 -536.0 26.0
 
 while 80DB:   not is_char_in_car $MARIA car $MARIAS_STRETCH
 	wait 0 ms
@@ -671,27 +671,27 @@ while 83D0:   not wav_loaded
 end //while
 
 03D1: play_wav 
-00BC: print_now 'FM1_V' time 5000 flag 1  // ~w~C'mon Fido, let's go and check out this party!
+00BC: print_now 'FM1_V' duration 5000 ms flag 1  // ~w~C'mon Fido, let's go and check out this party!
 0164: disable_marker $FM1_BLIP 
 0164: disable_marker $MARIA_BLIP 
 018A: $FM1_BLIP = create_checkpoint_at 1256.563 -1099.25 -11.6875 
-009A: create_char PEDTYPE_GANG_MAFIA model #GANG01 at 1267.688 -1109.188 11.0 store_to $FRANK1_MAFIA1 
+009A: $FRANK1_MAFIA1 = create_char PEDTYPE_GANG_MAFIA model #GANG01 at 1267.688 -1109.188 11.0
 0173: set_actor $FRANK1_MAFIA1 z_angle_to 90.0 
 011A: set_actor $FRANK1_MAFIA1 search_threat THREAT_GANG_HOOD 
 0243: set_actor $FRANK1_MAFIA1 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_MAFIA1 weapon WEAPONTYPE_PISTOL ammo 99 
 0192: set_actor $FRANK1_MAFIA1 objective_to_stand_still 
 0291: set_actor $FRANK1_MAFIA1 attack_when_provoked 1 
-009A: create_char PEDTYPE_GANG_MAFIA model #GANG01 at 1267.688 -1105.563 11.0 store_to $FRANK1_MAFIA2 
+009A: $FRANK1_MAFIA2 = create_char PEDTYPE_GANG_MAFIA model #GANG01 at 1267.688 -1105.563 11.0
 0173: set_actor $FRANK1_MAFIA2 z_angle_to 90.0 
 011A: set_actor $FRANK1_MAFIA2 search_threat THREAT_GANG_HOOD 
 0243: set_actor $FRANK1_MAFIA2 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_MAFIA2 weapon WEAPONTYPE_PISTOL ammo 99 
 0192: set_actor $FRANK1_MAFIA2 objective_to_stand_still 
 0291: set_actor $FRANK1_MAFIA2 attack_when_provoked 1 
-00A5: create_car #SENTINEL at 1243.0 -1112.0 11.0 store_to $FRANK1_PARTY_CAR1 
-00A5: create_car #CHEETAH at 1247.0 -1112.0 11.0 store_to $FRANK1_PARTY_CAR2 
-00A5: create_car #MANANA at 1251.0 -1112.0 11.0 store_to $FRANK1_PARTY_CAR3 
+00A5: $FRANK1_PARTY_CAR1  create_car #SENTINEL at 1243.0 -1112.0 11.0
+00A5: $FRANK1_PARTY_CAR2  create_car #CHEETAH at 1247.0 -1112.0 11.0
+00A5: $FRANK1_PARTY_CAR3  create_car #MANANA at 1251.0 -1112.0 11.0
 
 /////////////CLUB STUFF////
 
@@ -720,7 +720,7 @@ while 80F1:   not actor $MARIA stopped $LOCATE_DOME_FLAG 1259.0 -1107.75 radius 
 		0038:   $CHICO_MESSAGE_FLAG == 0
 		00EC:   actor $MARIA 0 1258.0 -1100.0 radius 50.0 50.0 
 	then
-		00BC: print_now 'FM1_9' time 5000 flag 1  // ~g~Thats the party up ahead, drop Maria off out front.
+		00BC: print_now 'FM1_9' duration 5000 ms flag 1  // ~g~Thats the party up ahead, drop Maria off out front.
 		0004: $CHICO_MESSAGE_FLAG = 1
 	end
 	gosub @CHECK_IN_VEHICLE_STATUS_FRANKIE1
@@ -755,7 +755,7 @@ end
 01B4: set_player $PLAYER_CHAR controllable 0 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 1 
 03F4: set_all_cars_can_be_damaged 0 
-00BC: print_now 'FM1_W' time 5000 flag 1  // ~w~Alright Fido, you wait here and look after the car while I go and shake my butt alright.
+00BC: print_now 'FM1_W' duration 5000 ms flag 1  // ~w~Alright Fido, you wait here and look after the car while I go and shake my butt alright.
 0001: wait 0 ms
 
 while 83D2:   not wav_ended
@@ -855,7 +855,7 @@ while 00E3:   player $PLAYER_CHAR 0 1262.063 -1099.375 radius 22.0 22.0
 	end
 end //while
 
-00BC: print_now 'FM1_4' time 500 flag 2  // ~g~You've dumped the Don's woman! Get back to the warehouse and wait for Maria!
+00BC: print_now 'FM1_4' duration 500 ms flag 2  // ~g~You've dumped the Don's woman! Get back to the warehouse and wait for Maria!
 
 goto @WAIT_FOR_MARIA
 
@@ -874,25 +874,25 @@ end //while
 
 :SWAT_CAR_ONE
 
-00A5: create_car #ENFORCER at 1293.0 -925.0 -100.0 store_to $FRANK1_ENFORCER1 
+00A5: $FRANK1_ENFORCER1 = create_car #ENFORCER at 1293.0 -925.0 -100.0
 0175: set_car $FRANK1_ENFORCER1 z_angle_to 225.0 
 00AD: set_car_cruise_speed $FRANK1_ENFORCER1 to 40.0 
 00AE: set_car_driving_style $FRANK1_ENFORCER1 to DRIVINGMODE_AVOIDCARS
 0397: car $FRANK1_ENFORCER1 siren = 1 
 020A: set_car $FRANK1_ENFORCER1 door_status_to CARLOCK_LOCKOUT_PLAYER_ONLY
-0129: $FRANK1_SWAT1 = create_actor PEDTYPE_GANG_HOOD #SWAT in_car $FRANK1_ENFORCER1 driverseat 
+0129: $FRANK1_SWAT1 = create_actor PEDTYPE_GANG_HOOD #SWAT in_car $FRANK1_ENFORCER1 driverseat
 011A: set_actor $FRANK1_SWAT1 search_threat THREAT_GANG_MAFIA 
 0243: set_actor $FRANK1_SWAT1 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_SWAT1 weapon WEAPONTYPE_PISTOL ammo 99 
-01C8: $FRANK1_SWAT2 = create_actor_pedtype PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER1 passenger_seat 0 
+01C8: $FRANK1_SWAT2 = create_actor PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER1 passenger_seat 0
 011A: set_actor $FRANK1_SWAT2 search_threat THREAT_GANG_MAFIA 
 0243: set_actor $FRANK1_SWAT2 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_SWAT2 weapon WEAPONTYPE_PISTOL ammo 99 
-01C8: $FRANK1_SWAT3 = create_actor_pedtype PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER1 passenger_seat 1 
+01C8: $FRANK1_SWAT3 = create_actor PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER1 passenger_seat 1
 011A: set_actor $FRANK1_SWAT3 search_threat THREAT_GANG_MAFIA 
 0243: set_actor $FRANK1_SWAT3 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_SWAT3 weapon WEAPONTYPE_PISTOL ammo 99 
-01C8: $FRANK1_SWAT4 = create_actor_pedtype PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER1 passenger_seat 2 
+01C8: $FRANK1_SWAT4 = create_actor PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER1 passenger_seat 2
 011A: set_actor $FRANK1_SWAT4 search_threat THREAT_GANG_MAFIA 
 0243: set_actor $FRANK1_SWAT4 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_SWAT4 weapon WEAPONTYPE_PISTOL ammo 99 
@@ -907,25 +907,25 @@ end
 
 :SWAT_CAR_TWO
 
-00A5: create_car #ENFORCER at 1084.0 -1012.0 -100.0 store_to $FRANK1_ENFORCER2 
+00A5: $FRANK1_ENFORCER2 = create_car #ENFORCER at 1084.0 -1012.0 -100.0
 0175: set_car $FRANK1_ENFORCER2 z_angle_to 180.0 
 00AD: set_car_cruise_speed $FRANK1_ENFORCER2 to 40.0 
 00AE: set_car_driving_style $FRANK1_ENFORCER2 to DRIVINGMODE_AVOIDCARS
 0397: car $FRANK1_ENFORCER2 siren = 1 
 020A: set_car $FRANK1_ENFORCER2 door_status_to CARLOCK_LOCKOUT_PLAYER_ONLY
-0129: $FRANK1_SWAT5 = create_actor PEDTYPE_GANG_HOOD #SWAT in_car $FRANK1_ENFORCER2 driverseat 
+0129: $FRANK1_SWAT5 = create_actor PEDTYPE_GANG_HOOD #SWAT in_car $FRANK1_ENFORCER2 driverseat
 011A: set_actor $FRANK1_SWAT5 search_threat THREAT_GANG_MAFIA 
 0243: set_actor $FRANK1_SWAT5 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_SWAT5 weapon WEAPONTYPE_PISTOL ammo 99 
-01C8: $FRANK1_SWAT6 = create_actor_pedtype PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER2 passenger_seat 0 
+01C8: $FRANK1_SWAT6 = create_actor PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER2 passenger_seat 0
 011A: set_actor $FRANK1_SWAT6 search_threat THREAT_GANG_MAFIA 
 0243: set_actor $FRANK1_SWAT6 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_SWAT6 weapon WEAPONTYPE_PISTOL ammo 99 
-01C8: $FRANK1_SWAT7 = create_actor_pedtype PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER2 passenger_seat 1 
+01C8: $FRANK1_SWAT7 = create_actor PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER2 passenger_seat 1
 011A: set_actor $FRANK1_SWAT7 search_threat THREAT_GANG_MAFIA 
 0243: set_actor $FRANK1_SWAT7 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_SWAT7 weapon WEAPONTYPE_PISTOL ammo 99 
-01C8: $FRANK1_SWAT8 = create_actor_pedtype PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER2 passenger_seat 2 
+01C8: $FRANK1_SWAT8 = create_actor PEDTYPE_GANG_HOOD model #SWAT in_car $FRANK1_ENFORCER2 passenger_seat 2
 011A: set_actor $FRANK1_SWAT8 search_threat THREAT_GANG_MAFIA 
 0243: set_actor $FRANK1_SWAT8 ped_stats_to PEDSTAT_TOUGH_GUY 
 01B2: give_actor $FRANK1_SWAT8 weapon WEAPONTYPE_PISTOL ammo 99 
@@ -935,7 +935,7 @@ end
 02A3: toggle_widescreen 1 
 03F4: set_all_cars_can_be_damaged 0 
 015F: set_camera_position 1309.875 -1061.313 15.6875 0.0 rotation 0.0 0.0 
-0158: camera_on_vehicle $FRANK1_ENFORCER1 FIXED switchstyle JUMP_CUT
+0158: camera_on_vehicle $FRANK1_ENFORCER1 mode FIXED switchstyle JUMP_CUT
 03EA: generate_cars_around_camera 1 
 0004: $SWAT_CAM_NEEDS_RESTORING = 1
 
@@ -968,7 +968,7 @@ then
 end
 
 03D1: play_wav 
-00BC: print_now 'FM1_SS' time 4000 flag 2  // ~r~SCANNER: ~g~Four-five to all units: Assist narcotics raid Atlantic Quays...
+00BC: print_now 'FM1_SS' duration 4000 ms flag 2  // ~r~SCANNER: ~g~Four-five to all units: Assist narcotics raid Atlantic Quays...
 
 while true
 	if or
@@ -1401,7 +1401,7 @@ then
 end
 
 03D1: play_wav 
-00BC: print_now 'FM1_X' time 5000 flag 1  // ~w~OK Fido, let's get out of here. Wooooh!
+00BC: print_now 'FM1_X' duration 5000 ms flag 1  // ~w~OK Fido, let's get out of here. Wooooh!
 02FA: garage $SALVATORES_GARAGE change_to_type GARAGE_MISSION_KEEPCAR_REMAINCLOSED
 if
 	8119:   not car $MARIAS_STRETCH wrecked
@@ -1453,14 +1453,14 @@ gosub @CHECK_MARIA_STATUS_FRANKIE1
 0171: set_player $PLAYER_CHAR z_angle_to 184.9375 
 0004: $MARIA_EXISTS = 0 
 009B: delete_char $MARIA 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 1435.875 -178.375 54.0 store_to $MARIA 
+009A: $MARIA = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 1435.875 -178.375 54.0
 0004: $MARIA_EXISTS = 1 
 0173: set_actor $MARIA z_angle_to 184.875 
 01F5: $PLAYER_ACTOR = create_emulated_actor_from_player $PLAYER_CHAR 
 01ED: clear_actor $MARIA threat_search 
 01ED: clear_actor $PLAYER_ACTOR threat_search 
 015F: set_camera_position 1433.438 -173.5625 55.625 0.0 rotation 0.0 0.0 
-0159: camera_on_ped $MARIA FIXED switchstyle JUMP_CUT
+0159: camera_on_ped $MARIA mode FIXED switchstyle JUMP_CUT
 0211: actor $MARIA walk_to 1436.25 -180.625 
 0211: actor $PLAYER_ACTOR walk_to 1436.25 -180.625 
 00A6: delete_car $MARIAS_STRETCH 
@@ -1559,7 +1559,7 @@ while 8038:   not  $FLAG_BLIP_ON_MARIA == 8
 		020E: actor $MARIA look_at_actor $PLAYER_ACTOR 
 		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_Y' time 8000 flag 1  // ~w~You know I enjoyed myself for the first time in a long while, and you treated me really good. With respect and everything.
+		00BC: print_now 'FM1_Y' duration 8000 ms flag 1  // ~w~You know I enjoyed myself for the first time in a long while, and you treated me really good. With respect and everything.
 		0372: set_actor $MARIA anim WAITSTATE_PLAYANIM_CHAT wait_state_time 20000 ms 
 		0004: $FLAG_BLIP_ON_MARIA = 4
 	end
@@ -1578,7 +1578,7 @@ while 8038:   not  $FLAG_BLIP_ON_MARIA == 8
 	then
 		00A0: get_char_coordinates $MARIA store_to $CHICO_X $CHICO_Y $CHICO_Z 
 		03D1: play_wav 
-		00BC: print_now 'FM1_AA' time 8000 flag 1  // ~w~Oh, I'd better go. I'll see you around I hope.
+		00BC: print_now 'FM1_AA' duration 8000 ms flag 1  // ~w~Oh, I'd better go. I'll see you around I hope.
 		0004: $FLAG_BLIP_ON_MARIA = 6 
 	end
 	if and
@@ -1619,7 +1619,7 @@ if and
 	8320:   not actor $MARIA in_range_of_player $PLAYER_CHAR 
 	0038:   $FLAG_BLIP_ON_MARIA == 0
 then
-	00BC: print_now 'FM1_10' time 5000 flag 1  // ~g~You have left Maria behind, go back and pick her up.
+	00BC: print_now 'FM1_10' duration 5000 ms flag 1  // ~g~You have left Maria behind, go back and pick her up.
 	0164: disable_marker $FM1_BLIP 
 	0187: $FM1_BLIP = create_marker_above_actor $MARIA 
 	0004: $FLAG_BLIP_ON_MARIA = 1
@@ -1689,13 +1689,13 @@ return
 :CREATE_MARIA_AFTER_PARTY_FRANKIE1
 gosub @CHECK_SWAT_CAM_RESTORE_FRANKIE1
 0004: $MARIA_EXISTS = 1 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at $INSIDE_WAREHOUSE_X $INSIDE_WAREHOUSE_Y $INSIDE_WAREHOUSE_Z store_to $MARIA 
+009A: $MARIA = create_char PEDTYPE_SPECIAL model #SPECIAL02 at $INSIDE_WAREHOUSE_X $INSIDE_WAREHOUSE_Y $INSIDE_WAREHOUSE_Z
 0245: set_actor $MARIA walk_style_to ANIM_SEXY_WOMANPED
 035F: set_actor $MARIA armour_to 100 
 01ED: clear_actor $MARIA threat_search 
 0164: disable_marker $FM1_BLIP 
 0187: $FM1_BLIP = create_marker_above_actor $MARIA 
-00BC: print_now 'FM1_5' time 4000 flag 2  // ~g~Get Maria safely back to Salvatore's!
+00BC: print_now 'FM1_5' duration 4000 ms flag 2  // ~g~Get Maria safely back to Salvatore's!
 010E: set_player $PLAYER_CHAR minimum_wanted_level_to 2 
 0319: set_actor $MARIA running 1 
 0054: get_player_coordinates $PLAYER_CHAR store_to $CHICO_X $CHICO_Y $CHICO_Z 
@@ -1706,7 +1706,7 @@ return
 /////////////////////////////////////////
 
 :CHECK_CREATE_NEXT_PARTY_PERSON_FRANKIE1
-009A: create_char PEDTYPE_GANG_MAFIA model $FRANK1_PARTY_PERSON_MODEL_FLAG at $INSIDE_WAREHOUSE_X $INSIDE_WAREHOUSE_Y $INSIDE_WAREHOUSE_Z store_to $FRANK1_PARTY_PERSON_TEMP 
+009A: $FRANK1_PARTY_PERSON_TEMP = create_char PEDTYPE_GANG_MAFIA model $FRANK1_PARTY_PERSON_MODEL_FLAG at $INSIDE_WAREHOUSE_X $INSIDE_WAREHOUSE_Y $INSIDE_WAREHOUSE_Z
 011A: set_actor $FRANK1_PARTY_PERSON_TEMP search_threat THREAT_GANG_HOOD 
 0243: set_actor $FRANK1_PARTY_PERSON_TEMP ped_stats_to PEDSTAT_TOUGH_GUY 
 if
@@ -1863,7 +1863,7 @@ then
 		end
 	end
 	03D1: play_wav 
-	00BC: print_now 'FM1_TT' time 5000 flag 1  // ~w~IT'S A POLICE RAID!
+	00BC: print_now 'FM1_TT' duration 5000 ms flag 1  // ~w~IT'S A POLICE RAID!
 	0004: $CHICO_AUDIO_FLAG = 22 
 end
 
@@ -1907,7 +1907,7 @@ return
 if
 	0118:   actor $MARIA dead
 then
-	00BC: print_now 'FM1_7' time 5000 flag 1  // ~r~Maria's dead! Salvatore won't be too pleased...
+	00BC: print_now 'FM1_7' duration 5000 ms flag 1  // ~r~Maria's dead! Salvatore won't be too pleased...
 	goto @MISSION_FAILED_FRANKIE1
 end
 return
@@ -1921,7 +1921,7 @@ then
 	if
 		0038: $SHOW_WRECKED_MESSAGE_FLAG_FRANKIE1 == 1
 	then
-		00BC: print_now 'FM1_8' time 5000 flag 1  // ~r~You wasted Maria's supplier!
+		00BC: print_now 'FM1_8' duration 5000 ms flag 1  // ~r~You wasted Maria's supplier!
 	end
 	goto @MISSION_FAILED_FRANKIE1
 end
@@ -1959,7 +1959,7 @@ then
 		end
 	end
 	0186: $FM1_BLIP = create_marker_above_car $MARIAS_STRETCH 
-	00BC: print_now 'FM1_1' time 5000 flag 1  // ~g~Get back into the Stretch!
+	00BC: print_now 'FM1_1' duration 5000 ms flag 1  // ~g~Get back into the Stretch!
 	0004: $FLAG_BLIP_ON_LIMO = 1
 end
 if and
@@ -2001,7 +2001,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_FRANKIE1
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_FRANKIE1
 
 /////////////////////////////////////////
@@ -2038,12 +2038,12 @@ then
 	0164: disable_marker $JOEY_MISSION_MARKER 
 	02A7: $JOEY_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_JOEY at 1191.688 -870.0 -100.0
 end
-01E3: text_1number_styled 'M_PASS' number 10000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 10000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0109: player $PLAYER_CHAR money += 10000 
 0110: clear_player $PLAYER_CHAR wanted_level 
 0394: play_mission_passed_music 1 
 0318: set_latest_mission_passed 'FM1'  // 'CHAPERONE'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 02A7: $TONI_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_TONY at 1219.563 -321.0 26.375 
 004F: create_thread @TONI_MISSION4_LOOP 
 004F: create_thread @FRANKIE_MISSION2_LOOP 
@@ -2065,7 +2065,7 @@ if
 then
 	018E: stop_sound $FRANK1_PARTY_SOUND
 end
-03AE: remove_objects_from_cube 1264.0 -1111.0 5.0 1275.0 -1103.0 15.0 
+03AE: remove_objects_from_cube 1264.0 -1111.0 5.0 to 1275.0 -1103.0 15.0 
 0249: release_model #CRIMINAL01 
 0249: release_model #STRETCH 
 0249: release_model #GANG01 

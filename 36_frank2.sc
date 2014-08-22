@@ -107,7 +107,7 @@ while 001A:   1726 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_J' time 10000 flag 1  // Leave us alone for a minute.
+00BC: print_now 'FM2_J' duration 10000 ms flag 1  // Leave us alone for a minute.
 while 001A:   2910 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -117,42 +117,42 @@ while 001A:   4558 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_A' time 10000 flag 1  // The Colombian Cartel is making SPANK somewhere in Liberty.
+00BC: print_now 'FM2_A' duration 10000 ms flag 1  // The Colombian Cartel is making SPANK somewhere in Liberty.
 while 001A:   7896 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_K' time 10000 flag 1  // but we don't know where, and they seem to know everything we're doin' before we do.
+00BC: print_now 'FM2_K' duration 10000 ms flag 1  // but we don't know where, and they seem to know everything we're doin' before we do.
 while 001A:   13257 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_B' time 10000 flag 1  // We got us a rat!
+00BC: print_now 'FM2_B' duration 10000 ms flag 1  // We got us a rat!
 while 001A:   15103 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_L' time 10000 flag 1  // There is a guy named Curly Bob works the bar at Luigi's.
+00BC: print_now 'FM2_L' duration 10000 ms flag 1  // There is a guy named Curly Bob works the bar at Luigi's.
 while 001A:   18415 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_M' time 10000 flag 1  // He's been throwing more money around than he's earning.
+00BC: print_now 'FM2_M' duration 10000 ms flag 1  // He's been throwing more money around than he's earning.
 while 001A:   21238 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_C' time 10000 flag 1  // He ain't pimpin' or pushin' so he must be talking.
+00BC: print_now 'FM2_C' duration 10000 ms flag 1  // He ain't pimpin' or pushin' so he must be talking.
 while 001A:   25040 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_N' time 10000 flag 1  // He usually gets a taxi home after work. So follow him.
+00BC: print_now 'FM2_N' duration 10000 ms flag 1  // He usually gets a taxi home after work. So follow him.
 while 001A:   28251 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_O' time 10000 flag 1  // And if he's rattin' us out... kill him.
+00BC: print_now 'FM2_O' duration 10000 ms flag 1  // And if he's rattin' us out... kill him.
 while 001A:   30960 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -213,14 +213,14 @@ end
 
 // CREATES THE TAXI FOR THE BLOKE TO GET INTO
 
-00BC: print_now 'FM2_11' time 5000 flag 1  // ~g~Park out the front of Luigi's Club, Curly Bob will be leaving shortly.
+00BC: print_now 'FM2_11' duration 5000 ms flag 1  // ~g~Park out the front of Luigi's Club, Curly Bob will be leaving shortly.
 018A: $FRANK2_CHECKPOINT1 = create_checkpoint_at 907.0 -424.6875 13.75 
-00A5: create_car #TAXI at 906.875 -433.6875 -100.0 store_to $CAR_FM2 
+00A5: $CAR_FM2 = create_car #TAXI at 906.875 -433.6875 -100.0
 02AA: set_car $CAR_FM2 immune_to_nonplayer 1 
 0004: $FLAG_CAR_FM2_CREATED = 1 
 0175: set_car $CAR_FM2 z_angle_to 180.0 
 0135: set_car $CAR_FM2 door_lock CARLOCK_LOCKOUT_PLAYER_ONLY
-0129: $VAN_DRIVER_FM2 = create_actor PEDTYPE_CIVMALE #TAXI_D in_car $CAR_FM2 driverseat 
+0129: $VAN_DRIVER_FM2 = create_actor PEDTYPE_CIVMALE #TAXI_D in_car $CAR_FM2 driverseat
 039E: set_char_cant_be_dragged_out $VAN_DRIVER_FM2 to 1 
 01ED: clear_actor $VAN_DRIVER_FM2 threat_search 
 00A9: car_set_idle $CAR_FM2 
@@ -237,12 +237,12 @@ end
 // checks to see where curly will be created
 
 if or
-	0057:   player $PLAYER_CHAR coords 901.1875 -427.75 12.0 to 878.0625 -422.375 27.0 sphere 0 
-	0057:   player $PLAYER_CHAR coords 878.0625 -422.375 12.0 to 900.375 -404.1875 27.0 sphere 0
+	0057:   is_player_in_area_3d $PLAYER_CHAR coords 901.1875 -427.75 12.0 to 878.0625 -422.375 27.0 sphere 0 
+	0057:   is_player_in_area_3d $PLAYER_CHAR coords 878.0625 -422.375 12.0 to 900.375 -404.1875 27.0 sphere 0
 then
 	// creates curley bob infront of the club
 	0395: clear_area 1 at 902.875 -398.75 range 14.0 1.0 
-	009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 902.875 -398.75 14.0 store_to $CURLY_BOB_FM2 
+	009A: $CURLY_BOB_FM2 = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 902.875 -398.75 14.0
 	0187: $RADAR_BLIP_PED1_FM2 = create_marker_above_actor $CURLY_BOB_FM2 
 	018B: show_on_radar $RADAR_BLIP_PED1_FM2 MARKER_ONLY
 	01ED: clear_actor $CURLY_BOB_FM2 threat_search 
@@ -264,7 +264,7 @@ then
 else
 	// creates curley bob down the alleyway
 	0395: clear_area 1 at 886.25 -422.1875 range 13.75 1.0 
-	009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 886.25 -422.1875 13.75 store_to $CURLY_BOB_FM2 
+	009A: $CURLY_BOB_FM2 = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 886.25 -422.1875 13.75
 	0187: $RADAR_BLIP_PED1_FM2 = create_marker_above_actor $CURLY_BOB_FM2 
 	018B: show_on_radar $RADAR_BLIP_PED1_FM2 MARKER_ONLY
 	01ED: clear_actor $CURLY_BOB_FM2 threat_search 
@@ -319,7 +319,7 @@ if or
 	00DE:   is_player_in_model $PLAYER_CHAR model #CABBIE 
 	00DE:   is_player_in_model $PLAYER_CHAR model #BORGNINE 
 then
-	00DA: store_car_player_is_in $PLAYER_CHAR store_to $MISSION_TAXI_FM2 
+	00DA: $MISSION_TAXI_FM2 = store_car_player_is_in $PLAYER_CHAR
 	0004: $FLAG_MISSION_TAXI_FM2_CREATED = 1
 else
 	goto @MISSION_JUMP3
@@ -336,13 +336,13 @@ then
 		00DE:   is_player_in_model $PLAYER_CHAR model #TAXI 
 		00DE:   is_player_in_model $PLAYER_CHAR model #CABBIE
 	then
-		00DA: store_car_player_is_in $PLAYER_CHAR store_to $MISSION_TAXI_FM2 
+		00DA: $MISSION_TAXI_FM2 = store_car_player_is_in $PLAYER_CHAR
 	end
 	gosub @CHECK_PLAYER_VEHICLE_STATUS_FRANK2
 	if
 		8185:   not car $MISSION_TAXI_FM2 health >= 700 
 	then
-		00BC: print_now 'FM2_6' time 5000 flag 1  // ~r~Curly won't get into a smashed-up taxi!
+		00BC: print_now 'FM2_6' duration 5000 ms flag 1  // ~r~Curly won't get into a smashed-up taxi!
 		goto @MISSION_FAILED_FRANK2
 	end
 	01D4: actor $CURLY_BOB_FM2 go_to_car $MISSION_TAXI_FM2 and_enter_it_as_a_passenger 
@@ -353,12 +353,12 @@ then
 		if
 			80EB:   not player $PLAYER_CHAR 0 $CURLY_BOB_FM2 radius 5.0 5.0 
 		then
-			00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+			00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 			goto @MISSION_FAILED_FRANK2
 		end
 	end //while
 	0164: disable_marker $RADAR_BLIP_PED1_FM2 
-	00BC: print_now 'FM2_5' time 7000 flag 1  // ~g~Take him to Portland Harbor.
+	00BC: print_now 'FM2_5' duration 7000 ms flag 1  // ~g~Take him to Portland Harbor.
 	018A: $RADAR_BLIP_COORD2_FM2 = create_checkpoint_at 1529.0 -827.0 -100.0 
 	0004: $BLOB_FLAG = 1
 	while true
@@ -373,7 +373,7 @@ then
 		if
 			80DB:   not is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2
 		then
-			00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+			00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 			goto @MISSION_FAILED_FRANK2
 		end
 		gosub @CHECK_IN_VEHICLE_STATUS_FRANK2
@@ -389,7 +389,7 @@ then
 			if
 				0019:   17@ > 10000 
 			then
-				00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+				00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 				goto @MISSION_FAILED_FRANK2
 			end
 		else
@@ -410,7 +410,7 @@ if and
 then
 	01D4: actor $CURLY_BOB_FM2 go_to_car $CAR_FM2 and_enter_it_as_a_passenger 
 else
-	00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+	00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 	goto @MISSION_FAILED_FRANK2
 end
 
@@ -422,7 +422,7 @@ while 80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2
 end //while
 
 0164: disable_marker $RADAR_BLIP_PED1_FM2 
-00BC: print_now 'FM2_2' time 7000 flag 1  // ~g~Curly's left the club, tail him!
+00BC: print_now 'FM2_2' duration 7000 ms flag 1  // ~g~Curly's left the club, tail him!
 02A3: toggle_widescreen 0 
 015A: restore_camera 
 01B4: set_player $PLAYER_CHAR controllable 1 
@@ -453,7 +453,7 @@ while 81AD:   not car $CAR_FM2 sphere 0 near_point 1529.0 -827.0 radius 3.0 3.0
 	if
 		03CE:   car $CAR_FM2 stuck
 	then
-		00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+		00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 		goto @MISSION_FAILED_FRANK2
 	end
 	0395: clear_area 0 at 1529.0 -827.0 range -100.0 4.0 // This should clear the area at the bottom of the docks
@@ -557,20 +557,20 @@ while 81AD:   not car $CAR_FM2 sphere 0 near_point 1529.0 -827.0 radius 3.0 3.0
 		0018:   $SPOOKED_COUNTER > 10 
 		0038:   $FLAG_PLAYER_HAD_WARNING1_FM2 == 0
 	then
-		00BC: print_now 'FM2_15' time 5000 flag 1  // ~g~Don't get too close or Curly will suspect something!
+		00BC: print_now 'FM2_15' duration 5000 ms flag 1  // ~g~Don't get too close or Curly will suspect something!
 		0004: $FLAG_PLAYER_HAD_WARNING1_FM2 = 1
 	end
 	if
 		0038:   $SPOOKED_COUNTER == 100
 	then
-		00BC: print_now 'FM2_14' time 5000 flag 1  // ~r~You got too close and spooked Curly!
+		00BC: print_now 'FM2_14' duration 5000 ms flag 1  // ~r~You got too close and spooked Curly!
 		goto @MISSION_FAILED_FRANK2
 	end
 	if
 		80DB:   not is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2 
 	then
 		0004: $SPOOKED_COUNTER = 100 
-		00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+		00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 		goto @MISSION_FAILED_FRANK2
 	end
 	if
@@ -598,7 +598,7 @@ while 81AD:   not car $CAR_FM2 sphere 0 near_point 1529.0 -827.0 radius 3.0 3.0
 	then
 		gosub @CHECK_CURLY_STATUS_SIMPLE_FRANK2
 		0004: $SPOOKED_COUNTER = 100 
-		00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+		00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 		goto @MISSION_FAILED_FRANK2
 	end
 	if
@@ -618,7 +618,7 @@ while 81AD:   not car $CAR_FM2 sphere 0 near_point 1529.0 -827.0 radius 3.0 3.0
 		then
 			0004: $FLAG_TAXI2_EXIT_CAR_FM2 = 1 
 			0004: $SPOOKED_COUNTER = 100 
-			00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+			00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 			goto @MISSION_FAILED_FRANK2
 		end
 	else
@@ -651,16 +651,16 @@ then
 	if
 		80FB:   not player $PLAYER_CHAR 0 $CURLY_BOB_FM2 radius 160.0 160.0 160.0 
 	then
-		00BC: print_now 'FM2_12' time 5000 flag 1  // ~r~He gave you the slip!
+		00BC: print_now 'FM2_12' duration 5000 ms flag 1  // ~r~He gave you the slip!
 		goto @MISSION_FAILED_FRANK2
 	end
 
 	// Checks to see if the player is around the ramp and will fail the mission
 	if
-		0057:   player $PLAYER_CHAR coords 1573.688 -876.4375 5.0 to 1404.063 -1034.25 30.0 sphere 0
+		0057:   is_player_in_area_3d $PLAYER_CHAR coords 1573.688 -876.4375 5.0 to 1404.063 -1034.25 30.0 sphere 0
 	then
 		0004: $SPOOKED_COUNTER = 100 
-		00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+		00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 		goto @MISSION_FAILED_FRANK2
 	end
 	goto @MISSION_JUMP4
@@ -689,7 +689,7 @@ then
 	if
 		80FB:   not player $PLAYER_CHAR 0 $CURLY_BOB_FM2 radius 160.0 160.0 160.0 
 	then
-		00BC: print_now 'FM2_12' time 5000 flag 1  // ~r~He gave you the slip!
+		00BC: print_now 'FM2_12' duration 5000 ms flag 1  // ~r~He gave you the slip!
 		goto @MISSION_FAILED_FRANK2
 	end
 end
@@ -782,7 +782,7 @@ end //while
 
 // creates car
 
-00A5: create_car #COLUMB at 1542.875 -896.1875 10.5625 store_to $BADDIE_CAR_FM2 
+00A5: $BADDIE_CAR_FM2 = create_car #COLUMB at 1542.875 -896.1875 10.5625
 0175: set_car $BADDIE_CAR_FM2 z_angle_to 90.0 
 02E4: load_cutscene_data 'S2_CTG2' 
 0244: set_cutscene_pos 1573.875 -906.0 11.0625 
@@ -811,52 +811,52 @@ while 001A:   0 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_F' time 10000 flag 1  // Here comes our little friend. Mr big mouth himself.
+00BC: print_now 'FM2_F' duration 10000 ms flag 1  // Here comes our little friend. Mr big mouth himself.
 while 001A:   3225 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_G' time 10000 flag 1  // Were you followed? You know what goes on here is our little secret.
+00BC: print_now 'FM2_G' duration 10000 ms flag 1  // Were you followed? You know what goes on here is our little secret.
 while 001A:   7047 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_H' time 10000 flag 1  // No..no, I wasn't followed. You got my stuff?
+00BC: print_now 'FM2_H' duration 10000 ms flag 1  // No..no, I wasn't followed. You got my stuff?
 while 001A:   10272 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_I' time 10000 flag 1  // Here's your SPANK, squealer, now talk.
+00BC: print_now 'FM2_I' duration 10000 ms flag 1  // Here's your SPANK, squealer, now talk.
 while 001A:   13914 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_P' time 10000 flag 1  // OK, so the Leone's are fighting wars on two fronts.
+00BC: print_now 'FM2_P' duration 10000 ms flag 1  // OK, so the Leone's are fighting wars on two fronts.
 while 001A:   16721 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_Q' time 10000 flag 1  // They're in a turf war with the Triads with no sign of either side giving up.
+00BC: print_now 'FM2_Q' duration 10000 ms flag 1  // They're in a turf war with the Triads with no sign of either side giving up.
 while 001A:   20483 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_R' time 10000 flag 1  // Meanwhile Joey Leone has stirred up some bad blood with the Forellis.
+00BC: print_now 'FM2_R' duration 10000 ms flag 1  // Meanwhile Joey Leone has stirred up some bad blood with the Forellis.
 while 001A:   24246 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_S' time 10000 flag 1  // Every day they're losing men and influence in the city.
+00BC: print_now 'FM2_S' duration 10000 ms flag 1  // Every day they're losing men and influence in the city.
 while 001A:   26993 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_T' time 10000 flag 1  // Salvatore is becoming dangerous and paranoid. He suspects everybody and everything.
+00BC: print_now 'FM2_T' duration 10000 ms flag 1  // Salvatore is becoming dangerous and paranoid. He suspects everybody and everything.
 while 001A:   31770 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM2_U' time 10000 flag 1  // With loyalty like yours, what has he possibly got to worry about.
+00BC: print_now 'FM2_U' duration 10000 ms flag 1  // With loyalty like yours, what has he possibly got to worry about.
 while 001A:   35267 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -910,12 +910,12 @@ end
 015A: restore_camera 
 01B4: set_player $PLAYER_CHAR controllable 1 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 1493.688 -886.5625 -100.0 store_to $CURLY_BOB_FM2 
+009A: $CURLY_BOB_FM2 = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 1493.688 -886.5625 -100.0
 0173: set_actor $CURLY_BOB_FM2 z_angle_to 90.0 
 01B2: give_actor $CURLY_BOB_FM2 weapon WEAPONTYPE_SHOTGUN ammo 30000 
 01D0: actor $CURLY_BOB_FM2 avoid_player $PLAYER_CHAR 
 0187: $RADAR_BLIP_PED2_FM2 = create_marker_above_actor $CURLY_BOB_FM2 
-00BC: print_now 'FM2_8' time 7000 flag 1  // ~g~Whack Curly Bob!
+00BC: print_now 'FM2_8' duration 7000 ms flag 1  // ~g~Whack Curly Bob!
 
 while 8038:   not  $FLAG_CURLEY_BOB_DEAD_FM2 == 1 
 	wait 0 ms
@@ -944,7 +944,7 @@ while 8038:   not  $FLAG_CURLEY_BOB_DEAD_FM2 == 1
 				82CB:   not is_actor_on_screen $CURLY_BOB_FM2 
 				80FB:   not player $PLAYER_CHAR 0 $CURLY_BOB_FM2 radius 160.0 160.0 80.0 
 			then
-				00BC: print_now 'FM2_10' time 5000 flag 1  // ~r~Curly got away!
+				00BC: print_now 'FM2_10' duration 5000 ms flag 1  // ~r~Curly got away!
 				goto @MISSION_FAILED_FRANK2
 			end
 		end
@@ -961,13 +961,13 @@ goto @MISSION_PASSED_FRANK2
 if
 	0118:   actor $CURLY_BOB_FM2 dead 
 then
-	00BC: print_now 'FM2_9' time 5000 flag 1  // ~r~Curly Bob's dead!
+	00BC: print_now 'FM2_9' duration 5000 ms flag 1  // ~r~Curly Bob's dead!
 	goto @MISSION_FAILED_FRANK2
 else
 	if
 		8184:   not actor $CURLY_BOB_FM2 health >= 99 
 	then
-		00BC: print_now 'FM2_7' time 7000 flag 1  // ~r~Curly's spooked! The meeting's off!
+		00BC: print_now 'FM2_7' duration 7000 ms flag 1  // ~r~Curly's spooked! The meeting's off!
 		goto @MISSION_FAILED_FRANK2
 	end
 end
@@ -979,7 +979,7 @@ return
 if
 	0118:   actor $CURLY_BOB_FM2 dead 
 then
-	00BC: print_now 'FM2_9' time 5000 flag 1  // ~r~Curly Bob's dead!
+	00BC: print_now 'FM2_9' duration 5000 ms flag 1  // ~r~Curly Bob's dead!
 	goto @MISSION_FAILED_FRANK2
 end
 return
@@ -990,14 +990,14 @@ return
 if
 	0119:   car $MISSION_TAXI_FM2 wrecked 
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_FRANK2
 else
 	if and
 		01F4:   car $MISSION_TAXI_FM2 flipped 
 		01C1:   car $MISSION_TAXI_FM2 stopped
 	then
-		00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+		00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 		goto @MISSION_FAILED_FRANK2
 	end
 end
@@ -1009,7 +1009,7 @@ return
 if
 	0119:   car $CAR_FM2 wrecked 
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	0004: $FLAG_CAR_FM2_DEAD = 0 
 	goto @MISSION_FAILED_FRANK2
 else
@@ -1017,7 +1017,7 @@ else
 		01F4:   car $CAR_FM2 flipped 
 		01C1:   car $CAR_FM2 stopped
 	then
-		00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+		00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 		goto @MISSION_FAILED_FRANK2
 	end
 end
@@ -1030,7 +1030,7 @@ if and
 	80DC:   not is_player_in_car $PLAYER_CHAR car $MISSION_TAXI_FM2 
 	0038:   $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 == 0 
 then
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 	0186: $RADAR_BLIP_CAR1_FM2 = create_marker_above_car $MISSION_TAXI_FM2 
 	0164: disable_marker $RADAR_BLIP_COORD2_FM2 
 	0004: $FLAG_PLAYER_GOT_CAR_MESSAGE_FM2 = 1 
@@ -1053,7 +1053,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_FRANK2
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 034F: destroy_actor_with_fade $CURLY_BOB_FM2 
 goto @MISSION_END_FRANK2
 
@@ -1064,8 +1064,8 @@ goto @MISSION_END_FRANK2
 :MISSION_PASSED_FRANK2
 0004: $CUTTING_THE_GRASS_COMPLETED = 1 
 0318: set_latest_mission_passed 'FM2'  // 'CUTTING THE GRASS'
-030C: progress_made = 1 
-01E3: text_1number_styled 'M_PASS' number 15000 time 5000 style 1  // MISSION PASSED! $~1~
+030C: set_mission_points += 1 
+01E3: text_1number_styled 'M_PASS' number 15000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 15000 
 0110: clear_player $PLAYER_CHAR wanted_level 

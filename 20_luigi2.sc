@@ -117,37 +117,37 @@ while 001A:   5634 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM2_C' time 10000 flag 1  // Luigi said to, to give you this so...
+00BC: print_now 'LM2_C' duration 10000 ms flag 1  // Luigi said to, to give you this so...
 while 001A:   7989 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM2_D' time 10000 flag 1  // here, here take it.
+00BC: print_now 'LM2_D' duration 10000 ms flag 1  // here, here take it.
 while 001A:   12078 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM2_A' time 10000 flag 1  // There's a new high on the street goes by the name of SPANK.
+00BC: print_now 'LM2_A' duration 10000 ms flag 1  // There's a new high on the street goes by the name of SPANK.
 while 001A:   15287 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM2_E' time 10000 flag 1  // Some wiseguy's been introducing this trash to my girls down Portland Harbor.
+00BC: print_now 'LM2_E' duration 10000 ms flag 1  // Some wiseguy's been introducing this trash to my girls down Portland Harbor.
 while 001A:   19558 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM2_B' time 10000 flag 1  // Go and introduce a bat to his face!
+00BC: print_now 'LM2_B' duration 10000 ms flag 1  // Go and introduce a bat to his face!
 while 001A:   23042 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM2_F' time 10000 flag 1  // Then take his car, respray it.
+00BC: print_now 'LM2_F' duration 10000 ms flag 1  // Then take his car, respray it.
 while 001A:   25852 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LM2_G' time 10000 flag 1  // I want compensation for this insult!
+00BC: print_now 'LM2_G' duration 10000 ms flag 1  // I want compensation for this insult!
 while 001A:   28632 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -190,7 +190,7 @@ end
 
 // *****************************************END OF CUTSCENE*********************************
 
-022B: create_forbidden_for_peds_cube 1609.75 -615.1875 9.0 1557.75 -673.375 20.0 
+022B: switch_ped_roads_off 1609.75 -615.1875 9.0 to 1557.75 -673.375 20.0 
 0213: $BAT_LM2 = create_pickup #BAT type PICKUP_ONCE at 917.1875 -425.25 14.5 
 03DC: $BAT_BLIP_LM2 = create_marker_above_pickup $BAT_LM2
 
@@ -209,26 +209,26 @@ while fading
 end
 
 01B4: set_player $PLAYER_CHAR controllable 1 
-00BC: print_now 'BAT1' time 5000 flag 1  // ~g~Pick up the bat!
+00BC: print_now 'BAT1' duration 5000 ms flag 1  // ~g~Pick up the bat!
 03E5: text_box 'HELP14'  // To collect weapons walk through them. These cannot be collected while in a vehicle.
 
 // creates the dealer
-009A: create_char PEDTYPE_CIVFEMALE model #DOCKER2 at 1399.625 -833.6875 -100.0 store_to $LUIGI2_DEALER 
+009A: $LUIGI2_DEALER = create_char PEDTYPE_CIVFEMALE model #DOCKER2 at 1399.625 -833.6875 -100.0
 01BE: set_actor $LUIGI2_DEALER to_look_at_spot 1397.438 -835.5 10.75 
 01ED: clear_actor $LUIGI2_DEALER threat_search 
 
 // creates prostitute one
-009A: create_char PEDTYPE_PROSTITUTE model #PROSTITUTE at 1397.188 -832.8125 -100.0 store_to $BUYER1_LM2 
+009A: $BUYER1_LM2 = create_char PEDTYPE_PROSTITUTE model #PROSTITUTE at 1397.188 -832.8125 -100.0
 01ED: clear_actor $BUYER1_LM2 threat_search 
 01BE: set_actor $BUYER1_LM2 to_look_at_spot 1399.625 -833.6875 10.75 
 
 // creates prostitute two
-009A: create_char PEDTYPE_PROSTITUTE model #PROSTITUTE2 at 1397.25 -834.375 -100.0 store_to $BUYER2_LM2 
+009A: $BUYER2_LM2 = create_char PEDTYPE_PROSTITUTE model #PROSTITUTE2 at 1397.25 -834.375 -100.0
 01ED: clear_actor $BUYER2_LM2 threat_search 
 01BE: set_actor $BUYER2_LM2 to_look_at_spot 1399.625 -833.6875 10.75 
 
 // dealers car
-00A5: create_car #STALLION at 1396.625 -837.6875 -100.0 store_to $LUIGI2_DEALER_CAR 
+00A5: $LUIGI2_DEALER_CAR = create_car #STALLION at 1396.625 -837.6875 -100.0
 0175: set_car $LUIGI2_DEALER_CAR z_angle_to 301.0 
 0135: set_car $LUIGI2_DEALER_CAR door_lock CARLOCK_LOCKED
 0187: $LUIGI2_DEALER_MARKER = create_marker_above_actor $LUIGI2_DEALER 
@@ -266,7 +266,7 @@ while 8118:   not actor $LUIGI2_DEALER dead
 	then
 		if and
 			0038:   $FLAG_DONE_LOOKING_BIT_LM2 == 0
-			0057:   player $PLAYER_CHAR coords 1535.2 -615.1 10.0 to 1610.5 -681.0 20.0 sphere 0 
+			0057:   is_player_in_area_3d $PLAYER_CHAR coords 1535.2 -615.1 10.0 to 1610.5 -681.0 20.0 sphere 0 
 		then
 			if
 				00E0:   is_player_in_any_car $PLAYER_CHAR
@@ -281,10 +281,10 @@ while 8118:   not actor $LUIGI2_DEALER dead
 				00F5:   player $PLAYER_CHAR 0 1589.1 -641.4 11.1 radius 1.0 1.0 1.0 
 			then
 				015F: set_camera_position 1587.8 -651.7 18.3 0.0 0.0 0.0
-				0160: point_camera 1587.5 -651.0 17.6 switchstyle 2 // 2==JUMP_CUT
+				0160: point_camera 1587.5 -651.0 17.6 switchstyle JUMP_CUT
 			else
 				015F: set_camera_position 1589.1 -641.4 11.1 0.0 0.0 0.0
-				0160: point_camera 1588.3 -642.0 11.3 switchstyle 2 // 2==JUMP_CUT
+				0160: point_camera 1588.3 -642.0 11.3 switchstyle JUMP_CUT
 			end
 			wait 4500 ms
 			if
@@ -300,7 +300,7 @@ while 8118:   not actor $LUIGI2_DEALER dead
 				0221: set_player $PLAYER_CHAR trapped_in_car 0
 			end
 			02A3: toggle_widescreen 0
-			02EB: restore_camera_with_jumpcut
+			02EB: restore_camera_jumpcut
 			01B4: set_player $PLAYER_CHAR controllable 1
 			01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0
 			0004: $FLAG_DONE_LOOKING_BIT_LM2 = 1
@@ -315,7 +315,7 @@ while 8118:   not actor $LUIGI2_DEALER dead
 	gosub @CHECK_VEHICLE_STATUS_LUIGI2
 	if or
 		0038:   $FLAG_DONE_LOOKING_BIT_LM2 == 1 
-		0057:   player $PLAYER_CHAR coords 1430.75 -807.0 9.0 to 1355.188 -883.1875 20.0 sphere 0 
+		0057:   is_player_in_area_3d $PLAYER_CHAR coords 1430.75 -807.0 9.0 to 1355.188 -883.1875 20.0 sphere 0 
 	then
 		0004: $FLAG_DONE_LOOKING_BIT_LM2 = 1 
 		0004: $FLAG_PLAYER_IN_AREA_LM2 = 1 
@@ -359,7 +359,7 @@ gosub @CHECK_VEHICLE_STATUS_LUIGI2
 
 0135: set_car $LUIGI2_DEALER_CAR door_lock CARLOCK_UNLOCKED
 0186: $LUIGI2_DEALER_CAR_MARKER = create_marker_above_car $LUIGI2_DEALER_CAR 
-00BC: print_now 'LM2_1' time 7000 flag 1  // ~g~Take his car and get it resprayed.
+00BC: print_now 'LM2_1' duration 7000 ms flag 1  // ~g~Take his car and get it resprayed.
 
 // waiting for the player to get into the car
 
@@ -373,7 +373,7 @@ end //while
 0335: set_free_paynspray_to 1 
 0164: disable_marker $LUIGI2_DEALER_CAR_MARKER 
 02A8: $LUIGI2_SPRAYSHOP_MARKER = create_marker RADAR_SPRITE_SPRAY at 924.0 -361.0 10.0 
-03BC: $SPHERE1_LM2 = create_sphere 925.0625 -350.5 9.25 2.5 
+03BC: $SPHERE1_LM2 = create_sphere 925.0625 -350.5 9.25 radius 2.5 
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 1
 0329:   garage $PORTLAND_PAYNSPRAY_GARAGE respray_done
 
@@ -402,7 +402,7 @@ end //while
 03BD: destroy_sphere $SPHERE1_LM2 
 0164: disable_marker $LUIGI2_SPRAYSHOP_MARKER 
 018A: $LUIGI2_LOCKUP_MARKER = create_checkpoint_at 1087.0 -574.0 -100.0 
-03BC: $SPHERE2_LM2 = create_sphere 1088.375 -574.375 13.6875 2.5 
+03BC: $SPHERE2_LM2 = create_sphere 1088.375 -574.375 13.6875 radius 2.5 
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 2
 0004: $FLAG_BLIP2_ON_LM2 = 1 
 021B: set_garage $LUIGIS_LOCKUP_GARAGE to_accept_car $LUIGI2_DEALER_CAR 
@@ -416,7 +416,7 @@ while 821C:   not car_inside_garage $LUIGIS_LOCKUP_GARAGE
 		0038:   $FLAG_LOCKUP_MESSAGE_LM2 == 0 
 		0029:   17@ >= 3000 
 	then
-		00BC: print_now 'LM2_3' time 7000 flag 1  // ~g~Stash the car in Luigi's lockup!
+		00BC: print_now 'LM2_3' duration 7000 ms flag 1  // ~g~Stash the car in Luigi's lockup!
 		0004: $FLAG_LOCKUP_MESSAGE_LM2 = 1
 	end
 	if
@@ -464,14 +464,14 @@ goto @MISSION_PASSED_LUIGI2
 if
 	0119:   car $LUIGI2_DEALER_CAR wrecked
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_LUIGI2
 end
 if and
 	01F4:   car $LUIGI2_DEALER_CAR flipped 
 	01C1:   car $LUIGI2_DEALER_CAR stopped 
 then
-	00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+	00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 	goto @MISSION_FAILED_LUIGI2
 end
 return
@@ -483,7 +483,7 @@ if and
 	80DC:   not is_player_in_car $PLAYER_CHAR car $LUIGI2_DEALER_CAR 
 	0038:   $FLAG_PLAYER_HAD_CAR_MESSAGE_LM2 == 0 
 then
-	00BC: print_now 'IN_VEH' time 7000 flag 1  // ~g~Hey! Get back in the vehicle!
+	00BC: print_now 'IN_VEH' duration 7000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 	if 
 		0038:   $CURRENT_STEP_FOR_BLIP_MANIPULATION == 1
 	then
@@ -508,14 +508,14 @@ then
 		if
 			0038:   $FLAG_HAD_SPRAY_HELP == 0 
 		then
-			03BC: $SPHERE1_LM2 = create_sphere 925.0625 -350.5 9.25 2.5
+			03BC: $SPHERE1_LM2 = create_sphere 925.0625 -350.5 9.25 radius 2.5
 		end
 	else
 		018A: $LUIGI2_LOCKUP_MARKER = create_checkpoint_at 1087.0 -574.0 -100.0
 		if
 			0038:   $FLAG_PLAYER_HAD_GARAGE_MESSAGE_LM2 == 0 
 		then
-			03BC: $SPHERE2_LM2 = create_sphere 1088.375 -574.375 13.6875 2.5 
+			03BC: $SPHERE2_LM2 = create_sphere 1088.375 -574.375 13.6875 radius 2.5 
 		end
 	end
 	0004: $FLAG_PLAYER_HAD_CAR_MESSAGE_LM2 = 0 
@@ -526,7 +526,7 @@ return
 
 // Mission Failed
 :MISSION_FAILED_LUIGI2
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_LUIGI2
 
 
@@ -536,8 +536,8 @@ goto @MISSION_END_LUIGI2
 :MISSION_PASSED_LUIGI2
 0004: $DONT_SPANK_MA_BITCH_UP_COMPLETED = 1 
 0318: set_latest_mission_passed 'LM2'  // 'DON'T SPANK MA BITCH UP'
-030C: progress_made = 1 
-01E3: text_1number_styled 'M_PASS' number 4000 time 5000 style 1  // MISSION PASSED! $~1~
+030C: set_mission_points += 1 
+01E3: text_1number_styled 'M_PASS' number 4000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 4000 
 0110: clear_player $PLAYER_CHAR wanted_level 
@@ -574,7 +574,7 @@ end
 03BD: destroy_sphere $SPHERE1_LM2 
 03BD: destroy_sphere $SPHERE2_LM2 
 0335: set_free_paynspray_to 0 
-022A: remove_forbidden_for_peds_cube 1609.75 -615.1875 9.0 1557.75 -673.375 20.0 
+022A: switch_ped_roads_on 1609.75 -615.1875 9.0 to 1557.75 -673.375 20.0 
 00D8: mission_has_finished 
 return 
 

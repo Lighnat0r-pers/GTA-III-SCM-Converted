@@ -72,37 +72,37 @@ while 001A:   3006 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_A' time 10000 flag 1  // ~w~Don Salvatore has called a meeting.
+00BC: print_now 'TM3_A' duration 10000 ms flag 1  // ~w~Don Salvatore has called a meeting.
 while 001A:   5297 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_B' time 10000 flag 1  // ~w~I need you to collect the limo and his boy, Joey, from the garage.
+00BC: print_now 'TM3_B' duration 10000 ms flag 1  // ~w~I need you to collect the limo and his boy, Joey, from the garage.
 while 001A:   8661 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_C' time 10000 flag 1  // ~w~Then get Luigi from his club, come back here and pick me up,
+00BC: print_now 'TM3_C' duration 10000 ms flag 1  // ~w~Then get Luigi from his club, come back here and pick me up,
 while 001A:   12025 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_D' time 10000 flag 1  // ~w~then we'll all drive over to the boss's place together.
+00BC: print_now 'TM3_D' duration 10000 ms flag 1  // ~w~then we'll all drive over to the boss's place together.
 while 001A:   14817 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_E' time 10000 flag 1  // ~w~Those Triads, they don't know when to stop.
+00BC: print_now 'TM3_E' duration 10000 ms flag 1  // ~w~Those Triads, they don't know when to stop.
 while 001A:   17107 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_F' time 10000 flag 1  // ~w~They want a war. They got a war.
+00BC: print_now 'TM3_F' duration 10000 ms flag 1  // ~w~They want a war. They got a war.
 while 001A:   18968 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_G' time 10000 flag 1  // ~w~Now get going.
+00BC: print_now 'TM3_G' duration 10000 ms flag 1  // ~w~Now get going.
 while 001A:   19787 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -157,7 +157,7 @@ while true
 	wait 0 ms
 end //while
 
-00A5: create_car #STRETCH at 1187.0 -860.375 14.5 store_to $TONI3_LIMO 
+00A5: $TONI3_LIMO = create_car #STRETCH at 1187.0 -860.375 14.5
 0175: set_car $TONI3_LIMO z_angle_to 225.0 
 0229: set_car $TONI3_LIMO color_to 0 0 
 03AB: set_car $TONI3_LIMO strong 1 
@@ -210,7 +210,7 @@ end //while
 
 0164: disable_marker $TONI3_LIMO_MARKER 
 041E: set_radio_station DOUBLE_CLEFF_FM -1 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 1179.375 -858.5625 14.0 store_to $JOEY_LEONE 
+009A: $JOEY_LEONE = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 1179.375 -858.5625 14.0
 01ED: clear_actor $JOEY_LEONE threat_search
 
 gosub @CHECK_VEHICLE_STATUS_TONI3
@@ -236,7 +236,7 @@ end
 
 0395: clear_area 1 at 1195.0 -870.25 range 15.0 10.0 
 015F: set_camera_position 1200.875 -866.5 19.0 0.0 rotation 0.0 0.0 
-0157: camera_on_player $PLAYER_CHAR mode FIXED transition JUMP_CUT
+0157: camera_on_player $PLAYER_CHAR mode FIXED switchstyle JUMP_CUT
 01BB: store_object $JOEY_DOOR1 position_to $JOEYDOOR1_X $JOEYDOOR1_Y $JOEYDOOR1_Z 
 01BB: store_object $JOEY_DOOR2 position_to $JOEYDOOR2_X $JOEYDOOR2_Y $JOEYDOOR2_Z 
 0009: $JOEYDOOR1_Z += 3.0 
@@ -352,7 +352,7 @@ end
 0395: clear_area 1 at 897.0 -425.5 range 14.6875 6.0 
 015F: set_camera_position 900.5 -419.625 14.9375 0.0 rotation 0.0 0.0 
 0160: point_camera 900.875 -420.5625 15.0625 switchstyle JUMP_CUT
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL03 at 897.0 -425.25 14.75 store_to $TONI3_LUIGI 
+009A: $TONI3_LUIGI = create_char PEDTYPE_SPECIAL model #SPECIAL03 at 897.0 -425.25 14.75
 01ED: clear_actor $TONI3_LUIGI threat_search 
 03DE: set_ped_density_multiplier 0.0 
 0006: 17@ = 0 
@@ -393,8 +393,8 @@ end
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 0 
 03DE: set_ped_density_multiplier 1.0 
-022A: remove_forbidden_for_peds_cube 824.875 -633.75 13.0 845.25 -693.75 18.0 
-01E7: remove_forbidden_for_cars_cube 824.875 -633.75 13.0 845.25 -693.75 18.0 
+022A: switch_ped_roads_on 824.875 -633.75 13.0 to 845.25 -693.75 18.0 
+01E7: switch_roads_on 824.875 -633.75 13.0 to 845.25 -693.75 18.0 
 0004: $FLAG_DISPLAYED_HORN_MESSAGE_TM3 = 0 
 0004: $FLAG_DISPLAYED_WANTED_MESSAGE_TM3 = 0 
 
@@ -460,7 +460,7 @@ then
 end
 
 0395: clear_area 1 at 1213.563 -321.0625 range 26.5 10.0 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL01 at 1217.0 -321.0625 -100.0 store_to $TONI_CIPRIANI 
+009A: $TONI_CIPRIANI = create_char PEDTYPE_SPECIAL model #SPECIAL01 at 1217.0 -321.0625 -100.0
 0173: set_actor $TONI_CIPRIANI z_angle_to 90.0 
 01ED: clear_actor $TONI_CIPRIANI threat_search 
 015F: set_camera_position 1222.188 -328.625 34.4375 0.0 rotation 0.0 0.0 
@@ -484,7 +484,7 @@ while 8126:   not actor $TONI_CIPRIANI walking
 end //while
 
 015F: set_camera_position 1206.188 -326.1875 27.0 0.0 rotation 0.0 0.0 
-0159: camera_on_ped $TONI_CIPRIANI FIXED switchstyle JUMP_CUT
+0159: camera_on_ped $TONI_CIPRIANI mode FIXED switchstyle JUMP_CUT
 01D4: actor $TONI_CIPRIANI go_to_car $TONI3_LIMO and_enter_it_as_a_passenger
 
 while 80DB:   not is_char_in_car $TONI_CIPRIANI car $TONI3_LIMO
@@ -505,69 +505,69 @@ end
 
 //YET ANOTHER AMBUSH BY THE TRIADS
 
-00A5: create_car #BELLYUP at 1193.0 -228.0 -100.0 store_to $TONI3_TRIAD_VAN1 
+00A5: $TONI3_TRIAD_VAN1 = create_car #BELLYUP at 1193.0 -228.0 -100.0
 0175: set_car $TONI3_TRIAD_VAN1 z_angle_to 180.0 
 00AE: set_car_driving_style $TONI3_TRIAD_VAN1 to 3 
 00AD: set_car_cruise_speed $TONI3_TRIAD_VAN1 to 30.0 
 03AB: set_car $TONI3_TRIAD_VAN1 strong 1 
 
-0129: $TONI3_TRIAD1 = create_actor 8 #GANG03 in_car $TONI3_TRIAD_VAN1 driverseat 
+0129: $TONI3_TRIAD1 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI3_TRIAD_VAN1 driverseat
 01B2: give_actor $TONI3_TRIAD1 weapon WEAPONTYPE_PISTOL ammo 100 
-00AF: set_car_mission $TONI3_TRIAD_VAN1 to 2 
+00AF: set_car_mission $TONI3_TRIAD_VAN1 to MISSION_RAMPLAYER_FARAWAY 
 011A: set_actor $TONI3_TRIAD1 search_threat THREAT_PLAYER1
  
-01C8: $TONI3_TRIAD2 = create_actor_pedtype 8 model #GANG04 in_car $TONI3_TRIAD_VAN1 passenger_seat 0 
+01C8: $TONI3_TRIAD2 = create_actor PEDTYPE_GANG_TRIAD model #GANG04 in_car $TONI3_TRIAD_VAN1 passenger_seat 0
 01B2: give_actor $TONI3_TRIAD2 weapon WEAPONTYPE_PISTOL ammo 100 
 01CC: actor $TONI3_TRIAD2 kill_player $PLAYER_CHAR 
 011A: set_actor $TONI3_TRIAD2 search_threat THREAT_PLAYER1 
 
 
-00A5: create_car #BELLYUP at 1275.75 -346.6875 -100.0 store_to $TONI3_TRIAD_VAN2 
+00A5: $TONI3_TRIAD_VAN2 = create_car #BELLYUP at 1275.75 -346.6875 -100.0
 0175: set_car $TONI3_TRIAD_VAN2 z_angle_to 1.0 
 00AE: set_car_driving_style $TONI3_TRIAD_VAN2 to 3 
 00AD: set_car_cruise_speed $TONI3_TRIAD_VAN2 to 30.0 
 03AB: set_car $TONI3_TRIAD_VAN2 strong 1 
 
-0129: $TONI3_TRIAD3 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI3_TRIAD_VAN2 driverseat 
+0129: $TONI3_TRIAD3 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI3_TRIAD_VAN2 driverseat
 01B2: give_actor $TONI3_TRIAD3 weapon WEAPONTYPE_PISTOL ammo 100 
-00AF: set_car_mission $TONI3_TRIAD_VAN2 to 2 
-011A: set_actor $TONI3_TRIAD3 search_threat 1 
+00AF: set_car_mission $TONI3_TRIAD_VAN2 to MISSION_RAMPLAYER_FARAWAY 
+011A: set_actor $TONI3_TRIAD3 search_threat THREAT_PLAYER1 
 
-01C8: $TONI3_TRIAD4 = create_actor_pedtype PEDTYPE_GANG_TRIAD model #GANG04 in_car $TONI3_TRIAD_VAN2 passenger_seat 0 
+01C8: $TONI3_TRIAD4 = create_actor PEDTYPE_GANG_TRIAD model #GANG04 in_car $TONI3_TRIAD_VAN2 passenger_seat 0
 01B2: give_actor $TONI3_TRIAD4 weapon WEAPONTYPE_PISTOL ammo 100 
 01CC: actor $TONI3_TRIAD4 kill_player $PLAYER_CHAR 
 011A: set_actor $TONI3_TRIAD4 search_threat THREAT_PLAYER1 
 
 
-00A5: create_car #BELLYUP at 1342.5 -281.5 -100.0 store_to $TONI3_TRIAD_VAN3 
+00A5: $TONI3_TRIAD_VAN3 = create_car #BELLYUP at 1342.5 -281.5 -100.0
 0175: set_car $TONI3_TRIAD_VAN3 z_angle_to 90.0 
 00AE: set_car_driving_style $TONI3_TRIAD_VAN3 to 3 
 00AD: set_car_cruise_speed $TONI3_TRIAD_VAN3 to 30.0 
 03AB: set_car $TONI3_TRIAD_VAN3 strong 1 
 
-0129: $TONI3_TRIAD5 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI3_TRIAD_VAN3 driverseat 
+0129: $TONI3_TRIAD5 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI3_TRIAD_VAN3 driverseat
 01B2: give_actor $TONI3_TRIAD5 weapon WEAPONTYPE_PISTOL ammo 100 
-00AF: set_car_mission $TONI3_TRIAD_VAN3 to 2 
+00AF: set_car_mission $TONI3_TRIAD_VAN3 to MISSION_RAMPLAYER_FARAWAY 
 011A: set_actor $TONI3_TRIAD5 search_threat THREAT_PLAYER1 
 
-01C8: $TONI3_TRIAD6 = create_actor_pedtype PEDTYPE_GANG_TRIAD model #GANG04 in_car $TONI3_TRIAD_VAN3 passenger_seat 0 
+01C8: $TONI3_TRIAD6 = create_actor PEDTYPE_GANG_TRIAD model #GANG04 in_car $TONI3_TRIAD_VAN3 passenger_seat 0
 01B2: give_actor $TONI3_TRIAD6 weapon WEAPONTYPE_PISTOL ammo 100 
 01CC: actor $TONI3_TRIAD6 kill_player $PLAYER_CHAR 
 011A: set_actor $TONI3_TRIAD6 search_threat THREAT_PLAYER1 
 
 
-00A5: create_car #BELLYUP at 1121.563 -345.1875 -100.0 store_to $TONI3_TRIAD_VAN4 
+00A5: $TONI3_TRIAD_VAN4 = create_car #BELLYUP at 1121.563 -345.1875 -100.0
 0175: set_car $TONI3_TRIAD_VAN4 z_angle_to 270.0 
 00AE: set_car_driving_style $TONI3_TRIAD_VAN4 to 3 
 00AD: set_car_cruise_speed $TONI3_TRIAD_VAN4 to 30.0 
 03AB: set_car $TONI3_TRIAD_VAN4 strong 1 
 
-0129: $TONI3_TRIAD7 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI3_TRIAD_VAN4 driverseat 
+0129: $TONI3_TRIAD7 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI3_TRIAD_VAN4 driverseat
 01B2: give_actor $TONI3_TRIAD7 weapon WEAPONTYPE_PISTOL ammo 100 
-00AF: set_car_mission $TONI3_TRIAD_VAN4 to 2 
+00AF: set_car_mission $TONI3_TRIAD_VAN4 to MISSION_RAMPLAYER_FARAWAY 
 011A: set_actor $TONI3_TRIAD7 search_threat THREAT_PLAYER1 
 
-01C8: $TONI3_TRIAD8 = create_actor_pedtype PEDTYPE_GANG_TRIAD model #GANG04 in_car $TONI3_TRIAD_VAN4 passenger_seat 0 
+01C8: $TONI3_TRIAD8 = create_actor PEDTYPE_GANG_TRIAD model #GANG04 in_car $TONI3_TRIAD_VAN4 passenger_seat 0
 01B2: give_actor $TONI3_TRIAD8 weapon WEAPONTYPE_PISTOL ammo 100 
 01CC: actor $TONI3_TRIAD8 kill_player $PLAYER_CHAR 
 011A: set_actor $TONI3_TRIAD8 search_threat THREAT_PLAYER1 
@@ -575,24 +575,24 @@ end
 
 //ROAD BLOCK
 
-00A5: create_car #BELLYUP at 1383.25 -285.0 -100.0 store_to $TONI3_TRIAD_VAN5 
+00A5: $TONI3_TRIAD_VAN5 = create_car #BELLYUP at 1383.25 -285.0 -100.0
 0175: set_car $TONI3_TRIAD_VAN5 z_angle_to 10.0 
-00A5: create_car #BELLYUP at 1383.25 -279.0 -100.0 store_to $TONI3_TRIAD_VAN6 
+00A5: $TONI3_TRIAD_VAN6 = create_car #BELLYUP at 1383.25 -279.0 -100.0
 0175: set_car $TONI3_TRIAD_VAN6 z_angle_to 160.0 
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG03 at 1382.063 -281.6875 -100.0 store_to $TONI3_TRIAD9 
+009A: $TONI3_TRIAD9 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 1382.063 -281.6875 -100.0
 01B2: give_actor $TONI3_TRIAD9 weapon WEAPONTYPE_PISTOL ammo 100 
 0350: set_actor $TONI3_TRIAD9 maintain_position_when_attacked 1 
 01D9: actor $TONI3_TRIAD9 destroy_car $TONI3_LIMO 
 011A: set_actor $TONI3_TRIAD9 search_threat THREAT_PLAYER1 
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 1384.25 -291.5 -100.0 store_to $TONI3_TRIAD10 
+009A: $TONI3_TRIAD10 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 1384.25 -291.5 -100.0
 01B2: give_actor $TONI3_TRIAD10 weapon WEAPONTYPE_PISTOL ammo 100 
 0350: set_actor $TONI3_TRIAD10 maintain_position_when_attacked 1 
 01D9: actor $TONI3_TRIAD10 destroy_car $TONI3_LIMO 
 011A: set_actor $TONI3_TRIAD10 search_threat THREAT_PLAYER1 
 
-0158: camera_on_vehicle $TONI3_TRIAD_VAN1 BEHINDCAR switchstyle INTERPOLATION 
+0158: camera_on_vehicle $TONI3_TRIAD_VAN1 mode BEHINDCAR switchstyle INTERPOLATION 
 0001: wait 3000 ms 
 01B4: set_player $PLAYER_CHAR controllable 1 
 02A3: toggle_widescreen 0 
@@ -671,7 +671,7 @@ end //while
 0164: disable_marker $TONI3_LIMO_MARKER 
 0164: disable_marker $TONI3_SALVATORE_MARKER 
 015F: set_camera_position 1421.75 -182.5 52.5 0.0 rotation 0.0 0.0 
-0158: camera_on_vehicle $TONI3_LIMO FIXED switchstyle INTERPOLATION
+0158: camera_on_vehicle $TONI3_LIMO mode FIXED switchstyle INTERPOLATION
 0001: wait 1000 ms 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 0
@@ -863,87 +863,87 @@ while 001A:   416 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_H' time 10000 flag 1  // ~w~You did good back there kid, real good.
+00BC: print_now 'TM3_H' duration 10000 ms flag 1  // ~w~You did good back there kid, real good.
 while 001A:   3252 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_I' time 10000 flag 1  // ~w~Come on, let's introduce you to the Don.
+00BC: print_now 'TM3_I' duration 10000 ms flag 1  // ~w~Come on, let's introduce you to the Don.
 while 001A:   4866 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_J' time 10000 flag 1  // ~w~Heeyyy! Luigi!
+00BC: print_now 'TM3_J' duration 10000 ms flag 1  // ~w~Heeyyy! Luigi!
 while 001A:   5839 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_K' time 10000 flag 1  // ~w~Oh my girls have been missing you so long Salvatore, you been away too long.
+00BC: print_now 'TM3_K' duration 10000 ms flag 1  // ~w~Oh my girls have been missing you so long Salvatore, you been away too long.
 while 001A:   10201 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_L' time 10000 flag 1  // ~w~You tell them that once this unfortunate business is taken care of,
+00BC: print_now 'TM3_L' duration 10000 ms flag 1  // ~w~You tell them that once this unfortunate business is taken care of,
 while 001A:   13769 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_M' time 10000 flag 1  // ~w~we'll all go down to the club and celebrate, ok?
+00BC: print_now 'TM3_M' duration 10000 ms flag 1  // ~w~we'll all go down to the club and celebrate, ok?
 while 001A:   17654 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_N' time 10000 flag 1  // ~w~Here's my boy.
+00BC: print_now 'TM3_N' duration 10000 ms flag 1  // ~w~Here's my boy.
 while 001A:   18718 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_N2' time 10000 flag 1  // ~w~How you doin' pop?
+00BC: print_now 'TM3_N2' duration 10000 ms flag 1  // ~w~How you doin' pop?
 while 001A:   19529 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_O' time 10000 flag 1  // ~w~You got yourself a good woman yet?
+00BC: print_now 'TM3_O' duration 10000 ms flag 1  // ~w~You got yourself a good woman yet?
 while 001A:   21673 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_P' time 10000 flag 1  // ~w~Hey, your mother, god bless her soul, would be turning over in her grave
+00BC: print_now 'TM3_P' duration 10000 ms flag 1  // ~w~Hey, your mother, god bless her soul, would be turning over in her grave
 while 001A:   25525 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_Q' time 10000 flag 1  // ~w~to see you without a wife.
+00BC: print_now 'TM3_Q' duration 10000 ms flag 1  // ~w~to see you without a wife.
 while 001A:   26615 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_R' time 10000 flag 1  // ~w~I know Pop, I'm working on it.
+00BC: print_now 'TM3_R' duration 10000 ms flag 1  // ~w~I know Pop, I'm working on it.
 while 001A:   29462 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_S' time 10000 flag 1  // ~w~TONI! How's your Momma?
+00BC: print_now 'TM3_S' duration 10000 ms flag 1  // ~w~TONI! How's your Momma?
 while 001A:   32814 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_T' time 10000 flag 1  // ~w~She's a great woman you know. Strong. Firenze.
+00BC: print_now 'TM3_T' duration 10000 ms flag 1  // ~w~She's a great woman you know. Strong. Firenze.
 while 001A:   35855 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_U' time 10000 flag 1  // ~w~She's good...fine.
+00BC: print_now 'TM3_U' duration 10000 ms flag 1  // ~w~She's good...fine.
 while 001A:   37787 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_V' time 10000 flag 1  // ~w~Terrific, Terrific. Now listen you guys, you go inside while I talk to our new friend here.
+00BC: print_now 'TM3_V' duration 10000 ms flag 1  // ~w~Terrific, Terrific. Now listen you guys, you go inside while I talk to our new friend here.
 while 001A:   44707 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM3_W' time 10000 flag 1  // ~w~I see nothing but good things for you my boy...
+00BC: print_now 'TM3_W' duration 10000 ms flag 1  // ~w~I see nothing but good things for you my boy...
 while 001A:   47837 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -996,17 +996,17 @@ then
 	if
 		0038: $FLAVOUR_TEXT_FLAG_TONI3 == 1
 	then
-		00BC: print_now 'TM3_A1' time 5000 flag 1  // ~r~Joey's Fried!
+		00BC: print_now 'TM3_A1' duration 5000 ms flag 1  // ~r~Joey's Fried!
 	else
 		if
 			0038: $FLAVOUR_TEXT_FLAG_TONI3 == 2
 		then
-			00BC: print_now 'TM3_A2' time 5000 flag 1  // ~r~Joey and Luigi have been cremated!
+			00BC: print_now 'TM3_A2' duration 5000 ms flag 1  // ~r~Joey and Luigi have been cremated!
 		else
 			if
 				0038: $FLAVOUR_TEXT_FLAG_TONI3 == 3
 			then
-				00BC: print_now 'TM3_A3' time 5000 flag 1  // ~r~Joey, Luigi and Toni are Toast!
+				00BC: print_now 'TM3_A3' duration 5000 ms flag 1  // ~r~Joey, Luigi and Toni are Toast!
 			end
 		end
 	end
@@ -1102,7 +1102,7 @@ then
 			end
 		end
 	end
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 	0004: $FLAG_CAR_BLIP_DISPLAYED = 1
 end
 return
@@ -1119,7 +1119,7 @@ then
 		0164: disable_marker $TONI3_LIMO_MARKER 
 		0186: $TONI3_LIMO_MARKER = create_marker_above_car $TONI3_LIMO 
 		0004: $BLOB_FLAG = 0
-		00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+		00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 	end
 end
 return
@@ -1133,14 +1133,14 @@ then
 	if
 		0038:   $FLAG_DISPLAYED_WANTED_MESSAGE_TM3 == 0
 	then
-		00BC: print_now 'WANTED1' time 5000 flag 1  // ~g~Shake the cops and lose your wanted level!
+		00BC: print_now 'WANTED1' duration 5000 ms flag 1  // ~g~Shake the cops and lose your wanted level!
 		0004: $FLAG_DISPLAYED_WANTED_MESSAGE_TM3 = 1
 	end
 else
 	if
 		0038:   $FLAG_DISPLAYED_HORN_MESSAGE_TM3 == 0
 	then
-		00BC: print_now 'HORN' time 5000 flag 1  // ~g~Sound the horn.
+		00BC: print_now 'HORN' duration 5000 ms flag 1  // ~g~Sound the horn.
 		0004: $FLAG_DISPLAYED_HORN_MESSAGE_TM3 = 1
 	end
 end
@@ -1163,7 +1163,7 @@ return
 :REPAIR_LIMO_STUFF_TONI3
 wait 500 ms
 gosub @CHECK_VEHICLE_STATUS_TONI3
-00BC: print_now 'TRASH' time 5000 flag 2  // ~g~You've junked your wheels real bad! Get your vehicle repaired!
+00BC: print_now 'TRASH' duration 5000 ms flag 2  // ~g~You've junked your wheels real bad! Get your vehicle repaired!
 0164: disable_marker $TONI3_LIMO_MARKER 
 0164: disable_marker $TONI3_LUIGI_MARKER 
 0186: $TONI3_LIMO_MARKER = create_marker_above_car $TONI3_LIMO 
@@ -1184,7 +1184,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_TONI3
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_TONI3
 
 /////////////////////////////////////////
@@ -1194,11 +1194,11 @@ goto @MISSION_END_TONI3
 :MISSION_PASSED_TONI3
 0004: $SALVATORES_CALLED_A_MEETING_COMPLETED = 1 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 15000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 15000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 15000 
 0318: set_latest_mission_passed 'TM3'  // 'SALVATORE'S CALLED A MEETING'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 004F: create_thread @TONI_MISSION4_LOOP 
 0164: disable_marker $LUIGI_MISSION_MARKER 
 0164: disable_marker $JOEY_MISSION_MARKER 

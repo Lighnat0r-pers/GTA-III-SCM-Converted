@@ -81,37 +81,37 @@ while 001A:   2397 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_A' time 10000 flag 1  // ~w~It's my favorite cleaner.
+00BC: print_now 'FM4_A' duration 10000 ms flag 1  // ~w~It's my favorite cleaner.
 while 001A:   5260 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_B' time 10000 flag 1  // ~w~I'm proud of you my boy, you kicked the shit out of those grease balls.
+00BC: print_now 'FM4_B' duration 10000 ms flag 1  // ~w~I'm proud of you my boy, you kicked the shit out of those grease balls.
 while 001A:   9273 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_C' time 10000 flag 1  // ~w~I've got just one little job for you before we can all celebrate.
+00BC: print_now 'FM4_C' duration 10000 ms flag 1  // ~w~I've got just one little job for you before we can all celebrate.
 while 001A:   12861 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_D' time 10000 flag 1  // ~w~There's a car around the block from Luigi's club.
+00BC: print_now 'FM4_D' duration 10000 ms flag 1  // ~w~There's a car around the block from Luigi's club.
 while 001A:   15447 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_E' time 10000 flag 1  // ~w~The inside is covered in brains.
+00BC: print_now 'FM4_E' duration 10000 ms flag 1  // ~w~The inside is covered in brains.
 while 001A:   18080 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_F' time 10000 flag 1  // ~w~We had to help some guy make up his mind and it proved a little messy.
+00BC: print_now 'FM4_F' duration 10000 ms flag 1  // ~w~We had to help some guy make up his mind and it proved a little messy.
 while 001A:   22832 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_H' time 10000 flag 1  // ~w~Take it to the crusher before the cops find it.
+00BC: print_now 'FM4_H' duration 10000 ms flag 1  // ~w~Take it to the crusher before the cops find it.
 while 001A:   24908 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -172,7 +172,7 @@ then
 	0004: $BARRIERS_BEEN_ADDED = 1 
 end
 
-00A5: create_car #CHEETAH at 951.0 -421.0 14.5625 store_to $BOMB_CAR 
+00A5: $BOMB_CAR = create_car #CHEETAH at 951.0 -421.0 14.5625
 0242: set_car $BOMB_CAR bomb_status_to CARBOMB_ONIGNITIONACTIVE 
 0186: $BLIP1_FM4 = create_marker_above_car $BOMB_CAR
 
@@ -242,7 +242,7 @@ while fading
 	wait 0 ms
 end
 
-00A5: create_car #REEFER at 835.0 -1117.0 0.375 store_to $BOAT_MAR 
+00A5: $BOAT_MAR = create_car #REEFER at 835.0 -1117.0 0.375
 0175: set_car $BOAT_MAR z_angle_to 143.0 
 0323: enable_boat $BOAT_MAR anchor 1 
 02D4: boat_stop $BOAT_MAR 
@@ -290,52 +290,52 @@ while 001A:   697 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_2' time 10000 flag 1  // Listen, Salvatore thinks that we're going behind his back,
+00BC: print_now 'FM4_2' duration 10000 ms flag 1  // Listen, Salvatore thinks that we're going behind his back,
 while 001A:   3275 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_3' time 10000 flag 1  // so he was offering you to the Cartel in order to make a deal.
+00BC: print_now 'FM4_3' duration 10000 ms flag 1  // so he was offering you to the Cartel in order to make a deal.
 while 001A:   6479 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_4' time 10000 flag 1  // I couldn't let him do that, I mean the worst thing is,
+00BC: print_now 'FM4_4' duration 10000 ms flag 1  // I couldn't let him do that, I mean the worst thing is,
 while 001A:   9000 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_4B' time 10000 flag 1  // it's all my fault... because I told him, we were an item.
+00BC: print_now 'FM4_4B' duration 10000 ms flag 1  // it's all my fault... because I told him, we were an item.
 while 001A:   11356 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_5' time 10000 flag 1  // Don't ask me why. I don't know.
+00BC: print_now 'FM4_5' duration 10000 ms flag 1  // Don't ask me why. I don't know.
 while 001A:   13307 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_6' time 10000 flag 1  // Look you're a marked man on Mafia turf and I've got to get out of here too.
+00BC: print_now 'FM4_6' duration 10000 ms flag 1  // Look you're a marked man on Mafia turf and I've got to get out of here too.
 while 001A:   16285 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_6B' time 10000 flag 1  // I've seen too much killing. Too much blood!
+00BC: print_now 'FM4_6B' duration 10000 ms flag 1  // I've seen too much killing. Too much blood!
 while 001A:   19438 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_7' time 10000 flag 1  // This is a friend of mine ok, she's an old friend.. it's Asuka, she's someone we can trust.
+00BC: print_now 'FM4_7' duration 10000 ms flag 1  // This is a friend of mine ok, she's an old friend.. it's Asuka, she's someone we can trust.
 while 001A:   23340 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_8' time 10000 flag 1  // C'mon, Enough of the speeches.
+00BC: print_now 'FM4_8' duration 10000 ms flag 1  // C'mon, Enough of the speeches.
 while 001A:   24733 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM4_9' time 10000 flag 1  // We better get out of here before we get more hysterical Italians wanting less friendly reunions.
+00BC: print_now 'FM4_9' duration 10000 ms flag 1  // We better get out of here before we get more hysterical Italians wanting less friendly reunions.
 while 001A:   30156 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -362,12 +362,12 @@ end
 02EA: end_cutscene 
 01B4: set_player $PLAYER_CHAR controllable 1 
 0373: set_camera_directly_behind_player 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 837.0 -1116.5 1.75 store_to $MARIA 
+009A: $MARIA = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 837.0 -1116.5 1.75
 02A9: set_char_only_damaged_by_player $MARIA to 1 
 0173: set_actor $MARIA z_angle_to 17.0 
 03FC: set_actor $MARIA stays_on_current_island 0 
 0438: set_actor $MARIA ignore_level_transitions 1 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL03 at 836.5625 -1114.563 1.75 store_to $ASUKA 
+009A: $ASUKA = create_char PEDTYPE_SPECIAL model #SPECIAL03 at 836.5625 -1114.563 1.75
 02A9: set_char_only_damaged_by_player $ASUKA to 1 
 0173: set_actor $ASUKA z_angle_to 178.0 
 03FC: set_actor $ASUKA stays_on_current_island 0 
@@ -404,7 +404,7 @@ end
 
 while true
 	if or
-		8057:   not player $PLAYER_CHAR coords 565.25 -678.375 -2.0 to 575.25 -688.375 4.0 sphere 1 
+		8057:   not is_player_in_area_3d $PLAYER_CHAR coords 565.25 -678.375 -2.0 to 575.25 -688.375 4.0 sphere 1 
 		80A4:   not is_char_in_area_3d $MARIA from 565.25 -678.375 -2.0 to 575.25 -688.375 4.0 sphere 0 
 		80A4:   not is_char_in_area_3d $ASUKA from 565.25 -678.375 -2.0 to 575.25 -688.375 4.0 sphere 0 
 	jf break
@@ -436,7 +436,7 @@ while true
 		0164: disable_marker $BOAT_BLIP 
 		0186: $BOAT_BLIP = create_marker_above_car $BOAT_MAR 
 		0164: disable_marker $FLAG_PLAYER_GOT_FRANK4_MESSAGE 
-		00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+		00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 		0004: $FLAG_CAR_BLIP_DISPLAYED_FM4 = 1 
 	end
 	if
@@ -557,8 +557,8 @@ end //while
 016A: fade 1 for 1000 ms 
 0055: set_player_coordinates $PLAYER_CHAR to 515.0625 -650.875 16.0 
 0171: set_player $PLAYER_CHAR z_angle_to 90.0 
-00A5: create_car #YAKUZA at 500.0 -659.375 -100.0 store_to $FRANK4_CAR1 
-00A5: create_car #BLISTA at 486.5 -643.5625 -100.0 store_to $FRANK4_CAR2 
+00A5: $FRANK4_CAR1 = create_car #YAKUZA at 500.0 -659.375 -100.0
+00A5: $FRANK4_CAR2 = create_car #BLISTA at 486.5 -643.5625 -100.0
 0249: release_model #YAKUZA 
 0249: release_model #BLISTA 
 01C3: remove_references_to_car $FRANK4_CAR1 
@@ -574,32 +574,32 @@ while 001A:   12345 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LRQC_1' time 5000 flag 1  // Asuka and I are gonna have to talk, uh,
+00BC: print_now 'LRQC_1' duration 5000 ms flag 1  // Asuka and I are gonna have to talk, uh,
 while 001A:   14476 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LRQC_2' time 5000 flag 1  // Why don't you go cruise around?
+00BC: print_now 'LRQC_2' duration 5000 ms flag 1  // Why don't you go cruise around?
 while 001A:   16021 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LRQC_3' time 5000 flag 1  // You'll need a place to lie low.
+00BC: print_now 'LRQC_3' duration 5000 ms flag 1  // You'll need a place to lie low.
 while 001A:   17946 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LRQC_4' time 5000 flag 1  // There's a warehouse at the edge of Belleville that should suit your needs.
+00BC: print_now 'LRQC_4' duration 5000 ms flag 1  // There's a warehouse at the edge of Belleville that should suit your needs.
 while 001A:   21438 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LRQC_5' time 5000 flag 1  // Come back here to my Condo when you are ready,
+00BC: print_now 'LRQC_5' duration 5000 ms flag 1  // Come back here to my Condo when you are ready,
 while 001A:   23312 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'LRQC_6' time 5000 flag 1  // and we can have a little chat.
+00BC: print_now 'LRQC_6' duration 5000 ms flag 1  // and we can have a little chat.
 while 001A:   25177 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -640,7 +640,7 @@ goto @MISSION_PASSED_FRANK4
 // Mission Failed
 
 :MISSION_FAILED_FRANK4
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_FRANK4
 
 /////////////////////////////////////////
@@ -677,17 +677,17 @@ then
 	02A8: $STAUNTON_PAYNSPRAY_MARKER = create_marker RADAR_SPRITE_SPRAY at 379.0 -493.75 25.1875 
 	0004: $AMMU2_BLIP_ADDED = 1
 end
-01E7: remove_forbidden_for_cars_cube 619.5625 -911.5 45.0 834.25 -954.5 32.0 //Industrial to commercial Bridge
-01E7: remove_forbidden_for_cars_cube 659.5625 200.0 -20.0 945.75 147.5 5.0 //Tunnel
-01E7: remove_forbidden_for_cars_cube 529.5625 106.5 -30.0 581.375 65.6875 0.0  //tunnel from commercial to intersection for sub and ind
+01E7: switch_roads_on 619.5625 -911.5 45.0 to 834.25 -954.5 32.0 //Industrial to commercial Bridge
+01E7: switch_roads_on 659.5625 200.0 -20.0 to 945.75 147.5 5.0 //Tunnel
+01E7: switch_roads_on 529.5625 106.5 -30.0 to 581.375 65.6875 0.0  //tunnel from commercial to intersection for sub and ind
 0318: set_latest_mission_passed 'FM4'  // 'LAST REQUESTS'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 014C: set_parked_car_generator $COM_CAR23 cars_to_generate_to 101 
 0164: disable_marker $SALVATORE_MISSION_MARKER 
 0164: disable_marker $LUIGI_MISSION_MARKER 
 0164: disable_marker $TONI_MISSION_MARKER 
 0164: disable_marker $JOEY_MISSION_MARKER 
-01E3: text_1number_styled 'M_PASS' number 20000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 20000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0109: player $PLAYER_CHAR money += 20000 
 004F: create_thread @ASUKA_MISSION1_LOOP 
 0164: disable_marker $ASUKA1_MISSION_MARKER 

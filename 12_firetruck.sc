@@ -212,13 +212,13 @@ end
 :GENERATE_MODEL
 0209: $RANDOM_CAR_MODEL = random_int_in_ranges 90 140 //INC 90 NOT INC 140
 if and
-	0018:   $RANDOM_CAR_MODEL > 113 // CAR_BUGGY CAR_CORPSE CAR_POLICE CAR_ENFORCER CAR_SECURICAR CAR_BANSHEE BOAT_PREDATOR CAR_BUS
+	0018:   $RANDOM_CAR_MODEL > 113 // CAR_BFINJECTION CAR_CORPSE CAR_POLICE CAR_ENFORCER CAR_SECURICAR CAR_BANSHEE BOAT_PREDATOR CAR_BUS
 	001A:   128 > $RANDOM_CAR_MODEL // CAR_RHINO CAR_BARRACKS TRAIN_SUBWAY HELI_POLICE PLANE_DODO CAR_COACH
 then
 	goto @GENERATE_MODEL
 end
 if or
-	0038:   $RANDOM_CAR_MODEL == CAR_BOXTER
+	0038:   $RANDOM_CAR_MODEL == CAR_STINGER
 	0038:   $RANDOM_CAR_MODEL == CAR_FIRETRUCK
 	0038:   $RANDOM_CAR_MODEL == CAR_INFERNUS
 	0038:   $RANDOM_CAR_MODEL == CAR_CHEETAH
@@ -262,15 +262,15 @@ end //while
 if
 	0038:   $CAR_ON_FIRE_CREATED == 0 
 then
-	00A5: create_car $RANDOM_CAR_MODEL at $FIRE_COORD_X $FIRE_COORD_Y $FIRE_COORD_Z store_to $CAR_ON_FIRE 
+	00A5: $CAR_ON_FIRE = create_car $RANDOM_CAR_MODEL at $FIRE_COORD_X $FIRE_COORD_Y $FIRE_COORD_Z
 	0004: $CAR_ON_FIRE_CREATED = 1 
 end
 
-0129: $DUMMY_PED_FOR_ZONE = create_actor PEDTYPE_CIVMALE #MALE01 in_car $CAR_ON_FIRE driverseat 
+0129: $DUMMY_PED_FOR_ZONE = create_actor PEDTYPE_CIVMALE #MALE01 in_car $CAR_ON_FIRE driverseat
 0249: release_model $RANDOM_CAR_MODEL 
 0175: set_car $CAR_ON_FIRE z_angle_to $RANDOM_CAR_HEADING 
-0325: $FIRE_TO_EXTINGUISH = create_car $CAR_ON_FIRE fire 
-0186: $FIRE_TO_EXTINGUISH_BLIP = create_marker_above_car $CAR_ON_FIRE 
+0325: set_car_on_fire $CAR_ON_FIRE store_to $FIRE_TO_EXTINGUISH
+0186: $FIRE_TO_EXTINGUISH_BLIP = create_marker_above_car $CAR_ON_FIRE
 00A9: car_set_idle $CAR_ON_FIRE 
 009F: char_set_idle $DUMMY_PED_FOR_ZONE 
 00AD: set_car_cruise_speed $CAR_ON_FIRE to 0.0 
@@ -279,132 +279,132 @@ end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'PORT_W'  // Callahan Point
 then
-	0384: text_1string 'F_START' 'PORT_W' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Callahan Point
+	0384: text_1string 'F_START' string 'PORT_W' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Callahan Point
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'PORT_S'  // Atlantic Quays
 then
-	0384: text_1string 'F_START' 'PORT_S' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Atlantic Quays
+	0384: text_1string 'F_START' string 'PORT_S' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Atlantic Quays
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'PORT_E'  // Portland Harbor
 then
-	0384: text_1string 'F_START' 'PORT_E' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Portland Harbor
+	0384: text_1string 'F_START' string 'PORT_E' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Portland Harbor
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'PORT_I'  // Trenton
 then
-	0384: text_1string 'F_START' 'PORT_I' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Trenton
+	0384: text_1string 'F_START' string 'PORT_I' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Trenton
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'S_VIEW'  // Portland View
 then
-	0384: text_1string 'F_START' 'S_VIEW' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Portland View
+	0384: text_1string 'F_START' string 'S_VIEW' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Portland View
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'CHINA'  // Chinatown
 then
-	0384: text_1string 'F_START' 'CHINA' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Chinatown
+	0384: text_1string 'F_START' string 'CHINA' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Chinatown
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'EASTBAY'  // Portland Beach
 then
-	0384: text_1string 'F_START' 'EASTBAY' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Portland Beach
+	0384: text_1string 'F_START' string 'EASTBAY' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Portland Beach
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'LITTLEI'  // Saint Mark's
 then
-	0384: text_1string 'F_START' 'LITTLEI' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Saint Mark's
+	0384: text_1string 'F_START' string 'LITTLEI' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Saint Mark's
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'REDLIGH'  // Red Light District
 then
-	0384: text_1string 'F_START' 'REDLIGH' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Red Light District
+	0384: text_1string 'F_START' string 'REDLIGH' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Red Light District
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'TOWERS'  // Hepburn Heights
 then
-	0384: text_1string 'F_START' 'TOWERS' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Hepburn Heights
+	0384: text_1string 'F_START' string 'TOWERS' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Hepburn Heights
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'HARWOOD'  // Harwood
 then
-	0384: text_1string 'F_START' 'HARWOOD' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Harwood
+	0384: text_1string 'F_START' string 'HARWOOD' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Harwood
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'ROADBR1'  // Callahan Bridge
 then
-	0384: text_1string 'F_START' 'ROADBR1' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Callahan Bridge
+	0384: text_1string 'F_START' string 'ROADBR1' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Callahan Bridge
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'ROADBR2'  // Callahan Bridge
 then
-	0384: text_1string 'F_START' 'ROADBR2' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Callahan Bridge
+	0384: text_1string 'F_START' string 'ROADBR2' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Callahan Bridge
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'STADIUM'  // Aspatria
 then
-	0384: text_1string 'F_START' 'STADIUM' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Aspatria
+	0384: text_1string 'F_START' string 'STADIUM' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Aspatria
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'HOSPI_2'  // Rockford
 then
-	0384: text_1string 'F_START' 'HOSPI_2' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Rockford
+	0384: text_1string 'F_START' string 'HOSPI_2' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Rockford
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'UNIVERS'  // Liberty Campus
 then
-	0384: text_1string 'F_START' 'UNIVERS' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Liberty Campus
+	0384: text_1string 'F_START' string 'UNIVERS' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Liberty Campus
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'CONSTRU'  // Fort Staunton
 then
-	0384: text_1string 'F_START' 'CONSTRU' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Fort Staunton
+	0384: text_1string 'F_START' string 'CONSTRU' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Fort Staunton
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'PARK'  // Belleville Park
 then
-	0384: text_1string 'F_START' 'PARK' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Belleville Park
+	0384: text_1string 'F_START' string 'PARK' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Belleville Park
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'COM_EAS'  // Newport
 then
-	0384: text_1string 'F_START' 'COM_EAS' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Newport
+	0384: text_1string 'F_START' string 'COM_EAS' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Newport
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'SHOPING'  // Bedford Point
 then
-	0384: text_1string 'F_START' 'SHOPING' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Bedford Point
+	0384: text_1string 'F_START' string 'SHOPING' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Bedford Point
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'YAKUSA'  // Torrington
 then
-	0384: text_1string 'F_START' 'YAKUSA' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Torrington
+	0384: text_1string 'F_START' string 'YAKUSA' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Torrington
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'AIRPORT'  // Francis Intl. Airport
 then
-	0384: text_1string 'F_START' 'AIRPORT' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Francis Intl. Airport
+	0384: text_1string 'F_START' string 'AIRPORT' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Francis Intl. Airport
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'PROJECT'  // Wichita Gardens
 then
-	0384: text_1string 'F_START' 'PROJECT' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Wichita Gardens
+	0384: text_1string 'F_START' string 'PROJECT' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Wichita Gardens
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'SUB_IND'  // Pike Creek
 then
-	0384: text_1string 'F_START' 'SUB_IND' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Pike Creek
+	0384: text_1string 'F_START' string 'SUB_IND' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Pike Creek
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'SWANKS'  // Cedar Grove
 then
-	0384: text_1string 'F_START' 'SWANKS' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Cedar Grove
+	0384: text_1string 'F_START' string 'SWANKS' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Cedar Grove
 end
 if
 	0154:   actor $DUMMY_PED_FOR_ZONE in_zone 'BIG_DAM'  // Cochrane Dam
 then
-	0384: text_1string 'F_START' 'BIG_DAM' 5000 ms 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Cochrane Dam
+	0384: text_1string 'F_START' string 'BIG_DAM' duration 5000 ms flag 1  // ~g~Burning vehicle reported in the ~a~ area. Go and extinguish the fire. // Cochrane Dam
 end
 009B: delete_char $DUMMY_PED_FOR_ZONE 
 
@@ -434,7 +434,7 @@ while 82D0:   not fire $FIRE_TO_EXTINGUISH extinguished
 		0119:   car $CAR_ON_FIRE wrecked
 		001A:   1 > $FIRE_TIME_LIMIT
 	then
-		00BC: print_now 'F_FAIL2' time 5000 flag 1  // ~r~You're too late!
+		00BC: print_now 'F_FAIL2' duration 5000 ms flag 1  // ~r~You're too late!
 		goto @FIRETRUCK_FAILED
 	end
 	0227: $CAR_ON_FIRE_HEALTH = car $CAR_ON_FIRE health
@@ -459,7 +459,7 @@ return
 if
 	80DE:   not is_player_in_model $PLAYER_CHAR model #FIRETRUK 
 then
-	00BC: print_now 'F_CANC' time 3000 flag 1  // ~r~Fire Fighter mission cancelled!
+	00BC: print_now 'F_CANC' duration 3000 ms flag 1  // ~r~Fire Fighter mission cancelled!
 	goto @FIRETRUCK_FAILED
 end
 
@@ -486,16 +486,16 @@ then
 		8038:   not  $CONTROLMODE == 3 
 	then
 		if
-			80E1:   is_button_pressed PAD1 button RIGHTSHOCK
+			80E1:   not is_button_pressed PAD1 button RIGHTSHOCK
 		then
-			00BC: print_now 'F_CANC' time 3000 flag 1  // ~r~Fire Fighter mission cancelled!
+			00BC: print_now 'F_CANC' duration 3000 ms flag 1  // ~r~Fire Fighter mission cancelled!
 			goto @FIRETRUCK_FAILED
 		end
 	else
 		if
-			80E1:   is_button_pressed PAD1 button SQUARE
+			80E1:   not is_button_pressed PAD1 button SQUARE
 		then
-			00BC: print_now 'F_CANC' time 3000 flag 1  // ~r~Fire Fighter mission cancelled!
+			00BC: print_now 'F_CANC' duration 3000 ms flag 1  // ~r~Fire Fighter mission cancelled!
 			goto @FIRETRUCK_FAILED
 		end
 	end
@@ -506,8 +506,8 @@ return
 
 :FIRETRUCK_PASSED
 0008: $FIRES_EXTINGUISHED += 1 
-00BA: print_big 'F_PASS1' time 5000 style 5  // Fire extinguished!
-01E3: text_1number_styled 'REWARD' number $SCORE_FT time 6000 style 6  // REWARD $~1~
+00BA: print_big 'F_PASS1' duration 5000 ms style 5  // Fire extinguished!
+01E3: text_1number_styled 'REWARD' number $SCORE_FT duration 6000 ms style 6  // REWARD $~1~
 0404: increment_fires_extinguished 
 if
 	0038:   $FIRE_LOCATION == 1
@@ -531,7 +531,7 @@ if and
 	0018:   $SUB_FIRES_EXTING > 19 
 then
 	014D: text_pager 'PAGEB11' 140 100 1  // Flamethrower delivered to hideout
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $EARNED_FREE_FLAMETHROWER = 1 
 end
 0109: player $PLAYER_CHAR money += $SCORE_FT 
@@ -539,11 +539,11 @@ end
 0008: $SCORE_FT += 250 
 031A: remove_all_fires 
 0164: disable_marker $FIRE_TO_EXTINGUISH_BLIP 
-018C: play_sound 94 at 0.0 0.0 0.0 
+018C: play_sound SOUND_PART_MISSION_COMPLETE at 0.0 0.0 0.0 
 if
 	00E0:   is_player_in_any_car $PLAYER_CHAR 
 then
-	00DA: store_car_player_is_in $PLAYER_CHAR store_to $PLAYERS_FIRETRUCK 
+	00DA: $PLAYERS_FIRETRUCK = store_car_player_is_in $PLAYER_CHAR
 	0227: $PLAYERS_FIRETRUCK_HEALTH = car $PLAYERS_FIRETRUCK health 
 	0008: $PLAYERS_FIRETRUCK_HEALTH += 150 
 	0224: set_car $PLAYERS_FIRETRUCK health_to $PLAYERS_FIRETRUCK_HEALTH
@@ -551,7 +551,7 @@ end
 if
 	0038:   $DISPLAYED_COUNTER == 0 
 then
-	03C4: set_status_text_to $FIRES_EXTINGUISHED 0 'F_EXTIN'  // FIRES:
+	03C4: set_status_text_to $FIRES_EXTINGUISHED COUNTER_DISPLAY_NUMBER 'F_EXTIN'  // FIRES:
 	0004: $DISPLAYED_COUNTER = 1 
 end
 gosub @REMOVE_CAR_IF_NEEDED
@@ -563,7 +563,7 @@ goto @NEXT_FIRE
 014F: stop_timer $FIRE_TIME_LIMIT 
 0151: remove_status_text $FIRES_EXTINGUISHED 
 00BA: print_big 'F_FAIL1' time 5000 style 5  // Fire Truck mission ended.
-01E3: text_1number_styled 'TSCORE' number $TOTAL_SCORE time 6000 style 6  // EARNINGS: $~1~
+01E3: text_1number_styled 'TSCORE' number $TOTAL_SCORE duration 6000 ms style 6  // EARNINGS: $~1~
 031A: remove_all_fires 
 0164: disable_marker $FIRE_TO_EXTINGUISH_BLIP 
 03E6: remove_text_box 

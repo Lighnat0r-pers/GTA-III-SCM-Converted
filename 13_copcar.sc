@@ -67,7 +67,7 @@ wait 0 ms
 if
 	0038:   $GOT_COP_BREIF == 0 
 then
-	00BC: print_now 'LEGAL' time 3000 flag 1  // ~g~Eliminate the criminal threat!
+	00BC: print_now 'LEGAL' duration 3000 ms flag 1  // ~g~Eliminate the criminal threat!
 	0006: 17@ = 0 
 	0004: $GOT_COP_BREIF = 1
 else
@@ -303,7 +303,7 @@ end
 :GENERATE_CAR_MODEL
 0209: $CAR_MODEL = random_int_in_ranges 90 140 //INC 90 NOT INC 140
 if and
-	0018:   $CAR_MODEL > 113 // CAR_BUGGY CAR_CORPSE CAR_POLICE CAR_ENFORCER CAR_SECURICAR CAR_BANSHEE BOAT_PREDATOR CAR_BUS
+	0018:   $CAR_MODEL > 113 // CAR_BFINJECTION CAR_CORPSE CAR_POLICE CAR_ENFORCER CAR_SECURICAR CAR_BANSHEE BOAT_PREDATOR CAR_BUS
 	001A:   128 > $CAR_MODEL // CAR_RHINO CAR_BARRACKS TRAIN_SUBWAY HELI_POLICE PLANE_DODO CAR_COACH
 then
 	goto @GENERATE_CAR_MODEL
@@ -332,7 +332,7 @@ while 8019:   not  17@ > 3000
 	gosub @COPCAR_CANCELLED_CHECKS
 end
 
-00A5: create_car $CAR_MODEL at $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z store_to $CRIMINAL_CAR 
+00A5: $CRIMINAL_CAR = create_car $CAR_MODEL at $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z
 0428: set_car $CRIMINAL_CAR avoid_level_transitions 1 
 0224: set_car $CRIMINAL_CAR health_to 800 
 0249: release_model $CAR_MODEL 
@@ -396,132 +396,132 @@ end
 if
 	0154:   actor $CRIMINAL in_zone 'PORT_W'  // Callahan Point
 then
-	0384: text_1string 'C_BREIF' 'PORT_W' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Callahan Point
+	0384: text_1string 'C_BREIF' string 'PORT_W' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Callahan Point
 end
 if
 	0154:   actor $CRIMINAL in_zone 'PORT_S'  // Atlantic Quays
 then
-	0384: text_1string 'C_BREIF' 'PORT_S' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Atlantic Quays
+	0384: text_1string 'C_BREIF' string 'PORT_S' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Atlantic Quays
 end
 if
 	0154:   actor $CRIMINAL in_zone 'PORT_E'  // Portland Harbor
 then
-	0384: text_1string 'C_BREIF' 'PORT_E' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Portland Harbor
+	0384: text_1string 'C_BREIF' string 'PORT_E' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Portland Harbor
 end
 if
 	0154:   actor $CRIMINAL in_zone 'PORT_I'  // Trenton
 then
-	0384: text_1string 'C_BREIF' 'PORT_I' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Trenton
+	0384: text_1string 'C_BREIF' string 'PORT_I' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Trenton
 end
 if
 	0154:   actor $CRIMINAL in_zone 'S_VIEW'  // Portland View
 then
-	0384: text_1string 'C_BREIF' 'S_VIEW' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Portland View
+	0384: text_1string 'C_BREIF' string 'S_VIEW' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Portland View
 end
 if
 	0154:   actor $CRIMINAL in_zone 'CHINA'  // Chinatown
 then
-	0384: text_1string 'C_BREIF' 'CHINA' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Chinatown
+	0384: text_1string 'C_BREIF' string 'CHINA' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Chinatown
 end
 if
 	0154:   actor $CRIMINAL in_zone 'EASTBAY'  // Portland Beach
 then
-	0384: text_1string 'C_BREIF' 'EASTBAY' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Portland Beach
+	0384: text_1string 'C_BREIF' string 'EASTBAY' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Portland Beach
 end
 if
 	0154:   actor $CRIMINAL in_zone 'LITTLEI'  // Saint Mark's
 then
-	0384: text_1string 'C_BREIF' 'LITTLEI' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Saint Mark's
+	0384: text_1string 'C_BREIF' string 'LITTLEI' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Saint Mark's
 end
 if
 	0154:   actor $CRIMINAL in_zone 'REDLIGH'  // Red Light District
 then
-	0384: text_1string 'C_BREIF' 'REDLIGH' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Red Light District
+	0384: text_1string 'C_BREIF' string 'REDLIGH' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Red Light District
 end
 if
 	0154:   actor $CRIMINAL in_zone 'TOWERS'  // Hepburn Heights
 then
-	0384: text_1string 'C_BREIF' 'TOWERS' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Hepburn Heights
+	0384: text_1string 'C_BREIF' string 'TOWERS' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Hepburn Heights
 end
 if
 	0154:   actor $CRIMINAL in_zone 'HARWOOD'  // Harwood
 then
-	0384: text_1string 'C_BREIF' 'HARWOOD' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Harwood
+	0384: text_1string 'C_BREIF' string 'HARWOOD' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Harwood
 end
 if
 	0154:   actor $CRIMINAL in_zone 'ROADBR1'  // Callahan Bridge
 then
-	0384: text_1string 'C_BREIF' 'ROADBR1' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Callahan Bridge
+	0384: text_1string 'C_BREIF' string 'ROADBR1' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Callahan Bridge
 end
 if
 	0154:   actor $CRIMINAL in_zone 'ROADBR2'  // Callahan Bridge
 then
-	0384: text_1string 'C_BREIF' 'ROADBR2' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Callahan Bridge
+	0384: text_1string 'C_BREIF' string 'ROADBR2' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Callahan Bridge
 end
 if
 	0154:   actor $CRIMINAL in_zone 'STADIUM'  // Aspatria
 then
-	0384: text_1string 'C_BREIF' 'STADIUM' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Aspatria
+	0384: text_1string 'C_BREIF' string 'STADIUM' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Aspatria
 end
 if
 	0154:   actor $CRIMINAL in_zone 'HOSPI_2'  // Rockford
 then
-	0384: text_1string 'C_BREIF' 'HOSPI_2' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Rockford
+	0384: text_1string 'C_BREIF' string 'HOSPI_2' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Rockford
 end
 if
 	0154:   actor $CRIMINAL in_zone 'UNIVERS'  // Liberty Campus
 then
-	0384: text_1string 'C_BREIF' 'UNIVERS' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Liberty Campus
+	0384: text_1string 'C_BREIF' string 'UNIVERS' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Liberty Campus
 end
 if
 	0154:   actor $CRIMINAL in_zone 'CONSTRU'  // Fort Staunton
 then
-	0384: text_1string 'C_BREIF' 'CONSTRU' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Fort Staunton
+	0384: text_1string 'C_BREIF' string 'CONSTRU' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Fort Staunton
 end
 if
 	0154:   actor $CRIMINAL in_zone 'PARK'  // Belleville Park
 then
-	0384: text_1string 'C_BREIF' 'PARK' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Belleville Park
+	0384: text_1string 'C_BREIF' string 'PARK' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Belleville Park
 end
 if
 	0154:   actor $CRIMINAL in_zone 'COM_EAS'  // Newport
 then
-	0384: text_1string 'C_BREIF' 'COM_EAS' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Newport
+	0384: text_1string 'C_BREIF' string 'COM_EAS' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Newport
 end
 if
 	0154:   actor $CRIMINAL in_zone 'SHOPING'  // Bedford Point
 then
-	0384: text_1string 'C_BREIF' 'SHOPING' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Bedford Point
+	0384: text_1string 'C_BREIF' string 'SHOPING' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Bedford Point
 end
 if
 	0154:   actor $CRIMINAL in_zone 'YAKUSA'  // Torrington
 then
-	0384: text_1string 'C_BREIF' 'YAKUSA' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Torrington
+	0384: text_1string 'C_BREIF' string 'YAKUSA' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Torrington
 end
 if
 	0154:   actor $CRIMINAL in_zone 'AIRPORT'  // Francis Intl. Airport
 then
-	0384: text_1string 'C_BREIF' 'AIRPORT' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Francis Intl. Airport
+	0384: text_1string 'C_BREIF' string 'AIRPORT' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Francis Intl. Airport
 end
 if
 	0154:   actor $CRIMINAL in_zone 'PROJECT'  // Wichita Gardens
 then
-	0384: text_1string 'C_BREIF' 'PROJECT' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Wichita Gardens
+	0384: text_1string 'C_BREIF' string 'PROJECT' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Wichita Gardens
 end
 if
 	0154:   actor $CRIMINAL in_zone 'SUB_IND'  // Pike Creek
 then
-	0384: text_1string 'C_BREIF' 'SUB_IND' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Pike Creek
+	0384: text_1string 'C_BREIF' string 'SUB_IND' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Pike Creek
 end
 if
 	0154:   actor $CRIMINAL in_zone 'SWANKS'  // Cedar Grove
 then
-	0384: text_1string 'C_BREIF' 'SWANKS' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Cedar Grove
+	0384: text_1string 'C_BREIF' string 'SWANKS' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Cedar Grove
 end
 if
 	0154:   actor $CRIMINAL in_zone 'BIG_DAM'  // Cochrane Dam
 then
-	0384: text_1string 'C_BREIF' 'BIG_DAM' 5000 ms 1  // ~g~Suspect last seen in the ~a~ area. // Cochrane Dam
+	0384: text_1string 'C_BREIF' string 'BIG_DAM' duration 5000 ms flag 1  // ~g~Suspect last seen in the ~a~ area. // Cochrane Dam
 end
 
 00A0: get_char_coordinates $CRIMINAL store_to $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z 
@@ -539,9 +539,9 @@ while 8118:   not actor $CRIMINAL dead
 			0164: disable_marker $CRIMINAL_BLIP 
 			009B: delete_char $CRIMINAL 
 			0004: $CRIMINAL_CREATED_FLAG = 0 
-			00BC: print_now 'C_ESCP' time 3000 flag 1  // ~r~The suspect has escaped!
+			00BC: print_now 'C_ESCP' duration 3000 ms flag 1  // ~r~The suspect has escaped!
 		else
-			00BC: print_now 'C_TIME' time 3000 flag 1  // ~r~Your time as a law enforcer is over!
+			00BC: print_now 'C_TIME' duration 3000 ms flag 1  // ~r~Your time as a law enforcer is over!
 		end
 		goto @COP_CAR_FAILED
 	end
@@ -557,7 +557,7 @@ while 8118:   not actor $CRIMINAL dead
 		0038:   $GOT_CAR_CRIM_IS_IN == 0
 	then
 		01C3: remove_references_to_car $CRIMINAL_CAR 
-		00D9: store_car_char_is_in $CRIMINAL store_to $CRIMINAL_CAR 
+		00D9: $CRIMINAL_CAR = store_car_char_is_in $CRIMINAL
 		03ED: set_car $CRIMINAL_CAR not_damaged_when_upside_down 1 
 		00AE: set_car_driving_style $CRIMINAL_CAR to DRIVINGMODE_AVOIDCARS
 		00AD: set_car_cruise_speed $CRIMINAL_CAR to 42.0 
@@ -587,9 +587,9 @@ while 8118:   not actor $CRIMINAL dead
 					0248:   model #SENTINEL available
 				then
 					00A0: get_char_coordinates $CRIMINAL store_to $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z 
-					03D3: point $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z get_nearby_vector $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z $WARP_HEADING_COP 
+					03D3: get_closest_car_node_at $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z store_to $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z heading $WARP_HEADING_COP 
 					01C3: remove_references_to_car $CRIMINAL_CAR 
-					00A5: create_car #SENTINEL at $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z store_to $CRIMINAL_CAR 
+					00A5: $CRIMINAL_CAR = create_car #SENTINEL at $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z
 					0175: set_car $CRIMINAL_CAR z_angle_to $WARP_HEADING_COP 
 					01D5: actor $CRIMINAL go_to_and_drive_car $CRIMINAL_CAR
 				else
@@ -608,7 +608,7 @@ while 8118:   not actor $CRIMINAL dead
 			if
 				00E0:   is_player_in_any_car $PLAYER_CHAR
 			then
-				00DA: store_car_player_is_in $PLAYER_CHAR store_to $PLAYERS_COP_CAR 
+				00DA: $PLAYERS_COP_CAR = store_car_player_is_in $PLAYER_CHAR
 				01D9: actor $CRIMINAL destroy_car $PLAYERS_COP_CAR
 			else
 				01CC: actor $CRIMINAL kill_player $PLAYER_CHAR 
@@ -679,7 +679,7 @@ while 8118:   not actor $CRIMINAL dead
 						82CA:   not is_car_on_screen $CRIMINAL_CAR
 					then
 						00AA: get_car_coordinates $CRIMINAL_CAR store_to $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z 
-						03D3: point $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z get_nearby_vector $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z $WARP_HEADING_COP
+						03D3: get_closest_car_node_at $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z store_to $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z heading $WARP_HEADING_COP
 						if
 							80C2:   not is_point_on_screen $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z 4.0 
 						then
@@ -705,7 +705,7 @@ while 8118:   not actor $CRIMINAL dead
 					82CA:   not is_car_on_screen $CRIMINAL_CAR
 				then
 					00AA: get_car_coordinates $CRIMINAL_CAR store_to $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z 
-					03D3: point $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z get_nearby_vector $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z $WARP_HEADING_COP 
+					03D3: get_closest_car_node_at $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z store_to $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z heading $WARP_HEADING_COP 
 					if
 						80C2:   not is_point_on_screen $CRIMINAL_COORD_X $CRIMINAL_COORD_Y $CRIMINAL_COORD_Z 4.0 
 					then
@@ -732,13 +732,13 @@ end // while
 if
 	0038:   $TOTAL_CRIMINALS_KILLED == 1 
 then
-	03C4: set_status_text_to $TOTAL_CRIMINALS_KILLED 0 'KILLS'  // KILLS:
+	03C4: set_status_text_to $TOTAL_CRIMINALS_KILLED COUNTER_DISPLAY_NUMBER 'KILLS'  // KILLS:
 end
 0164: disable_marker $CRIMINAL_BLIP 
 0084: $VIGILANTE_SCORE = $TOTAL_CRIMINALS_KILLED 
 0010: $VIGILANTE_SCORE *= 500 
-00BA: print_big 'C_PASS' time 5000 style 5  // THREAT ELIMINATED!
-01E3: text_1number_styled 'REWARD' number $VIGILANTE_SCORE time 5000 style 6  // REWARD $~1~
+00BA: print_big 'C_PASS' duration 5000 ms style 5  // THREAT ELIMINATED!
+01E3: text_1number_styled 'REWARD' number $VIGILANTE_SCORE duration 5000 ms style 6  // REWARD $~1~
 0109: player $PLAYER_CHAR money += $VIGILANTE_SCORE 
 if
 	003A:   $TOTAL_CRIMINALS_KILLED == $VIGILANTE_BONUS_KILLS 
@@ -746,8 +746,8 @@ then
 	0084: $VIGILANTE = $TOTAL_CRIMINALS_KILLED 
 	0010: $VIGILANTE *= 2 
 	0010: $VIGILANTE *= 500 
-	0217: text_styled 'C_VIGIL' time 5000 style 5  // VIGILANTE BONUS!!
-	0218: text_1number_styled 'REWARD' $VIGILANTE 6000 ms 6  // REWARD $~1~
+	0217: text_styled 'C_VIGIL' duration 5000 ms style 5  // VIGILANTE BONUS!!
+	0218: text_1number_styled 'REWARD' number $VIGILANTE duration 6000 ms flag 6  // REWARD $~1~
 	0109: player $PLAYER_CHAR money += $VIGILANTE 
 	if
 		0038:   $VIGILANTE_BONUS_KILLS == 10 
@@ -778,7 +778,7 @@ if and
 	0038:   $IND_COPCAR_KILLS == 10
 then
 	014D: text_pager 'PAGEB12' 140 100 1  // Police Bribe delivered to hideout
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $PLAY_PAGER_MESSAGE1 = 1 
 end
 if and
@@ -786,7 +786,7 @@ if and
 	0038:   $IND_COPCAR_KILLS == 20
 then
 	014D: text_pager 'PAGEB12' 140 100 1  // Police Bribe delivered to hideout
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $PLAY_PAGER_MESSAGE1 = 2
 end
 if and
@@ -794,7 +794,7 @@ if and
 	0038:   $COM_COPCAR_KILLS == 10
 then
 	014D: text_pager 'PAGEB12' 140 100 1  // Police Bribe delivered to hideout
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $PLAY_PAGER_MESSAGE2 = 1 
 end
 if and
@@ -802,7 +802,7 @@ if and
 	0038:   $COM_COPCAR_KILLS == 20
 then
 	014D: text_pager 'PAGEB12' 140 100 1  // Police Bribe delivered to hideout
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $PLAY_PAGER_MESSAGE2 = 2
 end
 if and
@@ -810,7 +810,7 @@ if and
 	0038:   $SUB_COPCAR_KILLS == 10
 then
 	014D: text_pager 'PAGEB12' 140 100 1  // Police Bribe delivered to hideout
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $PLAY_PAGER_MESSAGE3 = 1 
 end
 if and
@@ -818,7 +818,7 @@ if and
 	0038:   $SUB_COPCAR_KILLS == 20
 then
 	014D: text_pager 'PAGEB12' 140 100 1  // Police Bribe delivered to hideout
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $PLAY_PAGER_MESSAGE3 = 2
 end
 
@@ -849,11 +849,11 @@ while true
 	0084: $GAME_TIMER_START = $GAME_TIME_PRESENT 
 	0084: $TIMER_IN_SECS = $COPCAR_TIMER 
 	0014: $TIMER_IN_SECS /= 1000 
-	01E5: text_1number_highpriority 'COPCART' $TIMER_IN_SECS flag 200 time 1  // ~g~You have ~1~ seconds to return to a police vehicle before the mission ends.
+	01E5: text_1number_highpriority 'COPCART' number $TIMER_IN_SECS duration 200 ms flag 1  // ~g~You have ~1~ seconds to return to a police vehicle before the mission ends.
 	if
 		001A:   1 > $TIMER_IN_SECS 
 	then
-		00BC: print_now 'C_TIME' time 3000 flag 1  // ~r~Your time as a law enforcer is over!
+		00BC: print_now 'C_TIME' duration 3000 ms flag 1  // ~r~Your time as a law enforcer is over!
 		goto @COP_CAR_FAILED
 	end
 	wait 0 ms
@@ -862,7 +862,7 @@ end
 if
 	00E0:   is_player_in_any_car $PLAYER_CHAR 
 then
-	00DA: store_car_player_is_in $PLAYER_CHAR store_to $PLAYERS_COP_CAR 
+	00DA: $PLAYERS_COP_CAR = store_car_player_is_in $PLAYER_CHAR
 	0227: $PLAYERS_COP_CAR_HEALTH = car $PLAYERS_COP_CAR health 
 	0008: $PLAYERS_COP_CAR_HEALTH += 100 
 	0224: set_car $PLAYERS_COP_CAR health_to $PLAYERS_COP_CAR_HEALTH
@@ -886,8 +886,8 @@ goto @NEXT_COP_CAR
 ///////////////////////////
 
 :COP_CAR_FAILED
-00BA: print_big 'C_FAIL' time 5000 style 5  // Vigilante mission ended!
-01E3: text_1number_styled 'C_KILLS' number $TOTAL_CRIMINALS_KILLED time 6000 style 6  // CRIMINALS KILLED: ~1~
+00BA: print_big 'C_FAIL' duration 5000 ms style 5  // Vigilante mission ended!
+01E3: text_1number_styled 'C_KILLS' number $TOTAL_CRIMINALS_KILLED duration 6000 ms style 6  // CRIMINALS KILLED: ~1~
 014F: stop_timer $COP_TIME_LIMIT 
 0151: remove_status_text $TOTAL_CRIMINALS_KILLED 
 0164: disable_marker $CRIMINAL_BLIP 
@@ -934,11 +934,11 @@ then
 	0084: $GAME_TIMER_START = $GAME_TIME_PRESENT 
 	0084: $TIMER_IN_SECS = $COPCAR_TIMER 
 	0014: $TIMER_IN_SECS /= 1000 
-	01E5: text_1number_highpriority 'COPCART' $TIMER_IN_SECS flag 200 time 1  // ~g~You have ~1~ seconds to return to a police vehicle before the mission ends.
+	01E5: text_1number_highpriority 'COPCART' number $TIMER_IN_SECS duration 200 ms flag 1  // ~g~You have ~1~ seconds to return to a police vehicle before the mission ends.
 	if
 		001A:   1 > $TIMER_IN_SECS
 	then
-		00BC: print_now 'C_TIME' time 3000 flag 1  // ~r~Your time as a law enforcer is over!
+		00BC: print_now 'C_TIME' duration 3000 ms flag 1  // ~r~Your time as a law enforcer is over!
 		goto @COP_CAR_FAILED
 	end
 end
@@ -972,16 +972,16 @@ then
 			8038:   not  $CONTROLMODE == 3 
 		then
 			if
-				80E1:   is_button_pressed PAD1 button RIGHTSHOCK
+				80E1:   not is_button_pressed PAD1 button RIGHTSHOCK
 			then
-				00BC: print_now 'C_CANC' time 3000 flag 1  // ~r~Vigilante mission cancelled!
+				00BC: print_now 'C_CANC' duration 3000 ms flag 1  // ~r~Vigilante mission cancelled!
 				goto @COP_CAR_FAILED
 			end
 		else
 			if
-				80E1:   is_button_pressed PAD1 button SQUARE
+				80E1:   not is_button_pressed PAD1 button SQUARE
 			then
-				00BC: print_now 'C_CANC' time 3000 flag 1  // ~r~Vigilante mission cancelled!
+				00BC: print_now 'C_CANC' duration 3000 ms flag 1  // ~r~Vigilante mission cancelled!
 				goto @COP_CAR_FAILED
 			end
 		end

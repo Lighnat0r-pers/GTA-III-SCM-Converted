@@ -76,32 +76,32 @@ while 001A:   151 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM2_A' time 10000 flag 1  // ~w~TONI's off making people bleed or trying to.
+00BC: print_now 'TM2_A' duration 10000 ms flag 1  // ~w~TONI's off making people bleed or trying to.
 while 001A:   3879 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM2_AA' time 10000 flag 1  // ~w~He'll never be as tough as his Pop, but he left you a note on the table.
+00BC: print_now 'TM2_AA' duration 10000 ms flag 1  // ~w~He'll never be as tough as his Pop, but he left you a note on the table.
 while 001A:   7522 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM2_B' time 10000 flag 1  // ~w~The laundry has agreed to pay - you did real good kid!
+00BC: print_now 'TM2_B' duration 10000 ms flag 1  // ~w~The laundry has agreed to pay - you did real good kid!
 while 001A:   10947 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM2_C' time 10000 flag 1  // ~w~Go collect the cash and bring it back here. Watch out for the Triads.
+00BC: print_now 'TM2_C' duration 10000 ms flag 1  // ~w~Go collect the cash and bring it back here. Watch out for the Triads.
 while 001A:   14507 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM2_D' time 10000 flag 1  // ~w~They may be shoving a firecracker up your ass, but don't take no crap.
+00BC: print_now 'TM2_D' duration 10000 ms flag 1  // ~w~They may be shoving a firecracker up your ass, but don't take no crap.
 while 001A:   18705 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM2_E' time 10000 flag 1  // ~w~Nobody I mean nobody, messes with TONI CIPRIANI!
+00BC: print_now 'TM2_E' duration 10000 ms flag 1  // ~w~Nobody I mean nobody, messes with TONI CIPRIANI!
 while 001A:   22114 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -169,38 +169,38 @@ end
 02A3: toggle_widescreen 1 
 0395: clear_area 1 at 869.375 -639.0 range 15.0 1.0 
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG03 at 869.375 -639.0 -100.0 store_to $TONI2_TRIAD1 
+009A: $TONI2_TRIAD1  = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 869.375 -639.0 -100.0
 01B2: give_actor $TONI2_TRIAD1 weapon WEAPONTYPE_BASEBALLBAT ammo 1 
 0211: actor $TONI2_TRIAD1 walk_to 869.375 -656.0 
 0395: clear_area 1 at 868.5 -637.0 range 15.0 1.0 
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG03 at 868.5 -637.0 -100.0 store_to $TONI2_TRIAD2 
+009A: $TONI2_TRIAD2 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 868.5 -637.0 -100.0
 0173: set_actor $TONI2_TRIAD2 z_angle_to 180.0 
 01B2: give_actor $TONI2_TRIAD2 weapon WEAPONTYPE_PISTOL ammo 200 
 015F: set_camera_position 869.6875 -666.0 16.0 0.0 rotation 0.0 0.0 
-0159: camera_on_ped $TONI2_TRIAD1 FIXED switchstyle INTERPOLATION 
+0159: camera_on_ped $TONI2_TRIAD1 mode FIXED switchstyle INTERPOLATION 
 0001: wait 2500 ms 
 0395: clear_area 1 at 869.375 -688.0 range 15.0 1.0 
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 869.375 -688.0 -100.0 store_to $TONI2_TRIAD3 
+009A: $TONI2_TRIAD3 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 869.375 -688.0 -100.0
 01B2: give_actor $TONI2_TRIAD3 weapon WEAPONTYPE_BASEBALLBAT ammo 1 
 0211: actor $TONI2_TRIAD3 walk_to 869.375 -678.0 
 0395: clear_area 1 at 868.5 -690.0 range 15.0 1.0
  
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 868.5 -690.0 -100.0 store_to $TONI2_TRIAD4 
+009A: $TONI2_TRIAD4 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 868.5 -690.0 -100.0
 01B2: give_actor $TONI2_TRIAD4 weapon WEAPONTYPE_PISTOL ammo 100 
-0159: camera_on_ped $TONI2_TRIAD3 FIXED switchstyle INTERPOLATION 
+0159: camera_on_ped $TONI2_TRIAD3 mode FIXED switchstyle INTERPOLATION 
 0001: wait 2500 ms 
 0395: clear_area 1 at 892.5625 -666.0 range 15.0 4.0 
 
-00A5: create_car #BELLYUP at 892.5 -666.0 -100.0 store_to $TONI2_TRIAD_VAN 
+00A5: $TONI2_TRIAD_VAN = create_car #BELLYUP at 892.5 -666.0 -100.0
 0175: set_car $TONI2_TRIAD_VAN z_angle_to 180.0 
-0129: $TONI2_TRIAD5 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI2_TRIAD_VAN driverseat 
-01C8: $TONI2_TRIAD6 = create_actor_pedtype PEDTYPE_GANG_TRIAD model #GANG03 in_car $TONI2_TRIAD_VAN passenger_seat 0 
+0129: $TONI2_TRIAD5 = create_actor PEDTYPE_GANG_TRIAD #GANG03 in_car $TONI2_TRIAD_VAN driverseat
+01C8: $TONI2_TRIAD6 = create_actor PEDTYPE_GANG_TRIAD model #GANG03 in_car $TONI2_TRIAD_VAN passenger_seat 0
 01B2: give_actor $TONI2_TRIAD5 weapon WEAPONTYPE_PISTOL ammo 27 
 01B2: give_actor $TONI2_TRIAD6 weapon WEAPONTYPE_BASEBALLBAT ammo 1 
 00A9: car_set_idle $TONI2_TRIAD_VAN 
-0158: camera_on_vehicle $TONI2_TRIAD_VAN FIXED switchstyle INTERPOLATION 
+0158: camera_on_vehicle $TONI2_TRIAD_VAN mode FIXED switchstyle INTERPOLATION 
 01D3: actor $TONI2_TRIAD6 leave_car $TONI2_TRIAD_VAN
 
 while 00DB:   is_char_in_car $TONI2_TRIAD6 car $TONI2_TRIAD_VAN 
@@ -257,7 +257,7 @@ then
 	011A: set_actor $TONI2_TRIAD6 search_threat THREAT_PLAYER1 
 end
 
-00BC: print_now 'TM2_3' time 5000 flag 1  // ~g~It's a trap! Waste them all!!
+00BC: print_now 'TM2_3' duration 5000 ms flag 1  // ~g~It's a trap! Waste them all!!
 
 if
 	8118:   not actor $TONI2_TRIAD1 dead
@@ -361,7 +361,7 @@ while 8038:   not  $TRIADS_KILLED == 6
 	end
 end //while
 
-00BC: print_now 'TM2_1' time 5000 flag 1  // ~g~Get the cash back to Toni's!!
+00BC: print_now 'TM2_1' duration 5000 ms flag 1  // ~g~Get the cash back to Toni's!!
 018A: $TONI2_TONI_MARKER = create_checkpoint_at 1223.0 -327.0 -100.0
 
 while 80F6:   not player $PLAYER_CHAR 1 1219.563 -320.6875 27.375 radius 1.0 1.0 2.0 
@@ -378,7 +378,7 @@ end
 0395: clear_area 1 at 1219.563 -314.0 range 29.6875 2.0 
 0239: actor $PLAYER_ACTOR run_to 1219.563 -314.0 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 10000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 10000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 10000 
 0006: 17@ = 0
@@ -430,7 +430,7 @@ goto @MISSION_END_TONI2
 0004: $THE_PICKUP_COMPLETED = 1 
 03F1: pedtype PEDTYPE_GANG_TRIAD add_threat THREAT_PLAYER1
 0318: set_latest_mission_passed 'TM2'  // 'THE PICK-UP'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 004F: create_thread @TONI_MISSION3_LOOP
 goto @MISSION_END_TONI2
 

@@ -21,8 +21,6 @@
 0336: set_player $PLAYER_CHAR visible 0 
 03AF: set_streaming 0 
 
-// 0111: set_wasted_busted_check_to 0 // Removed by R*
-
 03AD: set_rubbish 0 
 
 // **********************************START OF BANK CUTSCENE****************************
@@ -149,7 +147,7 @@ then
 	0086: $TEMP_VAR = $PARTICLE_TARGET_Z 
 	0086: $PARTICLE_TARGET_Z = $PARTICLE_Z 
 	0061: $PARTICLE_TARGET_Z -= $TEMP_VAR 
-	039D: scatter_particles POBJECT_CATALINAS_SHOTGUNFLASH 1.0 0 0 0 0 at $PARTICLE_X $PARTICLE_Y $PARTICLE_Z $PARTICLE_TARGET_X $PARTICLE_TARGET_Y $PARTICLE_TARGET_Z 
+	039D: scatter_particles type POBJECT_CATALINAS_SHOTGUNFLASH 1.0 0 0 0 0 from $PARTICLE_X $PARTICLE_Y $PARTICLE_Z to $PARTICLE_TARGET_X $PARTICLE_TARGET_Y $PARTICLE_TARGET_Z 
 	while fading
 		wait 0 ms
 		gosub @SKIP_INTRO_BUTTON
@@ -188,7 +186,7 @@ while 001A:   25249 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'BETRA_A' time 4000 flag 1  // Sorry, babe.
+00BC: print_now 'BETRA_A' duration 4000 ms flag 1  // Sorry, babe.
 
 while 001A:   26060 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -196,7 +194,7 @@ while 001A:   26060 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'BETRA_B' time 5000 flag 1  // I'm an ambitious girl and you,
+00BC: print_now 'BETRA_B' duration 5000 ms flag 1  // I'm an ambitious girl and you,
 
 while 001A:   27000 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -225,7 +223,7 @@ end
 0086: $TEMP_VAR = $PARTICLE_TARGET_Z 
 0086: $PARTICLE_TARGET_Z = $PARTICLE_Z 
 0061: $PARTICLE_TARGET_Z -= $TEMP_VAR 
-039D: scatter_particles POBJECT_CATALINAS_GUNFLASH 1.0 0 0 0 0 at $PARTICLE_X $PARTICLE_Y $PARTICLE_Z $PARTICLE_TARGET_X $PARTICLE_TARGET_Y $PARTICLE_TARGET_Z 
+039D: scatter_particles type POBJECT_CATALINAS_GUNFLASH 1.0 0 0 0 0 from $PARTICLE_X $PARTICLE_Y $PARTICLE_Z to $PARTICLE_TARGET_X $PARTICLE_TARGET_Y $PARTICLE_TARGET_Z 
 
 while 001A:   27030 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -254,7 +252,7 @@ end
 0086: $TEMP_VAR = $PARTICLE_TARGET_Z 
 0086: $PARTICLE_TARGET_Z = $PARTICLE_Z 
 0061: $PARTICLE_TARGET_Z -= $TEMP_VAR 
-039D: scatter_particles POBJECT_CATALINAS_GUNFLASH 1.0 0 0 0 0 at $PARTICLE_X $PARTICLE_Y $PARTICLE_Z $PARTICLE_TARGET_X $PARTICLE_TARGET_Y $PARTICLE_TARGET_Z
+039D: scatter_particles type POBJECT_CATALINAS_GUNFLASH 1.0 0 0 0 0 from $PARTICLE_X $PARTICLE_Y $PARTICLE_Z to $PARTICLE_TARGET_X $PARTICLE_TARGET_Y $PARTICLE_TARGET_Z
 
 while 001A:   27100 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -289,7 +287,7 @@ while 001A:   28710 > $CUT_SCENE_TIME
 	gosub @SKIP_INTRO_BUTTON
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'BETRA_C' time 2282 flag 1  // you're just small time.
+00BC: print_now 'BETRA_C' duration 2282 ms flag 1  // you're just small time.
 043C: set_game_sounds_fade 1
 while 001A:   29200 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -527,7 +525,7 @@ while 001A:   13007 > $CUT_SCENE_TIME
 end
 
 03F0: enable_text_draw 0 
-00BC: print_now 'JAILB_V' time 10000 flag 1  // *
+00BC: print_now 'JAILB_V' duration 10000 ms flag 1  // *
 
 while 001A:   14500 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -537,7 +535,7 @@ while 001A:   14500 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_A' time 10000 flag 1  // *
+00BC: print_now 'JAILB_A' duration 10000 ms flag 1  // *
 
 while 001A:   15933 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -584,7 +582,7 @@ while 001A:   17514 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_B' time 10000 flag 1  // *
+00BC: print_now 'JAILB_B' duration 10000 ms flag 1  // *
 
 while 001A:   18933 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -642,7 +640,7 @@ while 001A:   20667 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_C' time 10000 flag 1  // *
+00BC: print_now 'JAILB_C' duration 10000 ms flag 1  // *
 
 while 001A:   22181 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -658,7 +656,7 @@ while 001A:   24522 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_D' time 10000 flag 1  // *
+00BC: print_now 'JAILB_D' duration 10000 ms flag 1  // *
 
 while 001A:   27208 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -666,7 +664,7 @@ while 001A:   27208 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_E' time 10000 flag 1  // *
+00BC: print_now 'JAILB_E' duration 10000 ms flag 1  // *
 
 while 001A:   29793 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -674,7 +672,7 @@ while 001A:   29793 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_F' time 10000 flag 1  // *
+00BC: print_now 'JAILB_F' duration 10000 ms flag 1  // *
 
 while 001A:   30599 > $CUT_SCENE_TIME //VERY HIGH SHOT TOWARDS BRIDGE
 	wait 0 ms
@@ -701,7 +699,7 @@ while 001A:   32986 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_G' time 10000 flag 1  // *
+00BC: print_now 'JAILB_G' duration 10000 ms flag 1  // *
 
 while 001A:   34817 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -709,7 +707,7 @@ while 001A:   34817 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_H' time 10000 flag 1  // *
+00BC: print_now 'JAILB_H' duration 10000 ms flag 1  // *
 
 while 001A:   38590 > $CUT_SCENE_TIME
 	wait 0 ms
@@ -717,7 +715,7 @@ while 001A:   38590 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_I' time 10000 flag 1  // *
+00BC: print_now 'JAILB_I' duration 10000 ms flag 1  // *
 
 while 001A:   40842 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -725,7 +723,7 @@ while 001A:   40842 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_J' time 10000 flag 1  // *
+00BC: print_now 'JAILB_J' duration 10000 ms flag 1  // *
 
 while 001A:   42066 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -748,7 +746,7 @@ while 001A:   42535 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_W' time 10000 flag 1  // *
+00BC: print_now 'JAILB_W' duration 10000 ms flag 1  // *
 
 while 001A:   46683 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -756,7 +754,7 @@ while 001A:   46683 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_K' time 10000 flag 1  // *
+00BC: print_now 'JAILB_K' duration 10000 ms flag 1  // *
 
 while 001A:   49483 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -764,7 +762,7 @@ while 001A:   49483 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_L' time 10000 flag 1  // *
+00BC: print_now 'JAILB_L' duration 10000 ms flag 1  // *
 
 while 001A:   53406 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -772,7 +770,7 @@ while 001A:   53406 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_O' time 10000 flag 1  // *
+00BC: print_now 'JAILB_O' duration 10000 ms flag 1  // *
 
 while 001A:   53666 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -788,7 +786,7 @@ while 001A:   56077 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_P' time 5000 flag 1  // *
+00BC: print_now 'JAILB_P' duration 5000 ms flag 1  // *
 
 while 001A:   64200 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -847,7 +845,7 @@ while 001A:   66171 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_Q' time 1200 flag 1  // Come on!
+00BC: print_now 'JAILB_Q' duration 1200 ms flag 1  // Come on!
 
 while 001A:   69378 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -856,7 +854,7 @@ while 001A:   69378 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_R' time 1600 flag 1  // Senor dickhead!
+00BC: print_now 'JAILB_R' duration 1600 ms flag 1  // Senor dickhead!
 
 while 001A:   71994 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -865,7 +863,7 @@ while 001A:   71994 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_S' time 2000 flag 1  // It's no problem to kill you.
+00BC: print_now 'JAILB_S' duration 2000 ms flag 1  // It's no problem to kill you.
 
 while 001A:   75623 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -874,7 +872,7 @@ while 001A:   75623 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_T' time 1800 flag 1  // You gonna be sorry.
+00BC: print_now 'JAILB_T' duration 1800 ms flag 1  // You gonna be sorry.
 
 while 001A:   79633 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -899,7 +897,7 @@ while 001A:   86089 > $CUT_SCENE_TIME
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
 
-00BC: print_now 'JAILB_U' time 1800 flag 1  // A'right, a'right. Get lost.
+00BC: print_now 'JAILB_U' duration 1800 ms flag 1  // A'right, a'right. Get lost.
 
 while 001A:   87592 > $CUT_SCENE_TIME 
 	wait 0 ms
@@ -1100,10 +1098,10 @@ then
 		wait 0 ms
 		gosub @DO_BRIDGE_PARTICLES
 	end
-	00A5: create_car #KURUMA at 812.0 -945.5 35.75 store_to $CAR_EIGHTBALL 
+	00A5: $CAR_EIGHTBALL = create_car #KURUMA at 812.0 -945.5 35.75
 	0229: set_car $CAR_EIGHTBALL color_to 58 1 
 	0175: set_car $CAR_EIGHTBALL z_angle_to 262.375 
-	009A: create_char PEDTYPE_SPECIAL model #SPECIAL01 at 811.875 -942.4375 -100.0 store_to $EIGHTBALL 
+	009A: $EIGHTBALL = create_char PEDTYPE_SPECIAL model #SPECIAL01 at 811.875 -942.4375 -100.0
 	0245: set_actor $EIGHTBALL walk_style_to ANIM_GANG2_PED
 	01ED: clear_actor $EIGHTBALL threat_search 
 	01BE: set_actor $EIGHTBALL to_look_at_spot 811.875 -939.9375 35.75 
@@ -1192,7 +1190,7 @@ then
 	016A: fade 1 for 0 ms 
 	0247: request_model #BANSHEE
 	038B: load_all_models_now 
-	00A5: create_car #BANSHEE at 825.0 -945.5 35.75 store_to $CAR_EIGHTBALL 
+	00A5: $CAR_EIGHTBALL = create_car #BANSHEE at 825.0 -945.5 35.75
 	0175: set_car $CAR_EIGHTBALL z_angle_to 262.375 
 	01C3: remove_references_to_car $CAR_EIGHTBALL
 	gosub @SWITCH_CAR_GENERATOR
@@ -1256,8 +1254,8 @@ if
 	0038: $SKIP_FLAG == 0
 then
 	if and
-		80E1: not key_pressed 0 16
-		80E1: not key_pressed 0 12
+		80E1:   not is_button_pressed PAD1 CROSS
+		80E1:   not is_button_pressed PAD1 START
 	then
 		0004: $SKIP_FLAG = 1
 	end
@@ -1267,11 +1265,11 @@ if
 	0038: $SKIP_FLAG == 1
 then
 	if or
-		00E1: key_pressed 0 16
-		00E1: key_pressed 0 12
+		00E1:   is_button_pressed PAD1 CROSS
+		00E1:   is_button_pressed PAD1 START
 	then
 		0004: $SKIP_FLAG = 2
-		jump @SKIP_INTRO_HERE
+		goto @SKIP_INTRO_HERE
 	end
 end
 return//////////////////////////////////////////////////////////////////////
@@ -1310,8 +1308,8 @@ if
 	0019:   16@ > 6000  
 then
 	0006: 16@ = 0
-	039D: scatter_particles 10 1.0 0 0 0 6000 at 791.625 -936.875 38.3125 0.0 0.0 0.0 
-	039D: scatter_particles 10 1.0 0 0 0 6000 at 788.3125 -938.4375 38.0625 0.0 0.0 0.0 
-	039D: scatter_particles 10 1.0 0 0 0 6000 at 786.4375 -942.375 39.75 0.0 0.0 0.0 
+	039D: scatter_particles type 10 1.0 0 0 0 6000 from 791.625 -936.875 38.3125 to 0.0 0.0 0.0 
+	039D: scatter_particles type 10 1.0 0 0 0 6000 from 788.3125 -938.4375 38.0625 to 0.0 0.0 0.0 
+	039D: scatter_particles type 10 1.0 0 0 0 6000 from 786.4375 -942.375 39.75 to 0.0 0.0 0.0 
 end
 return//////////////////////////////////////////////////////////////////////

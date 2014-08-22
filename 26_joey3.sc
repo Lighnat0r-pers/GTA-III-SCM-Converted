@@ -78,32 +78,32 @@ while 001A:   5515 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM3_A' time 10000 flag 2  // Alright, we're gonna hit the pay role van.
+00BC: print_now 'JM3_A' duration 10000 ms flag 2  // Alright, we're gonna hit the pay role van.
 while 001A:   7894 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM3_B' time 10000 flag 2  // It leaves the edge of China Town everyday.
+00BC: print_now 'JM3_B' duration 10000 ms flag 2  // It leaves the edge of China Town everyday.
 while 001A:   10381 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM3_C' time 10000 flag 2  // Bullets won't even dent the van's armor, so get a car and ram it off the road.
+00BC: print_now 'JM3_C' duration 10000 ms flag 2  // Bullets won't even dent the van's armor, so get a car and ram it off the road.
 while 001A:   14589 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM3_D' time 10000 flag 2  // Now hit it hard and the punk ass security guards should bail.
+00BC: print_now 'JM3_D' duration 10000 ms flag 2  // Now hit it hard and the punk ass security guards should bail.
 while 001A:   17518 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM3_E' time 10000 flag 2  // Then take it to the warehouse at the docks and my guys are gonna take over from there.
+00BC: print_now 'JM3_E' duration 10000 ms flag 2  // Then take it to the warehouse at the docks and my guys are gonna take over from there.
 while 001A:   21627 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM3_F' time 10000 flag 2  // Now it won't be doin' it's rounds all day, so don't hang around.
+00BC: print_now 'JM3_F' duration 10000 ms flag 2  // Now it won't be doin' it's rounds all day, so don't hang around.
 while 001A:   24675 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -150,16 +150,16 @@ end //while
 
 // START OF MISSION
 
-00A5: create_car #SECURICA at 1063.0 -805.0 14.5625 store_to $JOEY3_VAN 
+00A5: $JOEY3_VAN = create_car #SECURICA at 1063.0 -805.0 14.5625
 020A: set_car $JOEY3_VAN door_status_to CARLOCK_LOCKOUT_PLAYER_ONLY
 02AA: set_car $JOEY3_VAN immune_to_nonplayer 1 
 02AC: set_car $JOEY3_VAN immunities 1 1 0 0 1 
 00AD: set_car_cruise_speed $JOEY3_VAN to 14.0 
 00AE: set_car_driving_style $JOEY3_VAN to DRIVINGMODE_STOPFORCARS
 0186: $JOEY3_VAN_MARKER = create_marker_above_car $JOEY3_VAN 
-0129: $JOEY3_VAN_DRIVER = create_actor PEDTYPE_SPECIAL #SPECIAL02 in_car $JOEY3_VAN driverseat 
+0129: $JOEY3_VAN_DRIVER = create_actor PEDTYPE_SPECIAL #SPECIAL02 in_car $JOEY3_VAN driverseat
 0243: set_actor $JOEY3_VAN_DRIVER ped_stats_to PEDSTAT_GEEK_GUY
-01C8: $JOEY3_VAN_PASSENGER = create_actor_pedtype PEDTYPE_SPECIAL model #SPECIAL02 in_car $JOEY3_VAN passenger_seat 0 
+01C8: $JOEY3_VAN_PASSENGER = create_actor PEDTYPE_SPECIAL model #SPECIAL02 in_car $JOEY3_VAN passenger_seat 0
 0243: set_actor $JOEY3_VAN_PASSENGER ped_stats_to PEDSTAT_GEEK_GUY
 0227: $JOEY3_VAN_HEALTH = car $JOEY3_VAN health 
 03C4: set_status_text_to $JOEY3_VAN_HEALTH COUNTER_DISPLAY_BAR 'DAM'  // DAMAGE:
@@ -295,7 +295,7 @@ while true
 	end
 end //while
 
-00BC: print_now 'OUT_VEH' time 5000 flag 2  // ~g~Get out of the vehicle!
+00BC: print_now 'OUT_VEH' duration 5000 ms flag 2  // ~g~Get out of the vehicle!
 
 while 821C:   not car_inside_garage $SECURICAR_GARAGE
 	gosub @CHECK_VEHICLE_STATUS_JOEY3
@@ -317,7 +317,7 @@ goto @MISSION_PASSED_JOEY3
 if
 	0119:   car $JOEY3_VAN wrecked 
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_JOEY3
 end
 if and
@@ -338,7 +338,7 @@ then
 	018A: $BLIP2_JM3 = create_checkpoint_at 1445.75 -796.6875 -100.0 
 	018B: show_on_radar $BLIP2_JM3 BLIP_ONLY
 	0164: disable_marker $JOEY3_VAN_MARKER 
-	00BC: print_now 'JM3_1' time 5000 flag 1  // ~g~Take the van to the lock up.
+	00BC: print_now 'JM3_1' duration 5000 ms flag 1  // ~g~Take the van to the lock up.
 	0004: $FLAG_CAR_BLIP_DISPLAYED_JM3 = 0
 end
 if and
@@ -347,7 +347,7 @@ if and
 then
 	0186: $JOEY3_VAN_MARKER = create_marker_above_car $JOEY3_VAN 
 	0164: disable_marker $BLIP2_JM3 
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 	0004: $FLAG_CAR_BLIP_DISPLAYED_JM3 = 1
 end
 return
@@ -387,7 +387,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_JOEY3
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_JOEY3
 
 /////////////////////////////////////////
@@ -397,11 +397,11 @@ goto @MISSION_END_JOEY3
 :MISSION_PASSED_JOEY3
 0004: $VAN_HEIST_COMPLETED = 1 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 20000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 20000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 20000 
 0318: set_latest_mission_passed 'JM3'  // 'VAN HEIST'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 03A5: set_garage $SECURICAR_GARAGE type_to GARAGE_COLLECTSPECIFICCARS CAR_SECURICAR
 004F: create_thread @JOEY_MISSION4_LOOP 
 004F: create_thread @DIABLO_PHONE_START 

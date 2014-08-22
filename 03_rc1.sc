@@ -28,7 +28,7 @@ if
 then
 	0317: increment_mission_attempts
 end
-00BA: print_big 'RC1' time 15000 style 2  // 'DIABLO DESTRUCTION'
+00BA: print_big 'RC1' duration 15000 ms style 2  // 'DIABLO DESTRUCTION'
 wait 0 ms 
 0004: $COUNTER_RC = 0 
 0004: $FLAG_BUGGY_HELP1_HM2 = 0 
@@ -46,7 +46,7 @@ wait 0 ms
 01B4: set_player $PLAYER_CHAR controllable 0 
 01C0: $WANTED_4X4 = player $PLAYER_CHAR wanted_level 
 0110: clear_player $PLAYER_CHAR wanted_level 
-00DA: store_car_player_is_in $PLAYER_CHAR store_to $RC_VAN 
+00DA: $RC_VAN = store_car_player_is_in $PLAYER_CHAR
 02A3: toggle_widescreen 1 
 
 //UP GANGCAR NUMBERS AND DENSITY
@@ -58,10 +58,10 @@ if
 	8119:   not car $RC_VAN wrecked 
 then
 	020A: set_car $RC_VAN door_status_to CARLOCK_LOCKED
-	0158: camera_on_vehicle $RC_VAN FIXED switchstyle JUMP_CUT
+	0158: camera_on_vehicle $RC_VAN mode FIXED switchstyle JUMP_CUT
 	0395: clear_area 1 at $RC_X $RC_Y range $RC_Z 5.0 
 end
-00BC: print_now 'RC_1' time 4000 flag 1  // You have 2 minutes to blow up as many Diablo Gang Cars as possible!
+00BC: print_now 'RC_1' duration 4000 ms flag 1  // You have 2 minutes to blow up as many Diablo Gang Cars as possible!
 0247: request_model #RCBANDIT 
 0247: request_model #DIABLOS 
 while true
@@ -72,7 +72,7 @@ while true
 	wait 0 ms
 end
 
-03C4: set_status_text_to $COUNTER_RC 0 'KILLS'  // KILLS:
+03C4: set_status_text_to $COUNTER_RC COUNTER_DISPLAY_NUMBER 'KILLS'  // KILLS:
 014E: start_timer_at $TIMER_RC 
 01BD: $TIMER_INTRO_START = current_time_in_ms
 while 801A:   not  1 > $TIMER_RC
@@ -83,7 +83,7 @@ while 801A:   not  1 > $TIMER_RC
 	if
 		0119:   car $RC_VAN wrecked 
 	then
-		00BC: print_now 'WRECKED' time 3000 flag 1  // ~r~The vehicle is wrecked!
+		00BC: print_now 'WRECKED' duration 3000 ms flag 1  // ~r~The vehicle is wrecked!
 		goto @MISSION_RC1_FAILED
 	end
 	if
@@ -146,20 +146,20 @@ end
 
 // Mission rc1 failed
 :MISSION_RC1_FAILED
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
-00BC: print_now 'NRECORD' time 5000 flag 1  // ~r~NO NEW RECORD!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
+00BC: print_now 'NRECORD' duration 5000 ms flag 1  // ~r~NO NEW RECORD!
 goto @MISSION_END_RC1 
 
 // Mission rc1 passed
 :MISSION_RC1_PASSED
-01E3: text_1number_styled 'M_PASS' number $REWARD_RC time 5000 style 1  // MISSION PASSED! $~1~
-00BC: print_now 'RECORD' time 3000 flag 1  // ~g~NEW RECORD!!
+01E3: text_1number_styled 'M_PASS' number $REWARD_RC duration 5000 ms style 1  // MISSION PASSED! $~1~
+00BC: print_now 'RECORD' duration 3000 ms flag 1  // ~g~NEW RECORD!!
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += $REWARD_RC
 if
 	0038:   $DIABLO_DESTRUCTION_COMPLETED == 0 
 then
-	030C: progress_made = 1 
+	030C: set_mission_points += 1 
 	0004: $DIABLO_DESTRUCTION_COMPLETED = 1 
 	0318: set_latest_mission_passed 'RC1'  // 'DIABLO DESTRUCTION
 end

@@ -52,22 +52,22 @@ while 001A:   2000 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA3_A' time 10000 flag 1  // The business is going to go under unless I get hold of some serious cash soon.
+00BC: print_now 'MEA3_A' duration 10000 ms flag 1  // The business is going to go under unless I get hold of some serious cash soon.
 while 001A:   6470 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA3_B' time 10000 flag 1  // My wife has an insurance policy and all she's ever been to me is a hole in my pocket.
+00BC: print_now 'MEA3_B' duration 10000 ms flag 1  // My wife has an insurance policy and all she's ever been to me is a hole in my pocket.
 while 001A:   11321 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA3_C' time 10000 flag 1  // I've left a car in the usual place.
+00BC: print_now 'MEA3_C' duration 10000 ms flag 1  // I've left a car in the usual place.
 while 001A:   13506 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA3_D' time 10000 flag 1  // Go and pick up my wife from Classic Nails and bring her back to the factory.
+00BC: print_now 'MEA3_D' duration 10000 ms flag 1  // Go and pick up my wife from Classic Nails and bring her back to the factory.
 while 001A:   17471 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
@@ -110,7 +110,7 @@ while true
 	wait 0 ms
 end //while
 
-00A5: create_car #ESPERANT at 1190.0 -796.0 13.75 store_to $CAR_MEAT3 
+00A5: $CAR_MEAT3 = create_car #ESPERANT at 1190.0 -796.0 13.75
 0175: set_car $CAR_MEAT3 z_angle_to 300.0 
 0186: $RADAR_BLIP_CAR_MEAT3 = create_marker_above_car $CAR_MEAT3
 
@@ -122,11 +122,11 @@ while 80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT3
 end //while
 
 0164: disable_marker $RADAR_BLIP_CAR_MEAT3 
-00BC: print_now 'MEA3_B3' time 7000 flag 1  // ~g~Go and collect Mrs. Chonks
-009A: create_char PEDTYPE_CIVFEMALE model #FEMALE02 at 1064.0 -378.0 13.875 store_to $WIFE_MEAT3 
+00BC: print_now 'MEA3_B3' duration 7000 ms flag 1  // ~g~Go and collect Mrs. Chonks
+009A: $WIFE_MEAT3 = create_char PEDTYPE_CIVFEMALE model #FEMALE02 at 1064.0 -378.0 13.875
 01ED: clear_actor $WIFE_MEAT3 threat_search 
 01BE: set_actor $WIFE_MEAT3 to_look_at_spot 1059.0 -378.0 100.0 
-0187: $RADAR_BLIP_WIFE_MEAT3 = create_marker_above_actor $WIFE_MEAT3 
+0187: $RADAR_BLIP_WIFE_MEAT3 = create_marker_above_actor $WIFE_MEAT3
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 1
 039E: set_char_cant_be_dragged_out $WIFE_MEAT3 to 1
 
@@ -161,8 +161,8 @@ end //while
 
 0164: disable_marker $RADAR_BLIP_WIFE_MEAT3 
 03D1: play_wav 
-00BC: print_now 'MEA3_B4' time 7000 flag 1  // Marty wants to see me? Well it better be quick because I have to get my hair done.
-018A: $RADAR_BLIP_COORD2_MEAT3 = create_checkpoint_at 1205.688 -789.1875 -100.0 
+00BC: print_now 'MEA3_B4' duration 7000 ms flag 1  // Marty wants to see me? Well it better be quick because I have to get my hair done.
+018A: $RADAR_BLIP_COORD2_MEAT3 = create_checkpoint_at 1205.688 -789.1875 -100.0
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 2
 if
 	03D2:   wav_ended
@@ -285,18 +285,18 @@ end //while
 02A3: toggle_widescreen 0 
 01B4: set_player $PLAYER_CHAR controllable 1 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
-00BC: print_now 'MEA3_B6' time 5000 flag 1  // ~g~Take the car and dump it into the sea, this will get rid of any evidence.
+00BC: print_now 'MEA3_B6' duration 5000 ms flag 1  // ~g~Take the car and dump it into the sea, this will get rid of any evidence.
 if
 	0119:   car $CAR_MEAT3 wrecked
 then
-	00BC: print_now 'MEA3_2' time 5000 flag 1  // ~r~You were supposed to dump the vehicle in the water!
+	00BC: print_now 'MEA3_2' duration 5000 ms flag 1  // ~r~You were supposed to dump the vehicle in the water!
 	goto @MISSION_FAILED_MEAT3
 end
 if and
 	01F4:   car $CAR_MEAT3 flipped 
 	01C1:   car $CAR_MEAT3 stopped 
 then
-	00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+	00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 	goto @MISSION_FAILED_MEAT3
 end
 
@@ -310,7 +310,7 @@ while 82BF:   not car $CAR_MEAT3 sunk
 		if 
 			82BF:   not car $CAR_MEAT3 sunk 
 		then
-			00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+			00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 			goto @MISSION_FAILED_MEAT3
 		end
 	else
@@ -318,7 +318,7 @@ while 82BF:   not car $CAR_MEAT3 sunk
 			80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT3 
 			0038:   $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT3 == 0
 		then
-			0186: $RADAR_BLIP_CAR_MEAT3 = create_marker_above_car $CAR_MEAT3 
+			0186: $RADAR_BLIP_CAR_MEAT3 = create_marker_above_car $CAR_MEAT3
 			0004: $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT3 = 1 
 		end
 		if and
@@ -326,7 +326,7 @@ while 82BF:   not car $CAR_MEAT3 sunk
 			0038:   $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT3 == 1 
 		then
 			0164: disable_marker $RADAR_BLIP_CAR_MEAT3 
-			00BC: print_now 'MEA3_B6' time 5000 flag 1  // ~g~Take the car and dump it into the sea, this will get rid of any evidence.
+			00BC: print_now 'MEA3_B6' duration 5000 ms flag 1  // ~g~Take the car and dump it into the sea, this will get rid of any evidence.
 			0004: $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT3 = 0 
 		end
 	end
@@ -341,14 +341,14 @@ goto @MISSION_PASSED_MEAT3
 if
 	0119:   car $CAR_MEAT3 wrecked
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_MEAT3
 end
 if and
 	01F4:   car $CAR_MEAT3 flipped 
 	01C1:   car $CAR_MEAT3 stopped 
 then
-	00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+	00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 	goto @MISSION_FAILED_MEAT3
 end
 return
@@ -359,7 +359,7 @@ return
 if
 	0118:   actor $WIFE_MEAT3 dead
 then
-	00BC: print_now 'MEA3_1' time 5000 flag 1  // ~r~The wife's dead!
+	00BC: print_now 'MEA3_1' duration 5000 ms flag 1  // ~r~The wife's dead!
 	goto @MISSION_FAILED_MEAT3
 end
 return
@@ -371,8 +371,8 @@ if and
 	80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT3 
 	0038:   $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT3 == 0
 then
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
-	0186: $RADAR_BLIP_CAR_MEAT3 = create_marker_above_car $CAR_MEAT3 
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
+	0186: $RADAR_BLIP_CAR_MEAT3 = create_marker_above_car $CAR_MEAT3
 	if
 		0038: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 1
 	then
@@ -391,9 +391,9 @@ then
 	if
 		0038: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 1
 	then 
-		0187: $RADAR_BLIP_WIFE_MEAT3 = create_marker_above_actor $WIFE_MEAT3 
+		0187: $RADAR_BLIP_WIFE_MEAT3 = create_marker_above_actor $WIFE_MEAT3
 	else
-		018A: $RADAR_BLIP_COORD2_MEAT3 = create_checkpoint_at 1205.688 -789.1875 -100.0 
+		018A: $RADAR_BLIP_COORD2_MEAT3 = create_checkpoint_at 1205.688 -789.1875 -100.0
 	end
 	0004: $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT3 = 0 
 	0004: $BLOB_FLAG = 1
@@ -406,7 +406,7 @@ return
 if
 	80FB:   not player $PLAYER_CHAR 0 $WIFE_MEAT3 radius 30.0 30.0 30.0 
 then
-	00BC: print_now 'MEA3_3' time 5000 flag 1  // ~r~You have left his wife behind!
+	00BC: print_now 'MEA3_3' duration 5000 ms flag 1  // ~r~You have left his wife behind!
 	goto @MISSION_FAILED_MEAT3
 end
 return
@@ -416,7 +416,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_MEAT3
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_MEAT3
 
 /////////////////////////////////////////
@@ -424,9 +424,9 @@ goto @MISSION_END_MEAT3
 // Mission Passed
 
 :MISSION_PASSED_MEAT3
-01E3: text_1number_styled 'M_PASS' number 2000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 2000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0318: set_latest_mission_passed 'MEA3'  // 'THE WIFE'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 3000 
 0004: $THE_WIFE_COMPLETED = 1 

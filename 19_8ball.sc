@@ -95,15 +95,15 @@ then
 end
 
 0171: set_player $PLAYER_CHAR z_angle_to 180.0 
-00A5: create_car #KURUMA at 812.0 -945.5 35.75 store_to $CAR_EIGHTBALL 
+00A5: $CAR_EIGHTBALL = create_car #KURUMA at 812.0 -945.5 35.75
 0229: set_car $CAR_EIGHTBALL color_to 58 1 
 0175: set_car $CAR_EIGHTBALL z_angle_to 262.375 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL01 at 811.875 -942.4375 -100.0 store_to $EIGHTBALL 
+009A: $EIGHTBALL = create_char PEDTYPE_SPECIAL model #SPECIAL01 at 811.875 -942.4375 -100.0
 0245: set_actor $EIGHTBALL walk_style_to ANIM_GANG2_PED
 01ED: clear_actor $EIGHTBALL threat_search 
 01BE: set_actor $EIGHTBALL to_look_at_spot 811.875 -939.9375 35.75 
 022D: set_actor $EIGHTBALL to_look_at_player $PLAYER_CHAR 
-016E: override_next_restart at 811.875 -939.9375 35.75 angle 180.0 //Restarts at the bridge
+016E: override_next_restart at 811.875 -939.9375 35.75 heading 180.0 //Restarts at the bridge
 0177: set_object $PORTLAND_HIDEOUT_DOOR z_angle_to 0.0 
 02A3: toggle_widescreen 1 
 01B4: set_player $PLAYER_CHAR controllable 0 
@@ -117,7 +117,7 @@ end
 018D: $FIRE_SOUND_8BALL = create_sound SOUND_PRETEND_FIRE_LOOP at 790.5 -935.625 38.0 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 1 
 015F: set_camera_position 785.0 -936.75 39.75 0.0 rotation 0.0 0.0 
-0159: camera_on_ped $EIGHTBALL FIXED switchstyle JUMP_CUT
+0159: camera_on_ped $EIGHTBALL mode FIXED switchstyle JUMP_CUT
 03CF: load_wav 'LIB_A1' 
 0169: set_fade_color 0 0 0 
 016A: fade 1 for 1000 ms 
@@ -136,9 +136,9 @@ gosub @CHECK_VEHICLE1_STATUS_EIGHTBALL
 
 015F: set_camera_position 804.5625 -933.0 39.9375 0.0 rotation 0.0 0.0 
 0160: point_camera 805.1875 -933.6875 39.5625 switchstyle JUMP_CUT
-00BA: print_big 'EBAL' time 15000 style 2  // 'GIVE ME LIBERTY'
+00BA: print_big 'EBAL' duration 15000 ms style 2  // 'GIVE ME LIBERTY'
 03D1: play_wav 
-00BC: print_now 'EBAL_A' time 5000 flag 1  // I know a place on the edge of the Red Light District where we can lay low,
+00BC: print_now 'EBAL_A' duration 5000 ms flag 1  // I know a place on the edge of the Red Light District where we can lay low,
 
 while 83D2:   not wav_ended 
 	wait 0 ms
@@ -156,7 +156,7 @@ while 83D0:   not wav_loaded
 end
 
 03D1: play_wav 
-00BC: print_now 'EBAL_A1' time 5000 flag 1  // but my hands are all messed up so you better drive, brother.
+00BC: print_now 'EBAL_A1' duration 5000 ms flag 1  // but my hands are all messed up so you better drive, brother.
 if
 	03D2:   wav_ended 
 then
@@ -233,16 +233,16 @@ while true
 end 
 
 // creates two cops cars that drive onto the bridge
-00A5: create_car #POLICE at 1083.188 -945.0 13.75 store_to $COP_CAR1_8BALL 
-0129: $COP1_8BALL = create_actor PEDTYPE_CIVMALE #COP in_car $COP_CAR1_8BALL driverseat 
+00A5: $COP_CAR1_8BALL = create_car #POLICE at 1083.188 -945.0 13.75
+0129: $COP1_8BALL = create_actor PEDTYPE_CIVMALE #COP in_car $COP_CAR1_8BALL driverseat
 01ED: clear_actor $COP1_8BALL threat_search 
 0175: set_car $COP_CAR1_8BALL z_angle_to 90.0 
 0397: car $COP_CAR1_8BALL siren = 1 
 00AE: set_car_driving_style $COP_CAR1_8BALL to DRIVINGMODE_AVOIDCARS
 00AD: set_car_cruise_speed $COP_CAR1_8BALL to 20.0 
 00A7: car_goto_coordinates $COP_CAR1_8BALL coords 713.875 -916.6875 42.0 
-00A5: create_car #POLICE at 1074.063 -946.6875 13.75 store_to $COP_CAR2_8BALL 
-0129: $COP2_8BALL = create_actor PEDTYPE_CIVMALE #COP in_car $COP_CAR2_8BALL driverseat 
+00A5: $COP_CAR2_8BALL = create_car #POLICE at 1074.063 -946.6875 13.75
+0129: $COP2_8BALL = create_actor PEDTYPE_CIVMALE #COP in_car $COP_CAR2_8BALL driverseat
 01ED: clear_actor $COP2_8BALL threat_search 
 0175: set_car $COP_CAR2_8BALL z_angle_to 90.0 
 0397: car $COP_CAR2_8BALL siren = 1 
@@ -383,7 +383,7 @@ while 00DB:   is_char_in_car $EIGHTBALL car $CAR_EIGHTBALL
 end
 
 03D1: play_wav 
-00BC: print_now 'EBAL_B' time 7000 flag 1  // This is the place right here, let's get off the street and find a change of clothes!
+00BC: print_now 'EBAL_B' duration 7000 ms flag 1  // This is the place right here, let's get off the street and find a change of clothes!
 0239: actor $EIGHTBALL run_to 892.6875 -308.5625 
 if
 	03D2:   wav_ended 
@@ -407,7 +407,7 @@ end
 01D3: actor $PLAYER_ACTOR leave_car $CAR_EIGHTBALL 
 0395: clear_area 1 at 868.625 -311.6875 range 8.25 1.0 
 if 
-	0339:   objects_in_cube 870.375 -309.875 6.0 865.1875 -314.6875 12.0 0 1 1 1 1 
+	0339:   objects_in_cube 870.375 -309.875 6.0 to 865.1875 -314.6875 12.0 flags 0 1 1 1 1 
 then
 	015F: set_camera_position 848.25 -295.25 19.125 0.0 rotation 0.0 0.0 //high camera that points to the water tower
 	0160: point_camera 849.0625 -295.75 19.125 switchstyle JUMP_CUT
@@ -544,7 +544,7 @@ gosub @CHECK_VEHICLE1_STATUS_EIGHTBALL
 01D5: actor $PLAYER_ACTOR go_to_and_drive_car $CAR_EIGHTBALL 
 0395: clear_area 1 at 868.625 -311.6875 range 8.25 1.0  
 if 
-	0339:   objects_in_cube 870.375 -309.875 6.0 865.1875 -314.6875 12.0 0 1 1 1 1 
+	0339:   objects_in_cube 870.375 -309.875 6.0 to 865.1875 -314.6875 12.0 flags 0 1 1 1 1 
 then
 	015F: set_camera_position 848.25 -295.25 19.125 0.0 rotation 0.0 0.0 //high camera that points to the water tower
 	0160: point_camera 849.0625 -295.75 19.125 switchstyle JUMP_CUT 
@@ -588,7 +588,7 @@ then
 	0171: set_player $PLAYER_CHAR z_angle_to 90.0 
 	0395: clear_area 1 at 868.625 -311.6875 range 8.25 1.0 
 	if 
-		0339:   objects_in_cube 870.375 -309.875 6.0 865.1875 -314.6875 12.0 0 1 1 1 1 
+		0339:   objects_in_cube 870.375 -309.875 6.0 to 865.1875 -314.6875 12.0 flags 0 1 1 1 1 
 	then
 		015F: set_camera_position 848.25 -295.25 19.125 0.0 rotation 0.0 0.0 //high camera that points to the water tower
 		0160: point_camera 849.0625 -295.75 19.125 switchstyle JUMP_CUT
@@ -600,11 +600,11 @@ then
 	023C: load_special_actor 'EIGHT2' as 1 
 	0247: request_model #KURUMA 
 	038B: load_all_models_now 
-	009A: create_char PEDTYPE_SPECIAL model #SPECIAL01 at 884.25 -309.1875 7.5625 store_to $EIGHTBALL 
+	009A: $EIGHTBALL = create_char PEDTYPE_SPECIAL model #SPECIAL01 at 884.25 -309.1875 7.562
 	0245: set_actor $EIGHTBALL walk_style_to ANIM_GANG2_PED
 	0173: set_actor $EIGHTBALL z_angle_to 90.0 
 	01ED: clear_actor $EIGHTBALL threat_search 
-	00A5: create_car #KURUMA at $CAR_8BALL_X $CAR_8BALL_Y $CAR_8BALL_Z store_to $CAR_EIGHTBALL 
+	00A5: $CAR_EIGHTBALL = create_car #KURUMA at $CAR_8BALL_X $CAR_8BALL_Y $CAR_8BALL_Z
 	0175: set_car $CAR_EIGHTBALL z_angle_to $CAR_8BALL_HEADING 
 	0229: set_car $CAR_EIGHTBALL color_to $CAR_COLOUR1_8BALL $CAR_COLOUR2_8BALL 
 	01B7: release_weather 
@@ -631,7 +631,7 @@ end
 if 
 	$FLAG_REACHED_HIDEOUT == 0
 then
-	03AE: remove_objects_from_cube 804.0 -948.0 30.0 765.125 -924.3125 50.0 
+	03AE: remove_objects_from_cube 804.0 -948.0 30.0 to 765.125 -924.3125 50.0 
 	018E: stop_sound $FIRE_SOUND_8BALL 
 	0108: destroy_object $BROKEN_BRIDGE_REMAINS 
 	0108: destroy_object $BROKEN_BRIDGE_POLICE_CARS 
@@ -640,7 +640,7 @@ then
 	0004: $FLAG_REACHED_HIDEOUT = 1 
 end
 
-016E: override_next_restart at 883.5 -308.1875 7.5625 angle 90.0 // Players hideout
+016E: override_next_restart at 883.5 -308.1875 7.5625 heading 90.0 // Players hideout
 gosub @CHECK_EIGHT_STATUS_EIGHTBALL
 
 018A: $RADAR_BLIP_COORD2_EIGHTBALL = create_checkpoint_at 906.1875 -426.0 -100.0 //Luigis blip
@@ -655,13 +655,13 @@ while 83D0:   not wav_loaded
 end
 
 03D1: play_wav 
-00BC: print_now 'EBAL_D' time 5000 flag 1  // I know a guy, he's connected, his name's Luigi.
+00BC: print_now 'EBAL_D' duration 5000 ms flag 1  // I know a guy, he's connected, his name's Luigi.
 wait 2000 ms 
 gosub @CHECK_EIGHT_STATUS_EIGHTBALL
 gosub @CHECK_VEHICLE1_STATUS_EIGHTBALL
 gosub @CHECK_IN_VEHICLE_STATUS_EIGHTBALL
 
-00BC: print_now 'EBAL_D1' time 7000 flag 1  // Me an' him go back so I could probably get you some work. C'mon lets head over there.
+00BC: print_now 'EBAL_D1' duration 7000 ms flag 1  // Me an' him go back so I could probably get you some work. C'mon lets head over there.
 
 //waiting for the player to got to Luigi's
 
@@ -707,7 +707,7 @@ end
 01D3: actor $PLAYER_ACTOR leave_car $CAR_EIGHTBALL 
 01D3: actor $EIGHTBALL leave_car $CAR_EIGHTBALL 
 03D1: play_wav 
-00BC: print_now 'EBAL_G' time 7000 flag 1  // This is Luigi's club. Let's go round the back and use the service door.
+00BC: print_now 'EBAL_G' duration 7000 ms flag 1  // This is Luigi's club. Let's go round the back and use the service door.
 
 while true
 	if or
@@ -760,7 +760,7 @@ end
 0169: set_fade_color 0 0 0 
 016A: fade 0 for 1500 ms 
 03AF: set_streaming 0 
-00BA: print_big 'LM1' time 15000 style 2  // 'LUIGI'S GIRLS'
+00BA: print_big 'LM1' duration 15000 ms style 2  // 'LUIGI'S GIRLS'
 0247: request_model #INDHIBUILD3 
 0247: request_model #LUIGICLUBOUT 
 0247: request_model #LUIGIINEERCLUB 
@@ -854,43 +854,43 @@ while 11165 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: text_highpriority 'EBAL_H' 10000 ms 1  // Wait here man while I go in and talk to Luigi.
+00BC: text_highpriority 'EBAL_H' duration 10000 ms flag 1  // Wait here man while I go in and talk to Luigi.
 while 13416 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
 03D5: remove_text 'EBAL_H'  // Wait here man while I go in and talk to Luigi.
-//00BC: text_highpriority 'EBAL_H' 10000 ms 1 //"Da boss will be out to see you shortly..."
+//00BC: text_highpriority 'EBAL_H' duration 10000 ms flag 1 //"Da boss will be out to see you shortly..."
 while 30834 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: text_highpriority 'EBAL_J' 10000 ms 1  // 8-Ball's got some business up stairs.
+00BC: text_highpriority 'EBAL_J' duration 10000 ms flag 1  // 8-Ball's got some business up stairs.
 while 33186 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: text_highpriority 'EBAL_K' 10000 ms 1  // Maybe you can do me a favor.
+00BC: text_highpriority 'EBAL_K' duration 10000 ms flag 1  // Maybe you can do me a favor.
 while 35235 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: text_highpriority 'EBAL_L' 10000 ms 1  // One of my girls needs a ride so grab a car and pick up Misty from the clinic. Then bring her back here.
+00BC: text_highpriority 'EBAL_L' duration 10000 ms flag 1  // One of my girls needs a ride so grab a car and pick up Misty from the clinic. Then bring her back here.
 while 41551 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: text_highpriority 'EBAL_M' 10000 ms 1   // Remember no one messes with my girls!
+00BC: text_highpriority 'EBAL_M' duration 10000 ms flag 1   // Remember no one messes with my girls!
 while 001A:   45634 > $CUT_SCENE_TIME  
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: text_highpriority 'EBAL_N' 10000 ms 1   // So keep your hands on the wheel!
+00BC: text_highpriority 'EBAL_N' duration 10000 ms flag 1   // So keep your hands on the wheel!
 while 001A:   47560 > $CUT_SCENE_TIME  
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: text_highpriority 'EBAL_O' 10000 ms 1   // If you don't mess this up maybe there be more work for you. Now get outta here!
+00BC: text_highpriority 'EBAL_O' duration 10000 ms flag 1   // If you don't mess this up maybe there be more work for you. Now get outta here!
 while 001A:   51911 > $CUT_SCENE_TIME  
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -936,7 +936,7 @@ end
 // *****************************************LUIGI'S GIRLS***********************************
 
 023C: load_special_actor 'MISTY' as 2 
-00BC: print_now 'EBAL_5' time 5000 flag 1  // ~g~Get a vehicle!
+00BC: print_now 'EBAL_5' duration 5000 ms flag 1  // ~g~Get a vehicle!
 
 // Waiting for the player to be in a car
 
@@ -946,7 +946,7 @@ end
 
 // Creates the first girl
 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL02 at 1144.563 -592.75 13.875 store_to $GIRL1_LM1 
+009A: $GIRL1_LM1 = create_char PEDTYPE_SPECIAL model #SPECIAL02 at 1144.563 -592.75 13.875
 01ED: clear_actor $GIRL1_LM1 threat_search 
 0173: set_actor $GIRL1_LM1 z_angle_to 90.0 
 0245: set_actor $GIRL1_LM1 walk_style_to ANIM_SEXY_WOMANPED
@@ -963,14 +963,14 @@ while true
 	if 
 		00E0:   is_player_in_any_car $PLAYER_CHAR  
 	then 
-		00DA: store_car_player_is_in $PLAYER_CHAR store_to $CAR_LM1 
+		00DA: $CAR_LM1 = store_car_player_is_in $PLAYER_CHAR
 	end
 end
 
 03E6: remove_text_box 
 03E5: text_box 'RADIO_A'  // Press the ~h~~k~~VEHICLE_CHANGE_RADIO_STATION~ button~w~ to cycle through the ~h~radio stations.
 
-00BC: print_now 'EBAL_6' time 5000 flag 1  // ~g~Pick up Misty!
+00BC: print_now 'EBAL_6' duration 5000 ms flag 1  // ~g~Pick up Misty!
 
 
 // Waiting for the player and the girls all to be in the one car
@@ -997,7 +997,7 @@ while 0038:   $FLAG_GIRL1_IN_CAR_LM1 == 0
 			if
 				0038:   $FLAG_PLAYER_HAD_VEHICLE_MESSAGE_LM1 == 0
 			then
-				00BC: print_now 'IN_VEH2' time 5000 flag 1  // ~g~You need some wheels for this job
+				00BC: print_now 'IN_VEH2' duration 5000 ms flag 1  // ~g~You need some wheels for this job
 				if
 					0038:   $FLAG_BLIP_ON_GIRL1_LM1 == 1
 				then
@@ -1007,11 +1007,11 @@ while 0038:   $FLAG_GIRL1_IN_CAR_LM1 == 0
 				0004: $FLAG_PLAYER_HAD_VEHICLE_MESSAGE_LM1 = 1
 			end
 		else
-			00DA: store_car_player_is_in $PLAYER_CHAR store_to $CAR_LM1
+			00DA: $CAR_LM1 = store_car_player_is_in $PLAYER_CHAR
 			if
 				0038:   $FLAG_PLAYER_HAD_VEHICLE_MESSAGE_LM1 == 1
 			then
-				00BC: print_now 'EBAL_6' time 5000 flag 1  // ~g~Pick up Misty!
+				00BC: print_now 'EBAL_6' duration 5000 ms flag 1  // ~g~Pick up Misty!
 				if
 					0038:   $FLAG_BLIP_ON_GIRL1_LM1 == 0
 				then
@@ -1024,7 +1024,7 @@ while 0038:   $FLAG_GIRL1_IN_CAR_LM1 == 0
 		if
 			00E0:   is_player_in_any_car $PLAYER_CHAR
 		then
-			00DA: store_car_player_is_in $PLAYER_CHAR store_to $CAR_LM1
+			00DA: $CAR_LM1 = store_car_player_is_in $PLAYER_CHAR
 			if and
 				00EB:   player $PLAYER_CHAR 0 $GIRL1_LM1 radius 8.0 8.0
 				029F:   player $PLAYER_CHAR stopped
@@ -1049,7 +1049,7 @@ while 0038:   $FLAG_GIRL1_IN_CAR_LM1 == 0
 						if
 							0038:   $FLAG_PLAYER_HAD_VEHICLE_MESSAGE_LM1 == 0 
 						then
-							00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+							00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 							if
 								0038:   $FLAG_BLIP_ON_GIRL1_LM1 == 1
 							then
@@ -1063,7 +1063,7 @@ while 0038:   $FLAG_GIRL1_IN_CAR_LM1 == 0
 						if
 							0038:   $FLAG_PLAYER_HAD_VEHICLE_MESSAGE_LM1 == 1 
 						then
-							00BC: print_now 'EBAL_6' time 5000 flag 1  // ~g~Pick up Misty!
+							00BC: print_now 'EBAL_6' duration 5000 ms flag 1  // ~g~Pick up Misty!
 							if
 								0038:   $FLAG_BLIP_ON_GIRL1_LM1 == 0
 							then
@@ -1093,7 +1093,7 @@ while 0038:   $FLAG_GIRL1_IN_CAR_LM1 == 0
 			if
 				0038:   $FLAG_PLAYER_HAD_CAR_MESSAGE_LM1 == 0
 			then
-				00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+				00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 				0186: $RADAR_BLIP_CAR1_LM1 = create_marker_above_car $CAR_LM1 
 				0004: $FLAG_PLAYER_HAD_CAR_MESSAGE_LM1 = 1 
 			end
@@ -1101,7 +1101,7 @@ while 0038:   $FLAG_GIRL1_IN_CAR_LM1 == 0
 			if
 				00DB:   is_char_in_car $GIRL1_LM1 car $CAR_LM1
 			then
-				00BC: print_now 'LM1_9' time 10000 flag 1  // Hi I'm Misty.
+				00BC: print_now 'LM1_9' duration 10000 ms flag 1  // Hi I'm Misty.
 				03D1: play_wav 
 				039E: set_char_cant_be_dragged_out $GIRL1_LM1 to 0 
 				0004: $FLAG_GIRL1_IN_CAR_LM1 = 1
@@ -1126,7 +1126,7 @@ while 83D2:   not wav_ended
 	gosub @CHECK_VEHICLE2_STATUS_EIGHTBALL
 end //while
 03D5: remove_text 'LM1_9'  // Hi I'm Misty.
-00BC: print_now 'LM1_2' time 7000 flag 1  // ~g~Take Misty to Luigi's Club.
+00BC: print_now 'LM1_2' duration 7000 ms flag 1  // ~g~Take Misty to Luigi's Club.
 018A: $RADAR_BLIP_COORD1_LM1 = create_checkpoint_at 906.1875 -426.0 -100.0 
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 3
 0004: $BLOB_FLAG = 1 
@@ -1175,7 +1175,7 @@ if
 	00DF:   is_char_in_any_car $GIRL1_LM1   
 then
 	039E: set_char_cant_be_dragged_out $GIRL1_LM1 to 0 
-	00D9: store_car_char_is_in $GIRL1_LM1 store_to $CAR_LM1 
+	00D9: $CAR_LM1 = store_car_char_is_in $GIRL1_LM1
 	01D3: actor $GIRL1_LM1 leave_car $CAR_LM1 
 	while 00DF:   is_char_in_any_car $GIRL1_LM1 
 		wait 0 ms
@@ -1207,9 +1207,9 @@ end
 02A3: toggle_widescreen 1 
 015F: set_camera_position 882.5625 -425.5625 14.375 0.0 rotation 0.0 0.0 
 0160: point_camera 890.1875 -421.0625 15.0 switchstyle JUMP_CUT
-01E3: text_1number_styled 'M_PASS' number 1500 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 1500 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0109: player $PLAYER_CHAR money += 1500 
-0394: play_mission_passed_music 1  //plays the mission complete tune
+0394: play_mission_passed_music 1 
 0006: 17@ = 0 
 while 5000 > 17@
 	wait 0 ms
@@ -1231,7 +1231,7 @@ wait 750 ms
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 0
 
-jump @MISSION_PASSED_EIGHTBALL
+goto @MISSION_PASSED_EIGHTBALL
 
 
 ////////////////////////////////////////////
@@ -1240,7 +1240,7 @@ jump @MISSION_PASSED_EIGHTBALL
 if
 	0118:   actor $EIGHTBALL dead 
 then
-	00BC: print_now 'EBAL_4' time 5000 flag 1  // ~r~8-Ball's dead!
+	00BC: print_now 'EBAL_4' duration 5000 ms flag 1  // ~r~8-Ball's dead!
 	goto @MISSION_FAILED_EIGHTBALL
 end
 
@@ -1250,14 +1250,14 @@ end
 if
 	0119:   car $CAR_EIGHTBALL wrecked
 then
-	00BC: print_now 'WRECKED' 5000 ms 1   // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1   // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_EIGHTBALL
 end
 if and
 	01F4:   car $CAR_EIGHTBALL flipped
 	01C1:   car $CAR_EIGHTBALL stopped
 then
-	00BC: print_now 'UPSIDE' 5000 ms 1   // ~r~You flipped your wheels!
+	00BC: print_now 'UPSIDE' duration 5000 ms flag 1   // ~r~You flipped your wheels!
 	goto @MISSION_FAILED_EIGHTBALL
 end
 return
@@ -1272,7 +1272,7 @@ then
 	if
 		0038:   $FLAG_CAR_MESSAGE_8BALL == 0
 	then
-		00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+		00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 		if
 			0038:   $CURRENT_STEP_FOR_BLIP_MANIPULATION == 1
 		then
@@ -1346,8 +1346,8 @@ return
 if
 	0118:   actor $GIRL1_LM1 dead 
 then
-	00BC: text_highpriority 'MISTY1' 5000 ms 1   // ~r~Misty is morgue-meat!
-	jump @MISSION_FAILED_EIGHTBALL 
+	00BC: text_highpriority 'MISTY1' duration 5000 ms flag 1   // ~r~Misty is morgue-meat!
+	goto @MISSION_FAILED_EIGHTBALL 
 end
 return
 
@@ -1358,7 +1358,7 @@ if and
 	8320:   not actor $GIRL1_LM1 in_range_of_player $PLAYER_CHAR 
 	0038:   $FLAG_BLIP_ON_GIRL1_LM1 == 0 
 then
-	00BC: print_now 'HEY4' time 5000 flag 1  // ~g~Lose Misty and Luigi will lose your face! Go and get her!
+	00BC: print_now 'HEY4' duration 5000 ms flag 1  // ~g~Lose Misty and Luigi will lose your face! Go and get her!
 	0187: $RADAR_BLIP_PED1_LM1 = create_marker_above_actor $GIRL1_LM1 
 	0004: $FLAG_BLIP_ON_GIRL1_LM1 = 1
 	if
@@ -1378,7 +1378,7 @@ then
 	if
 		0038:   $CURRENT_STEP_FOR_BLIP_MANIPULATION == 3
 	then
-		00BC: print_now 'LM1_2' time 7000 flag 1  // ~g~Take Misty to Luigi's Club.
+		00BC: print_now 'LM1_2' duration 7000 ms flag 1  // ~g~Take Misty to Luigi's Club.
 		018A: $RADAR_BLIP_COORD1_LM1 = create_checkpoint_at 906.1875 -426.0 -100.0 
 		0004: $BLOB_FLAG = 1 
 	end
@@ -1394,10 +1394,10 @@ then
 	if
 		0118:   actor $GIRL1_LM1 dead
 	then
-		00BC: print_now 'MISTY1' time 5000 flag 1  // ~r~Misty is morgue-meat!
+		00BC: print_now 'MISTY1' duration 5000 ms flag 1  // ~r~Misty is morgue-meat!
 		goto @MISSION_FAILED_EIGHTBALL
 	else
-		00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+		00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 		goto @MISSION_FAILED_EIGHTBALL
 	end
 end
@@ -1408,7 +1408,7 @@ return
 // Mission 8ball failed 
 
 :MISSION_FAILED_EIGHTBALL
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 0004: $FLAG_EIGHTBALL_MISSION_LAUNCHED = 0 
 if 
 	0038:   $FLAG_REACHED_HIDEOUT == 0 
@@ -1417,7 +1417,7 @@ then
 else
 	0255: set_critical_mission_restart_at 883.5 -308.1875 7.5625 angle 90.0 // Player hideout
 end
-00D8: mission_has_finished  // marks models as no longer needed so that they can be deleted before the player is teleported
+00D8: mission_has_finished
 
 while 8256:   not is_player $PLAYER_CHAR defined 
 	wait 0 ms
@@ -1432,7 +1432,7 @@ goto @MISSION_EIGHTBALL_END
 01F6: cancel_override_restart 
 0004: $LUIGIS_GIRLS_COMPLETED = 1 
 0318: set_latest_mission_passed 'LM1'  // 'LUIGI'S GIRLS'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 0004: $FLAG_LUIGI_MISSION1_PASSED = 1 
 0110: clear_player $PLAYER_CHAR wanted_level 
 02A7: $LUIGI_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_LUIGI at 892.75 -425.75 13.875 // New blip down alleyway
@@ -1448,7 +1448,7 @@ return
 :MISSION_CLEANUP_EIGHTBALL
 0004: $ONMISSION = 0 
 0004: $ON_MISSION_FOR_8BALL = 0 
-03AE: remove_objects_from_cube 804.0 -948.0 30.0 765.125 -924.3125 50.0 
+03AE: remove_objects_from_cube 804.0 -948.0 30.0 to 765.125 -924.3125 50.0 
 018E: stop_sound $FIRE_SOUND_8BALL 
 0169: set_fade_color 0 0 0 
 0249: release_model #INDHIBUILD3 

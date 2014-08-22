@@ -7,7 +7,7 @@
 :WASTED_LOOP
 wait 0 ms
 if
-	0256: player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 then
 	if and
 		0121:   player $PLAYER_CHAR in_zone 'S_VIEW'  // Portland View
@@ -15,7 +15,7 @@ then
 		0038:   $HEAL_INFO_TRIP == 1
 		0214:   pickup $WASTED_INFO_PICKUP picked_up
 	then
-		01B4: set_player $PLAYER_CHAR frozen_state 0
+		01B4: set_player $PLAYER_CHAR controllable 0 
 		while fading
 			wait 0 ms
 		end
@@ -34,7 +34,7 @@ goto @WASTED_LOOP
 :BUSTED_LOOP
 wait 0 ms
 if
-	0256: player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 then
 	if and
 		0121:   player $PLAYER_CHAR in_zone 'S_VIEW'  // Portland View
@@ -42,7 +42,7 @@ then
 		0038:   $WANTED_INFO_TRIP == 1
 		0214:   pickup $BUSTED_INFO_PICKUP picked_up
 	then
-		01B4: set_player $PLAYER_CHAR frozen_state 0
+		01B4: set_player $PLAYER_CHAR controllable 0 
 		while fading
 			wait 0 ms
 		end
@@ -61,41 +61,41 @@ goto @BUSTED_LOOP
 :RC_LOOP
 wait 0 ms
 if and
-	0256:   player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 	0038:   $JUST_DONE_RC_MISSION == 0
 	0038:   $ONMISSION == 0
 then
 	if
-		00DE:   player $PLAYER_CHAR driving_vehicle_type #TOYZ
+		00DE:   is_player_in_model $PLAYER_CHAR model #TOYZ
 	then
 		if
 			00F5:   player $PLAYER_CHAR 0 1014.0 -120.0 5.0 radius 5.0 5.0 5.0
 		then
-       	        	00BA: text_styled 'RC1' 5000 ms 2   // 'DIABLO DESTRUCTION'
+       	        	00BA: text_styled 'RC1' duration 5000 ms flag 2   // 'DIABLO DESTRUCTION'
       			        0417: start_mission M03_DIABLODESTRUCTION
 		end
 		if
 			00F5:   player $PLAYER_CHAR 0 1158.0 -309.0 23.0 radius 5.0 5.0 5.0
 		then
-			00BA: text_styled 'RC2' 5000 ms 2   // 'MAFIA MASSACRE'
+			00BA: text_styled 'RC2' duration 5000 ms flag 2   // 'MAFIA MASSACRE'
 			0417: start_mission M04_MAFIAMASSACRE
 		end
 		if
 			00F5:   player $PLAYER_CHAR 0 -636.0 65.0 19.0 radius 5.0 5.0 5.0
 		then
-			00BA: text_styled 'RC4' 5000 ms 2   // 'RUMPO RAMPAGE'
+			00BA: text_styled 'RC4' duration 5000 ms flag 2   // 'RUMPO RAMPAGE'
 			0417: start_mission M05_RUMPORAMPAGE
 		end
 		if
 			00F5:   player $PLAYER_CHAR 0 366.0 -1312.0 26.0 radius 5.0 5.0 5.0
 		then
-			00BA: text_styled 'RC3' 5000 ms 2   // 'CASINO CALAMITY'
+			00BA: text_styled 'RC3' duration 5000 ms flag 2   // 'CASINO CALAMITY'
 			0417: start_mission M06_CASINOCALAMITY
 		end
 	end
 end
 if
-	80DE:   NOT player $PLAYER_CHAR driving_vehicle_type #TOYZ
+	80DE:   not is_player_in_model $PLAYER_CHAR model #TOYZ
 then
 	0004:   $JUST_DONE_RC_MISSION = 0
 end
@@ -115,28 +115,28 @@ then
 	0004:   $PATRIOT_PLAYGROUND_BEST_TIME = 300
 end
 if and
-	0256:   player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 	0038:   $ONMISSION == 0 
 then
 	if
 		0121:   player $PLAYER_CHAR in_zone 'S_VIEW'  // Portland View
 	then
 		if and
-			00DE:   player $PLAYER_CHAR driving_vehicle_type #PATRIOT 
+			00DE:   is_player_in_model $PLAYER_CHAR model #PATRIOT 
 			8056:   not is_player_in_area_2d $PLAYER_CHAR coords 1294.0 -656.0 1316.0 -638.0 sphere 0 			
 		then
 			0004: $ON_PATRIOT_PLAYGROUND_MISSION = 1
 		end
 		if and
-			00DE:   player $PLAYER_CHAR driving_vehicle_type #PATRIOT 
+			00DE:   is_player_in_model $PLAYER_CHAR model #PATRIOT 
 			0038:   $ON_PATRIOT_PLAYGROUND_MISSION == 0 
 		then
-			00BA: text_styled 'T4X4_1' 5000 ms 2  // 'PATRIOT PLAYGROUND'
+			00BA: text_styled 'T4X4_1' duration 5000 ms flag 2  // 'PATRIOT PLAYGROUND'
 			wait 0 ms
 			0417: start_mission M07_PATRIOTPLAYGROUND
 		end
 		if
-			0256:   player $PLAYER_CHAR defined
+			0256:   is_player $PLAYER_CHAR defined
 		then
 			if
 				80E0:   not player $PLAYER_CHAR driving
@@ -146,7 +146,7 @@ then
 		end
 	end
 end
-jump @4x4_MISSION1_LOOP
+goto @4x4_MISSION1_LOOP
 
 
 :4x4_MISSION2_LOOP
@@ -157,28 +157,28 @@ then
 	0004:   $A_RIDE_IN_THE_PARK_BEST_TIME = 300
 end
 if and
-	0256:   player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 	0038:   $ONMISSION == 0 
 then
 	if
 		0121:   player $PLAYER_CHAR in_zone 'PARK'  // Belleville Park
 	then
 		if and
-			00DE:   player $PLAYER_CHAR driving_vehicle_type #LANDSTAL 
+			00DE:   is_player_in_model $PLAYER_CHAR model #LANDSTAL 
 			8056:   not is_player_in_area_2d $PLAYER_CHAR coords 58.0 -585.0 68.0 -595.0 sphere 0   			
 		then
 			0004: $ON_A_RIDE_IN_THE_PARK_MISSION = 1
 		end
 		if and
-			00DE:   player $PLAYER_CHAR driving_vehicle_type #LANDSTAL 
+			00DE:   is_player_in_model $PLAYER_CHAR model #LANDSTAL 
 			0038:   $ON_A_RIDE_IN_THE_PARK_MISSION == 0 
 		then
-			00BA: text_styled 'T4X4_2' 5000 ms 2   // 'A Ride In The Park'
+			00BA: text_styled 'T4X4_2' duration 5000 ms flag 2   // 'A Ride In The Park'
 			wait 0 ms
 			0417: start_mission M08_ARIDEINTHEPARK
 		end
 		if
-			0256:   player $PLAYER_CHAR defined
+			0256:   is_player $PLAYER_CHAR defined
 		then
 			if
 				80E0:   not player $PLAYER_CHAR driving
@@ -188,7 +188,7 @@ then
 		end
 	end
 end
-jump @4x4_MISSION2_LOOP
+goto @4x4_MISSION2_LOOP
 
 
 :4x4_MISSION3_LOOP
@@ -199,28 +199,28 @@ then
 	0004:   $GRIPPED_BEST_TIME = 300
 end
 if and
-	0256:   player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 	0038:   $ONMISSION == 0 
 then
 	if
 		0056:   is_player_in_area_2d $PLAYER_CHAR coords -230.0 255.0 -210.0 275.0 sphere 0 
 	then
 		if and
-			00DE:   player $PLAYER_CHAR driving_vehicle_type #PATRIOT 
+			00DE:   is_player_in_model $PLAYER_CHAR model #PATRIOT 
 			8056:   not is_player_in_area_2d $PLAYER_CHAR coords -230.0 255.0 -210.0 275.0 sphere 0 			
 		then
 			0004: $ON_GRIPPED_MISSION = 1
 		end
 		if and
-			00DE:   player $PLAYER_CHAR driving_vehicle_type #PATRIOT 
+			00DE:   is_player_in_model $PLAYER_CHAR model #PATRIOT 
 			0038:   $ON_GRIPPED_MISSION == 0
 		then
-			00BA: text_styled 'T4X4_3' 5000 ms 2   // 'GRIPPED!'
+			00BA: text_styled 'T4X4_3' duration 5000 ms flag 2   // 'GRIPPED!'
 			wait 0 ms
 			0417: start_mission M09_GRIPPED
 		end
 		if
-			0256:   player $PLAYER_CHAR defined
+			0256:   is_player $PLAYER_CHAR defined
 		then
 			if
 				80E0:   not player $PLAYER_CHAR driving
@@ -230,7 +230,7 @@ then
 		end
 	end
 end
-jump @4x4_MISSION3_LOOP
+goto @4x4_MISSION3_LOOP
 
 :4x4_MISSION4_LOOP
 wait $WAIT_TIME ms
@@ -240,28 +240,28 @@ then
 	0004:   $MULTISTOREY_MAYHEM_BEST_TIME = 300
 end
 if and
-	0256:   player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 	0038:   $ONMISSION == 0 
 then
 	if
 		0121:   player $PLAYER_CHAR in_zone 'COM_EAS'  // Newport
 	then
 		if and
-			00DE:   player $PLAYER_CHAR driving_vehicle_type #STALLION 
+			00DE:   is_player_in_model $PLAYER_CHAR model #STALLION 
 			8056:   not is_player_in_area_2d $PLAYER_CHAR coords 238.0 -612.0 267.0 -469.0 sphere 0  			
 		then
 			0004: $ON_MULTISTOREY_MAYHEM_MISSION = 1
 		end
 		if and
-			00DE:   player $PLAYER_CHAR driving_vehicle_type #STALLION 
+			00DE:   is_player_in_model $PLAYER_CHAR model #STALLION 
 			0038:   $ON_MULTISTOREY_MAYHEM_MISSION == 0
 		then
-			00BA: text_styled 'MM_1' 5000 ms 2   // 'MULTISTOREY MAYHEM'
+			00BA: text_styled 'MM_1' duration 5000 ms flag 2   // 'MULTISTOREY MAYHEM'
 			wait 0 ms
 			0417: start_mission M10_MULTISTOREYMAYHEM
 		end
 		if
-			0256:   player $PLAYER_CHAR defined
+			0256:   is_player $PLAYER_CHAR defined
 		then
 			if
 				80E0:   not player $PLAYER_CHAR driving
@@ -271,7 +271,7 @@ then
 		end
 	end
 end
-jump @4x4_MISSION4_LOOP
+goto @4x4_MISSION4_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -282,10 +282,10 @@ jump @4x4_MISSION4_LOOP
 :PARAMEDIC_LOOP
 wait 0 ms
 if
-	0256:   player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 then
 	if
-		00DE:   player $PLAYER_CHAR driving_vehicle_type #AMBULAN
+		00DE:   is_player_in_model $PLAYER_CHAR model #AMBULAN
 	then
 		if and
 			0038:   $ON_PARAMEDIC_MISSION == 0
@@ -302,34 +302,34 @@ then
 				8038: NOT $CONTROLMODE == 3
 			then
 				if 
-					00E1: key_pressed 0 19
+					00E1:   is_button_pressed PAD1 button RIGHTSHOCK
 				then
-					while 00E1: key_pressed 0 19
+					while 00E1:   is_button_pressed PAD1 button RIGHTSHOCK
 						wait 0 ms
 						if
-							8256:   NOT player $PLAYER_CHAR defined
+							8256:   not is_player $PLAYER_CHAR defined
 						then
-							jump @PARAMEDIC_LOOP
+							goto @PARAMEDIC_LOOP
 						end
 					end //while
-					00BA: text_styled 'AMBUL_M' 4000 ms 5  // 'PARAMEDIC'
+					00BA: text_styled 'AMBUL_M' duration 4000 ms flag 5  // 'PARAMEDIC'
 					wait 0 ms
 					0417: start_mission M11_PARAMEDIC
 					0004: $DISPLAYED_PARAMEDIC_HELP = 1
 				end
 			else
 				if 
-					00E1: key_pressed 0 14
+					00E1:   is_button_pressed PAD1 button SQUARE
 				then
-					while 00E1: key_pressed 0 14
+					while 00E1:   is_button_pressed PAD1 button SQUARE
 						wait 0 ms
 						if
-							8256:   NOT player $PLAYER_CHAR defined
+							8256:   not is_player $PLAYER_CHAR defined
 						then
-							jump @PARAMEDIC_LOOP
+							goto @PARAMEDIC_LOOP
 						end
 					end //while
-					00BA: text_styled 'AMBUL_M' 4000 ms 5  // 'PARAMEDIC'
+					00BA: text_styled 'AMBUL_M' duration 4000 ms flag 5  // 'PARAMEDIC'
 					wait 0 ms
 					0417: start_mission M11_PARAMEDIC
 					0004: $DISPLAYED_PARAMEDIC_HELP = 1
@@ -345,7 +345,7 @@ then
 		end
 	end
 end
-jump @PARAMEDIC_LOOP
+goto @PARAMEDIC_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -356,10 +356,10 @@ jump @PARAMEDIC_LOOP
 :FIRE_LOOP
 wait 0 ms
 if
-	0256:   player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 then
 	if
-		00DE:   player $PLAYER_CHAR driving_vehicle_type #FIRETRUK
+		00DE:   is_player_in_model $PLAYER_CHAR model #FIRETRUK
 	then
 		if and
 			0038:   $ON_FIREFIGHTER_MISSION == 0
@@ -376,34 +376,34 @@ then
 				8038: NOT $CONTROLMODE == 3
 			then
 				if 
-					00E1: key_pressed 0 19
+					00E1:   is_button_pressed PAD1 button RIGHTSHOCK
 				then
-					while 00E1: key_pressed 0 19
+					while 00E1:   is_button_pressed PAD1 button RIGHTSHOCK
 						wait 0 ms
 						if
-							8256:   NOT player $PLAYER_CHAR defined
+							8256:   not is_player $PLAYER_CHAR defined
 						then
-							jump @FIRE_LOOP
+							goto @FIRE_LOOP
 						end
 					end //while
-					00BA: text_styled 'FIRE_M' 4000 ms 5  // 'FIREFIGHTER'
+					00BA: text_styled 'FIRE_M' duration 4000 ms flag 5  // 'FIREFIGHTER'
 					wait 0 ms
 					0417: start_mission M12_FIREFIGHTER
 					0004: $FIRETRUCK_HELP_DISPLAYED = 1
 				end
 			else
 				if 
-					00E1: key_pressed 0 14
+					00E1:   is_button_pressed PAD1 button SQUARE
 				then
-					while 00E1: key_pressed 0 14
+					while 00E1:   is_button_pressed PAD1 button SQUARE
 						wait 0 ms
 						if
-							8256:   NOT player $PLAYER_CHAR defined
+							8256:   not is_player $PLAYER_CHAR defined
 						then
-							jump @FIRE_LOOP
+							goto @FIRE_LOOP
 						end
 					end //while
-					00BA: text_styled 'FIRE_M' 4000 ms 5  // 'FIREFIGHTER'
+					00BA: text_styled 'FIRE_M' duration 4000 ms flag 5  // 'FIREFIGHTER'
 					wait 0 ms
 					0417: start_mission M12_FIREFIGHTER
 					0004: $FIRETRUCK_HELP_DISPLAYED = 1
@@ -419,7 +419,7 @@ then
 		end
 	end
 end
-jump @FIRE_LOOP
+goto @FIRE_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -430,13 +430,13 @@ jump @FIRE_LOOP
 :VIGILANTE_LOOP
 wait 0 ms
 if
-	0256:   player $PLAYER_CHAR defined
+	0256:   is_player $PLAYER_CHAR defined
 then
 	if or
-		00DE:   player $PLAYER_CHAR driving_vehicle_type #POLICE
-		00DE:   player $PLAYER_CHAR driving_vehicle_type #ENFORCER
-		00DE:   player $PLAYER_CHAR driving_vehicle_type #RHINO
-		00DE:   player $PLAYER_CHAR driving_vehicle_type #FBICAR
+		00DE:   is_player_in_model $PLAYER_CHAR model #POLICE
+		00DE:   is_player_in_model $PLAYER_CHAR model #ENFORCER
+		00DE:   is_player_in_model $PLAYER_CHAR model #RHINO
+		00DE:   is_player_in_model $PLAYER_CHAR model #FBICAR
 	then
 		if and
 			0038:   $ON_VIGILANTE_MISSION == 0
@@ -453,34 +453,34 @@ then
 				8038: NOT $CONTROLMODE == 3
 			then
 				if 
-					00E1: key_pressed 0 19
+					00E1:   is_button_pressed PAD1 button RIGHTSHOCK
 				then
-					while 00E1: key_pressed 0 19
+					while 00E1:   is_button_pressed PAD1 button RIGHTSHOCK
 						wait 0 ms
 						if
-							8256:   NOT player $PLAYER_CHAR defined
+							8256:   not is_player $PLAYER_CHAR defined
 						then
-							jump @VIGILANTE_LOOP
+							goto @VIGILANTE_LOOP
 						end
 					end //while
-					00BA: text_styled 'COP_M' 4000 ms 5   // 'VIGILANTE'
+					00BA: text_styled 'COP_M' duration 4000 ms flag 5   // 'VIGILANTE'
 					wait 0 ms
 					0417: start_mission M13_VIGILANTE
 					0004: $VIGILANTE_HELP_DISPLAYED = 1
 				end
 			else
 				if 
-					00E1: key_pressed 0 14
+					00E1:   is_button_pressed PAD1 button SQUARE
 				then
-					while 00E1: key_pressed 0 14
+					while 00E1:   is_button_pressed PAD1 button SQUARE
 						wait 0 ms
 						if
-							8256:   NOT player $PLAYER_CHAR defined
+							8256:   not is_player $PLAYER_CHAR defined
 						then
-							jump @VIGILANTE_LOOP
+							goto @VIGILANTE_LOOP
 						end
 					end //while
-					00BA: text_styled 'COP_M' 4000 ms 5   // 'VIGILANTE'
+					00BA: text_styled 'COP_M' duration 4000 ms flag 5   // 'VIGILANTE'
 					wait 0 ms
 					0417: start_mission M13_VIGILANTE
 					0004: $VIGILANTE_HELP_DISPLAYED = 1
@@ -496,7 +496,7 @@ then
 		end
 	end
 end
-jump @VIGILANTE_LOOP
+goto @VIGILANTE_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -527,34 +527,34 @@ then
 				8038:   not  $CONTROLMODE == 3 
 			then
 				if 
-					00E1:   is_button_pressed 0 button 19 
+					00E1:   is_button_pressed PAD1 button RIGHTSHOCK
 				then
-					while 00E1:   is_button_pressed 0 button 19 
+					while 00E1:   is_button_pressed PAD1 button RIGHTSHOCK
 						wait 0 ms
 						if
-							8256:   NOT player $PLAYER_CHAR defined
+							8256:   not is_player $PLAYER_CHAR defined
 						then
-							jump @TAXI_LOOP
+							goto @TAXI_LOOP
 						end
 					end //while
-					00BA: text_styled 'TAXI_M' 4000 ms 5  // 'TAXI DRIVER'
+					00BA: text_styled 'TAXI_M' duration 4000 ms flag 5  // 'TAXI DRIVER'
 					wait 0 ms
 					0417: start_mission M14_TAXI
 					0004: $ON_TAXI_MISSION = 1
 				end
 			else
 				if 
-					00E1:   is_button_pressed 0 button 14
+					00E1:   is_button_pressed PAD1 button SQUARE
 				then
-					while 00E1:   is_button_pressed 0 button 14
+					while 00E1:   is_button_pressed PAD1 button SQUARE
 						wait 0 ms
 						if
-							8256:   NOT player $PLAYER_CHAR defined
+							8256:   not is_player $PLAYER_CHAR defined
 						then
-							jump @TAXI_LOOP
+							goto @TAXI_LOOP
 						end
 					end //while
-					00BA: text_styled 'TAXI_M' 4000 ms 5  // 'TAXI DRIVER'
+					00BA: text_styled 'TAXI_M' duration 4000 ms flag 5  // 'TAXI DRIVER'
 					wait 0 ms
 					0417: start_mission M14_TAXI
 					0004: $ON_TAXI_MISSION = 1
@@ -570,7 +570,7 @@ then
 		end
 	end
 end
-jump @TAXI_LOOP
+goto @TAXI_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -620,7 +620,7 @@ then
 				03EF: player $PLAYER_CHAR make_safe 
 				0169: set_fade_color 0 0 0 
 				016A: fade 0 for 1500 ms 
-				00BA: print_big 'MEA1' time 15000 style 2  // 'THE CROOK'
+				00BA: print_big 'MEA1' duration 15000 ms style 2  // 'THE CROOK'
 				while fading
 					wait 0 ms
 				end
@@ -687,7 +687,7 @@ then
 				03EF: player $PLAYER_CHAR make_safe 
 				0169: set_fade_color 0 0 0 
 				016A: fade 0 for 1500 ms 
-				00BA: print_big 'MEA2' time 15000 style 2  // 'THE THIEVES'
+				00BA: print_big 'MEA2' duration 15000 ms style 2  // 'THE THIEVES'
 				while fading
 					wait 0 ms
 				end
@@ -754,7 +754,7 @@ then
 				03EF: player $PLAYER_CHAR make_safe 
 				0169: set_fade_color 0 0 0 
 				016A: fade 0 for 1500 ms 
-				00BA: print_big 'MEA3' time 15000 style 2  // 'THE WIFE'
+				00BA: print_big 'MEA3' duration 15000 ms style 2  // 'THE WIFE'
 				while fading
 					wait 0 ms
 				end
@@ -821,7 +821,7 @@ then
 				03EF: player $PLAYER_CHAR make_safe 
 				0169: set_fade_color 0 0 0 
 				016A: fade 0 for 1500 ms 
-				00BA: print_big 'MEA4' time 15000 style 2  // 'HER LOVER'
+				00BA: print_big 'MEA4' duration 15000 ms style 2  // 'HER LOVER'
 				while fading
 					wait 0 ms
 				end
@@ -885,7 +885,7 @@ then
 		end
 	end
 end
-jump @EIGHTBALL_MISSION_LOOP
+goto @EIGHTBALL_MISSION_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -915,7 +915,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LM2' time 15000 style 2  // 'DON'T SPANK MA BITCH UP'
+			00BA: print_big 'LM2' duration 15000 ms style 2  // 'DON'T SPANK MA BITCH UP'
 			while fading
 				wait 0 ms
 			end
@@ -924,19 +924,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LUIGI_MISSION2_LOOP
+			goto @LUIGI_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 892.75 -425.75 13.875 radius 1.5 2.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LUIGI_MISSION2_LOOP
+				goto @LUIGI_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @LUIGI_MISSION2_LOOP
+goto @LUIGI_MISSION2_LOOP
 
 
 :LUIGI_MISSION3_LOOP
@@ -961,7 +961,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LM3' time 15000 style 2  // 'DRIVE MISTY FOR ME'
+			00BA: print_big 'LM3' duration 15000 ms style 2  // 'DRIVE MISTY FOR ME'
 			while fading
 				wait 0 ms
 			end
@@ -970,19 +970,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LUIGI_MISSION3_LOOP
+			goto @LUIGI_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 892.75 -425.75 13.875 radius 1.5 2.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LUIGI_MISSION3_LOOP
+				goto @LUIGI_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @LUIGI_MISSION3_LOOP
+goto @LUIGI_MISSION3_LOOP
 
 
 :LUIGI_MISSION4_LOOP
@@ -1014,7 +1014,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LM4' time 15000 style 2  // 'PUMP-ACTION PIMP'
+			00BA: print_big 'LM4' duration 15000 ms style 2  // 'PUMP-ACTION PIMP'
 			while fading
 				wait 0 ms
 			end
@@ -1023,19 +1023,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LUIGI_MISSION4_LOOP
+			goto @LUIGI_MISSION4_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 892.75 -425.75 13.875 radius 1.5 2.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LUIGI_MISSION4_LOOP
+				goto @LUIGI_MISSION4_LOOP
 			end
 		end //while
 	end
 end
-jump @LUIGI_MISSION4_LOOP
+goto @LUIGI_MISSION4_LOOP
 
 :LUIGI_MISSION5_LOOP
 0001: wait $WAIT_TIME ms
@@ -1066,7 +1066,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LM5' time 15000 style 2  // 'THE FUZZ BALL'
+			00BA: print_big 'LM5' duration 15000 ms style 2  // 'THE FUZZ BALL'
 			while fading
 				wait 0 ms
 			end
@@ -1075,19 +1075,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LUIGI_MISSION5_LOOP
+			goto @LUIGI_MISSION5_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 892.75 -425.75 13.875 radius 1.5 2.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LUIGI_MISSION5_LOOP
+				goto @LUIGI_MISSION5_LOOP
 			end
 		end //while
 	end
 end
-jump @LUIGI_MISSION5_LOOP
+goto @LUIGI_MISSION5_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -1122,7 +1122,7 @@ then
 				0169: set_fade_color 0 0 0 
 				016A: fade 0 for 1500 ms 
 				03AF: set_streaming 0 
-				00BA: print_big 'JM1' time 15000 style 2  // 'MIKE LIPS LAST LUNCH'
+				00BA: print_big 'JM1' duration 15000 ms style 2  // 'MIKE LIPS LAST LUNCH'
 				while fading
 					wait 0 ms
 				end
@@ -1131,37 +1131,37 @@ then
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @JOEY_MISSION1_LOOP
+				goto @JOEY_MISSION1_LOOP
 			end
 			while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 				wait 0 ms
 				if
 					8256:   not is_player $PLAYER_CHAR defined
 				then
-					jump @JOEY_MISSION1_LOOP
+					goto @JOEY_MISSION1_LOOP
 				end
 			end //while
 		else
-			00BC: print_now 'WRONGT1' time 5000 flag 1  // ~g~Come back between 05:00 and 21:00 for a job
+			00BC: print_now 'WRONGT1' duration 5000 ms flag 1  // ~g~Come back between 05:00 and 21:00 for a job
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @JOEY_MISSION1_LOOP
+				goto @JOEY_MISSION1_LOOP
 			end
 			00BF: get_time_of_day $CURRENT_TIME_HOURS $CURRENT_TIME_MINUTES
 			if and
 				0028:   $CURRENT_TIME_HOURS >= 5
 				001A:   21 > $CURRENT_TIME_HOURS
 			then
-				jump @JOEY_MISSION1_LOOP
+				goto @JOEY_MISSION1_LOOP
 			end
 		end //while
 	end
 end
-jump @JOEY_MISSION1_LOOP
+goto @JOEY_MISSION1_LOOP
 
 :JOEY_MISSION2_LOOP
 0001: wait $WAIT_TIME ms
@@ -1185,7 +1185,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'JM2' time 15000 style 2  // 'FAREWELL 'CHUNKY' LEE CHONG'
+			00BA: print_big 'JM2' duration 15000 ms style 2  // 'FAREWELL 'CHUNKY' LEE CHONG'
 			while fading
 				wait 0 ms
 			end
@@ -1194,19 +1194,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @JOEY_MISSION2_LOOP
+			goto @JOEY_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @JOEY_MISSION2_LOOP
+				goto @JOEY_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @JOEY_MISSION2_LOOP
+goto @JOEY_MISSION2_LOOP
 
 :JOEY_MISSION3_LOOP
 0001: wait $WAIT_TIME ms
@@ -1230,7 +1230,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'JM3' time 15000 style 2  // 'VAN HEIST'
+			00BA: print_big 'JM3' duration 15000 ms style 2  // 'VAN HEIST'
 			while fading
 				wait 0 ms
 			end
@@ -1239,19 +1239,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @JOEY_MISSION3_LOOP
+			goto @JOEY_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @JOEY_MISSION3_LOOP
+				goto @JOEY_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @JOEY_MISSION3_LOOP
+goto @JOEY_MISSION3_LOOP
 
 :JOEY_MISSION4_LOOP
 0001: wait $WAIT_TIME ms
@@ -1275,7 +1275,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'JM4' time 15000 style 2  // 'CIPRIANI'S CHAUFFEUR'
+			00BA: print_big 'JM4' duration 15000 ms style 2  // 'CIPRIANI'S CHAUFFEUR'
 			while fading
 				wait 0 ms
 			end
@@ -1284,19 +1284,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @JOEY_MISSION4_LOOP
+			goto @JOEY_MISSION4_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @JOEY_MISSION4_LOOP
+				goto @JOEY_MISSION4_LOOP
 			end
 		end //while
 	end
 end
-jump @JOEY_MISSION4_LOOP
+goto @JOEY_MISSION4_LOOP
 
 :JOEY_MISSION5_LOOP
 0001: wait $WAIT_TIME ms
@@ -1328,7 +1328,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'JM5' time 15000 style 2  // 'DEAD SKUNK IN THE TRUNK'
+			00BA: print_big 'JM5' duration 15000 ms style 2  // 'DEAD SKUNK IN THE TRUNK'
 			while fading
 				wait 0 ms
 			end
@@ -1337,19 +1337,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @JOEY_MISSION5_LOOP
+			goto @JOEY_MISSION5_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @JOEY_MISSION5_LOOP
+				goto @JOEY_MISSION5_LOOP
 			end
 		end //while
 	end
 end
-jump @JOEY_MISSION5_LOOP
+goto @JOEY_MISSION5_LOOP
 
 :JOEY_MISSION6_LOOP
 0001: wait $WAIT_TIME ms
@@ -1386,7 +1386,7 @@ then
 				0169: set_fade_color 0 0 0 
 				016A: fade 0 for 1500 ms 
 				03AF: set_streaming 0 
-				00BA: print_big 'JM6' time 15000 style 2  // 'THE GETAWAY'
+				00BA: print_big 'JM6' duration 15000 ms style 2  // 'THE GETAWAY'
 				while fading
 					wait 0 ms
 				end
@@ -1395,37 +1395,37 @@ then
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @JOEY_MISSION6_LOOP
+				goto @JOEY_MISSION6_LOOP
 			end
 			while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 				wait 0 ms
 				if
 					8256:   not is_player $PLAYER_CHAR defined
 				then
-					jump @JOEY_MISSION6_LOOP
+					goto @JOEY_MISSION6_LOOP
 				end
 			end //while
 		else
-			00BC: print_now 'WRONGT2' time 5000 flag 1  // ~g~Come back between 06:00 and 14:00 for a job
+			00BC: print_now 'WRONGT2' duration 5000 ms flag 1  // ~g~Come back between 06:00 and 14:00 for a job
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @JOEY_MISSION6_LOOP
+				goto @JOEY_MISSION6_LOOP
 			end
 			00BF: get_time_of_day $CURRENT_TIME_HOURS $CURRENT_TIME_MINUTES
 			if and
 				0028:   $CURRENT_TIME_HOURS >= 6
 				001A:   14 > $CURRENT_TIME_HOURS
 			then
-				jump @JOEY_MISSION6_LOOP
+				goto @JOEY_MISSION6_LOOP
 			end
 		end //while
 	end
 end
-jump @JOEY_MISSION6_LOOP
+goto @JOEY_MISSION6_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -1455,7 +1455,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'TM1' time 15000 style 2  // 'TAKING OUT THE LAUNDRY'
+			00BA: print_big 'TM1' duration 15000 ms style 2  // 'TAKING OUT THE LAUNDRY'
 			while fading
 				wait 0 ms
 			end
@@ -1464,19 +1464,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @TONI_MISSION1_LOOP
+			goto @TONI_MISSION1_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @TONI_MISSION1_LOOP
+				goto @TONI_MISSION1_LOOP
 			end
 		end //while
 	end
 end
-jump @TONI_MISSION1_LOOP
+goto @TONI_MISSION1_LOOP
 
 :TONI_MISSION2_LOOP
 0001: wait $WAIT_TIME ms
@@ -1500,7 +1500,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'TM2' time 15000 style 2  // 'THE PICK-UP'
+			00BA: print_big 'TM2' duration 15000 ms style 2  // 'THE PICK-UP'
 			while fading
 				wait 0 ms
 			end
@@ -1509,19 +1509,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @TONI_MISSION2_LOOP
+			goto @TONI_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @TONI_MISSION2_LOOP
+				goto @TONI_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @TONI_MISSION2_LOOP
+goto @TONI_MISSION2_LOOP
 
 :TONI_MISSION3_LOOP
 0001: wait $WAIT_TIME ms
@@ -1545,7 +1545,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'TM3' time 15000 style 2  // 'SALVATORE'S CALLED A MEETING'
+			00BA: print_big 'TM3' duration 15000 ms style 2  // 'SALVATORE'S CALLED A MEETING'
 			while fading
 				wait 0 ms
 			end
@@ -1554,19 +1554,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @TONI_MISSION3_LOOP
+			goto @TONI_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @TONI_MISSION3_LOOP
+				goto @TONI_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @TONI_MISSION3_LOOP
+goto @TONI_MISSION3_LOOP
 
 :TONI_MISSION4_LOOP
 0001: wait $WAIT_TIME ms
@@ -1590,7 +1590,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'TM4' time 15000 style 2  // 'TRIADS AND TRIBULATIONS'
+			00BA: print_big 'TM4' duration 15000 ms style 2  // 'TRIADS AND TRIBULATIONS'
 			while fading
 				wait 0 ms
 			end
@@ -1599,19 +1599,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @TONI_MISSION4_LOOP
+			goto @TONI_MISSION4_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @TONI_MISSION4_LOOP
+				goto @TONI_MISSION4_LOOP
 			end
 		end //while
 	end
 end
-jump @TONI_MISSION4_LOOP
+goto @TONI_MISSION4_LOOP
 
 :TONI_MISSION5_LOOP
 0001: wait $WAIT_TIME ms
@@ -1635,7 +1635,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'TM5' time 15000 style 2  // 'BLOW FISH'
+			00BA: print_big 'TM5' duration 15000 ms style 2  // 'BLOW FISH'
 			while fading
 				wait 0 ms
 			end
@@ -1644,19 +1644,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @TONI_MISSION5_LOOP
+			goto @TONI_MISSION5_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1191.688 -870.0 15.0 radius 1.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @TONI_MISSION5_LOOP
+				goto @TONI_MISSION5_LOOP
 			end
 		end //while
 	end
 end
-jump @TONI_MISSION5_LOOP
+goto @TONI_MISSION5_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -1688,7 +1688,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'FM1' time 15000 style 2  // 'CHAPERONE'
+			00BA: print_big 'FM1' duration 15000 ms style 2  // 'CHAPERONE'
 			while fading
 				wait 0 ms
 			end
@@ -1697,19 +1697,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @FRANKIE_MISSION1_LOOP
+			goto @FRANKIE_MISSION1_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1455.688 -187.25 55.5625 radius 1.0 1.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @FRANKIE_MISSION1_LOOP
+				goto @FRANKIE_MISSION1_LOOP
 			end
 		end //while
 	end
 end
-jump @FRANKIE_MISSION1_LOOP
+goto @FRANKIE_MISSION1_LOOP
 
 
 :FRANKIE_MISSION2_LOOP
@@ -1736,7 +1736,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'FM2' time 15000 style 2  // 'CUTTING THE GRASS'
+			00BA: print_big 'FM2' duration 15000 ms style 2  // 'CUTTING THE GRASS'
 			while fading
 				wait 0 ms
 			end
@@ -1745,19 +1745,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @FRANKIE_MISSION2_LOOP
+			goto @FRANKIE_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1455.688 -187.25 55.5625 radius 1.0 1.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @FRANKIE_MISSION2_LOOP
+				goto @FRANKIE_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @FRANKIE_MISSION2_LOOP
+goto @FRANKIE_MISSION2_LOOP
 
 
 :FRANKIE_MISSION21_LOOP
@@ -1787,7 +1787,7 @@ then
 				0169: set_fade_color 0 0 0 
 				016A: fade 0 for 1500 ms 
 				03AF: set_streaming 0 
-				00BA: print_big 'FM21' time 15000 style 2  // 'BOMB DA BASE: ACT I'
+				00BA: print_big 'FM21' duration 15000 ms style 2  // 'BOMB DA BASE: ACT I'
 				while fading
 					wait 0 ms
 				end
@@ -1796,29 +1796,29 @@ then
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @FRANKIE_MISSION21_LOOP
+				goto @FRANKIE_MISSION21_LOOP
 			end
 			while 00F6:   player $PLAYER_CHAR 0 1455.688 -187.25 55.5625 radius 1.0 1.0 2.0
 				wait 0 ms
 				if
 					8256:   not is_player $PLAYER_CHAR defined
 				then
-					jump @FRANKIE_MISSION21_LOOP
+					goto @FRANKIE_MISSION21_LOOP
 				end
 			end //while
 		end
-		00BC: print_now 'FRANGO' time 5000 flag 1  // ~g~Salvatore wants you to help Toni deal with the Triads first!
+		00BC: print_now 'FRANGO' duration 5000 ms flag 1  // ~g~Salvatore wants you to help Toni deal with the Triads first!
 		while 00F6:   player $PLAYER_CHAR 0 1455.688 -187.25 55.5625 radius 1.0 1.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @FRANKIE_MISSION21_LOOP
+				goto @FRANKIE_MISSION21_LOOP
 			end
 		end //while
 	end
 end
-jump @FRANKIE_MISSION21_LOOP
+goto @FRANKIE_MISSION21_LOOP
 
 
 :FRANKIE_MISSION3_LOOP
@@ -1843,7 +1843,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'FM3' time 15000 style 2  // 'BOMB DA BASE: ACT II'
+			00BA: print_big 'FM3' duration 15000 ms style 2  // 'BOMB DA BASE: ACT II'
 			while fading
 				wait 0 ms
 			end
@@ -1852,19 +1852,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @FRANKIE_MISSION3_LOOP
+			goto @FRANKIE_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1272.188 -92.875 13.75 radius 1.0 1.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @FRANKIE_MISSION3_LOOP
+				goto @FRANKIE_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @FRANKIE_MISSION3_LOOP
+goto @FRANKIE_MISSION3_LOOP
 
 
 :FRANKIE_MISSION4_LOOP
@@ -1891,7 +1891,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'FM4' time 15000 style 2  // 'LAST REQUESTS'
+			00BA: print_big 'FM4' duration 15000 ms style 2  // 'LAST REQUESTS'
 			while fading
 				wait 0 ms
 			end
@@ -1900,19 +1900,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @FRANKIE_MISSION4_LOOP
+			goto @FRANKIE_MISSION4_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 1455.688 -187.25 55.5625 radius 1.0 1.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @FRANKIE_MISSION4_LOOP
+				goto @FRANKIE_MISSION4_LOOP
 			end
 		end //while
 	end
 end
-jump @FRANKIE_MISSION4_LOOP
+goto @FRANKIE_MISSION4_LOOP
 
 
 //#####################################################################################
@@ -1949,7 +1949,7 @@ then
 			0038:   $DIABLOS_RADAR_DISPLAYED == 0
 		then
 			0164: disable_marker $DIABLO_PHONE_MARKER 
-			02A7: $DIABLO_PHONE_MARKER = create_icon_marker_and_sphere 8 at 938.375 -230.5 -100.0 
+			02A7: $DIABLO_PHONE_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_DIABLO at 938.375 -230.5 -100.0 
 			0004: $DIABLOS_RADAR_DISPLAYED = 1
 		end
 	else
@@ -1993,7 +1993,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'DIAB1' time 15000 style 2  // 'TURISMO'
+			00BA: print_big 'DIAB1' duration 15000 ms style 2  // 'TURISMO'
 			while fading
 				wait 0 ms
 			end
@@ -2046,7 +2046,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'DIAB2' time 15000 style 2  // 'I SCREAM, YOU SCREAM'
+			00BA: print_big 'DIAB2' duration 15000 ms style 2  // 'I SCREAM, YOU SCREAM'
 			while fading
 				wait 0 ms
 			end
@@ -2099,7 +2099,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'DIAB3' time 15000 style 2  // 'TRIAL BY FIRE'
+			00BA: print_big 'DIAB3' duration 15000 ms style 2  // 'TRIAL BY FIRE'
 			while fading
 				wait 0 ms
 			end
@@ -2152,7 +2152,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'DIAB4' time 15000 style 2  // 'BIG'N'VEINY'
+			00BA: print_big 'DIAB4' duration 15000 ms style 2  // 'BIG'N'VEINY'
 			while fading
 				wait 0 ms
 			end
@@ -2183,7 +2183,6 @@ goto @DIABLO_MISSION4_LOOP
 
 :ASUKA_MISSION1_LOOP
 0001: wait $WAIT_TIME ms
-end_thread ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if
 	0038:   $SAYONARA_SALVATORE_COMPLETED == 1 
 then
@@ -2203,28 +2202,28 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'AM1' time 15000 style 2  // 'SAYONARA SALVATORE'
+			00BA: print_big 'AM1' duration 15000 ms style 2  // 'SAYONARA SALVATORE'
 			while fading
 				wait 0 ms
 			end
-			// 0417: start_mission M44_SAYONARASALVATORE ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			0417: start_mission M44_SAYONARASALVATORE
 		end
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @ASUKA_MISSION1_LOOP
+			goto @ASUKA_MISSION1_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 523.6875 -639.0 16.0625 radius 1.0 4.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @ASUKA_MISSION1_LOOP
+				goto @ASUKA_MISSION1_LOOP
 			end
 		end //while
 	end
 end
-jump @ASUKA_MISSION1_LOOP
+goto @ASUKA_MISSION1_LOOP
 
 
 :ASUKA_MISSION2_LOOP
@@ -2249,7 +2248,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'AM2' time 15000 style 2  // 'UNDER SURVEILLANCE'
+			00BA: print_big 'AM2' duration 15000 ms style 2  // 'UNDER SURVEILLANCE'
 			while fading
 				wait 0 ms
 			end
@@ -2258,19 +2257,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @ASUKA_MISSION2_LOOP
+			goto @ASUKA_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 523.6875 -639.0 16.0625 radius 1.0 4.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @ASUKA_MISSION2_LOOP
+				goto @ASUKA_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @ASUKA_MISSION2_LOOP
+goto @ASUKA_MISSION2_LOOP
 
 
 :ASUKA_MISSION3_LOOP
@@ -2295,7 +2294,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'AM3' time 15000 style 2  // 'PAPARAZZI PURGE'
+			00BA: print_big 'AM3' duration 15000 ms style 2  // 'PAPARAZZI PURGE'
 			while fading
 				wait 0 ms
 			end
@@ -2304,19 +2303,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @ASUKA_MISSION3_LOOP
+			goto @ASUKA_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 523.6875 -639.0 16.0625 radius 1.0 4.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @ASUKA_MISSION3_LOOP
+				goto @ASUKA_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @ASUKA_MISSION3_LOOP
+goto @ASUKA_MISSION3_LOOP
 
 
 :ASUKA_MISSION4_LOOP
@@ -2341,7 +2340,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'AM4' time 15000 style 2  // 'PAYDAY FOR RAY'
+			00BA: print_big 'AM4' duration 15000 ms style 2  // 'PAYDAY FOR RAY'
 			while fading
 				wait 0 ms
 			end
@@ -2350,19 +2349,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @ASUKA_MISSION4_LOOP
+			goto @ASUKA_MISSION4_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 523.6875 -639.0 16.0625 radius 1.0 4.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @ASUKA_MISSION4_LOOP
+				goto @ASUKA_MISSION4_LOOP
 			end
 		end //while
 	end
 end
-jump @ASUKA_MISSION4_LOOP
+goto @ASUKA_MISSION4_LOOP
 
 
 :ASUKA_MISSION5_LOOP
@@ -2388,7 +2387,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'AM5' time 15000 style 2  // 'TWO-FACED TANNER'
+			00BA: print_big 'AM5' duration 15000 ms style 2  // 'TWO-FACED TANNER'
 			while fading
 				wait 0 ms
 			end
@@ -2397,19 +2396,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @ASUKA_MISSION5_LOOP
+			goto @ASUKA_MISSION5_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 523.6875 -639.0 16.0625 radius 1.0 4.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @ASUKA_MISSION5_LOOP
+				goto @ASUKA_MISSION5_LOOP
 			end
 		end //while
 	end
 end
-jump @ASUKA_MISSION5_LOOP
+goto @ASUKA_MISSION5_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -2440,7 +2439,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'KM1' time 15000 style 2  // 'KANBU BUST-OUT'
+			00BA: print_big 'KM1' duration 15000 ms style 2  // 'KANBU BUST-OUT'
 			while fading
 				wait 0 ms
 			end
@@ -2449,19 +2448,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @KENJI_MISSION1_LOOP
+			goto @KENJI_MISSION1_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 459.0625 -1413.0 26.0625 radius 1.5 1.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @KENJI_MISSION1_LOOP
+				goto @KENJI_MISSION1_LOOP
 			end
 		end //while
 	end
 end
-jump @KENJI_MISSION1_LOOP
+goto @KENJI_MISSION1_LOOP
 
 
 :KENJI_MISSION2_LOOP
@@ -2487,7 +2486,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'KM2' time 15000 style 2  // 'GRAND THEFT AUTO'
+			00BA: print_big 'KM2' duration 15000 ms style 2  // 'GRAND THEFT AUTO'
 			while fading
 				wait 0 ms
 			end
@@ -2496,19 +2495,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @KENJI_MISSION2_LOOP
+			goto @KENJI_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 459.0625 -1413.0 26.0625 radius 1.5 1.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @KENJI_MISSION2_LOOP
+				goto @KENJI_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @KENJI_MISSION2_LOOP
+goto @KENJI_MISSION2_LOOP
 
 
 :KENJI_MISSION3_LOOP
@@ -2534,7 +2533,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'KM3' time 15000 style 2  // 'DEAL STEAL'
+			00BA: print_big 'KM3' duration 15000 ms style 2  // 'DEAL STEAL'
 			while fading
 				wait 0 ms
 			end
@@ -2543,19 +2542,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @KENJI_MISSION3_LOOP
+			goto @KENJI_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 459.0625 -1413.0 26.0625 radius 1.5 1.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @KENJI_MISSION3_LOOP
+				goto @KENJI_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @KENJI_MISSION3_LOOP
+goto @KENJI_MISSION3_LOOP
 
 
 :KENJI_MISSION4_LOOP
@@ -2581,7 +2580,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'KM4' time 15000 style 2  // 'SHIMA'
+			00BA: print_big 'KM4' duration 15000 ms style 2  // 'SHIMA'
 			while fading
 				wait 0 ms
 			end
@@ -2590,19 +2589,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @KENJI_MISSION4_LOOP
+			goto @KENJI_MISSION4_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 459.0625 -1413.0 26.0625 radius 1.5 1.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @KENJI_MISSION4_LOOP
+				goto @KENJI_MISSION4_LOOP
 			end
 		end //while
 	end
 end
-jump @KENJI_MISSION4_LOOP
+goto @KENJI_MISSION4_LOOP
 
 
 :KENJI_MISSION5_LOOP
@@ -2628,7 +2627,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'KM5' time 15000 style 2  // 'SMACK DOWN'
+			00BA: print_big 'KM5' duration 15000 ms style 2  // 'SMACK DOWN'
 			while fading
 				wait 0 ms
 			end
@@ -2637,19 +2636,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @KENJI_MISSION5_LOOP
+			goto @KENJI_MISSION5_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 459.0625 -1413.0 26.0625 radius 1.5 1.5 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @KENJI_MISSION5_LOOP
+				goto @KENJI_MISSION5_LOOP
 			end
 		end //while
 	end
 end
-jump @KENJI_MISSION5_LOOP
+goto @KENJI_MISSION5_LOOP
 
 
 //#####################################################################################
@@ -2681,7 +2680,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'RM1' time 15000 style 2  // 'SILENCE THE SNEAK'
+			00BA: print_big 'RM1' duration 15000 ms style 2  // 'SILENCE THE SNEAK'
 			while fading
 				wait 0 ms
 			end
@@ -2690,19 +2689,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @RAY_MISSION1_LOOP
+			goto @RAY_MISSION1_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 38.75 -725.375 22.75 radius 1.1875 1.1875 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @RAY_MISSION1_LOOP
+				goto @RAY_MISSION1_LOOP
 			end
 		end //while
 	end
 end
-jump @RAY_MISSION1_LOOP
+goto @RAY_MISSION1_LOOP
 
 
 :RAY_MISSION2_LOOP
@@ -2728,7 +2727,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'RM2' time 15000 style 2  // 'ARMS SHORTAGE'
+			00BA: print_big 'RM2' duration 15000 ms style 2  // 'ARMS SHORTAGE'
 			while fading
 				wait 0 ms
 			end
@@ -2737,19 +2736,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @RAY_MISSION2_LOOP
+			goto @RAY_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 38.75 -725.375 22.75 radius 1.1875 1.1875 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @RAY_MISSION2_LOOP
+				goto @RAY_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @RAY_MISSION2_LOOP
+goto @RAY_MISSION2_LOOP
 
 
 :RAY_MISSION3_LOOP
@@ -2775,7 +2774,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'RM3' time 15000 style 2  // 'EVIDENCE DASH'
+			00BA: print_big 'RM3' duration 15000 ms style 2  // 'EVIDENCE DASH'
 			while fading
 				wait 0 ms
 			end
@@ -2784,19 +2783,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @RAY_MISSION3_LOOP
+			goto @RAY_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 38.75 -725.375 22.75 radius 1.1875 1.1875 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @RAY_MISSION3_LOOP
+				goto @RAY_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @RAY_MISSION3_LOOP
+goto @RAY_MISSION3_LOOP
 
 
 :RAY_MISSION4_LOOP
@@ -2822,7 +2821,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'RM4' time 15000 style 2  // 'GONE FISHING'
+			00BA: print_big 'RM4' duration 15000 ms style 2  // 'GONE FISHING'
 			while fading
 				wait 0 ms
 			end
@@ -2831,19 +2830,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @RAY_MISSION4_LOOP
+			goto @RAY_MISSION4_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 38.75 -725.375 22.75 radius 1.1875 1.1875 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @RAY_MISSION4_LOOP
+				goto @RAY_MISSION4_LOOP
 			end
 		end //while
 	end
 end
-jump @RAY_MISSION4_LOOP
+goto @RAY_MISSION4_LOOP
 
 
 :RAY_MISSION5_LOOP
@@ -2869,7 +2868,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'RM5' time 15000 style 2  // 'PLASTER BLASTER'
+			00BA: print_big 'RM5' duration 15000 ms style 2  // 'PLASTER BLASTER'
 			while fading
 				wait 0 ms
 			end
@@ -2878,19 +2877,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @RAY_MISSION5_LOOP
+			goto @RAY_MISSION5_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 38.75 -725.375 22.75 radius 1.1875 1.1875 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @RAY_MISSION5_LOOP
+				goto @RAY_MISSION5_LOOP
 			end
 		end //while
 	end
 end
-jump @RAY_MISSION5_LOOP
+goto @RAY_MISSION5_LOOP
 
 
 :RAY_MISSION6_LOOP
@@ -2916,7 +2915,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'RM6' time 15000 style 2  // 'MARKED MAN'
+			00BA: print_big 'RM6' duration 15000 ms style 2  // 'MARKED MAN'
 			while fading
 				wait 0 ms
 			end
@@ -2925,19 +2924,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @RAY_MISSION6_LOOP
+			goto @RAY_MISSION6_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 38.75 -725.375 22.75 radius 1.1875 1.1875 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @RAY_MISSION6_LOOP
+				goto @RAY_MISSION6_LOOP
 			end
 		end //while
 	end
 end
-jump @RAY_MISSION6_LOOP
+goto @RAY_MISSION6_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -2967,7 +2966,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LOVE1' time 15000 style 2  // 'LIBERATOR'
+			00BA: print_big 'LOVE1' duration 15000 ms style 2  // 'LIBERATOR'
 			while fading
 				wait 0 ms
 			end
@@ -2976,19 +2975,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LOVE_MISSION1_LOOP
+			goto @LOVE_MISSION1_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 87.25 -1548.563 28.25 radius 2.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LOVE_MISSION1_LOOP
+				goto @LOVE_MISSION1_LOOP
 			end
 		end //while
 	end
 end
-jump @LOVE_MISSION1_LOOP
+goto @LOVE_MISSION1_LOOP
 
 
 :LOVE_MISSION2_LOOP
@@ -3013,7 +3012,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LOVE2' time 15000 style 2  // 'WAKA-GASHIRA WIPEOUT!'
+			00BA: print_big 'LOVE2' duration 15000 ms style 2  // 'WAKA-GASHIRA WIPEOUT!'
 			while fading
 				wait 0 ms
 			end
@@ -3022,19 +3021,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LOVE_MISSION2_LOOP
+			goto @LOVE_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 87.25 -1548.563 28.25 radius 2.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LOVE_MISSION2_LOOP
+				goto @LOVE_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @LOVE_MISSION2_LOOP
+goto @LOVE_MISSION2_LOOP
 
 
 :LOVE_MISSION3_LOOP
@@ -3059,7 +3058,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LOVE3' time 15000 style 2  // 'A DROP IN THE OCEAN'
+			00BA: print_big 'LOVE3' duration 15000 ms style 2  // 'A DROP IN THE OCEAN'
 			while fading
 				wait 0 ms
 			end
@@ -3068,19 +3067,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LOVE_MISSION3_LOOP
+			goto @LOVE_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 87.25 -1548.563 28.25 radius 2.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LOVE_MISSION3_LOOP
+				goto @LOVE_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @LOVE_MISSION3_LOOP
+goto @LOVE_MISSION3_LOOP
 
 //#####################################################################################
 //#####################################################################################
@@ -3121,7 +3120,7 @@ then
 			0038:   $YARDIES_RADAR_DISPLAYED == 0
 		then
 			0164: disable_marker $YARDIE_PHONE_MARKER 
-			02A7: $YARDIE_PHONE_MARKER = create_icon_marker_and_sphere 12 at 120.6875 -272.0625 16.0625  
+			02A7: $YARDIE_PHONE_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_YARDIE at 120.6875 -272.0625 16.0625  
 			0004: $YARDIES_RADAR_DISPLAYED = 1
 		end
 	else
@@ -3165,7 +3164,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'YD1' time 15000 style 2  // 'BLING-BLING SCRAMBLE'
+			00BA: print_big 'YD1' duration 15000 ms style 2  // 'BLING-BLING SCRAMBLE'
 			while fading
 				wait 0 ms
 			end
@@ -3218,7 +3217,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'YD2' time 15000 style 2  // 'UZI RIDER'
+			00BA: print_big 'YD2' duration 15000 ms style 2  // 'UZI RIDER'
 			while fading
 				wait 0 ms
 			end
@@ -3272,7 +3271,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'YD3' time 15000 style 2  // 'GANGCAR ROUND-UP'
+			00BA: print_big 'YD3' duration 15000 ms style 2  // 'GANGCAR ROUND-UP'
 			while fading
 				wait 0 ms
 			end
@@ -3326,7 +3325,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'YD4' time 15000 style 2  // 'KINGDOM COME'
+			00BA: print_big 'YD4' duration 15000 ms style 2  // 'KINGDOM COME'
 			while fading
 				wait 0 ms
 			end
@@ -3378,7 +3377,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LOVE4' time 15000 style 2  // 'GRAND THEFT AERO'
+			00BA: print_big 'LOVE4' duration 15000 ms style 2  // 'GRAND THEFT AERO'
 			while fading
 				wait 0 ms
 			end
@@ -3387,19 +3386,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LOVE_MISSION4_LOOP
+			goto @LOVE_MISSION4_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 87.25 -1548.563 28.25 radius 2.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LOVE_MISSION4_LOOP
+				goto @LOVE_MISSION4_LOOP
 			end
 		end //while
 	end
 end
-jump @LOVE_MISSION4_LOOP
+goto @LOVE_MISSION4_LOOP
 
 
 :LOVE_MISSION5_LOOP
@@ -3424,7 +3423,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LOVE5' time 15000 style 2  // 'ESCORT SERVICE'
+			00BA: print_big 'LOVE5' duration 15000 ms style 2  // 'ESCORT SERVICE'
 			while fading
 				wait 0 ms
 			end
@@ -3433,19 +3432,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LOVE_MISSION5_LOOP
+			goto @LOVE_MISSION5_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 87.25 -1548.563 28.25 radius 2.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LOVE_MISSION5_LOOP
+				goto @LOVE_MISSION5_LOOP
 			end
 		end //while
 	end
 end
-jump @LOVE_MISSION5_LOOP
+goto @LOVE_MISSION5_LOOP
 
 
 :LOVE_MISSION6_LOOP
@@ -3470,7 +3469,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LOVE6' time 15000 style 2  // 'DECOY'
+			00BA: print_big 'LOVE6' duration 15000 ms style 2  // 'DECOY'
 			while fading
 				wait 0 ms
 			end
@@ -3479,19 +3478,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LOVE_MISSION6_LOOP
+			goto @LOVE_MISSION6_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 87.25 -1548.563 28.25 radius 2.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LOVE_MISSION6_LOOP
+				goto @LOVE_MISSION6_LOOP
 			end
 		end //while
 	end
 end
-jump @LOVE_MISSION6_LOOP
+goto @LOVE_MISSION6_LOOP
 
 
 :LOVE_MISSION7_LOOP
@@ -3516,7 +3515,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'LOVE7' time 15000 style 2  // LOVE'S DISAPPEARANCE
+			00BA: print_big 'LOVE7' duration 15000 ms style 2  // LOVE'S DISAPPEARANCE
 			while fading
 				wait 0 ms
 			end
@@ -3525,19 +3524,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @LOVE_MISSION7_LOOP
+			goto @LOVE_MISSION7_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 87.25 -1548.563 28.25 radius 2.0 1.0 2.0 
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @LOVE_MISSION7_LOOP
+				goto @LOVE_MISSION7_LOOP
 			end
 		end //while
 	end
 end
-jump @LOVE_MISSION7_LOOP
+goto @LOVE_MISSION7_LOOP
 
 
 //#####################################################################################
@@ -3568,7 +3567,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'AS1' time 15000 style 2  // 'BAIT'
+			00BA: print_big 'AS1' duration 15000 ms style 2  // 'BAIT'
 			while fading
 				wait 0 ms
 			end
@@ -3577,19 +3576,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @ASUKA_SUBURBAN_MISSION1_LOOP
+			goto @ASUKA_SUBURBAN_MISSION1_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 367.25 -328.0625 19.5 radius 1.0 1.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @ASUKA_SUBURBAN_MISSION1_LOOP
+				goto @ASUKA_SUBURBAN_MISSION1_LOOP
 			end
 		end //while
 	end
 end
-jump @ASUKA_SUBURBAN_MISSION1_LOOP
+goto @ASUKA_SUBURBAN_MISSION1_LOOP
 
 :ASUKA_SUBURBAN_MISSION2_LOOP
 0001: wait $WAIT_TIME ms
@@ -3613,7 +3612,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'AS2' time 15000 style 2  // 'ESPRESSO-2-GO!'
+			00BA: print_big 'AS2' duration 15000 ms style 2  // 'ESPRESSO-2-GO!'
 			while fading
 				wait 0 ms
 			end
@@ -3622,19 +3621,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @ASUKA_SUBURBAN_MISSION2_LOOP
+			goto @ASUKA_SUBURBAN_MISSION2_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 367.25 -328.0625 19.5 radius 1.0 1.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @ASUKA_SUBURBAN_MISSION2_LOOP
+				goto @ASUKA_SUBURBAN_MISSION2_LOOP
 			end
 		end //while
 	end
 end
-jump @ASUKA_SUBURBAN_MISSION2_LOOP
+goto @ASUKA_SUBURBAN_MISSION2_LOOP
 
 :ASUKA_SUBURBAN_MISSION3_LOOP
 0001: wait $WAIT_TIME ms
@@ -3658,7 +3657,7 @@ then
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
 			03AF: set_streaming 0 
-			00BA: print_big 'AS3' time 15000 style 2  // 'S.A.M.'
+			00BA: print_big 'AS3' duration 15000 ms style 2  // 'S.A.M.'
 			while fading
 				wait 0 ms
 			end
@@ -3667,19 +3666,19 @@ then
 		if
 			8256:   not is_player $PLAYER_CHAR defined
 		then
-			jump @ASUKA_SUBURBAN_MISSION3_LOOP
+			goto @ASUKA_SUBURBAN_MISSION3_LOOP
 		end
 		while 00F6:   player $PLAYER_CHAR 0 367.25 -328.0625 19.5 radius 1.0 1.0 2.0
 			wait 0 ms
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @ASUKA_SUBURBAN_MISSION3_LOOP
+				goto @ASUKA_SUBURBAN_MISSION3_LOOP
 			end
 		end //while
 	end
 end
-jump @ASUKA_SUBURBAN_MISSION3_LOOP
+goto @ASUKA_SUBURBAN_MISSION3_LOOP
 
 
 //#####################################################################################
@@ -3721,7 +3720,7 @@ then
 			0038:   $DIABLOS_RADAR_DISPLAYED == 0
 		then
 			0164: disable_marker $HOODS_PHONE_MARKER 
-			02A7: $HOODS_PHONE_MARKER = create_icon_marker_and_sphere 9 at -443.5 -6.0625 3.75
+			02A7: $HOODS_PHONE_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_HOOD at -443.5 -6.0625 3.75
 			0004: $DIABLOS_RADAR_DISPLAYED = 1
 		end
 	else
@@ -3765,7 +3764,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'HM_1' time 15000 style 2  // 'UZI MONEY'
+			00BA: print_big 'HM_1' duration 15000 ms style 2  // 'UZI MONEY'
 			while fading
 				wait 0 ms
 			end
@@ -3818,7 +3817,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'HM_2' time 15000 style 2  // 'TOYMINATOR'
+			00BA: print_big 'HM_2' duration 15000 ms style 2  // 'TOYMINATOR'
 			while fading
 				wait 0 ms
 			end
@@ -3871,7 +3870,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'HM_3' time 15000 style 2  // 'RIGGED TO BLOW'
+			00BA: print_big 'HM_3' duration 15000 ms style 2  // 'RIGGED TO BLOW'
 			while fading
 				wait 0 ms
 			end
@@ -3924,7 +3923,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'HM_4' time 15000 style 2  // 'BULLION RUN'
+			00BA: print_big 'HM_4' duration 15000 ms style 2  // 'BULLION RUN'
 			while fading
 				wait 0 ms
 			end
@@ -3977,7 +3976,7 @@ then
 			03EF: player $PLAYER_CHAR make_safe 
 			0169: set_fade_color 0 0 0 
 			016A: fade 0 for 1500 ms 
-			00BA: print_big 'HM_5' time 15000 style 2  // 'RUMBLE'
+			00BA: print_big 'HM_5' duration 15000 ms style 2  // 'RUMBLE'
 			while fading
 				wait 0 ms
 			end
@@ -4033,7 +4032,7 @@ then
 				0169: set_fade_color 0 0 0 
 				016A: fade 0 for 1500 ms 
 				03AF: set_streaming 0 
-				00BA: print_big 'CAT2' time 15000 style 2  // 'THE EXCHANGE'
+				00BA: print_big 'CAT2' duration 15000 ms style 2  // 'THE EXCHANGE'
 				while fading
 					wait 0 ms
 				end
@@ -4042,34 +4041,34 @@ then
 			if
 				8256:   not is_player $PLAYER_CHAR defined
 			then
-				jump @CAT_MISSION1_LOOP
+				goto @CAT_MISSION1_LOOP
 			end
 			while 00F6:   player $PLAYER_CHAR 0 1455.688 -187.25 55.5625 radius 1.0 1.0 2.0
 				wait 0 ms
 				if
 					8256:   not is_player $PLAYER_CHAR defined
 				then
-					jump @CAT_MISSION1_LOOP
+					goto @CAT_MISSION1_LOOP
 				end
 			end //while
 		else
 			if
 				0038:   $NICKED_HALF_A_MIL_BEFORE == 0
 			then
-				00BC: print_now 'CAT_MON' time 5000 flag 1  // ~g~You don't have enough money yet. You need $500,000.
+				00BC: print_now 'CAT_MON' duration 5000 ms flag 1  // ~g~You don't have enough money yet. You need $500,000.
 			end
 			while 00F6:   player $PLAYER_CHAR 0 1455.688 -187.25 55.5625 radius 1.0 1.0 2.0
 				wait 0 ms
 				if
 					8256:   not is_player $PLAYER_CHAR defined
 				then
-					jump @CAT_MISSION1_LOOP
+					goto @CAT_MISSION1_LOOP
 				end
 			end //while
 		end
 	end
 end
-jump @CAT_MISSION1_LOOP
+goto @CAT_MISSION1_LOOP
 
 //#####################################################################################
 //#####################################################################################

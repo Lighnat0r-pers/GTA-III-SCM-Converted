@@ -164,27 +164,27 @@ while 001A:   2849 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_8A' time 10000 flag 1  // ~w~Yo my man! Salvatore phoned ahead,
+00BC: print_now 'FM3_8A' duration 10000 ms flag 1  // ~w~Yo my man! Salvatore phoned ahead,
 while 001A:   5438 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_8B' time 10000 flag 1  // ~w~but a job like this is gonna need a lot of fireworks.
+00BC: print_now 'FM3_8B' duration 10000 ms flag 1  // ~w~but a job like this is gonna need a lot of fireworks.
 while 001A:   8136 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_8C' time 10000 flag 1  // ~w~I'll need $100,000 to cover expenses,
+00BC: print_now 'FM3_8C' duration 10000 ms flag 1  // ~w~I'll need $100,000 to cover expenses,
 while 001A:   10752 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_8D' time 10000 flag 1  // ~w~but you know with me you get a lot of bang for your buck.
+00BC: print_now 'FM3_8D' duration 10000 ms flag 1  // ~w~but you know with me you get a lot of bang for your buck.
 while 001A:   13578 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_CC' time 10000 flag 1  // ~w~Come back brother when you have the money.
+00BC: print_now 'FM3_CC' duration 10000 ms flag 1  // ~w~Come back brother when you have the money.
 while 001A:   14964 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -299,17 +299,17 @@ while 001A:   3123 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_8E' time 10000 flag 1  // ~w~Okay, let's do this thing!
+00BC: print_now 'FM3_8E' duration 10000 ms flag 1  // ~w~Okay, let's do this thing!
 while 001A:   4903 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_8F' time 10000 flag 1  // ~w~I can set this baby to detonate, but I still can't use a piece with these hands.
+00BC: print_now 'FM3_8F' duration 10000 ms flag 1  // ~w~I can set this baby to detonate, but I still can't use a piece with these hands.
 while 001A:   8643 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'FM3_8G' time 10000 flag 1  // ~w~Here, this rifle should help you pop some heads!
+00BC: print_now 'FM3_8G' duration 10000 ms flag 1  // ~w~Here, this rifle should help you pop some heads!
 while 001A:   10635 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -379,13 +379,13 @@ end //while
 0152: set_zone_car_info 'PORT_E' DAY 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 0152: set_zone_car_info 'PORT_E' NIGHT 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 0107: $BOAT_BARREL7 = create_object #BARREL4 at 1535.125 -930.75 18.6875 
-0107: $BOAT_BARREL8 = create_object #BARREL4 at 1535.125 -929.5625 18.6875 
-0107: $BOAT_BARREL9 = create_object #BARREL4 at 1535.188 -928.4375 18.6875 
-0107: $BOAT_BARREL15 = create_object #BARREL4 at 1484.813 -942.75 18.6875 
-0107: $BOAT_BARREL16 = create_object #BARREL4 at 1483.688 -942.75 18.6875 
-0107: $BOAT_BARREL17 = create_object #BARREL4 at 1482.5 -942.6875 18.6875 
+0107: $BOAT_BARREL8 = create_object #BARREL4 at 1535.125 -929.5625 18.6875
+0107: $BOAT_BARREL9 = create_object #BARREL4 at 1535.188 -928.4375 18.6875
+0107: $BOAT_BARREL15 = create_object #BARREL4 at 1484.813 -942.75 18.6875
+0107: $BOAT_BARREL16 = create_object #BARREL4 at 1483.688 -942.75 18.6875
+0107: $BOAT_BARREL17 = create_object #BARREL4 at 1482.5 -942.6875 18.6875
 0395: clear_area 1 at 1272.75 -96.5 range -100.0 1.0 
-009A: create_char PEDTYPE_SPECIAL model #SPECIAL01 at 1272.75 -96.5 -100.0 store_to $FRANK3_8BALL 
+009A: $FRANK3_8BALL = create_char PEDTYPE_SPECIAL model #SPECIAL01 at 1272.75 -96.5 -100.0
 0173: set_actor $FRANK3_8BALL z_angle_to 270.0 
 01ED: clear_actor $FRANK3_8BALL threat_search 
 009F: char_set_idle $FRANK3_8BALL 
@@ -450,7 +450,7 @@ end //while
 //sets up the default guards on the boat
 
 //guard1 on quayside righthand side of the ramp
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1524.0 -900.0 -100.0 store_to $FRANK3_CARTEL1 
+009A: $FRANK3_CARTEL1 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1524.0 -900.0 -100.0
 01BE: set_actor $FRANK3_CARTEL1 to_look_at_spot 1524.0 -887.0 -100.0 
 01B2: give_actor $FRANK3_CARTEL1 weapon WEAPONTYPE_CHAINGUN ammo 30000 
 01ED: clear_actor $FRANK3_CARTEL1 threat_search 
@@ -459,7 +459,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL1 attack_when_provoked 1 
 
 //guard2 on quayside left side of the ramp
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG12 at 1530.0 -901.0 -100.0 store_to $FRANK3_CARTEL2 
+009A: $FRANK3_CARTEL2 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG12 at 1530.0 -901.0 -100.0
 01BE: set_actor $FRANK3_CARTEL2 to_look_at_spot 1530.0 -887.0 -100.0 
 01B2: give_actor $FRANK3_CARTEL2 weapon WEAPONTYPE_CHAINGUN ammo 30000 
 01ED: clear_actor $FRANK3_CARTEL2 threat_search 
@@ -468,7 +468,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL2 attack_when_provoked 1 
 
 //guard3 on boat left hand side by exploding creates
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1534.563 -936.75 18.375 store_to $FRANK3_CARTEL3  //follows route 0
+009A: $FRANK3_CARTEL3 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1534.563 -936.75 18.375 //follows route 0
 01E2: add_route_point 0 at 1533.875 -926.0 -100.0 
 01E2: add_route_point 0 at 1534.563 -936.75 -100.0 
 01E1: set_actor $FRANK3_CARTEL3 follow_route 0 3 
@@ -479,7 +479,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL3 attack_when_provoked 1 
 
 //guard4 on boat walks behind the large containers towards the rear of the shop
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG12 at 1510.188 -941.6875 18.375 store_to $FRANK3_CARTEL4 //follows route 1
+009A: $FRANK3_CARTEL4 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG12 at 1510.188 -941.6875 18.375 //follows route 1
 01E2: add_route_point 1 at 1527.5 -942.875 -100.0 
 01E2: add_route_point 1 at 1510.188 -941.6875 -100.0 
 01E1: set_actor $FRANK3_CARTEL4 follow_route 1 3 
@@ -490,7 +490,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL4 attack_when_provoked 1
 
 //guard5 on boat just behind the first row of boxes 
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1502.563 -926.6875 -100.0 store_to $FRANK3_CARTEL5 //follows route 2
+009A: $FRANK3_CARTEL5 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1502.563 -926.6875 -100.0 //follows route 2
 01E2: add_route_point 2 at 1512.188 -927.5625 -100.0 
 01E2: add_route_point 2 at 1502.563 -926.6875 -100.0 
 01E1: set_actor $FRANK3_CARTEL5 follow_route 2 3 
@@ -502,7 +502,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL5 attack_when_provoked 1 
 
 //guard6 on boat by the rail of the boat
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG12 at 1472.5 -917.6875 -100.0 store_to $FRANK3_CARTEL6 //follows route 3
+009A: $FRANK3_CARTEL6 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG12 at 1472.5 -917.6875 -100.0 //follows route 3
 01E2: add_route_point 3 at 1507.063 -918.6875 -100.0 
 01E2: add_route_point 3 at 1472.5 -917.6875 -100.0 
 01E1: set_actor $FRANK3_CARTEL6 follow_route 3 3 
@@ -513,7 +513,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL6 attack_when_provoked 1 
 
 //guard7 on boat end of large boxes by crate 4
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1500.25 -922.1875 -100.0 store_to $FRANK3_CARTEL7 //follows route 4
+009A: $FRANK3_CARTEL7 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1500.25 -922.1875 -100.0 //follows route 4
 01E2: add_route_point 4 at 1499.063 -943.6875 -100.0 
 01E2: add_route_point 4 at 1500.25 -922.1875 -100.0 
 01E1: set_actor $FRANK3_CARTEL7 follow_route 4 3 
@@ -524,7 +524,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL7 attack_when_provoked 1 
 
 //Guard8 between second last container and crates 5,6 and 7
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1489.5 -955.75 -100.0 store_to $FRANK3_CARTEL8 //follows route 5
+009A: $FRANK3_CARTEL8 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1489.5 -955.75 -100.0 //follows route 5
 01E2: add_route_point 5 at 1490.188 -924.75 -100.0 
 01E2: add_route_point 5 at 1489.5 -955.75 -100.0 
 01E1: set_actor $FRANK3_CARTEL8 follow_route 5 3 
@@ -535,7 +535,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL8 attack_when_provoked 1 
 
 //guard9 stands on top of crate6 does not patrol
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG12 at 1484.375 -930.5 19.75 store_to $FRANK3_CARTEL9 
+009A: $FRANK3_CARTEL9 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG12 at 1484.375 -930.5 19.75
 01BE: set_actor $FRANK3_CARTEL9 to_look_at_spot 1487.75 -925.5625 -100.0 
 01B2: give_actor $FRANK3_CARTEL9 weapon WEAPONTYPE_CHAINGUN ammo 30000 
 01ED: clear_actor $FRANK3_CARTEL9 threat_search 
@@ -544,7 +544,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL9 attack_when_provoked 1 
 
 //guard10 walks from right hand side boat door to behind containers and back again
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1476.75 -950.875 -100.0 store_to $FRANK3_CARTEL10  //follows route 6
+009A: $FRANK3_CARTEL10 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1476.75 -950.875 -100.0 //follows route 6
 01E2: add_route_point 6 at 1476.75 -950.875 -100.0 
 01E2: add_route_point 6 at 1476.75 -927.1875 -100.0 
 01E1: set_actor $FRANK3_CARTEL10 follow_route 6 3 
@@ -555,7 +555,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL10 attack_when_provoked 1 
 
 //guard11 on boat top right of the gang plank
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1524.0 -919.0 -100.0 store_to $FRANK3_CARTEL11 
+009A: $FRANK3_CARTEL11 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1524.0 -919.0 -100.0
 01BE: set_actor $FRANK3_CARTEL11 to_look_at_spot 1525.0 -897.0 -100.0 
 01B2: give_actor $FRANK3_CARTEL11 weapon WEAPONTYPE_CHAINGUN ammo 30000 
 01ED: clear_actor $FRANK3_CARTEL11 threat_search 
@@ -564,7 +564,7 @@ end //while
 0291: set_actor $FRANK3_CARTEL11 attack_when_provoked 1 
 
 //guard12 on boat top left hand side of the gang plank
-009A: create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1529.0 -919.0 -100.0 store_to $FRANK3_CARTEL12 
+009A: $FRANK3_CARTEL12 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 1529.0 -919.0 -100.0
 01BE: set_actor $FRANK3_CARTEL12 to_look_at_spot 1525.0 -897.0 -100.0 
 01B2: give_actor $FRANK3_CARTEL12 weapon WEAPONTYPE_CHAINGUN ammo 30000 
 01ED: clear_actor $FRANK3_CARTEL12 threat_search 
@@ -572,9 +572,9 @@ end //while
 0243: set_actor $FRANK3_CARTEL12 ped_stats_to PEDSTAT_TOUGH_GUY 
 0291: set_actor $FRANK3_CARTEL12 attack_when_provoked 1 
 
-00A5: create_car #COLUMB at 1534.375 -891.5 10.75 store_to $CAR_COLUMB1_FM3 
+00A5: $CAR_COLUMB1_FM3 = create_car #COLUMB at 1534.375 -891.5 10.75
 0175: set_car $CAR_COLUMB1_FM3 z_angle_to 90.0 
-00A5: create_car #COLUMB at 1515.688 -896.25 10.75 store_to $CAR_COLUMB2_FM3 
+00A5: $CAR_COLUMB2_FM3 = create_car #COLUMB at 1515.688 -896.25 10.75
 0175: set_car $CAR_COLUMB2_FM3 z_angle_to 314.0 
 
 
@@ -590,7 +590,7 @@ while 8038:   not  $FLAG_BLOKE_IN_AREA_FM3 == 13
 		0038:   $FLAG_BLOKE_LEAVE_GROUP_FM3 == 0 
 		0018:   $COUNTER_GUARDS_DEAD_FM3 > 0 
 	then
-		00BC: print_now 'FM3_8' time 5000 flag 1  // ~r~The guards have been alerted!
+		00BC: print_now 'FM3_8' duration 5000 ms flag 1  // ~r~The guards have been alerted!
 		goto @MISSION_FAILED_FRANK3
 	end
 	gosub @CHECK_8BALL_STATUS_FRANK3
@@ -603,7 +603,7 @@ while 8038:   not  $FLAG_BLOKE_IN_AREA_FM3 == 13
 	if
 		00E0:   is_player_in_any_car $PLAYER_CHAR
 	then
-		00DA: store_car_player_is_in $PLAYER_CHAR store_to $CAR_FM3 
+		00DA: $CAR_FM3 = store_car_player_is_in $PLAYER_CHAR 
 	end
 	gosub @CHECK_8BALL_STATUS_FRANK3
 	if
@@ -631,7 +631,7 @@ while 8038:   not  $FLAG_BLOKE_IN_AREA_FM3 == 13
 					03D1: play_wav 
 					0004: $FLAG_PLAYED_8BALL_AUDIO_FM3 = 1
 				end
-				00BC: print_now 'FM3_8I' time 5000 flag 1  // ~w~Get a good vantage point then I'll head in when you fire the first shot.
+				00BC: print_now 'FM3_8I' duration 5000 ms flag 1  // ~w~Get a good vantage point then I'll head in when you fire the first shot.
 				018A: $RADAR_BLIP_COORD3_FM3 = create_checkpoint_at 1498.688 -870.5 -100.0 
 				0004: $FLAG_BLOKE_IN_AREA_FM3 = 1 
 				0004: $FLAG_GOT_MESSAGE_FM3 = 1 
@@ -752,7 +752,7 @@ while 8038:   not  $FLAG_BLOKE_IN_AREA_FM3 == 13
 			if
 				00DF:   is_char_in_any_car $FRANK3_8BALL 
 			then
-				00D9: store_car_char_is_in $FRANK3_8BALL store_to $CAR_FM3 
+				00D9: $CAR_FM3 = store_car_char_is_in $FRANK3_8BALL
 				while 81C1:   not car $CAR_FM3 stopped
 					wait 0 ms
 					gosub @CAR_DEAD_CHECK
@@ -1482,7 +1482,7 @@ goto @MISSION_PASSED_FRANK3
 if
 	0118:   actor $FRANK3_8BALL dead 
 then
-	00BC: print_now 'FM3_7' time 5000 flag 1  // ~r~8-Ball's been iced!
+	00BC: print_now 'FM3_7' duration 5000 ms flag 1  // ~r~8-Ball's been iced!
 	goto @MISSION_FAILED_FRANK3
 end
 return
@@ -1493,7 +1493,7 @@ return
 if
 	0119:   car $CAR_FM3 wrecked 
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_FRANK3
 end
 return
@@ -1505,7 +1505,7 @@ if and
 	8320:   not actor $FRANK3_8BALL in_range_of_player $PLAYER_CHAR 
 	0038:   $FLAG_BLIP_ON_EIGHTBALL_FM3 == 0
 then
-	00BC: print_now 'HEY3' time 5000 flag 1  // ~g~You've dropped your main man, go back and get 8-Ball!
+	00BC: print_now 'HEY3' duration 5000 ms flag 1  // ~g~You've dropped your main man, go back and get 8-Ball!
 	0187: $FRANK3_8BALL_MARKER = create_marker_above_actor $FRANK3_8BALL 
 	0164: disable_marker $FRANK3_CHECKPOINT1 
 	0004: $BLOB_FLAG = 0 
@@ -1529,7 +1529,7 @@ return
 
 :MISSION_FAILED_FRANK3
 017A: set_player $PLAYER_CHAR weapon WEAPONTYPE_SNIPERRIFLE ammo_to 0 
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_FRANK3
 
 /////////////////////////////////////////
@@ -1539,9 +1539,9 @@ goto @MISSION_END_FRANK3
 :MISSION_PASSED_FRANK3
 0004: $BOMB_DA_BASE_ACT_II_COMPLETED = 1 
 0318: set_latest_mission_passed 'FM3'  // 'BOMB DA BASE: ACT II'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 01F6: cancel_override_restart 
-01E3: text_1number_styled 'M_PASS' number 150000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 150000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 150000 
 0110: clear_player $PLAYER_CHAR wanted_level 

@@ -71,47 +71,47 @@ while 001A:   1350 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_B' time 10000 flag 1  // ~w~OK, I've had enough of this shit.
+00BC: print_now 'TM5_B' duration 10000 ms flag 1  // ~w~OK, I've had enough of this shit.
 while 001A:   3169 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_C' time 10000 flag 1  // ~w~We're gonna finish the Triads in Liberty once and for all!
+00BC: print_now 'TM5_C' duration 10000 ms flag 1  // ~w~We're gonna finish the Triads in Liberty once and for all!
 while 001A:   5730 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_D' time 10000 flag 1  // 8-Ball's rigged a dustcart with a bomb.
+00BC: print_now 'TM5_D' duration 10000 ms flag 1  // 8-Ball's rigged a dustcart with a bomb.
 while 001A:   7755 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_E' time 10000 flag 1  // ~w~It's on a timer so if you mess up there'll be no evidence. Go and pick up the dustcart.
+00BC: print_now 'TM5_E' duration 10000 ms flag 1  // ~w~It's on a timer so if you mess up there'll be no evidence. Go and pick up the dustcart.
 while 001A:   12490 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_F' time 10000 flag 1  // ~w~Careful, 8-Ball says it's real sensitive and the slightest bump could set that thing off!
+00BC: print_now 'TM5_F' duration 10000 ms flag 1  // ~w~Careful, 8-Ball says it's real sensitive and the slightest bump could set that thing off!
 while 001A:   17220 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_G' time 10000 flag 1  // ~w~Their fish factory will open its gates for a dustcart, so you can drive right in.
+00BC: print_now 'TM5_G' duration 10000 ms flag 1  // ~w~Their fish factory will open its gates for a dustcart, so you can drive right in.
 while 001A:   21330 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_H' time 10000 flag 1  // ~w~Park up between the gas canisters and get the hell out of there!
+00BC: print_now 'TM5_H' duration 10000 ms flag 1  // ~w~Park up between the gas canisters and get the hell out of there!
 while 001A:   24141 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_I' time 10000 flag 1  // ~w~I want it to rain mackerel.
+00BC: print_now 'TM5_I' duration 10000 ms flag 1  // ~w~I want it to rain mackerel.
 while 001A:   25817 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'TM5_J' time 10000 flag 1  // ~w~We're talking real biblical here, nothing low budget.
+00BC: print_now 'TM5_J' duration 10000 ms flag 1  // ~w~We're talking real biblical here, nothing low budget.
 while 001A:   28632 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -154,7 +154,7 @@ end
 
 // START MISSION
 
-00A5: create_car #TRASH at 1314.0 -106.0 -100.0 store_to $BLOWFISH_GARBAGE_TRUCK 
+00A5: $BLOWFISH_GARBAGE_TRUCK = create_car #TRASH at 1314.0 -106.0 -100.0
 02AC: set_car $BLOWFISH_GARBAGE_TRUCK immunities 1 1 0 0 1 
 0242: set_car $BLOWFISH_GARBAGE_TRUCK bomb_status_to CARBOMB_TIMED 
 0004: $FISH_FACTORY_DESTROYED = 0 
@@ -180,7 +180,7 @@ end //while
 0004: $TONI5_TIMER = 151000 
 014E: start_timer_at $TONI5_TIMER 
 0227: $EXPLOSIVE_TRUCK_HEALTH = car $BLOWFISH_GARBAGE_TRUCK health 
-03C4: set_status_text_to $EXPLOSIVE_TRUCK_HEALTH 1 'DAM'  // DAMAGE:
+03C4: set_status_text_to $EXPLOSIVE_TRUCK_HEALTH COUNTER_DISPLAY_BAR 'DAM'  // DAMAGE:
 0004: $EXPLOSIVE_TRUCK_HEALTH_LOST = 1000 
 0060: $EXPLOSIVE_TRUCK_HEALTH_LOST -= $EXPLOSIVE_TRUCK_HEALTH 
 
@@ -208,7 +208,7 @@ while 81AC:   not car $BLOWFISH_GARBAGE_TRUCK stopped $BLOB_FLAG 961.0 -1112.5 1
 	if
 		0119:   car $BLOWFISH_GARBAGE_TRUCK wrecked
 	then
-		039D: scatter_particles POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 at $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z 0.0 0.0 0.0
+		039D: scatter_particles type POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 from $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z to 0.0 0.0 0.0
 		goto @MISSION_FAILED_TONI5
 	end
 	gosub @TRIAD_AI
@@ -230,7 +230,7 @@ while 81AC:   not car $BLOWFISH_GARBAGE_TRUCK stopped $BLOB_FLAG 961.0 -1112.5 1
 		0186: $TONI5_GARBAGE_TRUCK_MARKER = create_marker_above_car $BLOWFISH_GARBAGE_TRUCK 
 		0004: $BLOB_FLAG = 0 
 		0164: disable_marker $BLIP2_TM5 
-		00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+		00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 		0004: $FLAG_CAR_BLIP_DISPLAYED_TM5 = 1
 	end
 	if and
@@ -238,7 +238,7 @@ while 81AC:   not car $BLOWFISH_GARBAGE_TRUCK stopped $BLOB_FLAG 961.0 -1112.5 1
 		80B1:   not is_car_in_area_3d $BLOWFISH_GARBAGE_TRUCK from 961.0 -1112.5 12.5 to 969.5 -1122.75 15.0 sphere 0 
 	then
 		020B: explode_car $BLOWFISH_GARBAGE_TRUCK 
-		039D: scatter_particles POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 at $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z 0.0 0.0 0.0 
+		039D: scatter_particles type POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 from $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z to 0.0 0.0 0.0
 		goto @MISSION_FAILED_TONI5
 	end
 	if and
@@ -246,28 +246,28 @@ while 81AC:   not car $BLOWFISH_GARBAGE_TRUCK stopped $BLOB_FLAG 961.0 -1112.5 1
 		80B1:   not is_car_in_area_3d $BLOWFISH_GARBAGE_TRUCK from 961.0 -1112.5 12.5 to 969.5 -1122.75 15.0 sphere 0
 	then
 		020B: explode_car $BLOWFISH_GARBAGE_TRUCK 
-		039D: scatter_particles POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 at $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z 0.0 0.0 0.0 
+		039D: scatter_particles type POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 from $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z to 0.0 0.0 0.0
 		goto @MISSION_FAILED_TONI5
 	end
 end //while
 
 0247: request_model #FSHFCTRY_DSTRYD 
-00BC: print_now 'JM1_3' time 5000 flag 2  // ~g~Activate the car bomb then get out of there!
+00BC: print_now 'JM1_3' duration 5000 ms flag 2  // ~g~Activate the car bomb then get out of there!
 01B5: force_weather 0
 
 if
 	0119:   car $BLOWFISH_GARBAGE_TRUCK wrecked
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_TONI5
 end
 
-while 8356:   not explosion_type EXPLOSION_CAR in_cube 961.0 -1112.5 12.5 969.5 -1122.75 15.0
+while 8356:   not explosion_type EXPLOSION_CAR in_cube 961.0 -1112.5 12.5 to 969.5 -1122.75 15.0
 	wait 0 ms
 	if
 		0119:   car $BLOWFISH_GARBAGE_TRUCK wrecked 
 	then
-		039D: scatter_particles POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 at $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z 0.0 0.0 0.0 
+		039D: scatter_particles type POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 from $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z to 0.0 0.0 0.0
 		goto @EXPLOSION
 	end
 	gosub @TRIAD_AI
@@ -282,14 +282,14 @@ while 8356:   not explosion_type EXPLOSION_CAR in_cube 961.0 -1112.5 12.5 969.5 
 		80DC:   not is_player_in_car $PLAYER_CHAR car $BLOWFISH_GARBAGE_TRUCK 
 		8228:   not car $BLOWFISH_GARBAGE_TRUCK bomb_status == CARBOMB_TIMEDACTIVE
 	then
-		00BC: print_now 'JM1_5' time 5000 flag 1  // ~g~The car bomb's not set!
+		00BC: print_now 'JM1_5' duration 5000 ms flag 1  // ~g~The car bomb's not set!
 	end
 	if or
 		8185:   not car $BLOWFISH_GARBAGE_TRUCK health >= 900
 		0038:   $TONI5_TIMER == 0
 	then
 		020B: explode_car $BLOWFISH_GARBAGE_TRUCK 
-		039D: scatter_particles POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 at $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z 0.0 0.0 0.0 
+		039D: scatter_particles type POBJECT_FIREBALL_AND_SMOKE 4.0 0 0 0 4000 from $TONI5_GARBAGE_TRUCK_X $TONI5_GARBAGE_TRUCK_Y $TONI5_GARBAGE_TRUCK_Z to 0.0 0.0 0.0
 		goto @EXPLOSION
 	end
 end //while
@@ -335,13 +335,13 @@ end //while
 020C: create_explosion EXPLOSION_HELI at 976.0 -1108.25 21.375 
 0001: wait 300 ms 
 0003: shake_cam 300 
-039D: scatter_particles POBJECT_FIREBALL_AND_SMOKE 5.0 0 0 0 5000 at 969.75 -1104.875 18.6875 0.0 0.0 0.0 
+039D: scatter_particles type POBJECT_FIREBALL_AND_SMOKE 5.0 0 0 0 5000 from 969.75 -1104.875 18.6875 to 0.0 0.0 0.0 
 020C: create_explosion EXPLOSION_HELI at 972.6875 -1102.188 18.5 
 020C: create_explosion EXPLOSION_HELI at 986.25 -1103.375 14.6875 
-0107: $DEBRIS1_TM5 = create_object #FISH01 at 972.6875 -1103.563 20.5625 
-0107: $DEBRIS2_TM5 = create_object #FISH01 at 972.6875 -1103.188 20.5625 
-0107: $DEBRIS3_TM5 = create_object #FISH01 at 978.75 -1107.188 21.5625 
-0107: $DEBRIS4_TM5 = create_object #FISH01 at 979.75 -1105.188 21.5625 
+0107: $DEBRIS1_TM5 = create_object #FISH01 at 972.6875 -1103.563 20.5625
+0107: $DEBRIS2_TM5 = create_object #FISH01 at 972.6875 -1103.188 20.5625
+0107: $DEBRIS3_TM5 = create_object #FISH01 at 978.75 -1107.188 21.5625
+0107: $DEBRIS4_TM5 = create_object #FISH01 at 979.75 -1105.188 21.5625
 0392: object $DEBRIS1_TM5 toggle_in_moving_list 1 
 0392: object $DEBRIS2_TM5 toggle_in_moving_list 1 
 0392: object $DEBRIS3_TM5 toggle_in_moving_list 1 
@@ -353,15 +353,15 @@ end //while
 018C: play_sound sound_test_1 at 969.75 -1104.875 18.6875 
 0001: wait 400 ms 
 0003: shake_cam 500 
-039D: scatter_particles 15 5.0 0 0 0 5000 at 974.1875 -1129.75 19.5 0.0 0.0 0.0 
+039D: scatter_particles type POBJECT_FIREBALL_AND_SMOKE 5.0 0 0 0 5000 from 974.1875 -1129.75 19.5 to 0.0 0.0 0.0 
 020C: create_explosion EXPLOSION_HELI at 982.0 -1102.75 17.375 
 020C: create_explosion EXPLOSION_HELI at 973.5625 -1128.75 19.5625 
 0107: $DEBRIS5_TM5 = create_object #FISH01 at 982.0 -1103.75 20.375 
-0107: $DEBRIS6_TM5 = create_object #FISH01 at 982.0 -1103.0 20.375 
+0107: $DEBRIS6_TM5 = create_object #FISH01 at 982.0 -1103.0 20.375
 0107: $DEBRIS7_TM5 = create_object #FISH01 at 983.0 -1112.0 20.375 
 0107: $DEBRIS8_TM5 = create_object #FISH01 at 985.0 -1108.0 19.375 
 0107: $DEBRIS9_TM5 = create_object #FISH01 at 977.0 -1113.0 21.375 
-0107: $DEBRIS10_TM5 = create_object #FISH01 at 976.0 -1115.0 21.375 
+0107: $DEBRIS10_TM5 = create_object #FISH01 at 976.0 -1115.0 21.375
 0392: object $DEBRIS5_TM5 toggle_in_moving_list 1 
 0392: object $DEBRIS6_TM5 toggle_in_moving_list 1 
 0392: object $DEBRIS7_TM5 toggle_in_moving_list 1 
@@ -405,7 +405,7 @@ goto @MISSION_PASSED_TONI5
 // Mission Failed
 
 :MISSION_FAILED_TONI5
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_TONI5
 
 /////////////////////////////////////////
@@ -415,7 +415,7 @@ goto @MISSION_END_TONI5
 :MISSION_PASSED_TONI5
 0004: $BLOW_FISH_COMPLETED = 1 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 30000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 30000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 30000 
 0164: disable_marker $SALVATORE_MISSION_MARKER 
@@ -427,7 +427,7 @@ goto @MISSION_END_TONI5
 014C: set_parked_car_generator $GEN_CAR49 cars_to_generate_to 0 
 0004: $FLAG_FRANKIE_SWITCHED_OFF = 0 
 0318: set_latest_mission_passed 'TM5'  // 'BLOW FISH'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 0164: disable_marker $TONI_MISSION_MARKER 
 004F: create_thread @TONI5_FLAMES_LOOP
 goto @MISSION_END_TONI5

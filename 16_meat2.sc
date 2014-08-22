@@ -59,42 +59,42 @@ while 001A:   2000 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA2_A' time 10000 flag 1  // I hired some thieves to break into my apartment...
+00BC: print_now 'MEA2_A' duration 10000 ms flag 1  // I hired some thieves to break into my apartment...
 while 001A:   4424 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA2_B' time 10000 flag 1  // and steal some stuff so I could claim on the insurance as you do.
+00BC: print_now 'MEA2_B' duration 10000 ms flag 1  // and steal some stuff so I could claim on the insurance as you do.
 while 001A:   8124 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA2_C' time 10000 flag 1  // The thieving bastards are threatening to tell the insurance company,
+00BC: print_now 'MEA2_C' duration 10000 ms flag 1  // The thieving bastards are threatening to tell the insurance company,
 while 001A:   10996 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA2_D' time 10000 flag 1  // if I don't give them a cut.
+00BC: print_now 'MEA2_D' duration 10000 ms flag 1  // if I don't give them a cut.
 while 001A:   12362 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA2_E' time 10000 flag 1  // Can you believe it?
+00BC: print_now 'MEA2_E' duration 10000 ms flag 1  // Can you believe it?
 while 001A:   13728 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA2_F' time 10000 flag 1  // I've left a car inside the factory gates.
+00BC: print_now 'MEA2_F' duration 10000 ms flag 1  // I've left a car inside the factory gates.
 while 001A:   16082 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA2_G' time 10000 flag 1  // Use it to go and pick them up from their turf in the Red Light district.
+00BC: print_now 'MEA2_G' duration 10000 ms flag 1  // Use it to go and pick them up from their turf in the Red Light district.
 while 001A:   19591 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
 end
-00BC: print_now 'MEA2_H' time 10000 flag 1  // Then bring 'em back to the factory so I can make 'em see Marty's point of view.
+00BC: print_now 'MEA2_H' duration 10000 ms flag 1  // Then bring 'em back to the factory so I can make 'em see Marty's point of view.
 while 001A:   24155 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime
@@ -137,9 +137,9 @@ while true
 	wait 0 ms
 end
 
-00A5: create_car #SENTINEL at 1190.0 -796.0 13.75 store_to $CAR_MEAT2 
+00A5: $CAR_MEAT2 = create_car #SENTINEL at 1190.0 -796.0 13.75
 0175: set_car $CAR_MEAT2 z_angle_to 300.0 
-0186: $RADAR_BLIP_CAR_MEAT2 = create_marker_above_car $CAR_MEAT2 
+0186: $RADAR_BLIP_CAR_MEAT2 = create_marker_above_car $CAR_MEAT2
 
 // waiting for the player to get into the car
 
@@ -149,14 +149,14 @@ while 80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT2
 end
 
 0164: disable_marker $RADAR_BLIP_CAR_MEAT2 
-00BC: print_now 'MEA2_B3' time 7000 flag 1  // ~g~Go and meet the thieves.
-009A: create_char PEDTYPE_CIVMALE model #CRIMINAL01 at 869.0 -611.0 -100.0 store_to $VICTIM1_MEAT2 
+00BC: print_now 'MEA2_B3' duration 7000 ms flag 1  // ~g~Go and meet the thieves.
+009A: $VICTIM1_MEAT2 = create_char PEDTYPE_CIVMALE model #CRIMINAL01 at 869.0 -611.0 -100.0
 01ED: clear_actor $VICTIM1_MEAT2 threat_search 
 01BE: set_actor $VICTIM1_MEAT2 to_look_at_spot 869.0 -615.0 -100.0 
 039E: set_char_cant_be_dragged_out $VICTIM1_MEAT2 to 1 
 0187: $RADAR_BLIP_PED1_MEAT2 = create_marker_above_actor $VICTIM1_MEAT2 
 
-009A: create_char PEDTYPE_CIVMALE model #CRIMINAL02 at 871.0 -612.0 -100.0 store_to $VICTIM2_MEAT2 
+009A: $VICTIM2_MEAT2 = create_char PEDTYPE_CIVMALE model #CRIMINAL02 at 871.0 -612.0 -100.0
 01ED: clear_actor $VICTIM2_MEAT2 threat_search 
 01BE: set_actor $VICTIM2_MEAT2 to_look_at_spot 869.0 -615.0 -100.0 
 039E: set_char_cant_be_dragged_out $VICTIM2_MEAT2 to 1 
@@ -211,7 +211,7 @@ end //while
 
 0164: disable_marker $RADAR_BLIP_PED1_MEAT2 
 0164: disable_marker $RADAR_BLIP_PED2_MEAT2 
-00BC: print_now 'MEA2_B4' time 7000 flag 1  // ~g~Take them to the Bitch'n' Dog Food Factory
+00BC: print_now 'MEA2_B4' duration 7000 ms flag 1  // ~g~Take them to the Bitch'n' Dog Food Factory
 018A: $RADAR_BLIP_COORD2_MEAT2 = create_checkpoint_at 1205.688 -789.1875 -100.0 
 0004: $BLOB_FLAG = 1 
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 2
@@ -255,7 +255,7 @@ end //while
 if
 	0118:   actor $VICTIM2_MEAT2 dead
 then
-	00BC: print_now 'MEA2_2' time 5000 flag 1  // ~r~A thief's dead!
+	00BC: print_now 'MEA2_2' duration 5000 ms flag 1  // ~r~A thief's dead!
 	goto @MISSION_FAILED_MEAT2
 end
 
@@ -349,7 +349,7 @@ end
 02A3: toggle_widescreen 0 
 01B4: set_player $PLAYER_CHAR controllable 1 
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
-00BD: print_soon 'MEA2_B6' time 5000 flag 1  // ~g~Get the car resprayed to get rid of any evidence.
+00BD: print_soon 'MEA2_B6' duration 5000 ms flag 1  // ~g~Get the car resprayed to get rid of any evidence.
 02A8: $RADAR_BLIP_COORD3_MEAT2 = create_marker RADAR_SPRITE_SPRAY at 924.0 -361.0 10.0 
 0329:   garage $PORTLAND_PAYNSPRAY_GARAGE respray_done
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 3
@@ -368,7 +368,7 @@ while true
 end //while
 
 0164: disable_marker $RADAR_BLIP_COORD3_MEAT2 
-00BC: print_now 'MEA2_3' time 5000 flag 1  // ~g~Bring the car back to the factory.
+00BC: print_now 'MEA2_3' duration 5000 ms flag 1  // ~g~Bring the car back to the factory.
 018A: $RADAR_BLIP_COORD4_MEAT2 = create_checkpoint_at 1195.563 -805.0 13.6875 
 0004: $BLOB_FLAG = 1
 0004: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 4
@@ -386,7 +386,7 @@ while true
 		if
 			0038:   $FLAG_PLAYER_HAD_OUT_CAR_MESSAGE_MEAT2 == 0 
 		then
-			00BC: print_now 'OUT_VEH' time 5000 flag 1  // ~g~Get out of the vehicle!
+			00BC: print_now 'OUT_VEH' duration 5000 ms flag 1  // ~g~Get out of the vehicle!
 			0004: $FLAG_PLAYER_HAD_OUT_CAR_MESSAGE_MEAT2 = 1
 		end
 		0004: $FLAG_CAR_IN_ZONE2_MEAT2 = 1 
@@ -417,14 +417,14 @@ goto @MISSION_PASSED_MEAT2
 if
 	0119:   car $CAR_MEAT2 wrecked
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_MEAT2
 end
 if and
 	01F4:   car $CAR_MEAT2 flipped 
 	01C1:   car $CAR_MEAT2 stopped 
 then
-	00BC: print_now 'UPSIDE' time 5000 flag 1  // ~r~You flipped your wheels!
+	00BC: print_now 'UPSIDE' duration 5000 ms flag 1  // ~r~You flipped your wheels!
 	goto @MISSION_FAILED_MEAT2
 end
 return
@@ -436,7 +436,7 @@ if or
 	0118:   actor $VICTIM1_MEAT2 dead 
 	0118:   actor $VICTIM2_MEAT2 dead 
 then
-	00BC: print_now 'MEA2_2' time 5000 flag 1  // ~r~A thief's dead!
+	00BC: print_now 'MEA2_2' duration 5000 ms flag 1  // ~r~A thief's dead!
 	goto @MISSION_FAILED_MEAT2
 end
 return
@@ -448,7 +448,7 @@ if or
 	80FB:   not player $PLAYER_CHAR 0 $VICTIM1_MEAT2 radius 30.0 30.0 30.0 
 	80FB:   not player $PLAYER_CHAR 0 $VICTIM2_MEAT2 radius 30.0 30.0 30.0
 then
-	00BC: print_now 'MEA2_4' time 5000 flag 1  // ~r~You have left a thief behind!
+	00BC: print_now 'MEA2_4' duration 5000 ms flag 1  // ~r~You have left a thief behind!
 	goto @MISSION_FAILED_MEAT2
 end
 
@@ -459,8 +459,8 @@ if and
 	80DC:   not is_player_in_car $PLAYER_CHAR car $CAR_MEAT2 
 	0038:   $FLAG_PLAYER_HAD_CAR_MESSAGE_MEAT2 == 0 
 then
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
-	0186: $RADAR_BLIP_CAR_MEAT2 = create_marker_above_car $CAR_MEAT2 
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
+	0186: $RADAR_BLIP_CAR_MEAT2 = create_marker_above_car $CAR_MEAT2
 	if
 		0038: $CURRENT_STEP_FOR_BLIP_MANIPULATION = 1
 	then
@@ -502,7 +502,7 @@ then
 			if 
 				0038:   $CURRENT_STEP_FOR_BLIP_MANIPULATION == 3
 			then
-				02A8: $RADAR_BLIP_COORD3_MEAT2 = create_marker RADAR_SPRITE_SPRAY at 924.0 -361.0 10.0 
+				02A8: $RADAR_BLIP_COORD3_MEAT2 = create_marker RADAR_SPRITE_SPRAY at 924.0 -361.0 10.0
 			else // ==4
 				018A: $RADAR_BLIP_COORD4_MEAT2 = create_checkpoint_at 1195.563 -805.0 13.6875
 			end
@@ -519,7 +519,7 @@ return
 
 :MISSION_FAILED_MEAT2
 
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_MEAT2
 
 /////////////////////////////////////////////
@@ -527,9 +527,9 @@ goto @MISSION_END_MEAT2
 // Mission Passed
 
 :MISSION_PASSED_MEAT2
-01E3: text_1number_styled 'M_PASS' number 3000 time 5000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 3000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0318: set_latest_mission_passed 'MEA2'  // 'THE THIEVES'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 2000 
 0004: $THE_THIEVES_COMPLETED = 1 

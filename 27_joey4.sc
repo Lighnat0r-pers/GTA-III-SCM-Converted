@@ -69,7 +69,7 @@ while true
 	wait 0 ms
 end //while
 
-00A5: create_car #MAFIA at 1189.688 -864.25 14.0625 store_to $TONIS_RIDE 
+00A5: $TONIS_RIDE = create_car #MAFIA at 1189.688 -864.25 14.0625
 0004: $TONIS_CAR_CREATED_BEFORE = 1 
 0175: set_car $TONIS_RIDE z_angle_to -142.0 
 041E: set_radio_station DOUBLE_CLEFF_FM -1
@@ -90,9 +90,9 @@ end //while
 
 02E4: load_cutscene_data 'J4_ETH' 
 0244: set_cutscene_pos 1190.063 -869.8125 13.9375 
-00A5: create_car #IDAHO at 1182.5 -857.0 14.0625 store_to $CUT_CAR2_LM3 
+00A5: $CUT_CAR2_LM3 = create_car #IDAHO at 1182.5 -857.0 14.0625
 0175: set_car $CUT_CAR2_LM3 z_angle_to 291.1875 
-00A5: create_car #STALLION at 1192.875 -860.75 14.0 store_to $CUT_CAR3_LM3 
+00A5: $CUT_CAR3_LM3 = create_car #STALLION at 1192.875 -860.75 14.0
 0175: set_car $CUT_CAR3_LM3 z_angle_to 150.0 
 02E5: $CUTSCENE_PLAYER = create_cutscene_object #NULL 
 02E6: set_cutscene_anim $CUTSCENE_PLAYER 'PLAYER' 
@@ -139,37 +139,37 @@ while 001A:   1 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM4_A' time 10000 flag 1  // Yeah, I know Toni, I've tuned her real sweet. She purrs, you know what I mean?
+00BC: print_now 'JM4_A' duration 10000 ms flag 1  // Yeah, I know Toni, I've tuned her real sweet. She purrs, you know what I mean?
 while 001A:   4000 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM4_B' time 10000 flag 1  // Oh! Here's the guy I was telling you about!
+00BC: print_now 'JM4_B' duration 10000 ms flag 1  // Oh! Here's the guy I was telling you about!
 while 001A:   6180 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM4_C' time 10000 flag 1  // Alright Listen. This guy ain't Italian and he's no mechanic but he can get things fixed.
+00BC: print_now 'JM4_C' duration 10000 ms flag 1  // Alright Listen. This guy ain't Italian and he's no mechanic but he can get things fixed.
 while 001A:   10230 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM4_D' time 10000 flag 1  // This is Pops Capo, Toni Cipriani.
+00BC: print_now 'JM4_D' duration 10000 ms flag 1  // This is Pops Capo, Toni Cipriani.
 while 001A:   13040 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM4_E' time 10000 flag 1  // Yeah, I'm Toni Cipriani
+00BC: print_now 'JM4_E' duration 10000 ms flag 1  // Yeah, I'm Toni Cipriani
 while 001A:   15110 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM4_F' time 10000 flag 1  // Take him to Momma's restaurant at St Marks, alright.
+00BC: print_now 'JM4_F' duration 10000 ms flag 1  // Take him to Momma's restaurant at St Marks, alright.
 while 001A:   18080 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
 end
-00BC: print_now 'JM4_G' time 10000 flag 1  // Now listen to me, I'm planning a job that needs a good driver so drop by sometime later Ok?
+00BC: print_now 'JM4_G' duration 10000 ms flag 1  // Now listen to me, I'm planning a job that needs a good driver so drop by sometime later Ok?
 while 001A:   23511 > $CUT_SCENE_TIME
 	wait 0 ms
 	02E8: $CUT_SCENE_TIME = cutscenetime 
@@ -191,7 +191,7 @@ end
 if
 	 8119:   not car $TONIS_RIDE wrecked
 then
-	01C8: $TONI_CIPRIANI = create_actor_pedtype PEDTYPE_SPECIAL model #SPECIAL02 in_car $TONIS_RIDE passenger_seat 0 
+	01C8: $TONI_CIPRIANI = create_actor PEDTYPE_SPECIAL model #SPECIAL02 in_car $TONIS_RIDE passenger_seat 0 
 	01ED: clear_actor $TONI_CIPRIANI threat_search 
 	039E: set_char_cant_be_dragged_out $TONI_CIPRIANI to 1 
 	035F: set_actor $TONI_CIPRIANI armour_to 100 
@@ -225,7 +225,7 @@ while 83D0:   not wav_loaded
 end
 
 03D1: play_wav 
-00BC: print_now 'JM4_10' time 5000 flag 1  // OK, Kid. Drive me to the laundry in Chinatown first, I got a bit of business to take care of.
+00BC: print_now 'JM4_10' duration 5000 ms flag 1  // OK, Kid. Drive me to the laundry in Chinatown first, I got a bit of business to take care of.
 
 //CAR DRIVING OUT OF GARAGE CUT SCENE
 
@@ -260,7 +260,7 @@ while 81AD:   not car $TONIS_RIDE sphere 0 near_point 1198.5 -871.375 radius 2.0
 			gosub @CHECK_TONI_STATUS_JOEY4
 		end //while
 		03D1: play_wav 
-		00BC: print_now 'JM4_11' time 5000 flag 1  // Those washer women aint been payin' their protection money.
+		00BC: print_now 'JM4_11' duration 5000 ms flag 1  // Those washer women aint been payin' their protection money.
 		while 83D2:   not wav_ended
 			wait 0 ms
 			gosub @CHECK_TONI_STATUS_JOEY4
@@ -278,7 +278,7 @@ while 83D0:   not wav_loaded
 end //while
 
 03D1: play_wav 
-00BC: print_now 'JM4_12' time 5000 flag 1  // And watch the car, Joey just fixed this junk heap.
+00BC: print_now 'JM4_12' duration 5000 ms flag 1  // And watch the car, Joey just fixed this junk heap.
 01BB: store_object $JOEY_DOOR1 position_to $JOEYDOOR1_X $JOEYDOOR1_Y $JOEYDOOR1_Z 
 01BB: store_object $JOEY_DOOR2 position_to $JOEYDOOR2_X $JOEYDOOR2_Y $JOEYDOOR2_Z 
 000D: $JOEYDOOR1_Z -= 3.0 
@@ -307,7 +307,7 @@ while 83D0:   not wav_loaded
 end //while
 
 03D1: play_wav 
-00BC: print_now 'JM4_13' time 5000 flag 1  // So no fancy crap, OK?
+00BC: print_now 'JM4_13' duration 5000 ms flag 1  // So no fancy crap, OK?
 
 while 83D2:   not wav_ended
 	wait 0 ms
@@ -342,15 +342,15 @@ while true
 	wait 0 ms
 end //while
 
-022B: create_forbidden_for_peds_cube 824.875 -633.75 13.0 845.25 -693.75 18.0 
+022B: switch_ped_roads_off 824.875 -633.75 13.0 to 845.25 -693.75 18.0 
 01E8: switch_roads_off 824.875 -633.75 13.0 to 845.25 -693.75 18.0 
 0395: clear_area 1 at 843.375 -663.75 range 15.0 10.0 
 018A: $JOEY4_LAUNDRY_MARKER = create_checkpoint_at 843.0 -660.0 -100.0 
 018B: show_on_radar $JOEY4_LAUNDRY_MARKER BLIP_ONLY
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG03 at 850.0 -663.0 14.6875 store_to $JOEY4_TRIAD1 
+009A: $JOEY4_TRIAD1 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 850.0 -663.0 14.6875
 01ED: clear_actor $JOEY4_TRIAD1 threat_search 
 02AB: set_actor $JOEY4_TRIAD1 immunities BP 1 FP 1 EP 1 CP 1 MP 1 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 850.0 -664.6875 14.6875 store_to $JOEY4_TRIAD2 
+009A: $JOEY4_TRIAD2 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 850.0 -664.6875 14.6875
 01ED: clear_actor $JOEY4_TRIAD2 threat_search 
 02AB: set_actor $JOEY4_TRIAD2 immunities BP 1 FP 1 EP 1 CP 1 MP 1 
 020E: actor $JOEY4_TRIAD1 look_at_actor $JOEY4_TRIAD2 
@@ -375,7 +375,7 @@ while true
 		8185:   not car $TONIS_RIDE health >= 900 
 		0038:   $TONI_ABUSE1_DONE_BEFORE == 0
 	then
-		00BC: print_now 'JM4_6' time 5000 flag 1  // Hey watch the car! I said no fancy crap.
+		00BC: print_now 'JM4_6' duration 5000 ms flag 1  // Hey watch the car! I said no fancy crap.
 		03D1: play_wav 
 		0004: $TONI_ABUSE1_DONE_BEFORE = 1
 	end
@@ -386,12 +386,12 @@ while true
 			010F:   player $PLAYER_CHAR wanted_level > 0
 			0038:   $FLAG_DISPLAYED_WANTED_MESSAGE_JM4 == 0
 		then
-			00BC: print_now 'WANTED1' time 3000 flag 1  // ~g~Shake the cops and lose your wanted level!
+			00BC: print_now 'WANTED1' duration 3000 ms flag 1  // ~g~Shake the cops and lose your wanted level!
 			0004: $FLAG_DISPLAYED_WANTED_MESSAGE_JM4 = 1
 		end
 	else
 		if
-			8057:   not player $PLAYER_CHAR coords 839.1875 -667.375 14.0 to 842.0625 -673.875 17.0 sphere 0 
+			8057:   not is_player_in_area_3d $PLAYER_CHAR coords 839.1875 -667.375 14.0 to 842.0625 -673.875 17.0 sphere 0 
 		then
 			0004: $FLAG_DISPLAYED_WANTED_MESSAGE_JM4 = 0
 		end
@@ -403,7 +403,7 @@ end //while
 01B4: set_player $PLAYER_CHAR controllable 0 
 02A3: toggle_widescreen 1 
 015F: set_camera_position 825.5625 -680.5625 16.5625 0.0 rotation 0.0 0.0 
-0160: point_camera 826.3125 -679.875 16.5 switchstyle 2 
+0160: point_camera 826.3125 -679.875 16.5 switchstyle JUMP_CUT
 03CF: load_wav 'J4_B'
 
 while 83D0:   not wav_loaded
@@ -425,7 +425,7 @@ then
 end
 
 03D1: play_wav 
-00BC: print_now 'JM4_2' time 5000 flag 1  // Wait here! Keep the engine running. This ain't a social call.
+00BC: print_now 'JM4_2' duration 5000 ms flag 1  // Wait here! Keep the engine running. This ain't a social call.
 0395: clear_area 1 at 843.375 -663.75 range 15.0 10.0 
 0001: wait 4000 ms 
 
@@ -519,7 +519,7 @@ then
 end
 
 0001: wait 5000 ms 
-018C: play_sound 0 at 845.0 -663.0 14.0 
+018C: play_sound sound_test_1 at 845.0 -663.0 14.0 
 0176: $DOOR1_POSITION_JM4 = object $LAUNDRY_DOOR1 z_angle 
 0176: $DOOR2_POSITION_JM4 = object $LAUNDRY_DOOR2 z_angle
 
@@ -531,8 +531,8 @@ if or
 	8118:   not actor $JOEY4_TRIAD1 dead 
 	8118:   not actor $JOEY4_TRIAD2 dead
 then
-	01B2: give_actor $JOEY4_TRIAD1 weapon 2 ammo 100 
-	01B2: give_actor $JOEY4_TRIAD2 weapon 2 ammo 100
+	01B2: give_actor $JOEY4_TRIAD1 weapon WEAPONTYPE_PISTOL ammo 100 
+	01B2: give_actor $JOEY4_TRIAD2 weapon WEAPONTYPE_PISTOL ammo 100
 end
 
 0319: set_actor $TONI_CIPRIANI running 1
@@ -635,15 +635,15 @@ while 80DB:   not is_char_in_car $TONI_CIPRIANI car $TONIS_RIDE
 	gosub @CHECK_VEHICLE_FLIPPED_STATUS_JOEY4
 end //while
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG03 at 843.0625 -689.0 13.875 store_to $JOEY4_TRIAD3 
+009A: $JOEY4_TRIAD3 = create_char PEDTYPE_GANG_TRIAD model #GANG03 at 843.0625 -689.0 13.875
 01B2: give_actor $JOEY4_TRIAD3 weapon WEAPONTYPE_PISTOL ammo 100 
 01CA: actor $JOEY4_TRIAD3 kill_player $PLAYER_CHAR 
-011A: set_actor $JOEY4_TRIAD3 search_threat 1 
+011A: set_actor $JOEY4_TRIAD3 search_threat THREAT_PLAYER1 
 
-009A: create_char PEDTYPE_GANG_TRIAD model #GANG04 at 844.25 -634.75 13.875 store_to $JOEY4_TRIAD4 
+009A: $JOEY4_TRIAD4 = create_char PEDTYPE_GANG_TRIAD model #GANG04 at 844.25 -634.75 13.875
 01B2: give_actor $JOEY4_TRIAD4 weapon WEAPONTYPE_PISTOL ammo 100 
 01CA: actor $JOEY4_TRIAD4 kill_player $PLAYER_CHAR 
-011A: set_actor $JOEY4_TRIAD4 search_threat 1
+011A: set_actor $JOEY4_TRIAD4 search_threat THREAT_PLAYER1
 
 if
 	8118:   not actor $TONI_CIPRIANI dead
@@ -669,7 +669,7 @@ while 83D0: not wav_loaded
 end
 
 03D1: play_wav 
-00BC: print_now 'JM4_3' time 4000 flag 1  // It's a Triad ambush! Get us out of here kid!
+00BC: print_now 'JM4_3' duration 4000 ms flag 1  // It's a Triad ambush! Get us out of here kid!
 01F7: set_player $PLAYER_CHAR ignored_by_cops_state_to 0 
 018A: $JOEY4_MOMMAS_MARKER = create_checkpoint_at 1216.75 -327.5625 -100.0 
 018B: show_on_radar $JOEY4_MOMMAS_MARKER 2
@@ -699,13 +699,13 @@ end //while
 if
 	8118:   not actor $JOEY4_TRIAD1 dead
 then
-	011A: set_actor $JOEY4_TRIAD1 search_threat 1
+	011A: set_actor $JOEY4_TRIAD1 search_threat THREAT_PLAYER1
 end
 
 if
 	8118:   not actor $JOEY4_TRIAD2 dead
 then
-	011A: set_actor $JOEY4_TRIAD2 search_threat 1
+	011A: set_actor $JOEY4_TRIAD2 search_threat THREAT_PLAYER1
 end
 
 0395: clear_area 1 at 1216.688 -328.0625 range 26.0 6.0 
@@ -766,12 +766,12 @@ while true
 			010F:   player $PLAYER_CHAR wanted_level > 0
 			0038:   $FLAG_DISPLAYED_WANTED_MESSAGE_JM4 == 0
 		then
-			00BC: print_now 'WANTED1' time 3000 flag 1  // ~g~Shake the cops and lose your wanted level!
+			00BC: print_now 'WANTED1' duration 3000 ms flag 1  // ~g~Shake the cops and lose your wanted level!
 			0004: $FLAG_DISPLAYED_WANTED_MESSAGE_JM4 = 1
 		end
 	else
 		if
-			8057:   not player $PLAYER_CHAR coords 1215.0 -326.875 25.0 to 1220.188 -330.5 27.0 sphere 0 
+			8057:   not is_player_in_area_3d $PLAYER_CHAR coords 1215.0 -326.875 25.0 to 1220.188 -330.5 27.0 sphere 0 
 		then
 			0004: $FLAG_DISPLAYED_WANTED_MESSAGE_JM4 = 0
 		end
@@ -805,7 +805,7 @@ while 83D0: not wav_loaded
 end
 
 03D1: play_wav 
-00BC: print_now 'JM4_4' time 4000 flag 1  // The Triads think they can mess with me, the triads, with ME!
+00BC: print_now 'JM4_4' duration 4000 ms flag 1  // The Triads think they can mess with me, the triads, with ME!
 
 while 83D2:   not wav_ended
 	wait 0 ms
@@ -820,7 +820,7 @@ while 83D0: not wav_loaded
 end
 
 03D1: play_wav 
-00BC: print_now 'JM4_5' time 5000 flag 1  // Drop by later and we'll give them something to launder, their own blood stained clothes!
+00BC: print_now 'JM4_5' duration 5000 ms flag 1  // Drop by later and we'll give them something to launder, their own blood stained clothes!
 
 while 83D2:   not wav_ended
 	wait 0 ms
@@ -883,7 +883,7 @@ gosub @CHECK_JUST_TONI_STATUS_JOEY4
 0395: clear_area 1 at 1219.5 -315.375 range 29.875 2.0 
 0211: actor $TONI_CIPRIANI walk_to 1219.5 -318.5625 
 0394: play_mission_passed_music 1 
-01E3: text_1number_styled 'M_PASS' number 3000 time 7000 style 1  // MISSION PASSED! $~1~
+01E3: text_1number_styled 'M_PASS' number 3000 duration 7000 ms style 1  // MISSION PASSED! $~1~
 0110: clear_player $PLAYER_CHAR wanted_level 
 0109: player $PLAYER_CHAR money += 3000 
 
@@ -914,7 +914,7 @@ goto @MISSION_PASSED_JOEY4
 if
 	0119:   car $TONIS_RIDE wrecked 
 then
-	00BC: print_now 'JM4_8' time 5000 flag 1  // ~r~Toni's been wasted!
+	00BC: print_now 'JM4_8' duration 5000 ms flag 1  // ~r~Toni's been wasted!
 	goto @MISSION_FAILED_JOEY4
 end
 gosub @CHECK_VEHICLE_FLIPPED_STATUS_JOEY4
@@ -937,7 +937,7 @@ if and
 	01F4:   car $TONIS_RIDE flipped 
 	01C1:   car $TONIS_RIDE stopped
 then
-	00BC: print_now 'WRECKED' time 5000 flag 1  // ~r~The vehicle is wrecked!
+	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_JOEY4
 end
 
@@ -948,7 +948,7 @@ if or
 	0119:   car $TONIS_RIDE wrecked 
 	0118:   actor $TONI_CIPRIANI dead
 then
-	00BC: print_now 'JM4_8' time 5000 flag 1  // ~r~Toni's been wasted!
+	00BC: print_now 'JM4_8' duration 5000 ms flag 1  // ~r~Toni's been wasted!
 	goto @MISSION_FAILED_JOEY4
 end
 return
@@ -959,7 +959,7 @@ return
 if
 	0118:   actor $TONI_CIPRIANI dead
 then
-	00BC: print_now 'JM4_8' time 5000 flag 1  // ~r~Toni's been wasted!
+	00BC: print_now 'JM4_8' duration 5000 ms flag 1  // ~r~Toni's been wasted!
 	goto @MISSION_FAILED_JOEY4
 end
 return
@@ -980,7 +980,7 @@ then
 	else
 		0164: disable_marker $JOEY4_MOMMAS_MARKER 
 	end
-	00BC: print_now 'IN_VEH' time 5000 flag 1  // ~g~Hey! Get back in the vehicle!
+	00BC: print_now 'IN_VEH' duration 5000 ms flag 1  // ~g~Hey! Get back in the vehicle!
 	0004: $FLAG_CAR_BLIP_DISPLAYED_JM4 = 1 
 end
 if and
@@ -1006,7 +1006,7 @@ return
 // Mission Failed
 
 :MISSION_FAILED_JOEY4
-00BA: print_big 'M_FAIL' time 5000 style 1  // MISSION FAILED!
+00BA: print_big 'M_FAIL' duration 5000 ms style 1  // MISSION FAILED!
 goto @MISSION_END_JOEY4
 
 /////////////////////////////////////////
@@ -1016,7 +1016,7 @@ goto @MISSION_END_JOEY4
 :MISSION_PASSED_JOEY4
 0004: $CIPRIANIS_CHAUFFEUR_COMPLETED = 1 
 0318: set_latest_mission_passed 'JM4'  // 'CIPRIANI'S CHAUFFEUR'
-030C: progress_made = 1 
+030C: set_mission_points += 1 
 02A7: $TONI_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_TONY at 1219.563 -321.0 26.375 
 0215: destroy_pickup $SHOP_UZI 
 0213: $AMMUNATION_UZI_PICKUP = create_pickup #UZI type PICKUP_IN_SHOP at 1070.5 -400.75 15.1875 
@@ -1038,8 +1038,8 @@ goto @MISSION_END_JOEY4
 0249: release_model #MAFIA 
 0249: release_model #GANG03 
 0249: release_model #GANG04 
-022A: remove_forbidden_for_peds_cube 824.875 -633.75 13.0 845.25 -693.75 18.0 
-01E7: remove_forbidden_for_cars_cube 824.875 -633.75 13.0 845.25 -693.75 18.0 
+022A: switch_ped_roads_on 824.875 -633.75 13.0 to 845.25 -693.75 18.0 
+01E7: switch_roads_on 824.875 -633.75 13.0 to 845.25 -693.75 18.0 
 0296: unload_special_actor 2 
 014C: set_parked_car_generator $GEN_CAR14 cars_to_generate_to 101 
 034F: destroy_actor_with_fade $TONI_CIPRIANI 
