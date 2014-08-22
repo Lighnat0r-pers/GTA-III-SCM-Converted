@@ -639,7 +639,7 @@ then
 end
 
 if
-	0004: $FLAG_TAXI2_EXIT_CAR_FM2 = 1
+	0038:   $FLAG_TAXI2_EXIT_CAR_FM2 == 1
 then
 	01D3: actor $CURLY_BOB_FM2 leave_car $CAR_FM2 
 	while 00DB:   is_char_in_car $CURLY_BOB_FM2 car $CAR_FM2
@@ -678,7 +678,7 @@ then
 end
 
 if
-	0004: $FLAG_TAXI1_EXIT_CAR_FM2 = 1
+	0038:   $FLAG_TAXI1_EXIT_CAR_FM2 == 1
 then
 	01D3: actor $CURLY_BOB_FM2 leave_car $MISSION_TAXI_FM2 
 	while 00DB:   is_char_in_car $CURLY_BOB_FM2 car $MISSION_TAXI_FM2
