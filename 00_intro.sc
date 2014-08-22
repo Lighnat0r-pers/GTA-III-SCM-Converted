@@ -1053,36 +1053,30 @@ end
 0249: release_model #NEWDOCKBUILDING2 
 0249: release_model #NEWDOCKBUILDING 
 0249: release_model #BLOCK4_SCRAPERL0 
-0249: release_model #LODRIDGCABLS01 
-03B6: replace_model_at 525.3125 -927.0625 71.8125 radius 20.0 from #NBBRIDGCABLS01 to #NBBRIDGFK2 
-03B6: replace_model_at 706.375 -935.8125 67.0625 radius 20.0 from #NBBRIDGCABLS01 to #NBBRIDGFK2 
-03B6: replace_model_at 529.0 -920.0625 43.5 radius 20.0 from #NBBRIDGERDB to #DAMGBRIDGERDB 
-03B6: replace_model_at 702.75 -939.9375 38.6875 radius 20.0 from #NBBRIDGERDB to #DAMGBRIDGERDB 
-03B6: replace_model_at 529.0 -942.9375 43.5 radius 20.0 from #NBBRIDGERDA to #DAMGBBRIDGERDA 
-03B6: replace_model_at 702.75 -919.9375 38.6875 radius 20.0 from #NBBRIDGERDA to #DAMGBBRIDGERDA 
-03B6: replace_model_at 525.3125 -927.0625 71.8125 radius 20.0 from #LODRIDGCABLS01 to #LODRIDGFK2 
-03B6: replace_model_at 706.375 -935.8125 67.0625 radius 20.0 from #LODRIDGCABLS01 to #LODRIDGFK2 
-03B6: replace_model_at 521.125 -922.9375 43.5 radius 20.0 from #LODRIDGERDB to #LODGBRIDGERDB 
-03B6: replace_model_at 702.75 -939.9375 38.6875 radius 20.0 from #LODRIDGERDB to #LODGBRIDGERDB 
-03B6: replace_model_at 529.0 -940.0625 43.5 radius 20.0 from #LODRIDGERDA to #LODGBBRIDGERDA 
-03B6: replace_model_at 702.75 -919.9375 38.6875 radius 20.0 from #LODRIDGERDA to #LODGBBRIDGERDA 
-029B: $BROKEN_BRIDGE_REMAINS = init_object #BRIDGEFUKA at 715.6875 -937.875 40.1875 
-029B: $BROKEN_BRIDGE_POLICE_CARS = init_object #BRIDGEFUKB at 787.8125 -939.1875 38.9375 
+0249: release_model #LODRIDGCABLS01
+if
+	0038:   $DEBUGUNLOCKISLANDS == 0
+then
+	03B6: replace_model_at 525.3125 -927.0625 71.8125 radius 20.0 from #NBBRIDGCABLS01 to #NBBRIDGFK2 
+	03B6: replace_model_at 706.375 -935.8125 67.0625 radius 20.0 from #NBBRIDGCABLS01 to #NBBRIDGFK2 
+	03B6: replace_model_at 529.0 -920.0625 43.5 radius 20.0 from #NBBRIDGERDB to #DAMGBRIDGERDB 
+	03B6: replace_model_at 702.75 -939.9375 38.6875 radius 20.0 from #NBBRIDGERDB to #DAMGBRIDGERDB 
+	03B6: replace_model_at 529.0 -942.9375 43.5 radius 20.0 from #NBBRIDGERDA to #DAMGBBRIDGERDA 
+	03B6: replace_model_at 702.75 -919.9375 38.6875 radius 20.0 from #NBBRIDGERDA to #DAMGBBRIDGERDA 
+	03B6: replace_model_at 525.3125 -927.0625 71.8125 radius 20.0 from #LODRIDGCABLS01 to #LODRIDGFK2 
+	03B6: replace_model_at 706.375 -935.8125 67.0625 radius 20.0 from #LODRIDGCABLS01 to #LODRIDGFK2 
+	03B6: replace_model_at 521.125 -922.9375 43.5 radius 20.0 from #LODRIDGERDB to #LODGBRIDGERDB 
+	03B6: replace_model_at 702.75 -939.9375 38.6875 radius 20.0 from #LODRIDGERDB to #LODGBRIDGERDB 
+	03B6: replace_model_at 529.0 -940.0625 43.5 radius 20.0 from #LODRIDGERDA to #LODGBBRIDGERDA 
+	03B6: replace_model_at 702.75 -919.9375 38.6875 radius 20.0 from #LODRIDGERDA to #LODGBBRIDGERDA 
+	029B: $BROKEN_BRIDGE_REMAINS = init_object #BRIDGEFUKA at 715.6875 -937.875 40.1875 
+	029B: $BROKEN_BRIDGE_POLICE_CARS = init_object #BRIDGEFUKB at 787.8125 -939.1875 38.9375 
+end
 0055: set_player_coordinates $PLAYER_CHAR to 811.875 -939.9375 35.75 
 0171: set_player $PLAYER_CHAR z_angle_to 180.0 
 03B7: process_cut_scene_only 1 
 03AF: set_streaming 1 
 03F0: enable_text_draw 0 
-
-// Removed by R*
-// 02A2: create_particle 4 1 at 791.661 -936.916 38.313 //SMOKE ON CARS
-// 02A2: create_particle 4 1 at 788.337 -938.467 38.073
-// 02A2: create_particle 4 1 at 786.493 -942.398 39.8
-//
-// 02A2: create_particle 10 1 at 783.572 -938.549 38.448 //FIRE ON CARS
-// 02A2: create_particle 10 1 at 790.537 -935.67  38.005
-// 02A2: create_particle 10 1 at 789.295 -938.882 38.127
-
 0006: 16@ = 6001 
 gosub @DO_BRIDGE_PARTICLES
 
@@ -1107,25 +1101,6 @@ then
 	01BE: set_actor $EIGHTBALL to_look_at_spot 811.875 -939.9375 35.75 
 	022D: set_actor $EIGHTBALL to_look_at_player $PLAYER_CHAR 
 	0355: clean_up_chase_scene 
-	// Removed by R*
-	// 040A: remove_car_from_chase 0
-	// 040A: remove_car_from_chase 3
-	// 040A: remove_car_from_chase 4
-	// 040A: remove_car_from_chase 5
-	// 040A: remove_car_from_chase 6
-	// 040A: remove_car_from_chase 7
-	// 040A: remove_car_from_chase 8
-	// 040A: remove_car_from_chase 9
-	// 040A: remove_car_from_chase 10
-	// 040A: remove_car_from_chase 11
-	// 040A: remove_car_from_chase 12
-	// 040A: remove_car_from_chase 13
-	// 040A: remove_car_from_chase 14
-	// 040A: remove_car_from_chase 15
-	// 040A: remove_car_from_chase 16
-	// 040A: remove_car_from_chase 17
-	// 040A: remove_car_from_chase 18
-	// 040A: remove_car_from_chase 19
 	0249: release_model #LODRIDGSPPRT01 
 	0249: release_model #LODOM_ROADKB01 
 	0249: release_model #LODRIDGERDA 
@@ -1229,7 +1204,6 @@ then
 end
 
 0373: set_camera_directly_behind_player
-//  0296: unload_special_actor 1 // Removed by R*
 0296: unload_special_actor 2 
 0296: unload_special_actor 3 
 0296: unload_special_actor 4 

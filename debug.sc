@@ -27,6 +27,7 @@ wait 1000 ms
 if
 	0038:   $MASTERDEBUG == 1  
 then
+	0004: $DEBUGUNLOCKISLANDS = 1
 	0109: player $PLAYER_CHAR money += 10000000
 	004F: create_thread @COORDS			// Enable if you need coordinates display in DEBUG mode
 	004F: create_thread @MEAT_MISSION1_LOOP			//THE CROOK

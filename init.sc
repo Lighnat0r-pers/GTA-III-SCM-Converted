@@ -89,9 +89,9 @@ then
 	01C7: remove_object_from_mission_cleanup_list $FIXED_INSIDE 
 	029B: $FIXED_OUTSIDE = init_object #FIXED_OUTSIDE at 360.8125 -391.375 22.5625 
 	01C7: remove_object_from_mission_cleanup_list $FIXED_OUTSIDE 
+	0363: toggle_model_render_at 1027.25 -933.75 15.0 radius 50.0 object #INDHELIX_BARRIER 0 
+	03B6: replace_model_at 1027.25 -933.75 15.0 radius 50.0 from #INDHELIX_BARRIER to #LOD_LAND014 
 end
-0363: toggle_model_render_at 1027.25 -933.75 15.0 radius 50.0 object #INDHELIX_BARRIER 0 
-03B6: replace_model_at 1027.25 -933.75 15.0 radius 50.0 from #INDHELIX_BARRIER to #LOD_LAND014 
 return
 
 :INIT_SPECIAL_OBJECTS

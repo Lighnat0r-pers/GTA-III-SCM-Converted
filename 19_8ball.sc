@@ -84,8 +84,9 @@ then
 else
 	goto @HIDEOUT_REACHED
 end
-if
+if and
 	0038:   $BROKEN_BRIDGE_OBJECTS_INITIALIZED == 0 
+	8038:   not $DEBUGUNLOCKISLANDS == 1
 then
 	029B: $BROKEN_BRIDGE_REMAINS = init_object #BRIDGEFUKA at 715.6875 -937.875 40.1875 
 	01C7: remove_object_from_mission_cleanup_list $BROKEN_BRIDGE_REMAINS 
@@ -634,9 +635,13 @@ then
 	03AE: remove_objects_from_cube 804.0 -948.0 30.0 to 765.125 -924.3125 50.0 
 	018E: stop_sound $FIRE_SOUND_8BALL 
 	0108: destroy_object $BROKEN_BRIDGE_REMAINS 
-	0108: destroy_object $BROKEN_BRIDGE_POLICE_CARS 
-	03B6: replace_model_at 1027.25 -933.75 15.0 radius 50.0 from #LOD_LAND014 to #INDHELIX_BARRIER 
-	0363: toggle_model_render_at 1027.25 -933.75 15.0 radius 50.0 object #INDHELIX_BARRIER 1 
+	0108: destroy_object $BROKEN_BRIDGE_POLICE_CARS
+	if
+		0038:   $DEBUGUNLOCKISLANDS == 0
+	then 
+		03B6: replace_model_at 1027.25 -933.75 15.0 radius 50.0 from #LOD_LAND014 to #INDHELIX_BARRIER 
+		0363: toggle_model_render_at 1027.25 -933.75 15.0 radius 50.0 object #INDHELIX_BARRIER 1 
+	end
 	0004: $FLAG_REACHED_HIDEOUT = 1 
 end
 

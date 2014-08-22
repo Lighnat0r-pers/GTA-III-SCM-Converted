@@ -157,8 +157,9 @@ while true
 	wait 0 ms
 end //while
 
-if
-	0038:   $BARRIERS_BEEN_ADDED == 0 
+if and
+	0038:   $BARRIERS_BEEN_ADDED == 0
+	0038:   $DEBUGUNLOCKISLANDS == 0 
 then
 	029B: $SUBWAY_GATE2 = init_object #SUBWAYGATE at -672.0 -760.0 8.25 
 	01C7: remove_object_from_mission_cleanup_list $SUBWAY_GATE2 
