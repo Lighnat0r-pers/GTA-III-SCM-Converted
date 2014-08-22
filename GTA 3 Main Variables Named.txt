@@ -67745,7 +67745,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :ASUKA4_1047
 00D6: if or
 80F6:   not player $PLAYER_CHAR 0 229.1875 -1537.563 26.0 radius 1.0 1.0 3.0 
-8447:   not (unknown) $PLAYER_CHAR 
+8447:   not is_player_lifting_a_phone $PLAYER_CHAR 
 004D: goto_if_false @ASUKA4_1139 
 0001: wait 0 ms 
 00D6: if 
@@ -67776,7 +67776,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :ASUKA4_1219
 00D6: if 
-0447: (unknown) $PLAYER_CHAR 
+0447:    is_player_lifting_a_phone $PLAYER_CHAR 
 004D: goto_if_false @ASUKA4_1246 
 0001: wait 0 ms 
 0002: goto @ASUKA4_1219 
@@ -67794,7 +67794,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :ASUKA4_1302
 00D6: if or
 80F6:   not player $PLAYER_CHAR 0 -53.5 -699.0625 26.0 radius 1.0 1.0 3.0 
-8447:   not (unknown) $PLAYER_CHAR 
+8447:   not is_player_lifting_a_phone $PLAYER_CHAR 
 004D: goto_if_false @ASUKA4_1394 
 0001: wait 0 ms 
 00D6: if 
@@ -67825,7 +67825,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :ASUKA4_1474
 00D6: if 
-0447: (unknown) $PLAYER_CHAR 
+0447:    is_player_lifting_a_phone $PLAYER_CHAR 
 004D: goto_if_false @ASUKA4_1501 
 0001: wait 0 ms 
 0002: goto @ASUKA4_1474 
@@ -67843,7 +67843,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :ASUKA4_1557
 00D6: if or
 80F6:   not player $PLAYER_CHAR 0 204.75 -135.0 16.0 radius 1.0 1.0 3.0 
-8447:   not (unknown) $PLAYER_CHAR 
+8447:   not is_player_lifting_a_phone $PLAYER_CHAR 
 004D: goto_if_false @ASUKA4_1649 
 0001: wait 0 ms 
 00D6: if 
@@ -67874,7 +67874,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :ASUKA4_1729
 00D6: if 
-0447: (unknown) $PLAYER_CHAR 
+0447:    is_player_lifting_a_phone $PLAYER_CHAR 
 004D: goto_if_false @ASUKA4_1756 
 0001: wait 0 ms 
 0002: goto @ASUKA4_1729 
@@ -67892,7 +67892,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :ASUKA4_1812
 00D6: if or
 80F6:   not player $PLAYER_CHAR 0 60.25 -964.75 26.0625 radius 1.0 1.0 3.0 
-8447:   not (unknown) $PLAYER_CHAR 
+8447:   not is_player_lifting_a_phone $PLAYER_CHAR 
 004D: goto_if_false @ASUKA4_1904 
 0001: wait 0 ms 
 00D6: if 
@@ -67923,7 +67923,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :ASUKA4_1984
 00D6: if 
-0447: (unknown) $PLAYER_CHAR 
+0447:    is_player_lifting_a_phone $PLAYER_CHAR 
 004D: goto_if_false @ASUKA4_2011 
 0001: wait 0 ms 
 0002: goto @ASUKA4_1984 
