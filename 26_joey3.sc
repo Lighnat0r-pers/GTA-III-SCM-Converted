@@ -279,19 +279,25 @@ while true
 		0006: 17@ = 0 
 		041C: make_actor $JOEY3_VAN_PASSENGER say SOUND_SECURITY_GUARD_RUN_AWAY_SHOUT
 	end
-	if and
+	if
 		0038:   $IN_THE_LOCATE_JOEY3 == 0
-		00F7:   player $PLAYER_CHAR sphere 1 near_point_in_car 1445.0 -811.5 11.75 radius 4.0 6.0 4.0
 	then
-		0110: clear_player $PLAYER_CHAR wanted_level 
-		0004: $IN_THE_LOCATE_JOEY3 = 1 	
+		if
+			00F7:   player $PLAYER_CHAR sphere 1 near_point_in_car 1445.0 -811.5 11.75 radius 4.0 6.0 4.0
+		then
+			0110: clear_player $PLAYER_CHAR wanted_level 
+			0004: $IN_THE_LOCATE_JOEY3 = 1 	
+		end
 	end
-	if and
+	if
 		0038:   $IN_THE_LOCATE_JOEY3 == 1
-		80B1:   not is_car_in_area_3d $JOEY3_VAN from 1440.688 -805.5625 10.875 to 1449.75 -782.0625 15.875 sphere 0 
-		80F7:   not player $PLAYER_CHAR sphere 0 near_point_in_car 1445.0 -811.5 11.75 radius 4.0 6.0 4.0
 	then
-		0004: $IN_THE_LOCATE_JOEY3 = 0
+		if and
+			80B1:   not is_car_in_area_3d $JOEY3_VAN from 1440.688 -805.5625 10.875 to 1449.75 -782.0625 15.875 sphere 0 
+			80F7:   not player $PLAYER_CHAR sphere 0 near_point_in_car 1445.0 -811.5 11.75 radius 4.0 6.0 4.0
+		then
+			0004: $IN_THE_LOCATE_JOEY3 = 0
+		end
 	end
 end //while
 
