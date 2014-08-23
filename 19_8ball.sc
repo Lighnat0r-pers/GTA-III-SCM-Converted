@@ -108,9 +108,9 @@ end
 0177: set_object $PORTLAND_HIDEOUT_DOOR z_angle_to 0.0 
 02A3: toggle_widescreen 1 
 01B4: set_player $PLAYER_CHAR controllable 0 
-02A2: create_particle 4 0 at 791.625 -936.875 38.3125 //SMOKE ON CARS
-02A2: create_particle 4 0 at 788.3125 -938.4375 38.0625 
-02A2: create_particle 4 0 at 786.4375 -942.375 39.75 
+02A2: create_particle POBJECT_DARK_SMOKE 0 at 791.625 -936.875 38.3125 //SMOKE ON CARS
+02A2: create_particle POBJECT_DARK_SMOKE 0 at 788.3125 -938.4375 38.0625 
+02A2: create_particle POBJECT_DARK_SMOKE 0 at 786.4375 -942.375 39.75 
 02A2: create_particle 10 0 at 783.5625 -938.5 38.4375 //FIRE ON CARS
 02A2: create_particle 10 0 at 790.5 -935.625 38.0 
 02A2: create_particle 10 0 at 789.25 -938.875 38.125 

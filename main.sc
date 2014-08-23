@@ -186,7 +186,7 @@ DEFINE OBJECT LANDPART15               // Object number -183
 DEFINE OBJECT SECURITY_HUT             // Object number -184
 DEFINE OBJECT COLUMANSION_WALL         // Object number -185
 
-DEFINE MISSIONS 54
+DEFINE MISSIONS 55
 DEFINE MISSION 0 AT @M00_INTRO          		// Formerly INTRO
 DEFINE MISSION 1 AT @M01_HOSPITALHELP			// Formerly HEALTH           
 DEFINE MISSION 2 AT @M02_POLICEHELP			// Formerly WANTED           
@@ -241,7 +241,7 @@ DEFINE MISSION 50 AT @M50_GRANDTHEFTAUTO		// Formerly KENJI2
 DEFINE MISSION 51 AT @M51_DEALSTEAL			// Formerly KENJI3          
 DEFINE MISSION 52 AT @M52_SHIMA				// Formerly KENJI4          
 DEFINE MISSION 53 AT @M53_SMACKDOWN			// Formerly KENJI5          
-//DEFINE MISSION 54 AT @M54_SILENCETHESNEAK		// Formerly RAY1            
+DEFINE MISSION 54 AT @M54_SILENCETHESNEAK		// Formerly RAY1            
 //DEFINE MISSION 55 AT @M55_ARMSSHORTAGE			// Formerly RAY2            
 //DEFINE MISSION 56 AT @M56_EVIDENCEDASH			// Formerly RAY3            
 //DEFINE MISSION 57 AT @M57_GONEFISHING			// Formerly RAY4            
@@ -399,3 +399,4 @@ end // main loop that constantly runs
 {$INCLUDE 46_asuka3.sc} // M46_PAPARAZZIPURGE
 {$INCLUDE 47_asuka4.sc} // M47_PAYDAYFORRAY
 {$INCLUDE dummymissions4.sc} // M48_TWOFACEDTANNER  M49_KANBUBUSTOUT M50_GRANDTHEFTAUTO M51_DEALSTEAL M52_SHIMA M53_SMACKDOWN These don't exist, but need to be defined to avoid screwing up the mission list
+{$INCLUDE 54_ray1.sc} // M54_SILENCETHESNEAK
