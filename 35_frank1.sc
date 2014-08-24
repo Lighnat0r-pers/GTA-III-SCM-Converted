@@ -724,8 +724,9 @@ while 80F1:   not actor $MARIA stopped $LOCATE_DOME_FLAG 1259.0 -1107.75 radius 
 		0004: $CHICO_MESSAGE_FLAG = 1
 	end
 	gosub @CHECK_IN_VEHICLE_STATUS_FRANKIE1
-	if
+	if and
 		0038:   $CHICO_AUDIO_FLAG == 15
+		03D2:   wav_ended
 	then
 		03CF: load_wav 'S1_G' 
 		0004: $CHICO_AUDIO_FLAG = 16
