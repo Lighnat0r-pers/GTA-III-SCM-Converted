@@ -207,7 +207,7 @@ end //while
 015F: set_camera_position -77.4375 -702.5 33.5625 rotation 0.0 0.0 0.0 
 0160: point_camera -76.5 -702.375 33.25 switchstyle JUMP_CUT 
 
-while 83C2:   not phone $PHONE_RAY1 answered 
+while 83C2:   not phone $PHONE_RAY2 answered 
 	wait 0 ms
 end
 
@@ -241,7 +241,7 @@ end //while
 015F: set_camera_position 191.625 -130.5 20.0 rotation 0.0 0.0 0.0 
 0160: point_camera 192.5 -130.8125 19.6875 switchstyle JUMP_CUT 
 
-while 83C2:   not phone $PHONE_RAY1 answered 
+while 83C2:   not phone $PHONE_RAY3 answered 
 	wait 0 ms
 end
 
@@ -275,7 +275,7 @@ end //while
 015F: set_camera_position 51.6875 -973.0625 30.5 rotation 0.0 0.0 0.0 
 0160: point_camera 52.375 -972.4375 30.125 switchstyle JUMP_CUT 
 
-while 83C2:   not phone $PHONE_RAY1 answered 
+while 83C2:   not phone $PHONE_RAY4 answered 
 	wait 0 ms
 end
 
