@@ -467,11 +467,25 @@ if
 then
 	goto @FUCKIN_RUN_FOR_IT
 else
-	if or
-		80B0:   not is_car_in_area_2d $PERENNIAL_USED_JOEY2 from 1004.0 -738.0 to 1012.0 -763.0 sphere 0 
+	if
 		8185:   not car $PERENNIAL_USED_JOEY2 health >= 300
 	then
 		goto @FUCKIN_RUN_FOR_IT
+	end
+	if
+		0038:   $RUN_THE_OTHER_WAY_FLAG == 1
+	then
+		if
+			80B0:   not is_car_in_area_2d $PERENNIAL_USED_JOEY2 from 922.6875 -673.875 to 906.5625 -698.0 sphere 0
+		then
+			goto @FUCKIN_RUN_FOR_IT
+		end
+	else
+		if
+			80B0:   not is_car_in_area_2d $PERENNIAL_USED_JOEY2 from 1004.0 -738.0 to 1012.0 -763.0 sphere 0 
+		then
+			goto @FUCKIN_RUN_FOR_IT
+		end
 	end
 end
 return
