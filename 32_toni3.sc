@@ -1199,7 +1199,7 @@ goto @MISSION_END_TONI3
 0109: player $PLAYER_CHAR money += 15000 
 0318: set_latest_mission_passed 'TM3'  // 'SALVATORE'S CALLED A MEETING'
 030C: set_mission_points += 1 
-004F: create_thread @TONI_MISSION4_LOOP 
+004F: create_thread @FRANKIE_MISSION1_MARKER 
 0164: disable_marker $LUIGI_MISSION_MARKER 
 0164: disable_marker $JOEY_MISSION_MARKER 
 0164: disable_marker $TONI_MISSION_MARKER 
