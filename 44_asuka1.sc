@@ -279,9 +279,9 @@ end //while
 if
 	0018:   $ASUKA1_SALVATORE_LEAVING_TIME_HOURS > 9
 then
-	02FD: text_2numbers_lowpriority 'AM1_F' numbers $ASUKA1_SALVATORE_LEAVING_TIME_HOURS $ASUKA1_SALVATORE_LEAVING_TIME_MINS duration 15000 ms flag 1  // Salvatore Leone will be leaving Luigi's in about three hours time. (~1~:~1~)
+	02FE: text_2numbers_highpriority 'AM1_8' numbers $ASUKA1_SALVATORE_LEAVING_TIME_HOURS $ASUKA1_SALVATORE_LEAVING_TIME_MINS duration 5000 ms flag 1  // ~g~Salvatore will be leaving Luigi's at about ~1~:~1~
 else
-	02FD: text_2numbers_lowpriority 'AM1_K' numbers $ASUKA1_SALVATORE_LEAVING_TIME_HOURS $ASUKA1_SALVATORE_LEAVING_TIME_MINS duration 15000 ms flag 1  // Salvatore Leone will be leaving Luigi's in about three hours time. (0~1~:~1~)
+	02FE: text_2numbers_highpriority 'AM1_10' numbers $ASUKA1_SALVATORE_LEAVING_TIME_HOURS $ASUKA1_SALVATORE_LEAVING_TIME_MINS duration 5000 ms flag 1  // ~g~Salvatore will be leaving Luigi's at about 0~1~:~1~
 end
 
 00C1: $ASUKA1_MINS_TO_SALVATORE_LEAVES = get_minutes_until_time_of_day $ASUKA1_SALVATORE_LEAVING_TIME_HOURS $ASUKA1_SALVATORE_LEAVING_TIME_MINS
