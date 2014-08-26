@@ -107,6 +107,12 @@ while true
 		8248:   not model #CUTOBJ01 available 
 		8248:   not model #CUTOBJ02 available 
 		8248:   not model #CUTOBJ03 available
+	jf break
+	wait 0 ms
+end //while
+
+while true
+	if or
 		8248:   not model #SALVSDETAIL available 
 		8248:   not model #SWANK_INSIDE available 
 		8248:   not model #FRANKSCLB02 available
