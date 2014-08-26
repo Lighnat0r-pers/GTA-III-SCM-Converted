@@ -211,7 +211,7 @@ then
 			while 834E:   not move_object $STAUNTON_POLICE_GATE1 to 366.125 -1128.5 21.9375 speed 0.0625 0.0 0.0 collision_check 1 
 				wait 0 ms
 			end
-			01BB: store_object $POLICE_DOOR_ONE position_to $OBJECTX $OBJECTY $OBJECTZ
+			01BB: store_object $STAUNTON_POLICE_GATE1 position_to $OBJECTX $OBJECTY $OBJECTZ
 			if
 				0038:   $GATE_SFX2 == 1
 			then
@@ -282,7 +282,7 @@ then
 			while 834E:   not move_object $STAUNTON_POLICE_GATE2 to 326.25 -1128.5 21.9375 speed 0.0625 0.0 0.0 collision_check 1 
 				wait 0 ms
 			end
-			01BB: store_object $POLICE_DOOR_TWO position_to $OBJECTX $OBJECTY $OBJECTZ
+			01BB: store_object $STAUNTON_POLICE_GATE2 position_to $OBJECTX $OBJECTY $OBJECTZ
 			if
 				0038:   $GATE2_SFX2 == 1
 			then
@@ -353,7 +353,7 @@ then
 			while 834E:   not move_object $STAUNTON_CARTEL_GATE to 91.5625 -318.5625 15.25 speed 0.0 0.0625 0.0 collision_check 1 
 				wait 0 ms
 			end
-			01BB: store_object $COLOMBIAN_GATE position_to $OBJECTX $OBJECTY $OBJECTZ
+			01BB: store_object $STAUNTON_CARTEL_GATE position_to $OBJECTX $OBJECTY $OBJECTZ
 			if
 				0038:   $GATE2_SFX2 == 1
 			then
@@ -441,7 +441,7 @@ then
 			while 834E:   not move_object $PHILS_COMPOUND_GATE to 147.1875 207.3125 10.5625 speed 0.0 0.0625 0.0 collision_check 1
 				wait 0 ms
 			end
-			01BB: store_object $PHILS_COMPND_GATE position_to $OBJECTX $OBJECTY $OBJECTZ
+			01BB: store_object $PHILS_COMPOUND_GATE position_to $OBJECTX $OBJECTY $OBJECTZ
 			if
 				0038:   $GATE2_SFX2 == 1
 			then
@@ -514,7 +514,7 @@ then
 			while 834E:   not move_object $CARTEL_MANSION_GATE to -363.0 250.4375 61.3125 speed 0.0625 0.0 0.0 collision_check 1 
 				wait 0 ms
 			end
-			01BB: store_object $COLOMBIAN_GATE2 position_to $OBJECTX $OBJECTY $OBJECTZ
+			01BB: store_object $CARTEL_MANSION_GATE position_to $OBJECTX $OBJECTY $OBJECTZ
 			if
 				0038:   $GATE_SFX2 == 1
 			then
