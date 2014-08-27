@@ -537,33 +537,29 @@ while true
 		then
 			0004: $KILL_PLAYER_NOW_FLAG = 1 
 			0004: $MAFIA_8_FLAG = 4 
-		end
-	end
-	if and
-		0038:   $MAFIA_8_FLAG == 1
-		00ED:   actor $ASUKA1_MAFIA8 #NULL $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y radius 1.0 1.0 
-	then
-		0211: actor $ASUKA1_MAFIA8 walk_to 887.5625 -418.5 
-		0004: $MAFIA_8_FLAG = 2
-	end
-	if and
-		0038:   $MAFIA_8_FLAG == 2
-		00F0:   actor $ASUKA1_MAFIA8 stopped #NULL 887.5625 -418.5 radius 0.5 0.5
-	then
-		0173: set_actor $ASUKA1_MAFIA8 z_angle_to 90.0 
-		009F: char_set_idle $ASUKA1_MAFIA8 
-		0004: $MAFIA_8_FLAG = 3
-	end
-	if and
-		0018:   $MAFIA_8_FLAG > 0 
-		001A:   4 > $MAFIA_8_FLAG
-	then
-		if and
-			0123:   actor $ASUKA1_MAFIA8 spotted_player $PLAYER_CHAR 
-			8056:   not is_player_in_area_2d $PLAYER_CHAR coords 845.75 -443.8125 890.75 -433.8125 sphere 0 // ON HIGHER ROOF ABOVE THE ALLEY
-			8056:   not is_player_in_area_2d $PLAYER_CHAR coords 920.0625 -408.8125 931.3125 -398.0625 sphere 0 //ON TOP OF SNIPER BUILDING OVER ROAD
-		then
-			0004: $KILL_PLAYER_NOW_FLAG = 1
+		else
+			if
+				0038:   $MAFIA_8_FLAG == 1
+				00ED:   actor $ASUKA1_MAFIA8 #NULL $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y radius 1.0 1.0 
+			then
+				0211: actor $ASUKA1_MAFIA8 walk_to 887.5625 -418.5 
+				0004: $MAFIA_8_FLAG = 2
+			end
+			if and
+				0038:   $MAFIA_8_FLAG == 2
+				00F0:   actor $ASUKA1_MAFIA8 stopped #NULL 887.5625 -418.5 radius 0.5 0.5
+			then
+				0173: set_actor $ASUKA1_MAFIA8 z_angle_to 90.0 
+				009F: char_set_idle $ASUKA1_MAFIA8 
+				0004: $MAFIA_8_FLAG = 3
+			end
+			if and
+				0123:   actor $ASUKA1_MAFIA8 spotted_player $PLAYER_CHAR 
+				8056:   not is_player_in_area_2d $PLAYER_CHAR coords 845.75 -443.8125 890.75 -433.8125 sphere 0 // ON HIGHER ROOF ABOVE THE ALLEY
+				8056:   not is_player_in_area_2d $PLAYER_CHAR coords 920.0625 -408.8125 931.3125 -398.0625 sphere 0 //ON TOP OF SNIPER BUILDING OVER ROAD
+			then
+				0004: $KILL_PLAYER_NOW_FLAG = 1
+			end
 		end
 	end
 
@@ -774,33 +770,45 @@ while true
 			end
 		end
 	end
-	if and
-		0038:   $ENTER_CAR_FLAG == 10 
-		00DB:   is_char_in_car $ASUKA1_MAFIA10 car $FUCKERS_CAR 
+	if
+		0038:   $ENTER_CAR_FLAG == 10
 	then
-		0004: $MAFIA_10_FLAG = 4 
-		0004: $ENTER_CAR_FLAG = 5 
+		if
+			00DB:   is_char_in_car $ASUKA1_MAFIA10 car $FUCKERS_CAR 
+		then
+			0004: $MAFIA_10_FLAG = 4 
+			0004: $ENTER_CAR_FLAG = 5 
+		end
 	end
-	if and
+	if
 		0038:   $ENTER_CAR_FLAG == 11
-		00DB:   is_char_in_car $ASUKA1_MAFIA11 car $FUCKERS_CAR 
 	then
-		0004: $MAFIA_11_FLAG = 4 
-		0004: $ENTER_CAR_FLAG = 5 
+		if
+			00DB:   is_char_in_car $ASUKA1_MAFIA11 car $FUCKERS_CAR 
+		then
+			0004: $MAFIA_11_FLAG = 4 
+			0004: $ENTER_CAR_FLAG = 5 
+		end
 	end
-	if and
+	if
 		0038:   $ENTER_CAR_FLAG == 12 
-		00DB:   is_char_in_car $ASUKA1_MAFIA12 car $FUCKERS_CAR 
 	then
-		0004: $MAFIA_12_FLAG = 4 
-		0004: $ENTER_CAR_FLAG = 5 
+		if
+			00DB:   is_char_in_car $ASUKA1_MAFIA12 car $FUCKERS_CAR 
+		then
+			0004: $MAFIA_12_FLAG = 4 
+			0004: $ENTER_CAR_FLAG = 5 
+		end
 	end
-	if and
+	if
 		0038:   $ENTER_CAR_FLAG == 13 
-		00DB:   is_char_in_car $ASUKA1_MAFIA13 car $FUCKERS_CAR 
 	then
-		0004: $MAFIA_13_FLAG = 4 
-		0004: $ENTER_CAR_FLAG = 5 
+		if
+			00DB:   is_char_in_car $ASUKA1_MAFIA13 car $FUCKERS_CAR 
+		then
+			0004: $MAFIA_13_FLAG = 4 
+			0004: $ENTER_CAR_FLAG = 5 
+		end
 	end
 	if and
 		0018:   $ENTER_CAR_FLAG > 9 
@@ -1003,8 +1011,8 @@ while 80DF:   not is_char_in_any_car $SALVATORE
 		0038:   $FRANKIE_FLAG == 1 
 		0038:   $BEAMER_1_DEAD_FLAG == 1 
 	then
-		if
-			0038:   $BEAMER_3_DEAD_FLAG == 0 
+		if and
+			0038:   $BEAMER_3_DEAD_FLAG == 0
 			0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR3 radius 30.0 30.0 unknown 0
 		then
 			01D4: actor $SALVATORE go_to_car $ASUKA1_MAFIA_CAR3 and_enter_it_as_a_passenger 
@@ -1013,13 +1021,13 @@ while 80DF:   not is_char_in_any_car $SALVATORE
 			0239: actor $SALVATORE run_to $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y 
 			0004: $FRANKIE_FLAG = 4
 		end
-	end
+		end
 
 	if and
 		0038:   $FRANKIE_FLAG == 2 
 		0038:   $BEAMER_2_DEAD_FLAG == 1 
 	then
-		if
+		if and
 			0038:   $BEAMER_1_DEAD_FLAG == 0 
 			0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR1 radius 30.0 30.0 unknown 0 
 		then
@@ -1043,7 +1051,7 @@ while 80DF:   not is_char_in_any_car $SALVATORE
 		0038:   $FRANKIE_FLAG == 3 
 		0038:   $BEAMER_3_DEAD_FLAG == 1 
 	then
-		if
+		if and
 			0038:   $BEAMER_1_DEAD_FLAG == 0 
 			0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR1 radius 30.0 30.0 unknown 0
 		then
@@ -1063,45 +1071,51 @@ while 80DF:   not is_char_in_any_car $SALVATORE
 		0004: $FRANKIE_FLAG = 6 
 	end
 
-	if and
+	if
 		0038:   $FRANKIE_FLAG == 5 
-		00ED:   actor $SALVATORE #NULL $STREET_X $STREET_Y radius 1.0 1.0 
 	then
-		if and
-			0038:   $BEAMER_1_DEAD_FLAG == 0 
-			0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR1 radius 30.0 30.0 unknown 0 
+		if
+			00ED:   actor $SALVATORE #NULL $STREET_X $STREET_Y radius 1.0 1.0 
 		then
-			01D4: actor $SALVATORE go_to_car $ASUKA1_MAFIA_CAR1 and_enter_it_as_a_passenger 
-			0004: $FRANKIE_FLAG = 1
-		else
 			if and
-				0038:   $BEAMER_2_DEAD_FLAG == 0 
-				0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR2 radius 30.0 30.0 unknown 0 
+				0038:   $BEAMER_1_DEAD_FLAG == 0 
+				0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR1 radius 30.0 30.0 unknown 0 
 			then
-				01D4: actor $SALVATORE go_to_car $ASUKA1_MAFIA_CAR2 and_enter_it_as_a_passenger 
-				0004: $FRANKIE_FLAG = 2 
+				01D4: actor $SALVATORE go_to_car $ASUKA1_MAFIA_CAR1 and_enter_it_as_a_passenger 
+				0004: $FRANKIE_FLAG = 1
 			else
 				if and
-					0038:   $BEAMER_3_DEAD_FLAG == 0 
-					0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR3 radius 30.0 30.0 unknown 0 
+					0038:   $BEAMER_2_DEAD_FLAG == 0 
+					0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR2 radius 30.0 30.0 unknown 0 
 				then
-					01D4: actor $SALVATORE go_to_car $ASUKA1_MAFIA_CAR3 and_enter_it_as_a_passenger 
-					0004: $FRANKIE_FLAG = 3 
+					01D4: actor $SALVATORE go_to_car $ASUKA1_MAFIA_CAR2 and_enter_it_as_a_passenger 
+					0004: $FRANKIE_FLAG = 2 
 				else
-					0239: actor $SALVATORE run_to $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y 
-					0004: $FRANKIE_FLAG = 4 
+					if and
+						0038:   $BEAMER_3_DEAD_FLAG == 0 
+						0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR3 radius 30.0 30.0 unknown 0 
+					then
+						01D4: actor $SALVATORE go_to_car $ASUKA1_MAFIA_CAR3 and_enter_it_as_a_passenger 
+						0004: $FRANKIE_FLAG = 3 
+					else
+						0239: actor $SALVATORE run_to $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y 
+						0004: $FRANKIE_FLAG = 4 
+					end
 				end
 			end
 		end
 	end
 
-	if and
+	if
 		0038:   $FRANKIE_FLAG == 6
-		00ED:   actor $SALVATORE #NULL $CREATE_CHAR_IN_CLUB_X $CREATE_CHAR_IN_CLUB_Y radius 1.0 1.0 
 	then
-		009B: delete_char $SALVATORE 
-00BC: print_now 'AM1_9' duration 5000 ms flag 1  // ~r~Salvatore has escaped back into Luigi's Club!
-		goto @MISSION_FAILED_ASUKA1
+		if
+			00ED:   actor $SALVATORE #NULL $CREATE_CHAR_IN_CLUB_X $CREATE_CHAR_IN_CLUB_Y radius 1.0 1.0 
+		then
+			009B: delete_char $SALVATORE 
+			00BC: print_now 'AM1_9' duration 5000 ms flag 1  // ~r~Salvatore has escaped back into Luigi's Club!
+			goto @MISSION_FAILED_ASUKA1
+		end
 	end
 end //while
 
@@ -1563,40 +1577,46 @@ else
 		0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 4
 	end
 end
-if and
+if
 	0038:   $MAFIA_CURRENT_FLAG_ASUKA1 == 1
-	00ED:   actor $MAFIA_CURRENT_ASUKA1 #NULL $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y radius 1.0 1.0 
 then
-	0211: actor $MAFIA_CURRENT_ASUKA1 walk_to $MAFIA_CURRENT_X $MAFIA_CURRENT_Y 
-	if and
-		0038:   $CHECK_BEAMER_FLAG_ASUKA1 == 1
-		0038:   $BEAMER1_HEALTH == 1 
+	if
+		00ED:   actor $MAFIA_CURRENT_ASUKA1 #NULL $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y radius 1.0 1.0 
 	then
-		01B4: set_player $PLAYER_CHAR controllable 1 
-		03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 0 
-		03F4: set_all_cars_can_be_damaged 1 
-		03AF: set_streaming 1
-		if
-			00E0:   is_player_in_any_car $PLAYER_CHAR 
+		0211: actor $MAFIA_CURRENT_ASUKA1 walk_to $MAFIA_CURRENT_X $MAFIA_CURRENT_Y 
+		if and
+			0038:   $CHECK_BEAMER_FLAG_ASUKA1 == 1
+			0038:   $BEAMER1_HEALTH == 1 
 		then
-			0221: set_player $PLAYER_CHAR apply_brakes_to_car 0 
+			01B4: set_player $PLAYER_CHAR controllable 1 
+			03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 0 
+			03F4: set_all_cars_can_be_damaged 1 
+			03AF: set_streaming 1
+			if
+				00E0:   is_player_in_any_car $PLAYER_CHAR 
+			then
+				0221: set_player $PLAYER_CHAR apply_brakes_to_car 0 
+			end
+			02EB: restore_camera_jumpcut 
+			0249: release_model #INDHIBUILD3 
+			0249: release_model #LUIGICLUBOUT 
+			0249: release_model #LUIGIINEERCLUB 
+			0249: release_model #IND_CUSTOMROAD016 
+			0004: $BEAMER1_HEALTH = 0 
 		end
-		02EB: restore_camera_jumpcut 
-		0249: release_model #INDHIBUILD3 
-		0249: release_model #LUIGICLUBOUT 
-		0249: release_model #LUIGIINEERCLUB 
-		0249: release_model #IND_CUSTOMROAD016 
-		0004: $BEAMER1_HEALTH = 0 
+		0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 2
 	end
-	0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 2
 end
-if and
+if
 	0038:   $MAFIA_CURRENT_FLAG_ASUKA1 == 2
-	00F0:   actor $MAFIA_CURRENT_ASUKA1 stopped #NULL $MAFIA_CURRENT_X $MAFIA_CURRENT_Y radius 0.5 0.5
 then
-	0173: set_actor $MAFIA_CURRENT_ASUKA1 z_angle_to 90.0 
-	009F: char_set_idle $MAFIA_CURRENT_ASUKA1
-	0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 3
+	if
+		00F0:   actor $MAFIA_CURRENT_ASUKA1 stopped #NULL $MAFIA_CURRENT_X $MAFIA_CURRENT_Y radius 0.5 0.5
+	then
+		0173: set_actor $MAFIA_CURRENT_ASUKA1 z_angle_to 90.0 
+		009F: char_set_idle $MAFIA_CURRENT_ASUKA1
+		0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 3
+	end
 end
 if and
 	0018:   $MAFIA_CURRENT_FLAG_ASUKA1 > 0 
@@ -1635,26 +1655,30 @@ then
 	0291: set_actor $MAFIA_CURRENT_ASUKA1 attack_when_provoked 1 
 	0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 5 
 end
-if and
-	0038:   $MAFIA_CURRENT_FLAG_ASUKA1 == 5 
-	00ED:   actor $MAFIA_CURRENT_ASUKA1 #NULL $BACK_OF_ALLEY_X $BACK_OF_ALLEY_Y radius 1.0 1.0 
+if
+	8038:   not  $MAFIA_CURRENT_FLAG_ASUKA1 == 4 
 then
-	0211: actor $MAFIA_CURRENT_ASUKA1 walk_to $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y 
-	0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 6 
-end
-if and
-	0038:   $MAFIA_CURRENT_FLAG_ASUKA1 == 6 
-	00ED:   actor $MAFIA_CURRENT_ASUKA1 #NULL $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y radius 1.0 1.0 
-then
-	0211: actor $MAFIA_CURRENT_ASUKA1 walk_to $CREATE_CHAR_IN_CLUB_X $CREATE_CHAR_IN_CLUB_Y 
-	0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 7 
-end
-if and
-	0038:   $MAFIA_CURRENT_FLAG_ASUKA1 == 7 
-	00ED:   actor $MAFIA_CURRENT_ASUKA1 #NULL $CREATE_CHAR_IN_CLUB_X $CREATE_CHAR_IN_CLUB_Y radius 0.5 0.5 
-then
-	009B: delete_char $MAFIA_CURRENT_ASUKA1 
-	0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 4 
+	if and
+		0038:   $MAFIA_CURRENT_FLAG_ASUKA1 == 5 
+		00ED:   actor $MAFIA_CURRENT_ASUKA1 #NULL $BACK_OF_ALLEY_X $BACK_OF_ALLEY_Y radius 1.0 1.0 
+	then
+		0211: actor $MAFIA_CURRENT_ASUKA1 walk_to $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y 
+		0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 6 
+	end
+	if and
+		0038:   $MAFIA_CURRENT_FLAG_ASUKA1 == 6 
+		00ED:   actor $MAFIA_CURRENT_ASUKA1 #NULL $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y radius 1.0 1.0 
+	then
+		0211: actor $MAFIA_CURRENT_ASUKA1 walk_to $CREATE_CHAR_IN_CLUB_X $CREATE_CHAR_IN_CLUB_Y 
+		0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 7 
+	end
+	if and
+		0038:   $MAFIA_CURRENT_FLAG_ASUKA1 == 7 
+		00ED:   actor $MAFIA_CURRENT_ASUKA1 #NULL $CREATE_CHAR_IN_CLUB_X $CREATE_CHAR_IN_CLUB_Y radius 0.5 0.5 
+	then
+		009B: delete_char $MAFIA_CURRENT_ASUKA1 
+		0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 4 
+	end
 end
 return
 
@@ -2394,6 +2418,10 @@ then
 		else
 			0004: $MAFIA_5_KILL_PLAYER_FLAG = -100 
 		end
+	end
+	if
+		8038:   not  $MAFIA_5_KILL_PLAYER_FLAG == -100 
+	then
 		if and
 			0038:   $MAFIA_5_KILL_PLAYER_FLAG == 1
 			00ED:   actor $ASUKA1_MAFIA5 #NULL 919.25 -397.0 radius 1.0 1.0 //CORNER OF STREET
@@ -2456,6 +2484,10 @@ then
 		else
 			0004: $MAFIA_7_KILL_PLAYER_FLAG = -100 
 		end
+	end
+	if
+		8038:   not  $MAFIA_7_KILL_PLAYER_FLAG == -100 
+	then
 		if and
 			0038:   $MAFIA_7_KILL_PLAYER_FLAG == 1
 			00ED:   actor $ASUKA1_MAFIA7 #NULL 919.25 -397.0 radius 1.0 1.0 //CORNER OF STREET
@@ -2527,7 +2559,11 @@ then
 		then
 			0004: $MAFIA_15_KILL_PLAYER_FLAG = -100 
 		end
-		if and
+	end
+	if
+		8038:   not  $MAFIA_15_KILL_PLAYER_FLAG == -100 
+	then
+		if
 			0038:   $MAFIA_15_KILL_PLAYER_FLAG == 1
 			00ED:   actor $ASUKA1_MAFIA15 #NULL 949.0625 -416.5625  radius 1.0 1.0 //LANDING ON STEPS
 		then
