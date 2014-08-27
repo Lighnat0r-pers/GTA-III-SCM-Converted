@@ -712,7 +712,7 @@ while true
 						0018: $AMMU_SAMPLE = 0
 					end
 					0004: $AMMU_BLOKE_KILL_PLAYER = 0
-					0004: $CAMERA_AMMU2 = 1
+					0004: $CAMERA_AMMU2 = 0
 				end
 			end // IS_PLAYER_IN_AREA_3D
 		else // not in LITTLEI
