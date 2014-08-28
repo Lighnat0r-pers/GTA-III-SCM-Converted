@@ -466,7 +466,7 @@ goto @MISSION_END_ASUKA4
 0109: player $PLAYER_CHAR money += 11000 
 0318: set_latest_mission_passed 'AM4'  // 'PAYDAY FOR RAY'
 030C: set_mission_points += 1 
-02A7: $RAY_MISSION_MARKER = create_icon_marker_and_sphere 15 at 38.75 -725.375 -100.0 
+02A7: $RAY_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_RAY at 38.75 -725.375 -100.0 
 0373: set_camera_directly_behind_player 
 004F: create_thread @ASUKA_MISSION5_LOOP 
 004F: create_thread @RAY_MISSION1_LOOP
