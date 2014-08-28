@@ -845,6 +845,7 @@ while true
 	end
 end //while
 
+
 if
 	0038:   $FRANKIE_EXISTS_FLAG == 0 
 then
@@ -1569,12 +1570,15 @@ then
 		0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 1
 	end
 else
-	if and
+	if
 		0018:   $MAFIA_CURRENT_FLAG_ASUKA1 > 0 
-		0118:   actor $MAFIA_CURRENT_ASUKA1 dead
 	then
-		0004: $KILL_PLAYER_NOW_FLAG = 1 
-		0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 4
+		if
+			0118:   actor $MAFIA_CURRENT_ASUKA1 dead
+		then
+			0004: $KILL_PLAYER_NOW_FLAG = 1 
+			0004: $MAFIA_CURRENT_FLAG_ASUKA1 = 4
+		end
 	end
 end
 if
