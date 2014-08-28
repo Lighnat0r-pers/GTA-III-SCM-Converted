@@ -274,6 +274,7 @@ while 80E3:   not player $PLAYER_CHAR 1 $WH_X_RM2 $WH_Y_RM2 radius 4.0 4.0
 			018C: play_sound SOUND_GATE_STOP_CLUNK at 147.1875 214.8125 10.5625 
 			0004: $GATE2_SFX2 = 1 
 		end
+		0004: $FLAG_GATE = 1
 	end
 end //while
 
