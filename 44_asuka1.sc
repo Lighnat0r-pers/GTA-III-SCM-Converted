@@ -538,7 +538,7 @@ while true
 			0004: $KILL_PLAYER_NOW_FLAG = 1 
 			0004: $MAFIA_8_FLAG = 4 
 		else
-			if
+			if and
 				0038:   $MAFIA_8_FLAG == 1
 				00ED:   actor $ASUKA1_MAFIA8 #NULL $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y radius 1.0 1.0 
 			then
@@ -1034,7 +1034,7 @@ while 80DF:   not is_char_in_any_car $SALVATORE
 			01D4: actor $SALVATORE go_to_car $ASUKA1_MAFIA_CAR1 and_enter_it_as_a_passenger 
 			0004: $FRANKIE_FLAG = 1 
 		else
-			if
+			if and
 				0038:   $BEAMER_3_DEAD_FLAG == 0 
 				0203:   actor $SALVATORE near_car_on_foot $ASUKA1_MAFIA_CAR3 radius 30.0 30.0 unknown 0 				
 			then
@@ -2563,7 +2563,7 @@ then
 	if
 		8038:   not  $MAFIA_15_KILL_PLAYER_FLAG == -100 
 	then
-		if
+		if and
 			0038:   $MAFIA_15_KILL_PLAYER_FLAG == 1
 			00ED:   actor $ASUKA1_MAFIA15 #NULL 949.0625 -416.5625  radius 1.0 1.0 //LANDING ON STEPS
 		then

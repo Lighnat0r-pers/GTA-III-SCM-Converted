@@ -876,7 +876,7 @@ then
 			0004: $FLAG_EIGHTBALL_MISSION_LAUNCHED = 1
 		end
 	else // PLAYER REACHED HIDEOUT
-		if
+		if and
 			00E4:   player $PLAYER_CHAR 0 883.5 -308.1875 radius 3.5 3.5 
 			03EE:   player $PLAYER_CHAR controllable 
 		then
