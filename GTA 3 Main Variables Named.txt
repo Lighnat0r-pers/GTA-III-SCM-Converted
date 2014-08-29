@@ -268,8 +268,6 @@ DEFINE MISSION 77 AT @HOOD4            // Bullion Run
 DEFINE MISSION 78 AT @HOOD5            // Rumble
 DEFINE MISSION 79 AT @CAT1             // The Exchange
 
-{$VERSION 1.1.0000}
-
 //-------------MAIN---------------
 03A4: name_thread 'MAIN' 
 0005: $2 = 0.0625 
@@ -1092,15 +1090,15 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0004: $DOOR_CRASH_FLAG = 0 
 0005: $DOOR_POSITION_A1 = 0.0 
 0004: $BARRIERS_BEEN_ADDED = 0 
-004F: create_thread @NONAME_4 
-004F: create_thread @NONAME_5 
-004F: create_thread @NONAME_6 
-004F: create_thread @NONAME_7 
-004F: create_thread @NONAME_11 
-004F: create_thread @NONAME_9 
-004F: create_thread @NONAME_8 
-004F: create_thread @NONAME_10 
-004F: create_thread @NONAME_3 
+004F: create_thread @NONAME_4  
+004F: create_thread @NONAME_5  
+004F: create_thread @NONAME_6  
+004F: create_thread @NONAME_7  
+004F: create_thread @NONAME_11  
+004F: create_thread @NONAME_9  
+004F: create_thread @NONAME_8  
+004F: create_thread @NONAME_10  
+004F: create_thread @NONAME_3  
 00D7: create_thread_without_extra_params @HJ 
 00D7: create_thread_without_extra_params @USJ 
 00D7: create_thread_without_extra_params @GENSTUF 
@@ -1157,14 +1155,14 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0169: set_fade_color 0 0 0 
 016A: fade 0 for 0 ms 
 0417: start_mission 0  // Intro Movie
-004F: create_thread @I_SAVE 
-004F: create_thread @C_SAVE 
-004F: create_thread @S_SAVE 
-004F: create_thread @I_RSTRT 
-004F: create_thread @C_RSTRT 
-004F: create_thread @S_RSTRT 
-004F: create_thread @NONAME_1 
-004F: create_thread @NONAME_2 
+004F: create_thread @I_SAVE  
+004F: create_thread @C_SAVE  
+004F: create_thread @S_SAVE  
+004F: create_thread @I_RSTRT  
+004F: create_thread @C_RSTRT  
+004F: create_thread @S_RSTRT  
+004F: create_thread @NONAME_1  
+004F: create_thread @NONAME_2  
 00D6: if 
 0256:   is_player $PLAYER_CHAR defined 
 004D: goto_if_false @MAIN_14396 
@@ -6401,8 +6399,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $ONMISSION == 0 
 004D: goto_if_false @DIAB_PH_99 
 014D: text_pager 'DIAB1_A' 140 2 0  // El Burro wants to offer you an opportunity. Get to the payphone in Hepburn Heights if you want more info.
-004F: create_thread @NONAME_37 
-004F: create_thread @DIAB_BP 
+004F: create_thread @NONAME_37  
+004F: create_thread @DIAB_BP  
 004E: end_thread 
 
 :DIAB_PH_99
@@ -6530,7 +6528,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 014D: text_pager 'TONI_P' 140 2 0  // I've got some urgent work for you! -Toni
 
 :TONI4PG_99
-004F: create_thread @TONI5PG 
+004F: create_thread @TONI5PG  
 004E: end_thread 
 
 :TONI4PG_109
@@ -6783,8 +6781,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $ONMISSION == 0 
 004D: goto_if_false @YARD_PH_99 
 014D: text_pager 'YD_P' 140 2 0  // King Courtney would like a word. Get to the payphone in Aspatria!!
-004F: create_thread @NONAME_60 
-004F: create_thread @YARD_BP 
+004F: create_thread @NONAME_60  
+004F: create_thread @YARD_BP  
 004E: end_thread 
 
 :YARD_PH_99
@@ -7039,8 +7037,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $ONMISSION == 0 
 004D: goto_if_false @HOOD_PH_99 
 014D: text_pager 'HOOD1_A' 140 2 0  // Get to the payphone in Wichita Gardens and we'll talk business.
-004F: create_thread @NONAME_71 
-004F: create_thread @HOOD_BP 
+004F: create_thread @NONAME_71  
+004F: create_thread @HOOD_BP  
 004E: end_thread 
 
 :HOOD_PH_99
@@ -7494,31 +7492,31 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0004: $HEAL_INFO_TRIP = 0 
 0004: $WANTED_INFO_TRIP = 0 
 0213: $INFO_PICKUP1 = create_pickup #INFO type 2 at 921.25 -352.75 10.875 
-004F: create_thread @NONAME_81 $INFO_PICKUP1 1 
+004F: create_thread @NONAME_81 $INFO_PICKUP1 1  
 0213: $INFO_PICKUP2 = create_pickup #INFO type 2 at 1279.5 -98.25 15.0 
-004F: create_thread @NONAME_81 $INFO_PICKUP2 2 
+004F: create_thread @NONAME_81 $INFO_PICKUP2 2  
 0213: $INFO_PICKUP3 = create_pickup #INFO type 2 at 1065.0 -392.75 14.875 
-004F: create_thread @NONAME_81 $INFO_PICKUP3 3 
+004F: create_thread @NONAME_81 $INFO_PICKUP3 3  
 0213: $INFO_PICKUP4 = create_pickup #INFO type 2 at 889.5 -316.0625 8.6875 
-004F: create_thread @NONAME_81 $INFO_PICKUP4 4 
+004F: create_thread @NONAME_81 $INFO_PICKUP4 4  
 0213: $INFO_PICKUP5 = create_pickup #INFO type 2 at 889.5 -305.75 8.6875 
-004F: create_thread @NONAME_81 $INFO_PICKUP5 5 
+004F: create_thread @NONAME_81 $INFO_PICKUP5 5  
 0213: $INFO_PICKUP6 = create_pickup #INFO type 2 at 1130.375 52.75 0.375 
-004F: create_thread @NONAME_81 $INFO_PICKUP6 6 
+004F: create_thread @NONAME_81 $INFO_PICKUP6 6  
 0213: $INFO_PICKUP7A = create_pickup #INFO type 2 at 1028.75 -927.375 15.0 
-004F: create_thread @NONAME_82 $INFO_PICKUP7A 7 
+004F: create_thread @NONAME_82 $INFO_PICKUP7A 7  
 0213: $INFO_PICKUP7B = create_pickup #INFO type 2 at 916.5 -472.0 -18.75 
-004F: create_thread @NONAME_82 $INFO_PICKUP7B 11 
+004F: create_thread @NONAME_82 $INFO_PICKUP7B 11  
 0213: $INFO_PICKUP8 = create_pickup #INFO type 2 at 758.6875 164.1875 -19.875 
-004F: create_thread @NONAME_82 $INFO_PICKUP8 8 
+004F: create_thread @NONAME_82 $INFO_PICKUP8 8  
 0213: $INFO_PICKUP9 = create_pickup #INFO type 2 at 991.875 -471.25 3.6875 
-004F: create_thread @NONAME_82 $INFO_PICKUP9 9 
+004F: create_thread @NONAME_82 $INFO_PICKUP9 9  
 0213: $INFO_PICKUP10A = create_pickup #INFO type 2 at 1318.688 -524.875 43.25 
-004F: create_thread @NONAME_82 $INFO_PICKUP10A 10 
+004F: create_thread @NONAME_82 $INFO_PICKUP10A 10  
 0213: $INFO_PICKUP10B = create_pickup #INFO type 2 at 772.0 -588.375 23.875 
-004F: create_thread @NONAME_82 $INFO_PICKUP10B 10 
+004F: create_thread @NONAME_82 $INFO_PICKUP10B 10  
 0213: $INFO_PICKUP10C = create_pickup #INFO type 2 at 1039.0 -149.75 23.875 
-004F: create_thread @NONAME_82 $INFO_PICKUP10C 10 
+004F: create_thread @NONAME_82 $INFO_PICKUP10C 10  
 0051: return 
 
 :HJ
@@ -8892,14 +8890,14 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0004: $AMMU_BLOKE_KILL_PLAYER = 0 
 03A4: name_thread 'GENSTUF' 
 0111: set_wasted_busted_check_to 0 
-004F: create_thread @I_AMMU 
-004F: create_thread @FISHGEN 
-004F: create_thread @TRAMPS 
-004F: create_thread @I_SOUND 
-004F: create_thread @C_AMMU 
-004F: create_thread @C_CARP 
-004F: create_thread @D_SOUND 
-004F: create_thread @NONAME_80 
+004F: create_thread @I_AMMU  
+004F: create_thread @FISHGEN  
+004F: create_thread @TRAMPS  
+004F: create_thread @I_SOUND  
+004F: create_thread @C_AMMU  
+004F: create_thread @C_CARP  
+004F: create_thread @D_SOUND  
+004F: create_thread @NONAME_80  
 004E: end_thread 
 
 :NONAME_80
@@ -11235,10 +11233,10 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 03A4: name_thread 'IMPORT' 
 0111: set_wasted_busted_check_to 0 
 0001: wait 100 ms 
-004F: create_thread @IMPORT1 
-004F: create_thread @M_CRANE 
-004F: create_thread @IMPORT2 
-004F: create_thread @PACKAGE 
+004F: create_thread @IMPORT1  
+004F: create_thread @M_CRANE  
+004F: create_thread @IMPORT2  
+004F: create_thread @PACKAGE  
 
 :IMPORT_295
 0001: wait 500 ms 
@@ -13194,13 +13192,13 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0004: $NOT_CLUNKED_YET = 0 
 03A4: name_thread 'GATES' 
 0111: set_wasted_busted_check_to 0 
-004F: create_thread @FSH_GTE 
-004F: create_thread @DOG_GTE 
-004F: create_thread @POL_GT1 
-004F: create_thread @POL_GT2 
-004F: create_thread @COL_GTE 
-004F: create_thread @PHL_GTE 
-004F: create_thread @COL2GTE 
+004F: create_thread @FSH_GTE  
+004F: create_thread @DOG_GTE  
+004F: create_thread @POL_GT1  
+004F: create_thread @POL_GT2  
+004F: create_thread @COL_GTE  
+004F: create_thread @PHL_GTE  
+004F: create_thread @COL2GTE  
 004E: end_thread 
 
 :FSH_GTE
@@ -15566,7 +15564,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 043D: set_intro_is_playing 0 
 043C: set_game_sounds_fade 1 
 0421: force_rain 0 
-004F: create_thread @NONAME_16 
+004F: create_thread @NONAME_16  
 0004: $ONMISSION = 0 
 00D8: mission_has_finished 
 004E: end_thread 
@@ -25850,7 +25848,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 1000 
 0004: $THE_CROOK_COMPLETED = 1 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_13 
+004F: create_thread @NONAME_13  
 0051: return 
 
 :MEAT1_4448
@@ -26730,7 +26728,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 2000 
 0004: $THE_THIEVES_COMPLETED = 1 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_14 
+004F: create_thread @NONAME_14  
 0051: return 
 
 :MEAT2_4770
@@ -27431,7 +27429,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 3000 
 0004: $THE_WIFE_COMPLETED = 1 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_15 
+004F: create_thread @NONAME_15  
 0051: return 
 
 :MEAT3_3594
@@ -31057,9 +31055,9 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0004: $FLAG_LUIGI_MISSION1_PASSED = 1 
 0110: clear_player $PLAYER_CHAR wanted_level 
 02A7: $LUIGI_MISSION_MARKER = create_icon_marker_and_sphere 13 at 892.75 -425.75 13.875 
-004F: create_thread @NONAME_17 
-004F: create_thread @BLOB_HP 
-004F: create_thread @LUIHELP 
+004F: create_thread @NONAME_17  
+004F: create_thread @BLOB_HP  
+004F: create_thread @LUIHELP  
 0051: return 
 
 :EIGHT_15514
@@ -31887,7 +31885,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 4000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_18 
+004F: create_thread @NONAME_18  
 0051: return 
 
 :LUIGI2_3572
@@ -33042,9 +33040,9 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 1000 
 0110: clear_player $PLAYER_CHAR wanted_level 
 02A7: $JOEY_MISSION_MARKER = create_icon_marker_and_sphere 10 at 1191.688 -870.0 -100.0 
-004F: create_thread @NONAME_19 
-004F: create_thread @NONAME_21 
-004F: create_thread @NONAME_12 
+004F: create_thread @NONAME_19  
+004F: create_thread @NONAME_21  
+004F: create_thread @NONAME_12  
 0051: return 
 
 :LUIGI3_5798
@@ -33433,11 +33431,11 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 4000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_20 
+004F: create_thread @NONAME_20  
 00D6: if 
 0038:   $DISPLAYED_PISTOL_NOW_AT_AMMUNITION_HELP_TEXT == 0 
 004D: goto_if_false @LUIGI4_2078 
-004F: create_thread @PISTOL1 
+004F: create_thread @PISTOL1  
 
 :LUIGI4_2078
 0051: return 
@@ -36229,7 +36227,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0164: disable_marker $LUIGI5_PROSTITUTE7_MARKER 
 0164: disable_marker $LUIGI5_PROSTITUTE8_MARKER 
 00D8: mission_has_finished 
-004F: create_thread @FUZZ_DR 
+004F: create_thread @FUZZ_DR  
 0051: return 
 
 :LUIGI5_13172
@@ -37634,7 +37632,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'JM1'  // 'MIKE LIPS LAST LUNCH'
 030C: set_mission_points += 1 
 034F: destroy_actor_with_fade $JOEY1_MIKELIPS 
-004F: create_thread @NONAME_22 
+004F: create_thread @NONAME_22  
 0051: return 
 
 :JOEY1_5336
@@ -38650,11 +38648,11 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 10000 
 0318: set_latest_mission_passed 'JM2'  // 'FAREWELL 'CHUNKY' LEE CHONG'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_23 
+004F: create_thread @NONAME_23  
 00D6: if 
 0038:   $DISPLAYED_PISTOL_NOW_AT_AMMUNITION_HELP_TEXT == 0 
 004D: goto_if_false @JOEY2_4763 
-004F: create_thread @PISTOL1 
+004F: create_thread @PISTOL1  
 
 :JOEY2_4763
 0051: return 
@@ -39586,9 +39584,9 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'JM3'  // 'VAN HEIST'
 030C: set_mission_points += 1 
 03A5: set_garage $SECURICAR_GARAGE type_to 7 118 
-004F: create_thread @NONAME_24 
-004F: create_thread @DIAB_PH 
-004F: create_thread @NONAME_79 
+004F: create_thread @NONAME_24  
+004F: create_thread @DIAB_PH  
+004F: create_thread @NONAME_79  
 0051: return 
 
 :JOEY3_2873
@@ -41073,9 +41071,9 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A7: $TONI_MISSION_MARKER = create_icon_marker_and_sphere 19 at 1219.563 -321.0 26.375 
 0215: destroy_pickup $SHOP_UZI 
 0213: $AMMUNATION_UZI_PICKUP = create_pickup #UZI type 1 at 1070.5 -400.75 15.1875 
-004F: create_thread @NONAME_27 
-004F: create_thread @NONAME_25 
-004F: create_thread @UZI1 
+004F: create_thread @NONAME_27  
+004F: create_thread @NONAME_25  
+004F: create_thread @UZI1  
 0051: return 
 
 :JOEY4_7897
@@ -41678,7 +41676,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 10000 
 0318: set_latest_mission_passed 'JM5'  // 'DEAD SKUNK IN THE TRUNK'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_26 
+004F: create_thread @NONAME_26  
 0051: return 
 
 :JOEY5_3113
@@ -44107,7 +44105,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 20000 
 0318: set_latest_mission_passed 'TM1'  // 'TAKING OUT THE LAUNDRY'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_28 
+004F: create_thread @NONAME_28  
 0051: return 
 
 :TONI1_2094
@@ -44630,7 +44628,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 03F1: pedtype 8 add_threat 1 
 0318: set_latest_mission_passed 'TM2'  // 'THE PICK-UP'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_29 
+004F: create_thread @NONAME_29  
 0051: return 
 
 :TONI2_2621
@@ -46232,7 +46230,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 15000 
 0318: set_latest_mission_passed 'TM3'  // 'SALVATORE'S CALLED A MEETING'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_32 
+004F: create_thread @NONAME_32  
 0164: disable_marker $LUIGI_MISSION_MARKER 
 0164: disable_marker $JOEY_MISSION_MARKER 
 0164: disable_marker $TONI_MISSION_MARKER 
@@ -47004,7 +47002,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 30000 
 0318: set_latest_mission_passed 'TM4'  // 'TRIADS AND TRIBULATIONS'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_31 
+004F: create_thread @NONAME_31  
 015C: set_zone_gang_info 'CHINA' #COP 20 0 200 0 0 0 0 0 20 
 015C: set_zone_gang_info 'CHINA' #NULL 10 0 300 0 0 0 0 0 10 
 0051: return 
@@ -47534,7 +47532,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'TM5'  // 'BLOW FISH'
 030C: set_mission_points += 1 
 0164: disable_marker $TONI_MISSION_MARKER 
-004F: create_thread @TONI_FR 
+004F: create_thread @TONI_FR  
 0051: return 
 
 :TONI5_3386
@@ -50752,7 +50750,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0038:   $FLAG_LUIGI_MISSION4_TERMINATED == 1 
 004D: goto_if_false @FRANK1_16876 
-004F: create_thread @NONAME_19 
+004F: create_thread @NONAME_19  
 0164: disable_marker $LUIGI_MISSION_MARKER 
 02A7: $LUIGI_MISSION_MARKER = create_icon_marker_and_sphere 13 at 892.75 -425.75 13.875 
 
@@ -50760,7 +50758,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0038:   $FLAG_LUIGI_MISSION5_TERMINATED == 1 
 004D: goto_if_false @FRANK1_16923 
-004F: create_thread @NONAME_20 
+004F: create_thread @NONAME_20  
 0164: disable_marker $LUIGI_MISSION_MARKER 
 02A7: $LUIGI_MISSION_MARKER = create_icon_marker_and_sphere 13 at 886.1875 -417.0625 -100.0 
 
@@ -50768,7 +50766,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0038:   $FLAG_JOEY_MISSION5_TERMINATED == 1 
 004D: goto_if_false @FRANK1_16970 
-004F: create_thread @NONAME_25 
+004F: create_thread @NONAME_25  
 0164: disable_marker $JOEY_MISSION_MARKER 
 02A7: $JOEY_MISSION_MARKER = create_icon_marker_and_sphere 10 at 1191.688 -870.0 -100.0 
 
@@ -50776,7 +50774,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 0038:   $FLAG_JOEY_MISSION6_TERMINATED == 1 
 004D: goto_if_false @FRANK1_17017 
-004F: create_thread @NONAME_26 
+004F: create_thread @NONAME_26  
 0164: disable_marker $JOEY_MISSION_MARKER 
 02A7: $JOEY_MISSION_MARKER = create_icon_marker_and_sphere 10 at 1191.688 -870.0 -100.0 
 
@@ -50788,9 +50786,9 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'FM1'  // 'CHAPERONE'
 030C: set_mission_points += 1 
 02A7: $TONI_MISSION_MARKER = create_icon_marker_and_sphere 19 at 1219.563 -321.0 26.375 
-004F: create_thread @NONAME_30 
-004F: create_thread @NONAME_33 
-004F: create_thread @NONAME_77 
+004F: create_thread @NONAME_30  
+004F: create_thread @NONAME_33  
+004F: create_thread @NONAME_77  
 0051: return 
 
 :FRANK1_17108
@@ -53388,8 +53386,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 15000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_34 
-004F: create_thread @TONI4PG 
+004F: create_thread @NONAME_34  
+004F: create_thread @TONI4PG  
 00D6: if 
 0038:   $BLOW_FISH_COMPLETED == 0 
 004D: goto_if_false @FRANK2_8308 
@@ -53636,7 +53634,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 030C: set_mission_points += 1 
 0164: disable_marker $SALVATORE_MISSION_MARKER 
 02A7: $8BALL_CONTACT_POINT = create_icon_marker_and_sphere 7 at 1272.188 -92.875 -100.0 
-004F: create_thread @NONAME_35 
+004F: create_thread @NONAME_35  
 0051: return 
 
 :FRANK21_971
@@ -55769,8 +55767,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0164: disable_marker $8BALL_CONTACT_POINT 
 0004: $FLAG_FRANKIE_SWITCHED_OFF = 0 
 02A7: $SALVATORE_MISSION_MARKER = create_icon_marker_and_sphere 16 at 1455.688 -187.25 -100.0 
-004F: create_thread @NONAME_36 
-004F: create_thread @NONAME_78 
+004F: create_thread @NONAME_36  
+004F: create_thread @NONAME_78  
 0051: return 
 
 :FRANK3_12386
@@ -57489,7 +57487,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0164: disable_marker $JOEY_MISSION_MARKER 
 01E3: text_1number_styled 'M_PASS' number 20000 duration 5000 ms style 1  // MISSION PASSED! $~1~
 0109: player $PLAYER_CHAR money += 20000 
-004F: create_thread @NONAME_41 
+004F: create_thread @NONAME_41  
 0164: disable_marker $ASUKA1_MISSION_MARKER 
 02A7: $ASUKA1_MISSION_MARKER = create_icon_marker_and_sphere 1 at 523.6875 -643.0 16.0625 
 0051: return 
@@ -57888,7 +57886,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0086: $CAR3_Y_D1 = $CP2_Y_D1 
 0086: $CAR3_Z_D1 = $CP2_Z_D1 
 018A: $BLIP_CHASE_D1 = create_checkpoint_at $PLAYER_X_D1 $PLAYER_Y_D1 $PLAYER_Z_D1 
-0167: $SECOND_BLIP = create_marker_at $BLIP_2ND_X $BLIP_2ND_Y $BLIP_2ND_Z color 5 flag 2 
+0167: $SECOND_BLIP = create_marker_at $BLIP_2ND_X $BLIP_2ND_Y $BLIP_2ND_Z color 5 visibility 2 
 0168: show_on_radar $SECOND_BLIP 2 
 0166: set_marker $SECOND_BLIP brightness_to 1 
 00A7: car_goto_coordinates $CAR1_D1 coords $CAR1_X_D1 $CAR1_Y_D1 $CAR1_Z_D1 
@@ -58142,7 +58140,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @DIABLO1_10305 
 
 :DIABLO1_3897
-0167: $SECOND_BLIP = create_marker_at $BLIP_2ND_X $BLIP_2ND_Y $BLIP_2ND_Z color 5 flag 2 
+0167: $SECOND_BLIP = create_marker_at $BLIP_2ND_X $BLIP_2ND_Y $BLIP_2ND_Z color 5 visibility 2 
 0166: set_marker $SECOND_BLIP brightness_to 1 
 0168: show_on_radar $SECOND_BLIP 2 
 018A: $BLIP_CHASE_D1 = create_checkpoint_at $PLAYER_X_D1 $PLAYER_Y_D1 $PLAYER_Z_D1 
@@ -59202,7 +59200,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'DIAB1'  // 'TURISMO'
 030C: set_mission_points += 1 
 0004: $TURISMO_COMPLETED = 1 
-004F: create_thread @NONAME_38 
+004F: create_thread @NONAME_38  
 0004: $TURISMO_PASSED_ONCE = 1 
 
 :DIABLO1_10438
@@ -59902,7 +59900,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 8000 
 0318: set_latest_mission_passed 'DIAB2'  // 'I SCREAM, YOU SCREAM'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_39 
+004F: create_thread @NONAME_39  
 0051: return 
 
 :DIABLO2_3501
@@ -60270,7 +60268,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'DIAB3'  // 'TRIAL BY FIRE'
 030C: set_mission_points += 1 
 03F1: pedtype 8 add_threat 1 
-004F: create_thread @NONAME_40 
+004F: create_thread @NONAME_40  
 0051: return 
 
 :DIABLO3_1859
@@ -60815,7 +60813,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0177: set_object $DONKEYMAG3 z_angle_to 190.0 
 0004: $TURISMO_COMPLETED = 0 
 0164: disable_marker $DIABLO_PHONE_MARKER 
-004F: create_thread @NONAME_37 
+004F: create_thread @NONAME_37  
 0318: set_latest_mission_passed 'DIAB4'  // 'BIG'N'VEINY'
 030C: set_mission_points += 1 
 0051: return 
@@ -64255,13 +64253,13 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'AM1'  // 'SAYONARA SALVATORE'
 0394: play_mission_passed_music 1 
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_42 
-004F: create_thread @JOE_BUG 
-004F: create_thread @YARD_PH 
+004F: create_thread @NONAME_42  
+004F: create_thread @JOE_BUG  
+004F: create_thread @YARD_PH  
 0051: return 
 
 :ASUKA1_19077
-004F: create_thread @ASUK_DR 
+004F: create_thread @ASUK_DR  
 021B: set_garage $SALVATORES_GARAGE to_accept_car -1 
 0249: release_model #MAFIA 
 0249: release_model #GANG01 
@@ -66009,8 +66007,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 02A7: $KENJI_MISION_MARKER = create_icon_marker_and_sphere 11 at 459.0625 -1413.0 26.0625 
 0164: disable_marker $STAUNTON_AMMUNATION_MARKER 
 0164: disable_marker $STAUNTON_PAYNSPRAY_MARKER 
-004F: create_thread @NONAME_43 
-004F: create_thread @NONAME_46 
+004F: create_thread @NONAME_43  
+004F: create_thread @NONAME_46  
 0051: return 
 
 :ASUKA2_3643
@@ -67466,7 +67464,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 10000 
 0318: set_latest_mission_passed 'AM3'  // 'PAPARAZZI PURGE'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_44 
+004F: create_thread @NONAME_44  
 0051: return 
 
 :ASUKA3_7252
@@ -68170,8 +68168,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 030C: set_mission_points += 1 
 02A7: $RAY_MISSION_MARKER = create_icon_marker_and_sphere 15 at 38.75 -725.375 -100.0 
 0373: set_camera_directly_behind_player 
-004F: create_thread @NONAME_45 
-004F: create_thread @NONAME_51 
+004F: create_thread @NONAME_45  
+004F: create_thread @NONAME_51  
 0051: return 
 
 :ASUKA4_3205
@@ -69554,7 +69552,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 30000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_47 
+004F: create_thread @NONAME_47  
 0051: return 
 
 :KENJI1_4149
@@ -70268,7 +70266,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 25000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_48 
+004F: create_thread @NONAME_48  
 0051: return 
 
 :KENJI2_3544
@@ -71513,7 +71511,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 25000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_49 
+004F: create_thread @NONAME_49  
 0051: return 
 
 :KENJI3_6631
@@ -72056,17 +72054,17 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0156: set_zone_ped_density 'PARK' 1 1  // Belleville Park
 0156: set_zone_ped_density 'PARK' 0 1  // Belleville Park
 03BF: set_player $PLAYER_CHAR ignored_by_everyone_to 0 
-0167: $RADAR_BLIP_COORD1_KM4 = create_marker_at 938.0 -180.0 -100.0 color 5 flag 3 
+0167: $RADAR_BLIP_COORD1_KM4 = create_marker_at 938.0 -180.0 -100.0 color 5 visibility 3 
 0168: show_on_radar $RADAR_BLIP_COORD1_KM4 3 
-0167: $RADAR_BLIP_DUMMY1_KM4 = create_marker_at 930.0 -190.0 -100.0 color 1 flag 3 
+0167: $RADAR_BLIP_DUMMY1_KM4 = create_marker_at 930.0 -190.0 -100.0 color 1 visibility 3 
 0168: show_on_radar $RADAR_BLIP_DUMMY1_KM4 3 
-0167: $RADAR_BLIP_DUMMY2_KM4 = create_marker_at 931.0 -184.0 -100.0 color 1 flag 3 
+0167: $RADAR_BLIP_DUMMY2_KM4 = create_marker_at 931.0 -184.0 -100.0 color 1 visibility 3 
 0168: show_on_radar $RADAR_BLIP_DUMMY2_KM4 3 
-0167: $RADAR_BLIP_DUMMY3_KM4 = create_marker_at 943.0 -182.0 -100.0 color 1 flag 3 
+0167: $RADAR_BLIP_DUMMY3_KM4 = create_marker_at 943.0 -182.0 -100.0 color 1 visibility 3 
 0168: show_on_radar $RADAR_BLIP_DUMMY3_KM4 3 
-0167: $RADAR_BLIP_DUMMY4_KM4 = create_marker_at 943.0 -190.0 -100.0 color 1 flag 3 
+0167: $RADAR_BLIP_DUMMY4_KM4 = create_marker_at 943.0 -190.0 -100.0 color 1 visibility 3 
 0168: show_on_radar $RADAR_BLIP_DUMMY4_KM4 3 
-0167: $RADAR_BLIP_DUMMY5_KM4 = create_marker_at 939.0 -183.0 -100.0 color 1 flag 3 
+0167: $RADAR_BLIP_DUMMY5_KM4 = create_marker_at 939.0 -183.0 -100.0 color 1 visibility 3 
 0168: show_on_radar $RADAR_BLIP_DUMMY5_KM4 3 
 00BC: print_now 'KM4_4' duration 7000 ms flag 1  // ~g~Punish the gang responsible and retrieve the ~b~protection money~g~!
 
@@ -72338,7 +72336,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 10000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_50 
+004F: create_thread @NONAME_50  
 0051: return 
 
 :KENJI4_4121
@@ -72652,7 +72650,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_1171 
 
 :KENJI5_1325
-0167: $PED_1_BLIP = create_marker_at $PED_1_X $PED_1_Y $PED_1_Z color 1 flag 2 
+0167: $PED_1_BLIP = create_marker_at $PED_1_X $PED_1_Y $PED_1_Z color 1 visibility 2 
 0168: show_on_radar $PED_1_BLIP 3 
 0004: $PED_1_EXISTS = 1 
 01BD: $PED_1_TIME = current_time_in_ms 
@@ -72684,7 +72682,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_1389 
 
 :KENJI5_1543
-0167: $PED_2_BLIP = create_marker_at $PED_2_X $PED_2_Y $PED_2_Z color 1 flag 2 
+0167: $PED_2_BLIP = create_marker_at $PED_2_X $PED_2_Y $PED_2_Z color 1 visibility 2 
 0168: show_on_radar $PED_2_BLIP 3 
 0004: $PED_2_EXISTS = 1 
 01BD: $PED_2_TIME = current_time_in_ms 
@@ -72716,7 +72714,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_1607 
 
 :KENJI5_1761
-0167: $PED_3_BLIP = create_marker_at $PED_3_X $PED_3_Y $PED_3_Z color 1 flag 2 
+0167: $PED_3_BLIP = create_marker_at $PED_3_X $PED_3_Y $PED_3_Z color 1 visibility 2 
 0168: show_on_radar $PED_3_BLIP 3 
 0004: $PED_3_EXISTS = 1 
 01BD: $PED_3_TIME = current_time_in_ms 
@@ -72748,7 +72746,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_1825 
 
 :KENJI5_1979
-0167: $PED_4_BLIP = create_marker_at $PED_4_X $PED_4_Y $PED_4_Z color 1 flag 2 
+0167: $PED_4_BLIP = create_marker_at $PED_4_X $PED_4_Y $PED_4_Z color 1 visibility 2 
 0168: show_on_radar $PED_4_BLIP 3 
 0004: $PED_4_EXISTS = 1 
 01BD: $PED_4_TIME = current_time_in_ms 
@@ -72780,7 +72778,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_2043 
 
 :KENJI5_2197
-0167: $PED_5_BLIP = create_marker_at $PED_5_X $PED_5_Y $PED_5_Z color 1 flag 2 
+0167: $PED_5_BLIP = create_marker_at $PED_5_X $PED_5_Y $PED_5_Z color 1 visibility 2 
 0168: show_on_radar $PED_5_BLIP 3 
 0004: $PED_5_EXISTS = 1 
 01BD: $PED_5_TIME = current_time_in_ms 
@@ -72812,7 +72810,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_2261 
 
 :KENJI5_2415
-0167: $PED_6_BLIP = create_marker_at $PED_6_X $PED_6_Y $PED_6_Z color 1 flag 2 
+0167: $PED_6_BLIP = create_marker_at $PED_6_X $PED_6_Y $PED_6_Z color 1 visibility 2 
 0168: show_on_radar $PED_6_BLIP 3 
 0004: $PED_6_EXISTS = 1 
 01BD: $PED_6_TIME = current_time_in_ms 
@@ -72844,7 +72842,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_2479 
 
 :KENJI5_2633
-0167: $PED_7_BLIP = create_marker_at $PED_7_X $PED_7_Y $PED_7_Z color 1 flag 2 
+0167: $PED_7_BLIP = create_marker_at $PED_7_X $PED_7_Y $PED_7_Z color 1 visibility 2 
 0168: show_on_radar $PED_7_BLIP 3 
 0004: $PED_7_EXISTS = 1 
 01BD: $PED_7_TIME = current_time_in_ms 
@@ -72876,7 +72874,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_2697 
 
 :KENJI5_2851
-0167: $PED_8_BLIP = create_marker_at $PED_8_X $PED_8_Y $PED_8_Z color 1 flag 2 
+0167: $PED_8_BLIP = create_marker_at $PED_8_X $PED_8_Y $PED_8_Z color 1 visibility 2 
 0168: show_on_radar $PED_8_BLIP 3 
 0004: $PED_8_EXISTS = 1 
 01BD: $PED_8_TIME = current_time_in_ms 
@@ -72908,7 +72906,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_2915 
 
 :KENJI5_3069
-0167: $PED_9_BLIP = create_marker_at $PED_9_X $PED_9_Y $PED_9_Z color 1 flag 2 
+0167: $PED_9_BLIP = create_marker_at $PED_9_X $PED_9_Y $PED_9_Z color 1 visibility 2 
 0168: show_on_radar $PED_9_BLIP 3 
 0004: $PED_9_EXISTS = 1 
 01BD: $PED_9_TIME = current_time_in_ms 
@@ -72940,7 +72938,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_3133 
 
 :KENJI5_3287
-0167: $PED_10_BLIP = create_marker_at $PED_10_X $PED_10_Y $PED_10_Z color 1 flag 2 
+0167: $PED_10_BLIP = create_marker_at $PED_10_X $PED_10_Y $PED_10_Z color 1 visibility 2 
 0168: show_on_radar $PED_10_BLIP 3 
 0004: $PED_10_EXISTS = 1 
 01BD: $PED_10_TIME = current_time_in_ms 
@@ -72972,7 +72970,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_3351 
 
 :KENJI5_3505
-0167: $PED_11_BLIP = create_marker_at $PED_11_X $PED_11_Y $PED_11_Z color 1 flag 2 
+0167: $PED_11_BLIP = create_marker_at $PED_11_X $PED_11_Y $PED_11_Z color 1 visibility 2 
 0168: show_on_radar $PED_11_BLIP 3 
 0004: $PED_11_EXISTS = 1 
 01BD: $PED_11_TIME = current_time_in_ms 
@@ -73004,7 +73002,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_3569 
 
 :KENJI5_3723
-0167: $PED_12_BLIP = create_marker_at $PED_12_X $PED_12_Y $PED_12_Z color 1 flag 2 
+0167: $PED_12_BLIP = create_marker_at $PED_12_X $PED_12_Y $PED_12_Z color 1 visibility 2 
 0168: show_on_radar $PED_12_BLIP 3 
 0004: $PED_12_EXISTS = 1 
 01BD: $PED_12_TIME = current_time_in_ms 
@@ -73036,7 +73034,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_3787 
 
 :KENJI5_3941
-0167: $PED_13_BLIP = create_marker_at $PED_13_X $PED_13_Y $PED_13_Z color 1 flag 2 
+0167: $PED_13_BLIP = create_marker_at $PED_13_X $PED_13_Y $PED_13_Z color 1 visibility 2 
 0168: show_on_radar $PED_13_BLIP 3 
 0004: $PED_13_EXISTS = 1 
 01BD: $PED_13_TIME = current_time_in_ms 
@@ -73068,7 +73066,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_4005 
 
 :KENJI5_4159
-0167: $PED_14_BLIP = create_marker_at $PED_14_X $PED_14_Y $PED_14_Z color 1 flag 2 
+0167: $PED_14_BLIP = create_marker_at $PED_14_X $PED_14_Y $PED_14_Z color 1 visibility 2 
 0168: show_on_radar $PED_14_BLIP 3 
 0004: $PED_14_EXISTS = 1 
 01BD: $PED_14_TIME = current_time_in_ms 
@@ -73100,7 +73098,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @KENJI5_4223 
 
 :KENJI5_4377
-0167: $PED_15_BLIP = create_marker_at $PED_15_X $PED_15_Y $PED_15_Z color 1 flag 2 
+0167: $PED_15_BLIP = create_marker_at $PED_15_X $PED_15_Y $PED_15_Z color 1 visibility 2 
 0168: show_on_radar $PED_15_BLIP 3 
 0004: $PED_15_EXISTS = 1 
 01BD: $PED_15_TIME = current_time_in_ms 
@@ -73118,9 +73116,9 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0005: $PED_2_Y = -974.3125 
 0005: $PED_2_Z = 25.375 
 0004: $DELETE_OLDEST_PED_TIME = 80000 
-0167: $PED_1_BLIP = create_marker_at $PED_1_X $PED_1_Y $PED_1_Z color 1 flag 2 
+0167: $PED_1_BLIP = create_marker_at $PED_1_X $PED_1_Y $PED_1_Z color 1 visibility 2 
 0168: show_on_radar $PED_1_BLIP 3 
-0167: $PED_2_BLIP = create_marker_at $PED_2_X $PED_2_Y $PED_2_Z color 1 flag 2 
+0167: $PED_2_BLIP = create_marker_at $PED_2_X $PED_2_Y $PED_2_Z color 1 visibility 2 
 0168: show_on_radar $PED_2_BLIP 3 
 00BC: print_now 'KM5_6' duration 5000 ms flag 1  // ~g~You must murder at least 8 Yardie dealers.
 00BD: print_soon 'KM5_7' duration 6000 ms flag 1  // ~g~Kill them quickly! Once they've pushed their SPANK they're off the streets.
@@ -73167,7 +73165,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_1 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_1_BLIP 
-0162: tie_marker $PED_1_BLIP to_actor $PED_1 1 3 
+0162: $PED_1_BLIP = create_marker_above_actor $PED_1 color 1 visibility 3 
 0168: show_on_radar $PED_1_BLIP 3 
 0004: $PED_1_EXISTS = 2 
 
@@ -73204,7 +73202,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_5125 
 00A0: get_char_coordinates $PED_1 store_to $PED_1_X $PED_1_Y $PED_1_Z 
 0164: disable_marker $PED_1_BLIP 
-0167: $PED_1_BLIP = create_marker_at $PED_1_X $PED_1_Y $PED_1_Z color 1 flag 2 
+0167: $PED_1_BLIP = create_marker_at $PED_1_X $PED_1_Y $PED_1_Z color 1 visibility 2 
 0168: show_on_radar $PED_1_BLIP 3 
 009B: delete_char $PED_1 
 0004: $PED_1_EXISTS = 1 
@@ -73230,7 +73228,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 011A: set_actor $PED_2 search_threat 8 
 02A9: set_char_only_damaged_by_player $PED_2 to 1 
 0164: disable_marker $PED_2_BLIP 
-0162: tie_marker $PED_2_BLIP to_actor $PED_2 1 3 
+0162: $PED_2_BLIP = create_marker_above_actor $PED_2 color 1 visibility 3 
 0168: show_on_radar $PED_2_BLIP 3 
 0004: $PED_2_EXISTS = 2 
 
@@ -73267,7 +73265,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_5554 
 00A0: get_char_coordinates $PED_2 store_to $PED_2_X $PED_2_Y $PED_2_Z 
 0164: disable_marker $PED_2_BLIP 
-0167: $PED_2_BLIP = create_marker_at $PED_2_X $PED_2_Y $PED_2_Z color 1 flag 2 
+0167: $PED_2_BLIP = create_marker_at $PED_2_X $PED_2_Y $PED_2_Z color 1 visibility 2 
 0168: show_on_radar $PED_2_BLIP 3 
 009B: delete_char $PED_2 
 0004: $PED_2_EXISTS = 1 
@@ -73295,7 +73293,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_3 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_3_BLIP 
-0162: tie_marker $PED_3_BLIP to_actor $PED_3 1 3 
+0162: $PED_3_BLIP = create_marker_above_actor $PED_3 color 1 visibility 3 
 0168: show_on_radar $PED_3_BLIP 3 
 0004: $PED_3_EXISTS = 2 
 
@@ -73324,7 +73322,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_5953 
 00A0: get_char_coordinates $PED_3 store_to $PED_3_X $PED_3_Y $PED_3_Z 
 0164: disable_marker $PED_3_BLIP 
-0167: $PED_3_BLIP = create_marker_at $PED_3_X $PED_3_Y $PED_3_Z color 1 flag 2 
+0167: $PED_3_BLIP = create_marker_at $PED_3_X $PED_3_Y $PED_3_Z color 1 visibility 2 
 0168: show_on_radar $PED_3_BLIP 3 
 009B: delete_char $PED_3 
 0004: $PED_3_EXISTS = 1 
@@ -73352,7 +73350,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_4 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_4_BLIP 
-0162: tie_marker $PED_4_BLIP to_actor $PED_4 1 3 
+0162: $PED_4_BLIP = create_marker_above_actor $PED_4 color 1 visibility 3 
 0168: show_on_radar $PED_4_BLIP 3 
 0004: $PED_4_EXISTS = 2 
 
@@ -73381,7 +73379,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_6352 
 00A0: get_char_coordinates $PED_4 store_to $PED_4_X $PED_4_Y $PED_4_Z 
 0164: disable_marker $PED_4_BLIP 
-0167: $PED_4_BLIP = create_marker_at $PED_4_X $PED_4_Y $PED_4_Z color 1 flag 2 
+0167: $PED_4_BLIP = create_marker_at $PED_4_X $PED_4_Y $PED_4_Z color 1 visibility 2 
 0168: show_on_radar $PED_4_BLIP 3 
 009B: delete_char $PED_4 
 0004: $PED_4_EXISTS = 1 
@@ -73409,7 +73407,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_5 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_5_BLIP 
-0162: tie_marker $PED_5_BLIP to_actor $PED_5 1 3 
+0162: $PED_5_BLIP = create_marker_above_actor $PED_5 color 1 visibility 3 
 0168: show_on_radar $PED_5_BLIP 3 
 0004: $PED_5_EXISTS = 2 
 
@@ -73438,7 +73436,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_6751 
 00A0: get_char_coordinates $PED_5 store_to $PED_5_X $PED_5_Y $PED_5_Z 
 0164: disable_marker $PED_5_BLIP 
-0167: $PED_5_BLIP = create_marker_at $PED_5_X $PED_5_Y $PED_5_Z color 1 flag 2 
+0167: $PED_5_BLIP = create_marker_at $PED_5_X $PED_5_Y $PED_5_Z color 1 visibility 2 
 0168: show_on_radar $PED_5_BLIP 3 
 009B: delete_char $PED_5 
 0004: $PED_5_EXISTS = 1 
@@ -73466,7 +73464,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_6 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_6_BLIP 
-0162: tie_marker $PED_6_BLIP to_actor $PED_6 1 3 
+0162: $PED_6_BLIP = create_marker_above_actor $PED_6 color 1 visibility 3 
 0168: show_on_radar $PED_6_BLIP 3 
 0004: $PED_6_EXISTS = 2 
 
@@ -73495,7 +73493,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_7150 
 00A0: get_char_coordinates $PED_6 store_to $PED_6_X $PED_6_Y $PED_6_Z 
 0164: disable_marker $PED_6_BLIP 
-0167: $PED_6_BLIP = create_marker_at $PED_6_X $PED_6_Y $PED_6_Z color 1 flag 2 
+0167: $PED_6_BLIP = create_marker_at $PED_6_X $PED_6_Y $PED_6_Z color 1 visibility 2 
 0168: show_on_radar $PED_6_BLIP 3 
 009B: delete_char $PED_6 
 0004: $PED_6_EXISTS = 1 
@@ -73523,7 +73521,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_7 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_7_BLIP 
-0162: tie_marker $PED_7_BLIP to_actor $PED_7 1 3 
+0162: $PED_7_BLIP = create_marker_above_actor $PED_7 color 1 visibility 3 
 0168: show_on_radar $PED_7_BLIP 3 
 0004: $PED_7_EXISTS = 2 
 
@@ -73552,7 +73550,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_7549 
 00A0: get_char_coordinates $PED_7 store_to $PED_7_X $PED_7_Y $PED_7_Z 
 0164: disable_marker $PED_7_BLIP 
-0167: $PED_7_BLIP = create_marker_at $PED_7_X $PED_7_Y $PED_7_Z color 1 flag 2 
+0167: $PED_7_BLIP = create_marker_at $PED_7_X $PED_7_Y $PED_7_Z color 1 visibility 2 
 0168: show_on_radar $PED_7_BLIP 3 
 009B: delete_char $PED_7 
 0004: $PED_7_EXISTS = 1 
@@ -73580,7 +73578,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_8 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_8_BLIP 
-0162: tie_marker $PED_8_BLIP to_actor $PED_8 1 3 
+0162: $PED_8_BLIP = create_marker_above_actor $PED_8 color 1 visibility 3 
 0168: show_on_radar $PED_8_BLIP 3 
 0004: $PED_8_EXISTS = 2 
 
@@ -73609,7 +73607,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_7948 
 00A0: get_char_coordinates $PED_8 store_to $PED_8_X $PED_8_Y $PED_8_Z 
 0164: disable_marker $PED_8_BLIP 
-0167: $PED_8_BLIP = create_marker_at $PED_8_X $PED_8_Y $PED_8_Z color 1 flag 2 
+0167: $PED_8_BLIP = create_marker_at $PED_8_X $PED_8_Y $PED_8_Z color 1 visibility 2 
 0168: show_on_radar $PED_8_BLIP 3 
 009B: delete_char $PED_8 
 0004: $PED_8_EXISTS = 1 
@@ -73637,7 +73635,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_9 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_9_BLIP 
-0162: tie_marker $PED_9_BLIP to_actor $PED_9 1 3 
+0162: $PED_9_BLIP = create_marker_above_actor $PED_9 color 1 visibility 3 
 0168: show_on_radar $PED_9_BLIP 3 
 0004: $PED_9_EXISTS = 2 
 
@@ -73666,7 +73664,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_8347 
 00A0: get_char_coordinates $PED_9 store_to $PED_9_X $PED_9_Y $PED_9_Z 
 0164: disable_marker $PED_9_BLIP 
-0167: $PED_9_BLIP = create_marker_at $PED_9_X $PED_9_Y $PED_9_Z color 1 flag 2 
+0167: $PED_9_BLIP = create_marker_at $PED_9_X $PED_9_Y $PED_9_Z color 1 visibility 2 
 0168: show_on_radar $PED_9_BLIP 3 
 009B: delete_char $PED_9 
 0004: $PED_9_EXISTS = 1 
@@ -73694,7 +73692,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_10 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_10_BLIP 
-0162: tie_marker $PED_10_BLIP to_actor $PED_10 1 3 
+0162: $PED_10_BLIP = create_marker_above_actor $PED_10 color 1 visibility 3 
 0168: show_on_radar $PED_10_BLIP 3 
 0004: $PED_10_EXISTS = 2 
 
@@ -73723,7 +73721,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_8746 
 00A0: get_char_coordinates $PED_10 store_to $PED_10_X $PED_10_Y $PED_10_Z 
 0164: disable_marker $PED_10_BLIP 
-0167: $PED_10_BLIP = create_marker_at $PED_10_X $PED_10_Y $PED_10_Z color 1 flag 2 
+0167: $PED_10_BLIP = create_marker_at $PED_10_X $PED_10_Y $PED_10_Z color 1 visibility 2 
 0168: show_on_radar $PED_10_BLIP 3 
 009B: delete_char $PED_10 
 0004: $PED_10_EXISTS = 1 
@@ -73751,7 +73749,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_11 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_11_BLIP 
-0162: tie_marker $PED_11_BLIP to_actor $PED_11 1 3 
+0162: $PED_11_BLIP = create_marker_above_actor $PED_11 color 1 visibility 3 
 0168: show_on_radar $PED_11_BLIP 3 
 0004: $PED_11_EXISTS = 2 
 
@@ -73780,7 +73778,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_9145 
 00A0: get_char_coordinates $PED_11 store_to $PED_11_X $PED_11_Y $PED_11_Z 
 0164: disable_marker $PED_11_BLIP 
-0167: $PED_11_BLIP = create_marker_at $PED_11_X $PED_11_Y $PED_11_Z color 1 flag 2 
+0167: $PED_11_BLIP = create_marker_at $PED_11_X $PED_11_Y $PED_11_Z color 1 visibility 2 
 0168: show_on_radar $PED_11_BLIP 3 
 009B: delete_char $PED_11 
 0004: $PED_11_EXISTS = 1 
@@ -73808,7 +73806,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_12 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_12_BLIP 
-0162: tie_marker $PED_12_BLIP to_actor $PED_12 1 3 
+0162: $PED_12_BLIP = create_marker_above_actor $PED_12 color 1 visibility 3 
 0168: show_on_radar $PED_12_BLIP 3 
 0004: $PED_12_EXISTS = 2 
 
@@ -73837,7 +73835,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_9544 
 00A0: get_char_coordinates $PED_12 store_to $PED_12_X $PED_12_Y $PED_12_Z 
 0164: disable_marker $PED_12_BLIP 
-0167: $PED_12_BLIP = create_marker_at $PED_12_X $PED_12_Y $PED_12_Z color 1 flag 2 
+0167: $PED_12_BLIP = create_marker_at $PED_12_X $PED_12_Y $PED_12_Z color 1 visibility 2 
 0168: show_on_radar $PED_12_BLIP 3 
 009B: delete_char $PED_12 
 0004: $PED_12_EXISTS = 1 
@@ -73865,7 +73863,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_13 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_13_BLIP 
-0162: tie_marker $PED_13_BLIP to_actor $PED_13 1 3 
+0162: $PED_13_BLIP = create_marker_above_actor $PED_13 color 1 visibility 3 
 0168: show_on_radar $PED_13_BLIP 3 
 0004: $PED_13_EXISTS = 2 
 
@@ -73894,7 +73892,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_9943 
 00A0: get_char_coordinates $PED_13 store_to $PED_13_X $PED_13_Y $PED_13_Z 
 0164: disable_marker $PED_13_BLIP 
-0167: $PED_13_BLIP = create_marker_at $PED_13_X $PED_13_Y $PED_13_Z color 1 flag 2 
+0167: $PED_13_BLIP = create_marker_at $PED_13_X $PED_13_Y $PED_13_Z color 1 visibility 2 
 0168: show_on_radar $PED_13_BLIP 3 
 009B: delete_char $PED_13 
 0004: $PED_13_EXISTS = 1 
@@ -73922,7 +73920,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_14 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_14_BLIP 
-0162: tie_marker $PED_14_BLIP to_actor $PED_14 1 3 
+0162: $PED_14_BLIP = create_marker_above_actor $PED_14 color 1 visibility 3 
 0168: show_on_radar $PED_14_BLIP 3 
 0004: $PED_14_EXISTS = 2 
 
@@ -73951,7 +73949,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_10342 
 00A0: get_char_coordinates $PED_14 store_to $PED_14_X $PED_14_Y $PED_14_Z 
 0164: disable_marker $PED_14_BLIP 
-0167: $PED_14_BLIP = create_marker_at $PED_14_X $PED_14_Y $PED_14_Z color 1 flag 2 
+0167: $PED_14_BLIP = create_marker_at $PED_14_X $PED_14_Y $PED_14_Z color 1 visibility 2 
 0168: show_on_radar $PED_14_BLIP 3 
 009B: delete_char $PED_14 
 0004: $PED_14_EXISTS = 1 
@@ -73979,7 +73977,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0209: $RANDOM_DIRECTION = random_int_in_ranges 0 8 
 009C: char_wander_dir $PED_15 to $RANDOM_DIRECTION 
 0164: disable_marker $PED_15_BLIP 
-0162: tie_marker $PED_15_BLIP to_actor $PED_15 1 3 
+0162: $PED_15_BLIP = create_marker_above_actor $PED_15 color 1 visibility 3 
 0168: show_on_radar $PED_15_BLIP 3 
 0004: $PED_15_EXISTS = 2 
 
@@ -74008,7 +74006,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 004D: goto_if_false @KENJI5_10741 
 00A0: get_char_coordinates $PED_15 store_to $PED_15_X $PED_15_Y $PED_15_Z 
 0164: disable_marker $PED_15_BLIP 
-0167: $PED_15_BLIP = create_marker_at $PED_15_X $PED_15_Y $PED_15_Z color 1 flag 2 
+0167: $PED_15_BLIP = create_marker_at $PED_15_X $PED_15_Y $PED_15_Z color 1 visibility 2 
 0168: show_on_radar $PED_15_BLIP 3 
 009B: delete_char $PED_15 
 0004: $PED_15_EXISTS = 1 
@@ -74895,7 +74893,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0318: set_latest_mission_passed 'RM1'  // 'SILENCE THE SNEAK'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_52 
+004F: create_thread @NONAME_52  
 0051: return 
 
 :RAY1_3104
@@ -75748,7 +75746,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 009A: $VARMINT_11 = create_char 12 model #GANG11 at 121.25 235.6875 11.5 
 01B2: give_actor $VARMINT_11 weapon 5 ammo 80 
 035F: set_actor $VARMINT_11 armour_to 100 
-0162: tie_marker $BLIP_V11 to_actor $VARMINT_11 1 2 
+0162: $BLIP_V11 = create_marker_above_actor $VARMINT_11 color 1 visibility 2 
 0239: actor $VARMINT_11 run_to $PHILS_DEFCON_X $PHILS_DEFCON_Y 
 011A: set_actor $VARMINT_11 search_threat 1 
 011A: set_actor $VARMINT_11 search_threat 524288 
@@ -75765,7 +75763,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 009A: $VARMINT_12 = create_char 12 model #GANG11 at 121.25 241.5625 11.5 
 01B2: give_actor $VARMINT_12 weapon 4 ammo 20 
 035F: set_actor $VARMINT_12 armour_to 100 
-0162: tie_marker $BLIP_V12 to_actor $VARMINT_12 1 2 
+0162: $BLIP_V12 = create_marker_above_actor $VARMINT_12 color 1 visibility 2 
 0239: actor $VARMINT_12 run_to 124.125 184.6875 
 011A: set_actor $VARMINT_12 search_threat 1 
 011A: set_actor $VARMINT_12 search_threat 524288 
@@ -76088,7 +76086,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 10000 
 0318: set_latest_mission_passed 'RM2'  // 'ARMS SHORTAGE'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_53 
+004F: create_thread @NONAME_53  
 0051: return 
 
 :RAY2_6351
@@ -76187,7 +76185,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_5 dead 
 004D: goto_if_false @RAY2_6811 
-0162: tie_marker $BLIP_V5 to_actor $VARMINT_5 1 2 
+0162: $BLIP_V5 = create_marker_above_actor $VARMINT_5 color 1 visibility 2 
 035F: set_actor $VARMINT_5 armour_to 100 
 01B2: give_actor $VARMINT_5 weapon 3 ammo 60 
 0239: actor $VARMINT_5 run_to $WH_X_RM2 $WH_Y_RM2 
@@ -76227,7 +76225,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_6 dead 
 004D: goto_if_false @RAY2_6999 
-0162: tie_marker $BLIP_V6 to_actor $VARMINT_6 1 2 
+0162: $BLIP_V6 = create_marker_above_actor $VARMINT_6 color 1 visibility 2 
 01B2: give_actor $VARMINT_6 weapon 3 ammo 60 
 0239: actor $VARMINT_6 run_to $WH_X_RM2 $WH_Y_RM2 
 011A: set_actor $VARMINT_6 search_threat 1 
@@ -76274,7 +76272,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_1 dead 
 004D: goto_if_false @RAY2_7224 
-0162: tie_marker $BLIP_V1 to_actor $VARMINT_1 1 2 
+0162: $BLIP_V1 = create_marker_above_actor $VARMINT_1 color 1 visibility 2 
 01B2: give_actor $VARMINT_1 weapon 4 ammo 20 
 0239: actor $VARMINT_1 run_to $WH_X_RM2 $WH_Y_RM2 
 011A: set_actor $VARMINT_1 search_threat 1 
@@ -76313,7 +76311,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_2 dead 
 004D: goto_if_false @RAY2_7412 
-0162: tie_marker $BLIP_V2 to_actor $VARMINT_2 1 2 
+0162: $BLIP_V2 = create_marker_above_actor $VARMINT_2 color 1 visibility 2 
 01B2: give_actor $VARMINT_2 weapon 4 ammo 20 
 0239: actor $VARMINT_2 run_to $WH_X_RM2 $WH_Y_RM2 
 011A: set_actor $VARMINT_2 search_threat 1 
@@ -76352,7 +76350,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_3 dead 
 004D: goto_if_false @RAY2_7600 
-0162: tie_marker $BLIP_V3 to_actor $VARMINT_3 1 2 
+0162: $BLIP_V3 = create_marker_above_actor $VARMINT_3 color 1 visibility 2 
 01B2: give_actor $VARMINT_3 weapon 5 ammo 80 
 0239: actor $VARMINT_3 run_to 140.0 209.5 
 011A: set_actor $VARMINT_3 search_threat 1 
@@ -76391,7 +76389,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_4 dead 
 004D: goto_if_false @RAY2_7795 
-0162: tie_marker $BLIP_V4 to_actor $VARMINT_4 1 2 
+0162: $BLIP_V4 = create_marker_above_actor $VARMINT_4 color 1 visibility 2 
 035F: set_actor $VARMINT_4 armour_to 100 
 01B2: give_actor $VARMINT_4 weapon 10 ammo 5 
 0239: actor $VARMINT_4 run_to $WH_X_RM2 $WH_Y_RM2 
@@ -76439,7 +76437,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_7 dead 
 004D: goto_if_false @RAY2_8020 
-0162: tie_marker $BLIP_V7 to_actor $VARMINT_7 1 2 
+0162: $BLIP_V7 = create_marker_above_actor $VARMINT_7 color 1 visibility 2 
 01B2: give_actor $VARMINT_7 weapon 4 ammo 10 
 0239: actor $VARMINT_7 run_to $WH_X_RM2 $WH_Y_RM2 
 011A: set_actor $VARMINT_7 search_threat 1 
@@ -76478,7 +76476,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_8 dead 
 004D: goto_if_false @RAY2_8208 
-0162: tie_marker $BLIP_V8 to_actor $VARMINT_8 1 2 
+0162: $BLIP_V8 = create_marker_above_actor $VARMINT_8 color 1 visibility 2 
 01B2: give_actor $VARMINT_8 weapon 5 ammo 45 
 0239: actor $VARMINT_8 run_to 129.6875 199.75 
 011A: set_actor $VARMINT_8 search_threat 1 
@@ -76517,7 +76515,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_9 dead 
 004D: goto_if_false @RAY2_8396 
-0162: tie_marker $BLIP_V9 to_actor $VARMINT_9 1 2 
+0162: $BLIP_V9 = create_marker_above_actor $VARMINT_9 color 1 visibility 2 
 01B2: give_actor $VARMINT_9 weapon 2 ammo 30 
 0239: actor $VARMINT_9 run_to $WH_X_RM2 $WH_Y_RM2 
 011A: set_actor $VARMINT_9 search_threat 1 
@@ -76556,7 +76554,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 00D6: if 
 8118:   not actor $VARMINT_10 dead 
 004D: goto_if_false @RAY2_8591 
-0162: tie_marker $BLIP_V10 to_actor $VARMINT_10 1 2 
+0162: $BLIP_V10 = create_marker_above_actor $VARMINT_10 color 1 visibility 2 
 01B2: give_actor $VARMINT_10 weapon 4 ammo 20 
 035F: set_actor $VARMINT_10 armour_to 100 
 0239: actor $VARMINT_10 run_to $WH_X_RM2 $WH_Y_RM2 
@@ -77601,8 +77599,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 030C: set_mission_points += 1 
 02A7: $DONALD_MISSION_MARKER = create_icon_marker_and_sphere 6 at 86.0625 -1548.688 28.25 
-004F: create_thread @NONAME_54 
-004F: create_thread @NONAME_57 
+004F: create_thread @NONAME_54  
+004F: create_thread @NONAME_57  
 0051: return 
 
 :RAY3_4731
@@ -79310,7 +79308,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'RM4'  // 'GONE FISHING'
 0394: play_mission_passed_music 1 
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_55 
+004F: create_thread @NONAME_55  
 0051: return 
 
 :RAY4_9750
@@ -80342,7 +80340,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @RAY5_3497 
 
 :RAY5_3489
-004F: create_thread @NONAME_56 
+004F: create_thread @NONAME_56  
 
 :RAY5_3497
 0051: return 
@@ -82963,7 +82961,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 40000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_58 
+004F: create_thread @NONAME_58  
 0051: return 
 
 :LOVE1_5937
@@ -83826,7 +83824,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'LOVE2'  // 'WAKA-GASHIRA WIPEOUT!'
 030C: set_mission_points += 1 
 0164: disable_marker $KENJI_MISION_MARKER 
-004F: create_thread @NONAME_59 
+004F: create_thread @NONAME_59  
 0051: return 
 
 :LOVE2_4456
@@ -84279,7 +84277,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 001A:   6 > $PACKAGE_NUMBERS 
 004D: goto_if_false @LOVE3_1579 
 035A: find_drop_off_plane_coords $PLANEX $PLANEY $PLANEZ 
-0167: $PLANE_BLIP = create_marker_at $PLANEX $PLANEY $PLANEZ color 4 flag 2 
+0167: $PLANE_BLIP = create_marker_at $PLANEX $PLANEY $PLANEZ color 4 visibility 2 
 0168: show_on_radar $PLANE_BLIP 3 
 01BD: $DRUG_CURRENT_TIMER = current_time_in_ms 
 0084: $TEMPORARY_TIME_DRUG = $DRUG_CURRENT_TIMER 
@@ -84773,7 +84771,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0038:   $PLASTER_BLASTER_COMPLETED == 1 
 004D: goto_if_false @LOVE3_4114 
 02A7: $RAY_MISSION_MARKER = create_icon_marker_and_sphere 15 at 38.75 -725.375 -100.0 
-004F: create_thread @NONAME_56 
+004F: create_thread @NONAME_56  
 
 :LOVE3_4114
 01E3: text_1number_styled 'M_PASS' number 10000 duration 5000 ms style 1  // MISSION PASSED! $~1~
@@ -84782,8 +84780,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'LOVE3'  // 'A DROP IN THE OCEAN'
 0394: play_mission_passed_music 1 
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_64 
-004F: create_thread @HOOD_PH 
+004F: create_thread @NONAME_64  
+004F: create_thread @HOOD_PH  
 0051: return 
 
 :LOVE3_4181
@@ -85748,7 +85746,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'YD1'  // 'BLING-BLING SCRAMBLE'
 030C: set_mission_points += 1 
 0004: $BLING_BLING_SCRAMBLE_COMPLETED = 1 
-004F: create_thread @NONAME_61 
+004F: create_thread @NONAME_61  
 
 :YARD1_5727
 0004: $REWARD_YD1 = 1000 
@@ -87334,7 +87332,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'YD2'  // 'UZI RIDER'
 030C: set_mission_points += 1 
 03F1: pedtype 9 add_threat 1 
-004F: create_thread @NONAME_62 
+004F: create_thread @NONAME_62  
 0051: return 
 
 :YARD2_4856
@@ -87737,7 +87735,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 10000 
 0318: set_latest_mission_passed 'YD3'  // 'GANGCAR ROUND-UP'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_63 
+004F: create_thread @NONAME_63  
 0051: return 
 
 :YARD3_1664
@@ -88033,11 +88031,11 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 :YARD4_1081
 02A3: toggle_widescreen 1 
 00BC: print_now 'YD4_B' duration 3500 ms flag 2  // LETTER: I hear you've been a busy boy. Well I've been a busy girl.
-02A1: (unknown) 3500 1 
+02A1:  3500 1 
 00BC: print_now 'YD4_C' duration 3500 ms flag 2  // I think it's time you witnessed the real power of 'SPANK'! Besos y fuderes, Catalina, xxx.
-02A1: (unknown) 3500 1 
+02A1:  3500 1 
 00BC: print_now 'YD4_D' duration 2500 ms flag 2  // PS: DIE PEEG DOG, DIE!!
-02A1: (unknown) 2500 1 
+02A1:  2500 1 
 00D6: if 
 8119:   not car $GEN1_VAN wrecked 
 004D: goto_if_false @YARD4_1190 
@@ -88490,7 +88488,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 030C: set_mission_points += 1 
 03F1: pedtype 11 add_threat 1 
 0164: disable_marker $YARDIE_PHONE_MARKER 
-004F: create_thread @NONAME_60 
+004F: create_thread @NONAME_60  
 0004: $BLING_BLING_SCRAMBLE_COMPLETED = 0 
 0051: return 
 
@@ -88757,7 +88755,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @LOVE4_1202 
 
 :LOVE4_1226
-0167: $LOVE_4_BLIP = create_marker_at -1268.438 -528.625 9.8125 color 0 flag 2 
+0167: $LOVE_4_BLIP = create_marker_at -1268.438 -528.625 9.8125 color 0 visibility 2 
 0168: show_on_radar $LOVE_4_BLIP 3 
 
 :LOVE4_1251
@@ -90228,8 +90226,8 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 030C: set_mission_points += 1 
 02A7: $ASUKA1_MISSION_MARKER = create_icon_marker_and_sphere 1 at 366.9375 -328.0 20.25 
-004F: create_thread @NONAME_68 
-004F: create_thread @NONAME_65 
+004F: create_thread @NONAME_68  
+004F: create_thread @NONAME_65  
 0051: return 
 
 :LOVE4_10222
@@ -93541,7 +93539,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0318: set_latest_mission_passed 'LOVE5'  // 'ESCORT SERVICE'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_66 
+004F: create_thread @NONAME_66  
 0051: return 
 
 :LOVE5_11463
@@ -93864,7 +93862,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0002: goto @LOVE6_792 
 
 :LOVE6_816
-0167: $DECOY_VAN_BLIP = create_marker_at -1026.5 -73.5 39.0 color 0 flag 2 
+0167: $DECOY_VAN_BLIP = create_marker_at -1026.5 -73.5 39.0 color 0 visibility 2 
 0168: show_on_radar $DECOY_VAN_BLIP 3 
 
 :LOVE6_841
@@ -94232,7 +94230,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0318: set_latest_mission_passed 'LOVE6'  // 'DECOY'
 0394: play_mission_passed_music 1 
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_67 
+004F: create_thread @NONAME_67  
 0051: return 
 
 :LOVE6_3035
@@ -95265,7 +95263,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 35000 
 0318: set_latest_mission_passed 'AS1'  // 'BAIT'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_69 
+004F: create_thread @NONAME_69  
 0051: return 
 
 :ASUSB1_5215
@@ -97681,7 +97679,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0109: player $PLAYER_CHAR money += 40000 
 0318: set_latest_mission_passed 'AS2'  // 'ESPRESSO-2-GO!'
 030C: set_mission_points += 1 
-004F: create_thread @NONAME_70 
+004F: create_thread @NONAME_70  
 0051: return 
 
 :ASUSB2_7432
@@ -98303,7 +98301,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 033A: create_incoming_cessna 
 0004: $FLAG_COMMENCE_APPROACH = 1 
 03A6: get_drug_plane_coords $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z 
-0167: $BLIP_AS3_DODO = create_marker_at $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z color 4 flag 2 
+0167: $BLIP_AS3_DODO = create_marker_at $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z color 4 visibility 2 
 0168: show_on_radar $BLIP_AS3_DODO 2 
 
 :ASUSB3_2816
@@ -98429,7 +98427,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :ASUSB3_3412
 03A6: get_drug_plane_coords $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z 
-0167: $BLIP_AS3_DODO = create_marker_at $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z color 4 flag 2 
+0167: $BLIP_AS3_DODO = create_marker_at $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z color 4 visibility 2 
 0168: show_on_radar $BLIP_AS3_DODO 3 
 0050: gosub @ASUSB3_9264 
 00D6: if 
@@ -98500,7 +98498,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 033A: create_incoming_cessna 
 0004: $FLAG_COMMENCE_APPROACH = 1 
 03A6: get_drug_plane_coords $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z 
-0167: $BLIP_AS3_DODO = create_marker_at $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z color 4 flag 2 
+0167: $BLIP_AS3_DODO = create_marker_at $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z color 4 visibility 2 
 0168: show_on_radar $BLIP_AS3_DODO 3 
 
 :ASUSB3_3835
@@ -98570,7 +98568,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 
 :ASUSB3_4116
 03A6: get_drug_plane_coords $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z 
-0167: $BLIP_AS3_DODO = create_marker_at $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z color 4 flag 2 
+0167: $BLIP_AS3_DODO = create_marker_at $DODO_AS3_X $DODO_AS3_Y $DODO_AS3_Z color 4 visibility 2 
 0168: show_on_radar $BLIP_AS3_DODO 2 
 0050: gosub @ASUSB3_9264 
 00D6: if 
@@ -99173,7 +99171,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0164: disable_marker $ASUKA1_MISSION_MARKER 
 0164: disable_marker $COLUMBIAN_MANSION_MARKER 
 02A7: $COLUMBIAN_MANSION_MARKER = create_icon_marker_and_sphere 3 at -362.75 245.875 60.0 
-004F: create_thread @NONAME_76 
+004F: create_thread @NONAME_76  
 0318: set_latest_mission_passed 'AS3'  // 'S.A.M.'
 030C: set_mission_points += 1 
 0051: return 
@@ -99666,7 +99664,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 10000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_72 
+004F: create_thread @NONAME_72  
 0051: return 
 
 :HOOD1_1634
@@ -100064,7 +100062,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 10000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_73 
+004F: create_thread @NONAME_73  
 0051: return 
 
 :HOOD2_2044
@@ -100527,7 +100525,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 20000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_74 
+004F: create_thread @NONAME_74  
 0004: $RIGGED_TO_BLOW_COMPLETED = 1 
 0002: goto @HOOD3_2284 
 
@@ -100851,7 +100849,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0394: play_mission_passed_music 1 
 0109: player $PLAYER_CHAR money += 25000 
 0110: clear_player $PLAYER_CHAR wanted_level 
-004F: create_thread @NONAME_75 
+004F: create_thread @NONAME_75  
 0051: return 
 
 :HOOD4_1430
@@ -101824,7 +101822,7 @@ DEFINE MISSION 79 AT @CAT1             // The Exchange
 0110: clear_player $PLAYER_CHAR wanted_level 
 0164: disable_marker $HOODS_PHONE_MARKER 
 0410: override_gang_model 6 0 
-004F: create_thread @NONAME_73 
+004F: create_thread @NONAME_73  
 0051: return 
 
 :HOOD5_5164
