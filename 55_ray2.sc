@@ -781,7 +781,7 @@ while 001A:   12 > $COUNTER_DEAD_VARMINTS
 				009A: $VARMINT_11 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 121.25 235.6875 11.5 
 				01B2: give_actor $VARMINT_11 weapon WEAPONTYPE_CHAINGUN ammo 80 
 				035F: set_actor $VARMINT_11 armour_to 100 
-				0162: tie_marker $BLIP_V11 to_actor $VARMINT_11 1 BLIP_ONLY 
+				0162: $BLIP_V11 = create_marker_above_actor $VARMINT_11 color 1 visibility BLIP_ONLY
 				0239: actor $VARMINT_11 run_to $PHILS_DEFCON_X $PHILS_DEFCON_Y 
 				011A: set_actor $VARMINT_11 search_threat THREAT_PLAYER1 
 				011A: set_actor $VARMINT_11 search_threat THREAT_SPECIAL 
@@ -798,7 +798,7 @@ while 001A:   12 > $COUNTER_DEAD_VARMINTS
 				009A: $VARMINT_12 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 121.25 241.5625 11.5 
 				01B2: give_actor $VARMINT_12 weapon WEAPONTYPE_SHOTGUN ammo 20 
 				035F: set_actor $VARMINT_12 armour_to 100 
-				0162: tie_marker $BLIP_V12 to_actor $VARMINT_12 1 BLIP_ONLY 
+				0162: $BLIP_V12 = create_marker_above_actor $VARMINT_12 color 1 visibility BLIP_ONLY 
 				0239: actor $VARMINT_12 run_to 124.125 184.6875 
 				011A: set_actor $VARMINT_12 search_threat THREAT_PLAYER1 
 				011A: set_actor $VARMINT_12 search_threat THREAT_SPECIAL 
@@ -1167,7 +1167,7 @@ then
 		if
 			8118:   not actor $VARMINT_5 dead 
 		then
-			0162: tie_marker $BLIP_V5 to_actor $VARMINT_5 1 BLIP_ONLY 
+			0162: $BLIP_V5 = create_marker_above_actor $VARMINT_5 color 1 visibility BLIP_ONLY 
 			035F: set_actor $VARMINT_5 armour_to 100 
 			01B2: give_actor $VARMINT_5 weapon WEAPONTYPE_UZI ammo 60 
 			0239: actor $VARMINT_5 run_to $WH_X_RM2 $WH_Y_RM2 
@@ -1200,7 +1200,7 @@ then
 		if
 			8118:   not actor $VARMINT_6 dead 
 		then
-			0162: tie_marker $BLIP_V6 to_actor $VARMINT_6 1 BLIP_ONLY 
+			0162: $BLIP_V6 = create_marker_above_actor $VARMINT_6 color 1 visibility BLIP_ONLY 
 			01B2: give_actor $VARMINT_6 weapon WEAPONTYPE_UZI ammo 60 
 			0239: actor $VARMINT_6 run_to $WH_X_RM2 $WH_Y_RM2 
 			011A: set_actor $VARMINT_6 search_threat THREAT_PLAYER1 
@@ -1240,7 +1240,7 @@ then
 		if
 			8118:   not actor $VARMINT_1 dead 
 		then
-			0162: tie_marker $BLIP_V1 to_actor $VARMINT_1 1 BLIP_ONLY 
+			0162: $BLIP_V1 = create_marker_above_actor $VARMINT_1 color 1 visibility BLIP_ONLY 
 			01B2: give_actor $VARMINT_1 weapon WEAPONTYPE_SHOTGUN ammo 20 
 			0239: actor $VARMINT_1 run_to $WH_X_RM2 $WH_Y_RM2 
 			011A: set_actor $VARMINT_1 search_threat THREAT_PLAYER1 
@@ -1272,7 +1272,7 @@ then
 		if
 			8118:   not actor $VARMINT_2 dead 
 		then
-			0162: tie_marker $BLIP_V2 to_actor $VARMINT_2 1 BLIP_ONLY 
+			0162: $BLIP_V2 = create_marker_above_actor $VARMINT_2 color 1 visibility BLIP_ONLY 
 			01B2: give_actor $VARMINT_2 weapon WEAPONTYPE_SHOTGUN ammo 20 
 			0239: actor $VARMINT_2 run_to $WH_X_RM2 $WH_Y_RM2 
 			011A: set_actor $VARMINT_2 search_threat THREAT_PLAYER1 
@@ -1304,7 +1304,7 @@ then
 		if
 			8118:   not actor $VARMINT_3 dead 
 		then
-			0162: tie_marker $BLIP_V3 to_actor $VARMINT_3 1 BLIP_ONLY 
+			0162: $BLIP_V3 = create_marker_above_actor $VARMINT_3 color 1 visibility BLIP_ONLY 
 			01B2: give_actor $VARMINT_3 weapon WEAPONTYPE_CHAINGUN ammo 80 
 			0239: actor $VARMINT_3 run_to $WH_X_RM2 $WH_Y_RM2 
 			011A: set_actor $VARMINT_3 search_threat THREAT_PLAYER1 
@@ -1336,7 +1336,7 @@ then
 		if
 			8118:   not actor $VARMINT_4 dead 
 		then
-			0162: tie_marker $BLIP_V4 to_actor $VARMINT_4 1 BLIP_ONLY 
+			0162: $BLIP_V4 = create_marker_above_actor $VARMINT_4 color 1 BLIP_ONLY 
 			035F: set_actor $VARMINT_4 armour_to 100 
 			01B2: give_actor $VARMINT_4 weapon WEAPONTYPE_MOLOTOV ammo 5 
 			0239: actor $VARMINT_4 run_to $WH_X_RM2 $WH_Y_RM2 
@@ -1377,7 +1377,7 @@ then
 		if
 			8118:   not actor $VARMINT_7 dead 
 		then
-			0162: tie_marker $BLIP_V7 to_actor $VARMINT_7 1 BLIP_ONLY 
+			0162: $BLIP_V7 = create_marker_above_actor $VARMINT_7 color 1 visibility BLIP_ONLY 
 			01B2: give_actor $VARMINT_7 weapon WEAPONTYPE_SHOTGUN ammo 10 
 			0239: actor $VARMINT_7 run_to $WH_X_RM2 $WH_Y_RM2 
 			011A: set_actor $VARMINT_7 search_threat THREAT_PLAYER1 
@@ -1409,7 +1409,7 @@ then
 		if
 			8118:   not actor $VARMINT_8 dead 
 		then
-			0162: tie_marker $BLIP_V8 to_actor $VARMINT_8 1 BLIP_ONLY 
+			0162: $BLIP_V8 = create_marker_above_actor $VARMINT_8 color 1 visibility BLIP_ONLY 
 			01B2: give_actor $VARMINT_8 weapon WEAPONTYPE_CHAINGUN ammo 45 
 			0239: actor $VARMINT_8 run_to 129.6875 199.75 
 			011A: set_actor $VARMINT_8 search_threat THREAT_PLAYER1 
@@ -1441,7 +1441,7 @@ then
 		if
 			8118:   not actor $VARMINT_9 dead 
 		then
-			0162: tie_marker $BLIP_V9 to_actor $VARMINT_9 1 BLIP_ONLY 
+			0162: $BLIP_V9 = create_marker_above_actor $VARMINT_9 color 1 visibility BLIP_ONLY 
 			01B2: give_actor $VARMINT_9 weapon WEAPONTYPE_PISTOL ammo 30
 			0239: actor $VARMINT_9 run_to $WH_X_RM2 $WH_Y_RM2 
 			011A: set_actor $VARMINT_9 search_threat THREAT_PLAYER1 
@@ -1473,7 +1473,7 @@ then
 		if
 			8118:   not actor $VARMINT_10 dead 
 		then
-			0162: tie_marker $BLIP_V10 to_actor $VARMINT_10 1 BLIP_ONLY 
+			0162: $BLIP_V10 = create_marker_above_actor $VARMINT_10 color 1 visibility BLIP_ONLY 
 			01B2: give_actor $VARMINT_10 weapon WEAPONTYPE_SHOTGUN ammo 20
 			035F: set_actor $VARMINT_10 armour_to 100 
 			0239: actor $VARMINT_10 run_to $WH_X_RM2 $WH_Y_RM2 
