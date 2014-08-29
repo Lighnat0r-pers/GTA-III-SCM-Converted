@@ -533,7 +533,7 @@ while 001A:   12 > $COUNTER_DEAD_VARMINTS
 		0038:   $FLAG_SENTINEL_CREATED == 0 
 	then
 		if
-			0038: $UNLOCKEXTRAS == 1
+			0038:   $UNLOCKEXTRAS == 1
 		then
 			00A5: $SENTINEL1_RM2 = create_car #SENTINEL at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
 		else
@@ -626,7 +626,7 @@ while 001A:   12 > $COUNTER_DEAD_VARMINTS
 		0018:   $FLAG_LAUNCH_STALLION > 0 
 	then
 		if
-			0038: $UNLOCKEXTRAS == 1
+			0038:   $UNLOCKEXTRAS == 1
 		then
 			00A5: $STALLION1_RM2 = create_car #STALLION at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
 		else
@@ -712,7 +712,7 @@ while 001A:   12 > $COUNTER_DEAD_VARMINTS
 		0018:   $FLAG_LAUNCH_PERENIAL > 0 
 	then
 		if
-			0038: $UNLOCKEXTRAS == 1
+			0038:   $UNLOCKEXTRAS == 1
 		then
 			00A5: $PERENIAL1_RM2 = create_car #PEREN at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
 		else
@@ -1103,7 +1103,18 @@ goto @MISSION_END_RAY2
 0164: disable_marker $BLIP_SENTINEL1 
 0164: disable_marker $BLIP_STALLION1 
 0164: disable_marker $BLIP_PERENIAL1 
-gosub @BLIP_REMOVAL_RM2
+0164: disable_marker $BLIP_V1 
+0164: disable_marker $BLIP_V2 
+0164: disable_marker $BLIP_V3 
+0164: disable_marker $BLIP_V4 
+0164: disable_marker $BLIP_V5 
+0164: disable_marker $BLIP_V6 
+0164: disable_marker $BLIP_V7 
+0164: disable_marker $BLIP_V8 
+0164: disable_marker $BLIP_V9 
+0164: disable_marker $BLIP_V10 
+0164: disable_marker $BLIP_V11 
+0164: disable_marker $BLIP_V12 
 
 if
 	0038:   $FLAG_M16_GONE == 0 
@@ -1667,20 +1678,4 @@ then
 		0004: $FLAG_MOLOTOV_GONE = 1 
 	end
 end
-
-//------blip removal-------------------------------
-
-:BLIP_REMOVAL_RM2
-0164: disable_marker $BLIP_V1 
-0164: disable_marker $BLIP_V2 
-0164: disable_marker $BLIP_V3 
-0164: disable_marker $BLIP_V4 
-0164: disable_marker $BLIP_V5 
-0164: disable_marker $BLIP_V6 
-0164: disable_marker $BLIP_V7 
-0164: disable_marker $BLIP_V8 
-0164: disable_marker $BLIP_V9 
-0164: disable_marker $BLIP_V10 
-0164: disable_marker $BLIP_V11 
-0164: disable_marker $BLIP_V12 
 return
