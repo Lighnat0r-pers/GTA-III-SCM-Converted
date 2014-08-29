@@ -212,6 +212,23 @@ end
 0247: request_model #GANG11 
 023C: load_special_actor 'DEALER' as 1 
 0247: request_model #GANG12 
+if
+	0038:   $UNLOCKEXTRAS1 == 1
+then
+	0247: request_model #SENTINEL 
+	0247: request_model #STALLION
+	0247: request_model #PEREN
+
+	while true
+		if or
+			0247: request_model #SENTINEL 
+			0247: request_model #STALLION
+			0247: request_model #PEREN
+		jf break
+		wait 0 ms
+	end //while
+end
+
 0247: request_model #COLUMB 
 0247: request_model #BARRACKS 
 0247: request_model #RHINO 
@@ -227,6 +244,9 @@ while true
 	jf break
 	wait 0 ms
 end //while
+
+
+
 
 //------------------WAITING FOR PLAYER TO ARRIVE---------------------------------------
 
@@ -512,7 +532,13 @@ while 001A:   12 > $COUNTER_DEAD_VARMINTS
 		0018:   $TIMER_DIF_RM2 > 2000 
 		0038:   $FLAG_SENTINEL_CREATED == 0 
 	then
-		00A5: $SENTINEL1_RM2 = create_car #COLUMB at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		if
+			0038: $UNLOCKEXTRAS == 1
+		then
+			00A5: $SENTINEL1_RM2 = create_car #SENTINEL at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		else
+			00A5: $SENTINEL1_RM2 = create_car #COLUMB at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		end
 		02AA: set_car $SENTINEL1_RM2 immune_to_nonplayer 1 
 		020A: set_car $SENTINEL1_RM2 door_status_to CARLOCK_LOCKED 
 		0186: $BLIP_SENTINEL1 = create_marker_above_car $SENTINEL1_RM2 
@@ -599,7 +625,13 @@ while 001A:   12 > $COUNTER_DEAD_VARMINTS
 		0038:   $FLAG_STALLION_CREATED == 0 
 		0018:   $FLAG_LAUNCH_STALLION > 0 
 	then
-		00A5: $STALLION1_RM2 = create_car #COLUMB at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		if
+			0038: $UNLOCKEXTRAS == 1
+		then
+			00A5: $STALLION1_RM2 = create_car #STALLION at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		else
+			00A5: $STALLION1_RM2 = create_car #COLUMB at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		end
 		02AA: set_car $STALLION1_RM2 immune_to_nonplayer 1 
 		020A: set_car $STALLION1_RM2 door_status_to CARLOCK_LOCKED 
 		0186: $BLIP_STALLION1 = create_marker_above_car $STALLION1_RM2 
@@ -679,7 +711,13 @@ while 001A:   12 > $COUNTER_DEAD_VARMINTS
 		0038:   $FLAG_PERENIAL_CREATED == 0 
 		0018:   $FLAG_LAUNCH_PERENIAL > 0 
 	then
-		00A5: $PERENIAL1_RM2 = create_car #COLUMB at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		if
+			0038: $UNLOCKEXTRAS == 1
+		then
+			00A5: $PERENIAL1_RM2 = create_car #PEREN at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		else
+			00A5: $PERENIAL1_RM2 = create_car #COLUMB at $VARMINT_GEN1_X $VARMINT_GEN1_Y -100.0 
+		end
 		02AA: set_car $PERENIAL1_RM2 immune_to_nonplayer 1 
 		020A: set_car $PERENIAL1_RM2 door_status_to CARLOCK_LOCKED 
 		0186: $BLIP_PERENIAL1 = create_marker_above_car $PERENIAL1_RM2 
