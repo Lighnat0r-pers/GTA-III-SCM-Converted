@@ -387,6 +387,11 @@ then
 		0121:   player $PLAYER_CHAR in_zone 'HOSPI_2'  // Rockford
 	then
 		0004: $OPEN_PHILS_GATE = 0
+		if
+			0038: $ON_ARMS_SHORTAGE_MISSION == 1   //   If player is doing Phil mission
+		then					       //   then this script doesn't move the gate at all.
+			goto @PHILS_GATE_INNER		       //   The Phil script should do all the gate moving.
+		end
 		if or
 			0038: $ARMS_SHORTAGE_COMPLETED == 1
 			0038: $DEBUGUNLOCKISLANDS == 1
@@ -397,11 +402,6 @@ then
 				0004: $OPEN_PHILS_GATE = 1
 			end
 		else
-			if
-				0038: $ON_ARMS_SHORTAGE_MISSION == 1   //   If player is doing Phil mission
-			then					       //   then this script doesn't move the gate at all.
-				goto @PHILS_GATE_INNER		       //   The Phil script should do all the gate moving.
-			end
 			if
 				0056:   is_player_in_area_2d $PLAYER_CHAR coords 138.0 198.0 146.0 207.0 sphere 0 
 			then
