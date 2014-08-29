@@ -2,7 +2,7 @@
 // ALL VARIABLES DEFINED BELOW UNLOCK FEATURES OF THE CODE
 // -------------------------------------------------------
 :DEBUG_VARIABLES
-0004: $MASTERDEBUG                = 1 // Set to 1 to enable debug functions as defined in the STARTER thread.
+0004: $MASTERDEBUG                = 0 // Set to 1 to enable debug functions as defined in the STARTER thread.
 0004: $DEBUGUNLOCKISLANDS	  = 0 // Unlock the other islands
 0004: $DEBUGPACKAGESCOMPLETED	  = 0 // Set to 1 to activate all packages rewards
 0004: $DEBUGPARAMEDICCOMPLETED	  = 0 // Set to 1 to trigger paramedic rewards
@@ -106,7 +106,7 @@ then
 	//0055: set_player_coordinates $PLAYER_CHAR to 35.75 -725.375 -100.0
 
 	02A7: $RAY_MISSION_MARKER = create_icon_marker_and_sphere RADAR_SPRITE_RAY at 38.75 -725.375 -100.0 
-	004F: create_thread @RAY_MISSION1_LOOP		//SILENCE THE SNEAK
+	004F: create_thread @RAY_MISSION1_LOOP			//SILENCE THE SNEAK
 	//004F: create_thread @RAY_MISSION2_LOOP		//ARMS SHORTAGE
 	//004F: create_thread @RAY_MISSION3_LOOP		//EVIDENCE DASH
 	//004F: create_thread @RAY_MISSION4_LOOP		//GONE FISHING
