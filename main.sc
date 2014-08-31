@@ -377,12 +377,12 @@ end // main loop that constantly runs
 {$INCLUDE 19_8ball.sc} // M19_GIVEMELIBERTY
 {$INCLUDE 20_luigi2.sc} // M20_DONTSPANKMABITCHUP
 {$INCLUDE 21_luigi3.sc} // M21_DRIVEMISTYFORME
-{$INCLUDE dummymissions.sc} // M22_PUMPACTIONPIMP  M23_THEFUZZBALL  These don't exist, but need to be defined to avoid screwing up the mission list
+{$INCLUDE dummymissions.sc} // M22_PUMPACTIONPIMP M23_THEFUZZBALL These don't exist, but need to be defined to avoid screwing up the mission list
 {$INCLUDE 24_joey1.sc} // M24_MIKELIPSLASTLUNCH
 {$INCLUDE 25_joey2.sc} // M25_FAREWELLCHUNKYLEECHONG
 {$INCLUDE 26_joey3.sc} // M26_VANHEIST
 {$INCLUDE 27_joey4.sc} // M27_CIPRIANISCHAUFFEUR
-{$INCLUDE dummymissions2.sc} // M28_DEADSKUNKINTHETRUNK  M29_THEGETAWAY  These don't exist, but need to be defined to avoid screwing up the mission list
+{$INCLUDE dummymissions2.sc} // M28_DEADSKUNKINTHETRUNK M29_THEGETAWAY These don't exist, but need to be defined to avoid screwing up the mission list
 {$INCLUDE 30_toni1.sc} // M30_TAKINGOUTTHELAUNDRY
 {$INCLUDE 31_toni2.sc} // M31_THEPICKUP
 {$INCLUDE 32_toni3.sc} // M32_SALVATORESCALLEDAMEETING
@@ -393,12 +393,13 @@ end // main loop that constantly runs
 {$INCLUDE 37_frank2.1.sc} // M37_BOMBDABASEACTI
 {$INCLUDE 38_frank3.sc} // M38_BOMBDABASEACTII
 {$INCLUDE 39_frank4.sc} // M39_LASTREQUESTS
-{$INCLUDE dummymissions3.sc} // M40_TURISMO  M41_ISCREAMYOUSCREAM M42_TRIALBYFIRE M43_BIGNVEINY  These don't exist, but need to be defined to avoid screwing up the mission list
+{$INCLUDE dummymissions3.sc} // M40_TURISMO M41_ISCREAMYOUSCREAM M42_TRIALBYFIRE M43_BIGNVEINY These don't exist, but need to be defined to avoid screwing up the mission list
 {$INCLUDE 44_asuka1.sc} // M44_SAYONARASALVATORE
 {$INCLUDE 45_asuka2.sc} // M45_UNDERSURVEILLANCE
 {$INCLUDE 46_asuka3.sc} // M46_PAPARAZZIPURGE
 {$INCLUDE 47_asuka4.sc} // M47_PAYDAYFORRAY
-{$INCLUDE dummymissions4.sc} // M48_TWOFACEDTANNER  M49_KANBUBUSTOUT M50_GRANDTHEFTAUTO M51_DEALSTEAL M52_SHIMA M53_SMACKDOWN These don't exist, but need to be defined to avoid screwing up the mission list
+{$INCLUDE dummymissions4.sc} // M48_TWOFACEDTANNER M49_KANBUBUSTOUT M50_GRANDTHEFTAUTO M51_DEALSTEAL M52_SHIMA M53_SMACKDOWN These don't exist, but need to be defined to avoid screwing up the mission list
 {$INCLUDE 54_ray1.sc} // M54_SILENCETHESNEAK
 {$INCLUDE 55_ray2.sc} // M55_ARMSSHORTAGE
 {$INCLUDE 56_ray3.sc} // M56_EVIDENCEDASH
+{$INCLUDE dummymissions5.sc} // M57_GONEFISHING M58_PLASTERBLASTER M59_MARKEDMAN These don't exist, but need to be defined to avoid screwing up the mission list
