@@ -189,6 +189,14 @@ while true
 	wait 0 ms
 end //while
 
+016A: fade 1 for 1500 ms 
+03AF: set_streaming 1 
+0004: $RAYS_CUTSCENE_FLAG = 0 
+
+while fading
+	wait 0 ms
+end
+
 // ******************************************END OF CUTSCENE********************************
 
 00A5: $IA_CAR_RM3 = create_car #BOBCAT at $IA_START_X $IA_START_Y $IA_START_Z 
@@ -293,6 +301,13 @@ while 001A:   6 > $AMOUNT_OF_EVIDENCE_PLAYER_HAS
 	end
 
 	if
+		81AF:   not car $IA_CAR_RM3 0 $CAR_STUCK_X $CAR_STUCK_Y $CAR_STUCK_Z radius 4.0 4.0 4.0 
+	then
+		00AA: get_car_coordinates $IA_CAR_RM3 store_to $CAR_STUCK_X $CAR_STUCK_Y $CAR_STUCK_Z 
+		0004: $TIMERC_RESET_FLAG_R3 = 0
+	end
+
+	if
 		01AF:   car $IA_CAR_RM3 0 $CAR_STUCK_X $CAR_STUCK_Y $CAR_STUCK_Z radius 4.0 4.0 4.0 
 	then
 		if
@@ -300,10 +315,7 @@ while 001A:   6 > $AMOUNT_OF_EVIDENCE_PLAYER_HAS
 		then
 			01BD: $TIMERC_STARTED_R3 = current_time_in_ms 
 			0004: $TIMERC_RESET_FLAG_R3 = 1 
-		end
-		if
-			0038:   $TIMERC_RESET_FLAG_R3 == 1
-		then
+		else
 			01BD: $TIMERC_CURRENT_R3 = current_time_in_ms 
 			0084: $TIMERC_R3 = $TIMERC_CURRENT_R3 
 			0060: $TIMERC_R3 -= $TIMERC_STARTED_R3
@@ -314,14 +326,7 @@ while 001A:   6 > $AMOUNT_OF_EVIDENCE_PLAYER_HAS
 			end
 		end
 	end
-	
-	if
-		81AF:   not car $IA_CAR_RM3 0 $CAR_STUCK_X $CAR_STUCK_Y $CAR_STUCK_Z radius 4.0 4.0 4.0 
-	then
-		00AA: get_car_coordinates $IA_CAR_RM3 store_to $CAR_STUCK_X $CAR_STUCK_Y $CAR_STUCK_Z 
-		0004: $TIMERC_RESET_FLAG = 0
-	end
-	
+		
 	01BD: $TIMER_FOR_SPEED = current_time_in_ms 
 	0060: $TIMER_FOR_SPEED -= $RESET_FOR_TIMER 
 	if
@@ -424,7 +429,7 @@ while 001A:   6 > $AMOUNT_OF_EVIDENCE_PLAYER_HAS
 			gosub @DROP_PACKAGE_RAY3
 			010E: set_player $PLAYER_CHAR minimum_wanted_level_to 2 
 			00AD: set_car_cruise_speed $IA_CAR_RM3 to 100.0 
-			00AE: set_car_driving_style $IA_CAR_RM3 to 2
+			00AE: set_car_driving_style $IA_CAR_RM3 to DRIVINGMODE_AVOIDCARS
 		end
 		if
 			0038:   $DROP_EVIDENCE == 2
@@ -455,6 +460,7 @@ while 001A:   6 > $AMOUNT_OF_EVIDENCE_PLAYER_HAS
 		then
 			0084: $EVIDENCE_TEMP = $EVIDENCE_6
 			gosub @DROP_PACKAGE_RAY3
+			0164: disable_marker $PROSECUTION_CAR_BLIP 
 		end
 		0004: $DROP_ONE_FLAG = 1 
 	end

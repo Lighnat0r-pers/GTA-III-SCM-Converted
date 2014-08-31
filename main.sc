@@ -401,3 +401,4 @@ end // main loop that constantly runs
 {$INCLUDE dummymissions4.sc} // M48_TWOFACEDTANNER  M49_KANBUBUSTOUT M50_GRANDTHEFTAUTO M51_DEALSTEAL M52_SHIMA M53_SMACKDOWN These don't exist, but need to be defined to avoid screwing up the mission list
 {$INCLUDE 54_ray1.sc} // M54_SILENCETHESNEAK
 {$INCLUDE 55_ray2.sc} // M55_ARMSSHORTAGE
+{$INCLUDE 56_ray3.sc} // M56_EVIDENCEDASH
