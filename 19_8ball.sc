@@ -1248,6 +1248,7 @@ then
 	00BC: print_now 'EBAL_4' duration 5000 ms flag 1  // ~r~8-Ball's dead!
 	goto @MISSION_FAILED_EIGHTBALL
 end
+return
 
 ////////////////////////////////////////////
 
