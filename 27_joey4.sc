@@ -940,6 +940,7 @@ then
 	00BC: print_now 'WRECKED' duration 5000 ms flag 1  // ~r~The vehicle is wrecked!
 	goto @MISSION_FAILED_JOEY4
 end
+return
 
 /////////////////////////////////////////
 
