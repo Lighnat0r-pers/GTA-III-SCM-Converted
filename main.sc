@@ -1,4 +1,4 @@
-DEFINE MISSIONS 60
+DEFINE MISSIONS 61
 DEFINE MISSION 0 AT @M00_INTRO          		// Formerly INTRO
 DEFINE MISSION 1 AT @M01_HOSPITALHELP			// Formerly HEALTH           
 DEFINE MISSION 2 AT @M02_POLICEHELP			// Formerly WANTED           
@@ -59,7 +59,7 @@ DEFINE MISSION 56 AT @M56_EVIDENCEDASH			// Formerly RAY3
 DEFINE MISSION 57 AT @M57_GONEFISHING			// Formerly RAY4            
 DEFINE MISSION 58 AT @M58_PLASTERBLASTER		// Formerly RAY5            
 DEFINE MISSION 59 AT @M59_MARKEDMAN			// Formerly RAY6            
-//DEFINE MISSION 60 AT @M60_LIBERATOR			// Formerly LOVE1           
+DEFINE MISSION 60 AT @M60_LIBERATOR			// Formerly LOVE1           
 //DEFINE MISSION 61 AT @M61_WAKAGASHIRAWIPEOUT		// Formerly LOVE2           
 //DEFINE MISSION 62 AT @M62_ADROPINTHEOCEAN		// Formerly LOVE3           
 //DEFINE MISSION 63 AT @M63_BLINGBLINGSCRAMBLE		// Formerly YARD1           
@@ -215,3 +215,4 @@ end // main loop that constantly runs
 {$INCLUDE 55_ray2.sc} // M55_ARMSSHORTAGE
 {$INCLUDE 56_ray3.sc} // M56_EVIDENCEDASH
 {$INCLUDE dummymissions5.sc} // M57_GONEFISHING M58_PLASTERBLASTER M59_MARKEDMAN These don't exist, but need to be defined to avoid screwing up the mission list
+{$INCLUDE 60_love1.sc} // M60_LIBERATOR
