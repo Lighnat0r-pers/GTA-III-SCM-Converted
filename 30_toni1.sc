@@ -176,7 +176,7 @@ end //while
 032B: $FREE_GREANDES = create_weapon_pickup #GRENADE PICKUP_ONCE ammo 10 at 1278.75 -81.5 15.0625 
 03DD: pickup $FREE_GREANDES show_on_radar RADAR_SPRITE_WEAPON $GRENADE_BLIP 
 
-00A5:$T1_TRIAD_VAN1 = create_car #MRWONGS at 854.0 -778.0 -100.0
+00A5: $T1_TRIAD_VAN1 = create_car #MRWONGS at 854.0 -778.0 -100.0
 0129: $VANMAN1 = create_actor PEDTYPE_CIVMALE #CT_MAN1 in_car $T1_TRIAD_VAN1 driverseat
 0186: $BLIP1_VAN1 = create_marker_above_car $T1_TRIAD_VAN1 
 00AD: set_car_cruise_speed $T1_TRIAD_VAN1 to 17.0 
