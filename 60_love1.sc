@@ -39,12 +39,6 @@ end_thread
 0004: $FLAG_BADDIE4_DEAD_LOVE1 = 0 
 0004: $FLAG_BADDIE5_DEAD_LOVE1 = 0 
 0004: $FLAG_BADDIE6_DEAD_LOVE1 = 0 
-0004: $FLAG_GARAGE_BADDIE1_DEAD_LOVE1 = 0 
-0004: $FLAG_GARAGE_BADDIE2_DEAD_LOVE1 = 0 
-0004: $FLAG_GARAGE_BADDIE3_DEAD_LOVE1 = 0 
-0004: $FLAG_GARAGE_BADDIE4_DEAD_LOVE1 = 0 
-0004: $FLAG_GARAGE_BADDIE5_DEAD_LOVE1 = 0 
-0004: $FLAG_GARAGE_BADDIE6_DEAD_LOVE1 = 0 
 0004: $FLAG_GARAGE1_OPEN = 0 
 0004: $FLAG_GARAGE2_OPEN = 0 
 0004: $FLAG_GARAGE3_OPEN = 0 
@@ -272,7 +266,7 @@ end
 01BE: set_actor $BADDIE1_LOVE1 to_look_at_spot 72.0 -318.0 -100.0 
 01E2: add_route_point 0 at 71.0 -319.0 -100.0 
 01E2: add_route_point 0 at 71.0 -332.0 -100.0 
-01E1: set_actor $BADDIE1_LOVE1 follow_route 0 3 
+01E1: set_actor $BADDIE1_LOVE1 follow_route 0 behaviour 3 
 
 // Creates the second guard he follows route 1
 009A: $BADDIE2_LOVE1 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 61.0 -318.0 -100.0 
@@ -282,7 +276,7 @@ end
 01BE: set_actor $BADDIE2_LOVE1 to_look_at_spot 61.0 -335.0 -100.0 
 01E2: add_route_point 1 at 61.0 -318.0 -100.0 
 01E2: add_route_point 1 at 61.0 -335.0 -100.0 
-01E1: set_actor $BADDIE2_LOVE1 follow_route 1 3 
+01E1: set_actor $BADDIE2_LOVE1 follow_route 1 behaviour 3 
 
 // Creates the third guard - does not patrol
 009A: $BADDIE3_LOVE1 = create_char PEDTYPE_GANG_COLOMBIAN model #GANG11 at 42.0 -375.0 -100.0 
@@ -478,101 +472,47 @@ while 80EF:   not actor $OJG_LOVE1 sphere $BLOB_FLAG 49.0 -1550.0 radius 3.0 4.0
 	end
 
 	// Checks to see if the garage door is open and if the guards are still alive sets them to kill the player
-	if
-		0038:   $FLAG_GARAGE_BADDIE1_DEAD_LOVE1 == 0 
+	if and
+		8118:   not actor $GARAGE_BADDIE1_LOVE1 dead
+		0038:   $FLAG_GARAGE2_OPEN == 1 
 	then
-		if
-			0118:   actor $GARAGE_BADDIE1_LOVE1 dead
-		then
-			0004: $FLAG_GARAGE_BADDIE1_DEAD_LOVE1 = 1 
-		else
-			if
-				0038:   $FLAG_GARAGE2_OPEN == 1 
-			then
-				011A: set_actor $GARAGE_BADDIE1_LOVE1 search_threat THREAT_PLAYER1 
-				01CC: actor $GARAGE_BADDIE1_LOVE1 kill_player $PLAYER_CHAR 
-			end
-		end
+		011A: set_actor $GARAGE_BADDIE1_LOVE1 search_threat THREAT_PLAYER1 
+		01CC: actor $GARAGE_BADDIE1_LOVE1 kill_player $PLAYER_CHAR 
 	end
-	if
-		0038:   $FLAG_GARAGE_BADDIE2_DEAD_LOVE1 == 0 
+	if and
+		8118:   not actor $GARAGE_BADDIE2_LOVE1 dead
+		0038:   $FLAG_GARAGE2_OPEN == 1 
 	then
-		if
-			0118:   actor $GARAGE_BADDIE2_LOVE1 dead
-		then
-			0004: $FLAG_GARAGE_BADDIE2_DEAD_LOVE1 = 1 
-		else
-			if
-				0038:   $FLAG_GARAGE2_OPEN == 1 
-			then
-				011A: set_actor $GARAGE_BADDIE2_LOVE1 search_threat THREAT_PLAYER1 
-				01CC: actor $GARAGE_BADDIE2_LOVE1 kill_player $PLAYER_CHAR 
-			end
-		end
+		011A: set_actor $GARAGE_BADDIE2_LOVE1 search_threat THREAT_PLAYER1 
+		01CC: actor $GARAGE_BADDIE2_LOVE1 kill_player $PLAYER_CHAR 
 	end
-	if
-		0038:   $FLAG_GARAGE_BADDIE3_DEAD_LOVE1 == 0 
+	if and
+		8118:   not actor $GARAGE_BADDIE3_LOVE1 dead
+		0038:   $FLAG_GARAGE1_OPEN == 1 
 	then
-		if
-			0118:   actor $GARAGE_BADDIE3_LOVE1 dead
-		then
-			0004: $FLAG_GARAGE_BADDIE3_DEAD_LOVE1 = 1 
-		else
-			if
-				0038:   $FLAG_GARAGE1_OPEN == 1 
-			then
-				011A: set_actor $GARAGE_BADDIE3_LOVE1 search_threat THREAT_PLAYER1 
-				01CC: actor $GARAGE_BADDIE3_LOVE1 kill_player $PLAYER_CHAR 
-			end
-		end
+		011A: set_actor $GARAGE_BADDIE3_LOVE1 search_threat THREAT_PLAYER1 
+		01CC: actor $GARAGE_BADDIE3_LOVE1 kill_player $PLAYER_CHAR 
 	end
-	if
-		0038:   $FLAG_GARAGE_BADDIE4_DEAD_LOVE1 == 0 
+	if and
+		8118:   not actor $GARAGE_BADDIE4_LOVE1 dead
+		0038:   $FLAG_GARAGE3_OPEN == 1 
 	then
-		if
-			0118:   actor $GARAGE_BADDIE4_LOVE1 dead
-		then
-			0004: $FLAG_GARAGE_BADDIE4_DEAD_LOVE1 = 1 
-		else
-			if
-				0038:   $FLAG_GARAGE3_OPEN == 1 
-			then
-				011A: set_actor $GARAGE_BADDIE4_LOVE1 search_threat THREAT_PLAYER1 
-				01CC: actor $GARAGE_BADDIE4_LOVE1 kill_player $PLAYER_CHAR 
-			end
-		end
+		011A: set_actor $GARAGE_BADDIE4_LOVE1 search_threat THREAT_PLAYER1 
+		01CC: actor $GARAGE_BADDIE4_LOVE1 kill_player $PLAYER_CHAR 
 	end
-	if
-		0038:   $FLAG_GARAGE_BADDIE5_DEAD_LOVE1 == 0 
+	if and
+		8118:   not actor $GARAGE_BADDIE5_LOVE1 dead
+		0038:   $FLAG_GARAGE4_OPEN == 1 
 	then
-		if
-			0118:   actor $GARAGE_BADDIE5_LOVE1 dead
-		then
-			0004: $FLAG_GARAGE_BADDIE5_DEAD_LOVE1 = 1 
-		else
-			if
-				0038:   $FLAG_GARAGE4_OPEN == 1 
-			then
-				011A: set_actor $GARAGE_BADDIE5_LOVE1 search_threat THREAT_PLAYER1 
-				01CC: actor $GARAGE_BADDIE5_LOVE1 kill_player $PLAYER_CHAR 
-			end
-		end
+		011A: set_actor $GARAGE_BADDIE5_LOVE1 search_threat THREAT_PLAYER1 
+		01CC: actor $GARAGE_BADDIE5_LOVE1 kill_player $PLAYER_CHAR 
 	end
-	if
-		0038:   $FLAG_GARAGE_BADDIE6_DEAD_LOVE1 == 0 
+	if and
+		8118:   not actor $GARAGE_BADDIE6_LOVE1 dead
+		0038:   $FLAG_GARAGE5_OPEN == 1 
 	then
-		if
-			0118:   actor $GARAGE_BADDIE6_LOVE1 dead
-		then
-			0004: $FLAG_GARAGE_BADDIE6_DEAD_LOVE1 = 1 
-		else
-			if
-				0038:   $FLAG_GARAGE5_OPEN == 1 
-			then
-				011A: set_actor $GARAGE_BADDIE6_LOVE1 search_threat THREAT_PLAYER1 
-				01CC: actor $GARAGE_BADDIE6_LOVE1 kill_player $PLAYER_CHAR 
-			end
-		end
+		011A: set_actor $GARAGE_BADDIE6_LOVE1 search_threat THREAT_PLAYER1 
+		01CC: actor $GARAGE_BADDIE6_LOVE1 kill_player $PLAYER_CHAR 
 	end
 
 	// Checks to see if the player is in the colombian compound and if the guards are alive sets them to kill the player
@@ -773,7 +713,6 @@ while 80EF:   not actor $OJG_LOVE1 sphere $BLOB_FLAG 49.0 -1550.0 radius 3.0 4.0
 		end
 
 		// Checks for garage1
-
 		if
 			019C:   player $PLAYER_CHAR 0 63.0 -317.5 13.0 69.25 -321.6875 20.0 
 		then
@@ -786,7 +725,6 @@ while 80EF:   not actor $OJG_LOVE1 sphere $BLOB_FLAG 49.0 -1550.0 radius 3.0 4.0
 		end
 
 		// Checks for garage2
-
 		if
 			019C:   player $PLAYER_CHAR 0 53.6875 -317.5 13.0 61.0 -320.4375 20.0 
 		then
@@ -799,7 +737,6 @@ while 80EF:   not actor $OJG_LOVE1 sphere $BLOB_FLAG 49.0 -1550.0 radius 3.0 4.0
 		end
 
 		// Checks for garage3
-
 		if
 			019C:   player $PLAYER_CHAR 0 31.75 -344.375 13.0 35.0625 -335.5625 20.0 
 		then
@@ -812,7 +749,6 @@ while 80EF:   not actor $OJG_LOVE1 sphere $BLOB_FLAG 49.0 -1550.0 radius 3.0 4.0
 		end
 
 		// Checks for garage4
-
 		if
 			019C:   player $PLAYER_CHAR 0 31.375 -355.5625 13.0 34.1875 -344.75 20.0 
 		then
@@ -825,7 +761,6 @@ while 80EF:   not actor $OJG_LOVE1 sphere $BLOB_FLAG 49.0 -1550.0 radius 3.0 4.0
 		end
 
 		// Checks for garage5
-
 		if
 			019C:   player $PLAYER_CHAR 0 52.875 -376.25 13.0 42.0 -373.1875 20.0 
 		then
@@ -843,27 +778,27 @@ while 80EF:   not actor $OJG_LOVE1 sphere $BLOB_FLAG 49.0 -1550.0 radius 3.0 4.0
 		0038:   $FLAG_OJG_IN_GROUP == 1 
 	then
 		gosub @CHECK_OGG_STATUS_LOVE1
-	end
-	if and
-		8320:   not actor $OJG_LOVE1 in_range_of_player $PLAYER_CHAR 
-		0038:   $FLAG_BLIP_ON_OJG_LOVE1 == 0 
-	then
-		00BC: print_now 'HEY8' duration 5000 ms flag 1  // ~g~Protection means just that -Protect the Old Oriental Gentleman!
-		0187: $RADAR_BLIP_PED1_LOVE1 = create_marker_above_actor $OJG_LOVE1 
-		0164: disable_marker $RADAR_BLIP_COORD1_LOVE1 
-		0004: $FLAG_BLIP_ON_OJG_LOVE1 = 1 
-		0004: $BLOB_FLAG = 0
-	end
-	if and
-		00E9:   player $PLAYER_CHAR 0 $OJG_LOVE1 radius 8.0 8.0 
-		0038:   $FLAG_BLIP_ON_OJG_LOVE1 == 1 
-	then
-		01DF: tie_actor $OJG_LOVE1 to_player $PLAYER_CHAR 
-		00BC: print_now 'LOVE1_3' duration 7000 ms flag 1  // ~g~Take the Old Oriental Gentleman back to Donald Love's building.
-		0164: disable_marker $RADAR_BLIP_PED1_LOVE1 
-		018A: $RADAR_BLIP_COORD1_LOVE1 = create_checkpoint_at 49.0625 -1550.5 -100.0 
-		0004: $FLAG_BLIP_ON_OJG_LOVE1 = 0 
-		0004: $BLOB_FLAG = 1 
+		if and
+			8320:   not actor $OJG_LOVE1 in_range_of_player $PLAYER_CHAR 
+			0038:   $FLAG_BLIP_ON_OJG_LOVE1 == 0 
+		then
+			00BC: print_now 'HEY8' duration 5000 ms flag 1  // ~g~Protection means just that -Protect the Old Oriental Gentleman!
+			0187: $RADAR_BLIP_PED1_LOVE1 = create_marker_above_actor $OJG_LOVE1 
+			0164: disable_marker $RADAR_BLIP_COORD1_LOVE1 
+			0004: $FLAG_BLIP_ON_OJG_LOVE1 = 1 
+			0004: $BLOB_FLAG = 0
+		end
+		if and
+			00E9:   player $PLAYER_CHAR 0 $OJG_LOVE1 radius 8.0 8.0 
+			0038:   $FLAG_BLIP_ON_OJG_LOVE1 == 1 
+		then
+			01DF: tie_actor $OJG_LOVE1 to_player $PLAYER_CHAR 
+			00BC: print_now 'LOVE1_3' duration 7000 ms flag 1  // ~g~Take the Old Oriental Gentleman back to Donald Love's building.
+			0164: disable_marker $RADAR_BLIP_PED1_LOVE1 
+			018A: $RADAR_BLIP_COORD1_LOVE1 = create_checkpoint_at 49.0625 -1550.5 -100.0 
+			0004: $FLAG_BLIP_ON_OJG_LOVE1 = 0 
+			0004: $BLOB_FLAG = 1 
+		end
 	end
 end //while
 
