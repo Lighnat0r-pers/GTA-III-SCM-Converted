@@ -1,4 +1,4 @@
-DEFINE MISSIONS 73
+DEFINE MISSIONS 80
 DEFINE MISSION 0 AT @M00_INTRO          		// Formerly INTRO
 DEFINE MISSION 1 AT @M01_HOSPITALHELP			// Formerly HEALTH           
 DEFINE MISSION 2 AT @M02_POLICEHELP			// Formerly WANTED           
@@ -72,13 +72,13 @@ DEFINE MISSION 69 AT @M69_DECOY				// Formerly LOVE6
 DEFINE MISSION 70 AT @M70_LOVESDISAPPEARANCE		// Formerly LOVE7           
 DEFINE MISSION 71 AT @M71_BAIT				// Formerly ASUSB1          
 DEFINE MISSION 72 AT @M72_ESPRESSO2GO			// Formerly ASUSB2          
-//DEFINE MISSION 73 AT @M73_SAM				// Formerly ASUSB3          
-//DEFINE MISSION 74 AT @M74_UZIMONEY			// Formerly HOOD1           
-//DEFINE MISSION 75 AT @M75_TOYMINATOR			// Formerly HOOD2           
-//DEFINE MISSION 76 AT @M76_RIGGEDTOBLOW			// Formerly HOOD3           
-//DEFINE MISSION 77 AT @M77_BULLIONRUN			// Formerly HOOD4           
-//DEFINE MISSION 78 AT @M78_RUMBLE			// Formerly HOOD5           
-//DEFINE MISSION 79 AT @M79_THEEXCHANGE			// Formerly CAT11          
+DEFINE MISSION 73 AT @M73_SAM				// Formerly ASUSB3          
+DEFINE MISSION 74 AT @M74_UZIMONEY			// Formerly HOOD1           
+DEFINE MISSION 75 AT @M75_TOYMINATOR			// Formerly HOOD2           
+DEFINE MISSION 76 AT @M76_RIGGEDTOBLOW			// Formerly HOOD3           
+DEFINE MISSION 77 AT @M77_BULLIONRUN			// Formerly HOOD4           
+DEFINE MISSION 78 AT @M78_RUMBLE			// Formerly HOOD5           
+DEFINE MISSION 79 AT @M79_THEEXCHANGE			// Formerly CAT11          
 
 {$INCLUDE constants.sc}
 
@@ -223,3 +223,6 @@ end // main loop that constantly runs
 {$INCLUDE dummymissions7.sc} // M68_ESCORTSERVICE M69_DECOY M70_LOVESDISAPPEARANCE These don't exist, but need to be defined to avoid screwing up the mission list
 {$INCLUDE 71_asusb1.sc} // M71_BAIT
 {$INCLUDE 72_asusb2.sc} // M72_ESPRESSO2GO
+{$INCLUDE 73_asusb3.sc} // M73_SAM
+{$INCLUDE dummymissions8.sc} // M74_UZIMONEY M75_TOYMINATOR M76_RIGGEDTOBLOW M77_BULLIONRUN M78_RUMBLE These don't exist, but need to be defined to avoid screwing up the mission list
+{$INCLUDE 79_cat1.sc} // M79_THEEXCHANGE
