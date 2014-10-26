@@ -1,4 +1,4 @@
-DEFINE MISSIONS 72
+DEFINE MISSIONS 73
 DEFINE MISSION 0 AT @M00_INTRO          		// Formerly INTRO
 DEFINE MISSION 1 AT @M01_HOSPITALHELP			// Formerly HEALTH           
 DEFINE MISSION 2 AT @M02_POLICEHELP			// Formerly WANTED           
@@ -71,7 +71,7 @@ DEFINE MISSION 68 AT @M68_ESCORTSERVICE			// Formerly LOVE5
 DEFINE MISSION 69 AT @M69_DECOY				// Formerly LOVE6           
 DEFINE MISSION 70 AT @M70_LOVESDISAPPEARANCE		// Formerly LOVE7           
 DEFINE MISSION 71 AT @M71_BAIT				// Formerly ASUSB1          
-//DEFINE MISSION 72 AT @M72_ESPRESSO2GO			// Formerly ASUSB2          
+DEFINE MISSION 72 AT @M72_ESPRESSO2GO			// Formerly ASUSB2          
 //DEFINE MISSION 73 AT @M73_SAM				// Formerly ASUSB3          
 //DEFINE MISSION 74 AT @M74_UZIMONEY			// Formerly HOOD1           
 //DEFINE MISSION 75 AT @M75_TOYMINATOR			// Formerly HOOD2           
@@ -222,3 +222,4 @@ end // main loop that constantly runs
 {$INCLUDE 67_love4.sc} // M67_GRANDTHEFTAERO
 {$INCLUDE dummymissions7.sc} // M68_ESCORTSERVICE M69_DECOY M70_LOVESDISAPPEARANCE These don't exist, but need to be defined to avoid screwing up the mission list
 {$INCLUDE 71_asusb1.sc} // M71_BAIT
+{$INCLUDE 72_asusb2.sc} // M72_ESPRESSO2GO
