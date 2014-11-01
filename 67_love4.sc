@@ -868,7 +868,7 @@ end //while
 while true
 	if and
 		83EE:   not player $PLAYER_CHAR controllable 
-		0019:   5000 > 16@ //	If player is not in control after 5 secs do the cutscene anyway
+		8019:   not 16@ > 5000 //	If player is not in control after 5 secs do the cutscene anyway
 	jf break
 	wait 0 ms
 end //while	
@@ -1366,7 +1366,7 @@ end
 while true
 	if and
 		80E4:   not player $PLAYER_CHAR 0 87.4375 -1548.688 radius 1.0 1.0
-		0019:   3000 > 16@
+		8019:   not 16@ > 3000
 	jf break
 	wait 0 ms
 end //while
