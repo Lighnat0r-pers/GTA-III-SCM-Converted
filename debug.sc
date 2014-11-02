@@ -3,7 +3,13 @@
 // -------------------------------------------------------
 :DEBUG_VARIABLES
 0004: $MASTERDEBUG                = 0 // Set to 1 to enable debug functions as defined in the STARTER thread.
-0004: $DEBUGUNLOCKISLANDS	  = 0 // Unlock the other islands
+if
+	0038:   $MASTERDEBUG == 1  
+then
+	0004: $DEBUGUNLOCKISLANDS = 1
+else
+	0004: $DEBUGUNLOCKISLANDS	  = 0 // Unlock the other islands
+end
 0004: $DEBUGPACKAGESCOMPLETED	  = 0 // Set to 1 to activate all packages rewards
 0004: $DEBUGPARAMEDICCOMPLETED	  = 0 // Set to 1 to trigger paramedic rewards
 0004: $DEBUGVIGILANTECOMPLETED	  = 0 // Set to 1 to trigger vigilante rewards
