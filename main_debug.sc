@@ -89,6 +89,7 @@ DEFINE MISSION 79 AT @M79_THEEXCHANGE			// Formerly CAT11
 01F5: $PLAYER_ACTOR = create_emulated_actor_from_player $PLAYER_CHAR 
 gosub @DEBUG_VARIABLES
 0004: $MASTERDEBUG                = 1 // OVERRIDE VALUE SET IN debug.sc FOR COMPILING CONVENIENCE
+0004: $DEBUGUNLOCKISLANDS = 1
 042C: set_total_missions_to 73 
 030D: set_total_mission_points_to 154 
 if
