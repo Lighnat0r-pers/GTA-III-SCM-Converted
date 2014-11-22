@@ -419,47 +419,7 @@ while 8038:   not  $NUMBER_OF_FEDS_KILLED == 10
 		001A:   100 > $FBI9HEALTH 
 		001A:   100 > $FBI10HEALTH 
 	then
-		if
-			0038:   $FBI_SPOTTED_PLAYER0 == 0 
-		then
-			if
-				8118:   not actor $FBI1 dead 
-			then
-				01CA: actor $FBI1 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI1 weapon_accuracy_to 50
-			end
-			if
-				8118:   not actor $FBI2 dead 
-			then
-				01CA: actor $FBI2 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI2 weapon_accuracy_to 50
-			end
-			if
-				8118:   not actor $FBI3 dead 
-			then
-				01CA: actor $FBI3 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI3 weapon_accuracy_to 50
-			end
-			if
-				8118:   not actor $FBI8 dead 
-			then
-				01CA: actor $FBI8 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI8 weapon_accuracy_to 50
-			end
-			if
-				8118:   not actor $FBI9 dead 
-			then
-				01CA: actor $FBI9 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI9 weapon_accuracy_to 50
-			end
-			if
-				8118:   not actor $FBI10 dead 
-			then
-				01CA: actor $FBI10 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI10 weapon_accuracy_to 70
-			end
-			0004: $FBI_SPOTTED_PLAYER0 = 1 
-		end
+		gosub @TOWER_GUYS_SPOT_PLAYER
 	end
 	if or
 		0118:   actor $FBI1 dead 
@@ -469,91 +429,19 @@ while 8038:   not  $NUMBER_OF_FEDS_KILLED == 10
 		0118:   actor $FBI9 dead 
 		0118:   actor $FBI10 dead 
 	then
-		if
-			0038:   $FBI_SPOTTED_PLAYER0 == 0 
-		then
-			if
-				8118:   not actor $FBI1 dead 
-			then
-				01CA: actor $FBI1 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI1 weapon_accuracy_to 40
-			end
-			if
-				8118:   not actor $FBI2 dead 
-			then
-				01CA: actor $FBI2 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI2 weapon_accuracy_to 04
-			end
-			if
-				8118:   not actor $FBI3 dead 
-			then
-				01CA: actor $FBI3 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI3 weapon_accuracy_to 50
-			end
-			if
-				8118:   not actor $FBI8 dead 
-			then
-				01CA: actor $FBI8 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI8 weapon_accuracy_to 40
-			end
-			if
-				8118:   not actor $FBI9 dead 
-			then
-				01CA: actor $FBI9 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI9 weapon_accuracy_to 50
-			end
-			if
-				8118:   not actor $FBI10 dead 
-			then
-				01CA: actor $FBI10 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI10 weapon_accuracy_to 70
-			end
-			0004: $FBI_SPOTTED_PLAYER0 = 1 
-		end
+		gosub @TOWER_GUYS_SPOT_PLAYER
 	end
 	if or
 		001A:   100 > $FBI4HEALTH 
 		001A:   100 > $FBI7HEALTH 
 	then
-		if
-			0038:   $FBI_SPOTTED_PLAYER2 == 0 
-		then
-			if
-				8118:   not actor $FBI4 dead 
-			then
-				01CA: actor $FBI4 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI4 weapon_accuracy_to 70
-			end
-			if
-				8118:   not actor $FBI4 dead 
-			then
-				01CA: actor $FBI7 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI7 weapon_accuracy_to 70
-			end
-			0004: $FBI_SPOTTED_PLAYER2 = 1 
-		end
+		gosub @PARK_GUYS_SPOT_PLAYER
 	end
 	if or
 		0118:   actor $FBI4 dead 
 		0118:   actor $FBI7 dead 
 	then
-		if
-			0038:   $FBI_SPOTTED_PLAYER2 == 0 
-		then
-			if
-				8118:   not actor $FBI4 dead 
-			then
-				01CA: actor $FBI4 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI4 weapon_accuracy_to 70
-			end
-			if
-				8118:   not actor $FBI4 dead 
-			then
-				01CA: actor $FBI7 kill_player $PLAYER_CHAR 
-				02E2: set_actor $FBI7 weapon_accuracy_to 70
-			end
-			0004: $FBI_SPOTTED_PLAYER2 = 1 
-		end
+		gosub @PARK_GUYS_SPOT_PLAYER
 	end
 	if
 		8119:   not car $FBI_VAN1 wrecked 
@@ -579,6 +467,77 @@ while 8038:   not  $NUMBER_OF_FEDS_KILLED == 10
 end //while
 
 goto @MISSION_PASSED_ASUKA2
+
+
+////////////////////////////////////////
+
+:TOWER_GUYS_SPOT_PLAYER
+
+if
+	0038:   $FBI_SPOTTED_PLAYER0 == 0 
+then
+	if
+		8118:   not actor $FBI1 dead 
+	then
+		01CA: actor $FBI1 kill_player $PLAYER_CHAR 
+		02E2: set_actor $FBI1 weapon_accuracy_to 40
+	end
+	if
+		8118:   not actor $FBI2 dead 
+	then
+		01CA: actor $FBI2 kill_player $PLAYER_CHAR 
+		02E2: set_actor $FBI2 weapon_accuracy_to 04
+	end
+	if
+		8118:   not actor $FBI3 dead 
+	then
+		01CA: actor $FBI3 kill_player $PLAYER_CHAR 
+		02E2: set_actor $FBI3 weapon_accuracy_to 50
+	end
+	if
+		8118:   not actor $FBI8 dead 
+	then
+		01CA: actor $FBI8 kill_player $PLAYER_CHAR 
+		02E2: set_actor $FBI8 weapon_accuracy_to 40
+	end
+	if
+		8118:   not actor $FBI9 dead 
+	then
+		01CA: actor $FBI9 kill_player $PLAYER_CHAR 
+		02E2: set_actor $FBI9 weapon_accuracy_to 50
+	end
+	if
+		8118:   not actor $FBI10 dead 
+	then
+		01CA: actor $FBI10 kill_player $PLAYER_CHAR 
+		02E2: set_actor $FBI10 weapon_accuracy_to 70
+	end
+	0004: $FBI_SPOTTED_PLAYER0 = 1 
+end
+return
+
+////////////////////////////////////////
+
+:PARK_GUYS_SPOT_PLAYER
+
+if
+	0038:   $FBI_SPOTTED_PLAYER2 == 0 
+then
+	if
+		8118:   not actor $FBI4 dead 
+	then
+		01CA: actor $FBI4 kill_player $PLAYER_CHAR 
+		02E2: set_actor $FBI4 weapon_accuracy_to 70
+	end
+	if
+		8118:   not actor $FBI4 dead 
+	then
+		01CA: actor $FBI7 kill_player $PLAYER_CHAR 
+		02E2: set_actor $FBI7 weapon_accuracy_to 70
+	end
+	0004: $FBI_SPOTTED_PLAYER2 = 1 
+end
+return
 
 /////////////////////////////////////////
 
