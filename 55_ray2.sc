@@ -221,9 +221,9 @@ then
 
 	while true
 		if or
-			0247: request_model #SENTINEL 
-			0247: request_model #STALLION
-			0247: request_model #PEREN
+			8248:   not model #SENTINEL available
+			8248:   not model #STALLION available
+			8248:   not model #PEREN available
 		jf break
 		wait 0 ms
 	end //while
