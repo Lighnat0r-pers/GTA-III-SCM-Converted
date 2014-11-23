@@ -776,6 +776,7 @@ while true
 		if
 			00DB:   is_char_in_car $ASUKA1_MAFIA10 car $FUCKERS_CAR 
 		then
+			gosub @MOVE_FUCKERS_CAR
 			0004: $MAFIA_10_FLAG = 4 
 			0004: $ENTER_CAR_FLAG = 5 
 		end
@@ -786,6 +787,7 @@ while true
 		if
 			00DB:   is_char_in_car $ASUKA1_MAFIA11 car $FUCKERS_CAR 
 		then
+			gosub @MOVE_FUCKERS_CAR
 			0004: $MAFIA_11_FLAG = 4 
 			0004: $ENTER_CAR_FLAG = 5 
 		end
@@ -796,6 +798,7 @@ while true
 		if
 			00DB:   is_char_in_car $ASUKA1_MAFIA12 car $FUCKERS_CAR 
 		then
+			gosub @MOVE_FUCKERS_CAR
 			0004: $MAFIA_12_FLAG = 4 
 			0004: $ENTER_CAR_FLAG = 5 
 		end
@@ -806,6 +809,7 @@ while true
 		if
 			00DB:   is_char_in_car $ASUKA1_MAFIA13 car $FUCKERS_CAR 
 		then
+			gosub @MOVE_FUCKERS_CAR
 			0004: $MAFIA_13_FLAG = 4 
 			0004: $ENTER_CAR_FLAG = 5 
 		end
@@ -1022,7 +1026,7 @@ while 80DF:   not is_char_in_any_car $SALVATORE
 			0239: actor $SALVATORE run_to $BOTTOM_OF_STEPS_X $BOTTOM_OF_STEPS_Y 
 			0004: $FRANKIE_FLAG = 4
 		end
-		end
+	end
 
 	if and
 		0038:   $FRANKIE_FLAG == 2 
