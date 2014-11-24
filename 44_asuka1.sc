@@ -2769,11 +2769,14 @@ then
 			0004: $FRANKIE_EXISTS_FLAG = 2 	
 		end
 	end
-	return
+else
+	0004: $KILL_PLAYER_NOW_FLAG = 0 
 end
 
-0004: $KILL_PLAYER_NOW_FLAG = 0 
 return
+
+////////////////////////////////////////
+
 
 :MOVE_FUCKERS_CAR
 00AE: set_car_driving_style $FUCKERS_CAR to DRIVINGMODE_AVOIDCARS 
