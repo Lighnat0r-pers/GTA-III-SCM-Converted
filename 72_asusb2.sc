@@ -689,7 +689,7 @@ while 001A:   9 > $COUNTER_KAPPA_DEAD
 	end
 
 	if and
-		0038:   $COUNTER_KAPPA_DEAD_SUB == 5 
+		0038:   $COUNTER_KAPPA_DEAD_SUB == 2 
 		0038:   $FLAG_AS2_3 == 0 
 	then
 		00BC: print_now 'AS2_3' duration 3000 ms flag 1  // ~g~All espresso stalls in Shoreside Vale wrecked!!
