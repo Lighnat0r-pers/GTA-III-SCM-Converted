@@ -1033,7 +1033,12 @@ then
 	then
 		0004: $CARTEL3_AS1_DEAD = 1 
 		0008: $COUNTER_CARTELS_KILLED_AS1 += 1 
-		0164: disable_marker $BLIP_CARTEL3 
+		0164: disable_marker $BLIP_CARTEL3
+		if
+			0038:   $YAK1_MISSION == 1
+		then
+			0004: $YAK1_MISSION = 0 
+		end
 	end
 	if and
 		0038:   $CARTEL4_AS1_DEAD == 0 
@@ -1087,7 +1092,12 @@ then
 	then
 		0004: $CARTEL8_AS1_DEAD = 1 
 		0008: $COUNTER_CARTELS_KILLED_AS1 += 1 
-		0164: disable_marker $BLIP_CARTEL8 
+		0164: disable_marker $BLIP_CARTEL8
+		if
+			0038:   $YAK1_MISSION == 2
+		then
+			0004: $YAK1_MISSION = 0 
+		end 
 	end
 	if and
 		0038:   $CARTEL5_AS1_DEAD == 1 
@@ -1134,6 +1144,11 @@ then
 		0004: $CARTEL16_AS1_DEAD = 1 
 		0008: $COUNTER_CARTELS_KILLED_AS1 += 1 
 		0164: disable_marker $BLIP_CARTEL16 
+		if
+			0038:   $YAK1_MISSION == 7
+		then
+			0004: $YAK1_MISSION = 0 
+		end 
 	end
 	if and
 		0038:   $CARTEL13_AS1_DEAD == 1 
